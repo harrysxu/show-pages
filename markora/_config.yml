@@ -1,0 +1,10 @@
+title: Markora 文档中心
+description: Markora privacy, terms, subscriptions and support
+lang: zh-CN
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-seo-tag
+  - jekyll-relative-links
+relative_links:
+  enabled: true

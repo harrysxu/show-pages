@@ -1,0 +1,9 @@
+title: App documentation
+description: Public privacy, terms, subscription and support pages
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-seo-tag
+  - jekyll-relative-links
+relative_links:
+  enabled: true
