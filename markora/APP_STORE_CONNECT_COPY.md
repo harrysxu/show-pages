@@ -493,6 +493,8 @@ Subscription Group Display Name (zh-Hans): Markora Pro
 Subscription Group Display Name (en-US): Markora Pro
 ```
 
+月度和年度解锁相同权益，因此两个产品都设置为 **Level 1（同一级别）**。不能按周期长短区分等级。`nolia_one_pro` 仅为本地 StoreKit 配置的组标识，App Store Connect 会分配自己的订阅组 ID。
+
 ### 月度订阅
 
 ```text
@@ -567,7 +569,7 @@ Markora Pro unlocks three feature groups: Scan to Markdown, Mermaid/LaTeX advanc
 
 ### 价格建议
 
-当前本地 StoreKit 测试配置使用 **¥12/月** 和 **¥88/年**，但生产价格必须在 App Store Connect 的价格表中确认。建议先在中国区设置这两个价格，再让 Apple 自动生成其他地区价格；公开描述不要写死金额，以购买页面为准。
+2026-09-20 用户已将 App Store Connect 中国区价格设为 **¥6/月** 和 **¥38/年**，本地 StoreKit 测试配置已同步。正式版本使用 StoreKit 返回的 `displayPrice`，调整后台价格不需要修改价格显示代码或为此重新发版；价格生效日期、其他地区价格仍以 App Store Connect 为准，公开描述不要写死金额。
 
 ## 五、App Privacy（隐私营养标签）填写建议
 
