@@ -16,7 +16,7 @@ Markora 是一款面向 iPhone 和 iPad 的本地 Markdown 编辑器。这里提
 - [订阅、自动续期与退款说明](subscription.md)
 - [支持与常见问题](support.md)
 - [数据删除与请求说明](data-requests.md)
-- [App Store Connect 全部文案](APP_STORE_CONNECT_COPY.md)
+- [扫描、OCR 与导出说明](scan-notice.md)
 
 ## English
 
@@ -25,5 +25,6 @@ Markora 是一款面向 iPhone 和 iPad 的本地 Markdown 编辑器。这里提
 - [Subscriptions, renewal and refunds](subscription-en.md)
 - [Support and FAQ](support-en.md)
 - [Data deletion and requests](data-requests-en.md)
+- [Scan, OCR and Export Notice](scan-notice-en.md)
 
-**生效日期 / Effective date：2026-09-18**
+**生效日期 / Effective date：2026-09-22**

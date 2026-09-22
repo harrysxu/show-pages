@@ -7,7 +7,7 @@ permalink: /markora/terms-en/
 
 # Markora Terms of Use
 
-**Effective date: September 18, 2026**
+**Effective date: September 22, 2026**
 
 Thank you for using Markora. By installing, accessing, or using the App, you agree to these terms. If you do not agree, do not use the App. Purchases are also subject to the applicable Apple App Store terms.
 
@@ -19,7 +19,7 @@ Markora provides Markdown creation, editing, preview, scan-to-text conversion, d
 
 You retain rights to content that you create, import, and export, and you are responsible for having the rights needed to use it. Keep your own backups and review OCR, conversion, and export results for accuracy.
 
-Markora does not acquire ownership of your documents. Apart from the local operations you choose, the App does not submit documents to a Markora-hosted cloud service.
+Markora does not acquire ownership of your documents. The App does not submit documents to a Markora-hosted cloud service.
 
 ## 3. Lawful use
 
@@ -29,6 +29,8 @@ Do not use the App for unlawful activity, infringement of another person’s int
 
 Markora Pro is an auto-renewable subscription purchased through the Apple App Store. Monthly and yearly options are currently offered; price, taxes, currency, and any offer are shown at purchase. Apple handles renewal, cancellation, refunds, and billing under its terms. See [Subscription information](subscription-en.md).
 
+The app license is also governed by the license agreement applicable in the App Store. Where no custom EULA is specified, [Apple’s Standard EULA](https://www.apple.com/legal/internet-services/itunes/dev/stdeula/) applies. These terms do not replace that license agreement.
+
 ## 5. Availability and third-party services
 
 The App depends on iOS/iPadOS, the Apple App Store, file providers, and system frameworks. System updates, file-provider status, device capabilities, or Apple service changes may affect features. External links, websites, and third-party file services are operated by their providers, and Markora is not responsible for their content or availability.
@@ -37,7 +39,7 @@ The App depends on iOS/iPadOS, the Apple App Store, file providers, and system f
 
 The App is provided as is. OCR, Markdown parsing, diagram layout, formula rendering, and PDF/HTML export may contain errors and do not replace human review. Do not rely solely on the App for safety-critical, medical, legal, financial, or other professionally sensitive content.
 
-To the extent permitted by applicable law, losses caused by a device, file provider, Apple service, network, user action, or third-party content are the responsibility of the relevant cause. Any limitation of liability applies only to the extent allowed by law.
+See the [Scan, OCR and Export Notice](scan-notice-en.md) for capabilities and limitations. These terms do not exclude or limit consumer rights or liability that cannot be excluded or limited under applicable law. Responsibility, compensation and remedies are determined under applicable law.
 
 ## 7. Changes
 
@@ -46,3 +48,5 @@ We may update these terms or change features. The current version will be posted
 ## 8. Contact
 
 Contact the maintainer through [GitHub Issues](https://github.com/harrysxu/show-pages/issues). Do not post private documents or payment information in a public issue.
+
+[Documentation home](index.md) · [中文](terms.md)

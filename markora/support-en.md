@@ -7,6 +7,8 @@ permalink: /markora/support-en/
 
 # Markora Support and FAQ
 
+**Updated: September 22, 2026**
+
 ## Contact
 
 Open an issue on [GitHub Issues](https://github.com/harrysxu/show-pages/issues). To protect your privacy, do not upload document text, scan images, Apple receipts, order numbers, or other sensitive information. Include your device model, OS version, app version, and reproducible steps instead.
@@ -15,7 +17,7 @@ Open an issue on [GitHub Issues](https://github.com/harrysxu/show-pages/issues).
 
 ### Why should I review scan results?
 
-OCR can be affected by fonts, lighting, perspective, tables, and handwriting. Markora shows a review screen after on-device recognition so you can check low-confidence text before creating or inserting the document.
+OCR can be affected by fonts, lighting, perspective, tables, and handwriting. Markora shows a review screen after on-device recognition so you can compare text against the original before creating or inserting the document. The absence of low-confidence warnings does not guarantee accuracy. See the [Scan, OCR and Export Notice](scan-notice-en.md).
 
 ### Does Markora upload my documents?
 
@@ -31,7 +33,7 @@ Confirm the Apple Account used for the purchase, wait for the store status to lo
 
 ### How do I delete documents and drafts?
 
-Delete documents and `assets` saved in Files or iCloud Drive at that location. Unsaved drafts are local app data; see [Data deletion and requests](data-requests-en.md).
+Delete documents and images saved in Files or iCloud Drive at that location. Images may be shared with other documents, so check references before deleting them and do not simply delete the entire `assets` folder. Unsaved drafts are local app data; see [Data deletion and requests](data-requests-en.md).
 
 ### Why do external links or remote images not appear?
 
@@ -40,3 +42,5 @@ The editor limits remote-image loading to avoid unexpected network requests whil
 ## Security reports
 
 If you find a possible issue affecting document security or privacy, mark the GitHub issue as “security” and do not paste sensitive content publicly. The maintainer will provide a follow-up channel appropriate to the report.
+
+[Documentation home](index.md) · [中文](support.md)

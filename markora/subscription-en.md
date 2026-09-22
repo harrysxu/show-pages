@@ -7,7 +7,7 @@ permalink: /markora/subscription-en/
 
 # Markora Pro subscriptions, renewal, and refunds
 
-**Effective date: September 18, 2026**
+**Effective date: September 22, 2026**
 
 ## What Pro includes
 
@@ -34,7 +34,9 @@ Apple displays the price, currency, taxes, and available offers for your storefr
 
 Apple automatically renews the subscription unless you turn off auto-renewal at least 24 hours before the end of the current period. Manage or cancel it at **Settings > Apple Account > Subscriptions**, or use the App’s Manage Subscription action.
 
-After cancellation, access usually continues until the end of the paid period; Apple’s status is authoritative.
+After cancellation, access usually continues until the end of the paid period; Apple’s status is authoritative. Deleting or offloading the App does not cancel a subscription.
+
+Before purchasing, read the [Terms of Use](terms-en.md) and [Privacy Policy](privacy-en.md).
 
 ## Restore purchases
 
@@ -51,3 +53,5 @@ The current product configuration does not offer Family Sharing. Trials, introdu
 ## Support
 
 If access does not appear after purchase, confirm the Apple Account used for the purchase and tap Restore Purchases. For further help, use the [Support page](support-en.md). Do not post receipts, order numbers, or payment information publicly.
+
+[Documentation home](index.md) · [中文](subscription.md)
