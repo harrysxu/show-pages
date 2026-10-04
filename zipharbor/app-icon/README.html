@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="ZipHarbor App Icon · ZipHarbor"><title>ZipHarbor App Icon · ZipHarbor</title>
+<link rel="icon" href="../app-icon/zipharbor-icon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/site.css"></head>
+<body><a class="skip" href="#main">跳转到正文</a>
+<header class="site-header"><a class="brand" href="../index.html"><img src="../app-icon/zipharbor-icon-1024.png" width="36" height="36" alt="">ZipHarbor</a><nav aria-label="网站导航"><a href="../index.html">首页</a><a href="../support.html">技术支持</a><a href="../privacy.html">隐私政策</a><a href="../docs.html">产品文档</a></nav></header>
+<main id="main" class="with-toc"><details class="toc-panel" open><summary>本页目录</summary><div class="toc">
+<ul>
+<li><a href="#zipharbor-app-icon">ZipHarbor App Icon</a><ul>
+<li><a href="#_1">设计</a></li>
+<li><a href="#_2">交付文件</a></li>
+<li><a href="#_3">生成</a></li>
+<li><a href="#_4">检查</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</details><article><p class="kicker">产品文档 / 历史记录与验收范围以文中日期为准</p><p class="note">公开展示版提供截图、摘要与日志。完整 Xcode 测试结果包保留在开发工程，见 <a href="../test-artifacts.html">测试证据说明</a>。</p><h1 id="zipharbor-app-icon">ZipHarbor App Icon</h1>
+<p>2026-10-01。新图标已接入 <code>ZipHarbor/ZipHarbor/Assets.xcassets/AppIcon.appiconset</code>。</p>
+<h2 id="_1">设计</h2>
+<p>蓝紫渐变延续 App 的 <code>#5669EE</code> 主色。中央文件夹代表文件收纳与归档，打开的拉链及交错齿形代表压缩、解压。图标没有文字和格式缩写，避免小尺寸拥挤，也不依赖界面语言。深色版本保持相同轮廓，调整背景和文件夹明度。</p>
+<p>原创矢量绘制并由 resvg 渲染为 PNG；本次未使用图像生成模型、第三方图片或 SF Symbols 图标截图。</p>
+<h2 id="_2">交付文件</h2>
+<ul>
+<li><a href="zipharbor-icon-1024.png">标准图标 PNG</a></li>
+<li><a href="zipharbor-icon-dark-1024.png">深色图标 PNG</a></li>
+<li><a href="zipharbor-icon.svg">标准 SVG 源稿</a></li>
+<li><a href="zipharbor-icon-dark.svg">深色 SVG 源稿</a></li>
+<li><a href="zipharbor-icon-preview.png">外观与尺寸预览</a></li>
+<li><a href="render-icon.py">可重复生成脚本</a></li>
+</ul>
+<p>PNG 为 1024×1024、RGB、不含 alpha 通道，完整方形画布。系统负责应用桌面圆角；导出资源没有预先裁切圆角。预览中的圆角仅用于展示，并非真机截图。</p>
+<p>Xcode 的 universal 图标用于 iOS 17 及后续系统；luminosity/dark 图标用于支持深色图标外观的系统。系统着色外观由 iOS 自动处理，没有新增第三张 tinted 资源。</p>
+<p>此前的占位图保存在 <code>previous-app-icon.png</code>，移出 asset catalog 以避免未分配资源警告。产品代码与压缩引擎未改动。</p>
+<h2 id="_3">生成</h2>
+<p>从工程根目录运行：</p>
+<pre><code class="language-sh">uv run --with resvg-py --with pillow docs/app-icon/render-icon.py
+</code></pre>
+<p>加 <code>--install</code> 同步 PNG 与 AppIcon 的 <code>Contents.json</code>。渲染过程确认输出尺寸和全画布不透明，然后转换为不带 alpha 的 RGB。安装版与 docs 原稿保持相同文件内容。</p>
+<h2 id="_4">检查</h2>
+<p>已人工查看标准、深色及 60/40/29 px 缩小预览；没有文字、拉链轮廓与文件夹区分明确。通过 Xcode <code>actool</code> 对 iPhone/iPad、iOS 17 最低版本进行 asset catalog 编译。证据见 <code>asset-catalog-validation.log</code> 与 <code>validation.json</code>。</p>
+<p>本轮仅更新图标资源。此前的功能与 UI 测试记录仍对应原验收构建；本轮未重新安装到 iPhone 14，也未宣称新图标已在真机桌面验收。</p><p class="source-link"><a href="README.md" download>下载 Markdown 文档</a></p></article></main>
+<footer><span>ZipHarbor · 面向 iPhone 和 iPad 的本地压缩文件工具。</span><a href="../docs.html">产品、设计与验收文档</a></footer>
+</body></html>

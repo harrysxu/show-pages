@@ -1,0 +1,1325 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project ZipHarbor/ZipHarbor.xcodeproj -scheme ZipHarbor -destination "platform=iOS Simulator,id=1AD6D2D0-A263-4965-9686-A1D292533A48" -derivedDataPath /tmp/ZipHarbor-Migration -resultBundlePath /tmp/ZipHarbor-Sim-Acceptance2-Final.xcresult -parallel-testing-enabled NO test
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  ArchiveKit: https://github.com/Lakr233/libarchive.xcframework.git @ 1.0.0
+
+Writing result bundle at path:
+	/tmp/ZipHarbor-Sim-Acceptance2-Final.xcresult
+
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (5 targets)
+    Target 'ZipHarborUITests' in project 'ZipHarbor'
+        ➜ Explicit dependency on target 'ZipHarbor' in project 'ZipHarbor'
+    Target 'ZipHarborTests' in project 'ZipHarbor'
+        ➜ Explicit dependency on target 'ZipHarbor' in project 'ZipHarbor'
+    Target 'ZipHarbor' in project 'ZipHarbor'
+        ➜ Explicit dependency on target 'ArchiveKit-product' in project 'ArchiveKit'
+    Target 'ArchiveKit-product' in project 'ArchiveKit'
+        ➜ Explicit dependency on target 'ArchiveKit' in project 'ArchiveKit'
+    Target 'ArchiveKit' in project 'ArchiveKit' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ClangStatCache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk /tmp/ZipHarbor-Migration/SDKStatCaches.noindex/iphonesimulator27.0-24A430-8dc58220667be655e1bcc261a7455254.sdkstatcache
+    cd /Users/USER/github_space/zip-app/ZipHarbor/ZipHarbor.xcodeproj
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk -o /tmp/ZipHarbor-Migration/SDKStatCaches.noindex/iphonesimulator27.0-24A430-8dc58220667be655e1bcc261a7455254.sdkstatcache
+
+SwiftDriver ZipHarborUITests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name ZipHarborUITests -Onone @/tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.SwiftFileList -DDEBUG -module-alias Testing\=_Testing_Unavailable -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /tmp/ZipHarbor-Migration/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/ZipHarbor-Migration/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk/Developer/Library/Frameworks -parse-as-library -c -j15 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/ZipHarbor-Migration/SDKStatCaches.noindex/iphonesimulator27.0-24A430-8dc58220667be655e1bcc261a7455254.sdkstatcache -output-file-map /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/ZipHarbor-Migration/ModuleCache.noindex -sdk-module-cache-path /tmp/ZipHarbor-Migration/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/ZipHarbor-Migration/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/ZipHarborUITests-generated-files.hmap -Xcc -I/tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/ZipHarborUITests-own-target-headers.hmap -Xcc -I/tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/ZipHarborUITests-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarbor-576ff8f1de8c1a2cbc0351e2756fa15b-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/ZipHarborUITests-project-headers.hmap -Xcc -I/tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/DerivedSources-normal/arm64 -Xcc -I/tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/DerivedSources/arm64 -Xcc -I/tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests-Swift.h -working-directory /Users/USER/github_space/zip-app/ZipHarbor -experimental-emit-module-separately -disable-cmo
+
+CpResource /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarbor.app/PlugIns/ZipHarborTests.xctest/README.txt /Users/USER/github_space/zip-app/ZipHarbor/ZipHarborTests/Fixtures/README.txt (in target 'ZipHarborTests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/USER/github_space/zip-app/ZipHarbor/ZipHarborTests/Fixtures/README.txt /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarbor.app/PlugIns/ZipHarborTests.xctest
+
+CodeSign /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarbor.app/PlugIns/ZipHarborTests.xctest (in target 'ZipHarborTests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarbor.app/PlugIns/ZipHarborTests.xctest
+/tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarbor.app/PlugIns/ZipHarborTests.xctest: replacing existing signature
+
+CodeSign /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarbor.app/ZipHarbor.debug.dylib (in target 'ZipHarbor' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarbor.app/ZipHarbor.debug.dylib
+/tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarbor.app/ZipHarbor.debug.dylib: replacing existing signature
+
+CodeSign /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarbor.app/__preview.dylib (in target 'ZipHarbor' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarbor.app/__preview.dylib
+/tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarbor.app/__preview.dylib: replacing existing signature
+
+CodeSign /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarbor.app (in target 'ZipHarbor' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarbor.app
+/tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarbor.app: replacing existing signature
+
+Validate /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarbor.app (in target 'ZipHarbor' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    builtin-validationUtility /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarbor.app -shallow-bundle -infoplist-subpath Info.plist
+
+SwiftCompile normal arm64 Compiling\ ZipHarborUITests.swift /Users/USER/github_space/zip-app/ZipHarbor/ZipHarborUITests/ZipHarborUITests.swift (in target 'ZipHarborUITests' from project 'ZipHarbor')
+
+SwiftCompile normal arm64 /Users/USER/github_space/zip-app/ZipHarbor/ZipHarborUITests/ZipHarborUITests.swift (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    builtin-SwiftPerFileCompile ZipHarborUITests.swift
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ ZipHarborUITests (in target 'ZipHarborUITests' from project 'ZipHarbor')
+
+SwiftCompile normal arm64 (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    
+
+SwiftDriverJobDiscovery normal arm64 Emitting module for ZipHarborUITests (in target 'ZipHarborUITests' from project 'ZipHarbor')
+
+SwiftDriver\ Compilation\ Requirements ZipHarborUITests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name ZipHarborUITests -Onone @/tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.SwiftFileList -DDEBUG -module-alias Testing\=_Testing_Unavailable -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /tmp/ZipHarbor-Migration/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/ZipHarbor-Migration/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk/Developer/Library/Frameworks -parse-as-library -c -j15 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/ZipHarbor-Migration/SDKStatCaches.noindex/iphonesimulator27.0-24A430-8dc58220667be655e1bcc261a7455254.sdkstatcache -output-file-map /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/ZipHarbor-Migration/ModuleCache.noindex -sdk-module-cache-path /tmp/ZipHarbor-Migration/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/ZipHarbor-Migration/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/ZipHarborUITests-generated-files.hmap -Xcc -I/tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/ZipHarborUITests-own-target-headers.hmap -Xcc -I/tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/ZipHarborUITests-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarbor-576ff8f1de8c1a2cbc0351e2756fa15b-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/ZipHarborUITests-project-headers.hmap -Xcc -I/tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/DerivedSources-normal/arm64 -Xcc -I/tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/DerivedSources/arm64 -Xcc -I/tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests-Swift.h -working-directory /Users/USER/github_space/zip-app/ZipHarbor -experimental-emit-module-separately -disable-cmo
+
+Copy /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarborUITests.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.swiftsourceinfo (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.swiftsourceinfo /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarborUITests.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo
+
+Copy /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarborUITests.swiftmodule/arm64-apple-ios-simulator.abi.json /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.abi.json (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.abi.json /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarborUITests.swiftmodule/arm64-apple-ios-simulator.abi.json
+
+SwiftDriverJobDiscovery normal arm64 Compiling ZipHarborUITests.swift (in target 'ZipHarborUITests' from project 'ZipHarbor')
+
+SwiftDriver\ Compilation ZipHarborUITests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    builtin-Swift-Compilation -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name ZipHarborUITests -Onone @/tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.SwiftFileList -DDEBUG -module-alias Testing\=_Testing_Unavailable -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /tmp/ZipHarbor-Migration/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/ZipHarbor-Migration/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk/Developer/Library/Frameworks -parse-as-library -c -j15 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/ZipHarbor-Migration/SDKStatCaches.noindex/iphonesimulator27.0-24A430-8dc58220667be655e1bcc261a7455254.sdkstatcache -output-file-map /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/ZipHarbor-Migration/ModuleCache.noindex -sdk-module-cache-path /tmp/ZipHarbor-Migration/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/ZipHarbor-Migration/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/ZipHarborUITests-generated-files.hmap -Xcc -I/tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/ZipHarborUITests-own-target-headers.hmap -Xcc -I/tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/ZipHarborUITests-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarbor-576ff8f1de8c1a2cbc0351e2756fa15b-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/ZipHarborUITests-project-headers.hmap -Xcc -I/tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/DerivedSources-normal/arm64 -Xcc -I/tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/DerivedSources/arm64 -Xcc -I/tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests-Swift.h -working-directory /Users/USER/github_space/zip-app/ZipHarbor -experimental-emit-module-separately -disable-cmo
+
+Ld /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest/ZipHarborUITests normal (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios17.0-simulator -bundle -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk -O0 -Xlinker -no_warn_duplicate_libraries -L/tmp/ZipHarbor-Migration/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -L/tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator -L/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F/tmp/ZipHarbor-Migration/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -F/tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk/Developer/Library/Frameworks -filelist /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.LinkFileList -Xlinker -rpath -Xlinker /usr/lib/swift -Xlinker -rpath -Xlinker @loader_path/Frameworks -Xlinker -dead_strip -Xlinker -object_path_lto -Xlinker /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.swiftmodule -Xlinker -needed_framework -Xlinker XCTest -framework XCTest -Xlinker -needed-lXCTestSwiftSupport -lXCTestSwiftSupport -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __entitlements -Xlinker /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/ZipHarborUITests.xctest-Simulated.xcent -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __ents_der -Xlinker /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/ZipHarborUITests.xctest-Simulated.xcent.der -Xlinker -no_adhoc_codesign -o /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest/ZipHarborUITests
+
+CopySwiftLibs /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    builtin-swiftStdLibTool --copy --verbose --sign - --scan-executable /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest/ZipHarborUITests --scan-folder /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest/Frameworks --scan-folder /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest/PlugIns --scan-folder /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest/SystemExtensions --scan-folder /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest/Extensions --platform iphonesimulator --toolchain /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest/Frameworks --strip-bitcode --scan-executable /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libXCTestSwiftSupport.dylib --strip-bitcode-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os
+
+ExtractAppIntentsMetadata (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name ZipHarborUITests --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk --xcode-version 27A266a --platform-family iOS --deployment-target 17.0 --bundle-identifier com.xiaolongxu.zipharbor.app.uitests --output /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest --target-triple arm64-apple-ios17.0-simulator --binary-file /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest/ZipHarborUITests --dependency-file /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests_dependency_info.dat --stringsdata-file /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.SwiftFileList --metadata-file-list /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/ZipHarborUITests.DependencyMetadataFileList --static-metadata-file-list /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/ZipHarborUITests.DependencyStaticMetadataFileList --swift-const-vals-list /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --no-app-shortcuts-localization
+2026-10-01 10:43:43.683 appintentsmetadataprocessor[42760:2823464] Starting appintentsmetadataprocessor export
+2026-10-01 10:43:43.687 appintentsmetadataprocessor[42760:2823464] warning: Metadata extraction skipped, no AppIntents.framework dependency found
+
+CodeSign /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest
+
+CodeSign /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarborUITests-Runner.app (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarborUITests-Runner.app
+/tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarborUITests-Runner.app: replacing existing signature
+
+PruneExplicitPrecompiledModules /tmp/ZipHarbor-Migration/SDKExplicitPrecompiledModules
+
+PruneExplicitPrecompiledModules /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+
+PruneExplicitPrecompiledModules /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ExplicitPrecompiledModules
+
+Test Suite 'All tests' started at 2026-10-01 10:43:45.388.
+Test Suite 'ZipHarborTests.xctest' started at 2026-10-01 10:43:45.388.
+Test Suite 'ArchiveModelTests' started at 2026-10-01 10:43:45.388.
+Test Case '-[ZipHarborTests.ArchiveModelTests testArchivePathValidationBlocksTraversalAndAbsolutePaths]' started.
+Test Case '-[ZipHarborTests.ArchiveModelTests testArchivePathValidationBlocksTraversalAndAbsolutePaths]' passed (0.001 seconds).
+Test Case '-[ZipHarborTests.ArchiveModelTests testCreateInspectAndExtractZipRoundTrip]' started.
+Test Case '-[ZipHarborTests.ArchiveModelTests testCreateInspectAndExtractZipRoundTrip]' passed (0.026 seconds).
+Test Case '-[ZipHarborTests.ArchiveModelTests testFormatDetectionUsesCompoundExtensionsFirst]' started.
+Test Case '-[ZipHarborTests.ArchiveModelTests testFormatDetectionUsesCompoundExtensionsFirst]' passed (0.000 seconds).
+Test Case '-[ZipHarborTests.ArchiveModelTests testSevenZipPasswordCreationIsRejected]' started.
+Test Case '-[ZipHarborTests.ArchiveModelTests testSevenZipPasswordCreationIsRejected]' passed (0.002 seconds).
+Test Case '-[ZipHarborTests.ArchiveModelTests testSevenZipRoundTrip]' started.
+Test Case '-[ZipHarborTests.ArchiveModelTests testSevenZipRoundTrip]' passed (0.019 seconds).
+Test Case '-[ZipHarborTests.ArchiveModelTests testSplitZipIsReassembledForInspectAndExtract]' started.
+Test Case '-[ZipHarborTests.ArchiveModelTests testSplitZipIsReassembledForInspectAndExtract]' passed (0.005 seconds).
+Test Case '-[ZipHarborTests.ArchiveModelTests testZipAESRoundTrip]' started.
+Test Case '-[ZipHarborTests.ArchiveModelTests testZipAESRoundTrip]' passed (0.005 seconds).
+Test Case '-[ZipHarborTests.ArchiveModelTests testZipAESWithoutPasswordRequestsPassword]' started.
+Test Case '-[ZipHarborTests.ArchiveModelTests testZipAESWithoutPasswordRequestsPassword]' passed (0.003 seconds).
+Test Suite 'ArchiveModelTests' passed at 2026-10-01 10:43:45.450.
+	 Executed 8 tests, with 0 failures (0 unexpected) in 0.060 (0.062) seconds
+Test Suite 'CoordinatorTests' started at 2026-10-01 10:43:45.450.
+Test Case '-[ZipHarborTests.CoordinatorTests testClearAndRetentionKeepActiveJobsFilesAndFavorites]' started.
+Test Case '-[ZipHarborTests.CoordinatorTests testClearAndRetentionKeepActiveJobsFilesAndFavorites]' passed (0.009 seconds).
+Test Case '-[ZipHarborTests.CoordinatorTests testPasswordContinuesOriginalJobWithoutDuplicateHistory]' started.
+Test Case '-[ZipHarborTests.CoordinatorTests testPasswordContinuesOriginalJobWithoutDuplicateHistory]' passed (0.163 seconds).
+Test Case '-[ZipHarborTests.CoordinatorTests testRelativeReferencesAndSettingsPersistWithoutPasswords]' started.
+Test Case '-[ZipHarborTests.CoordinatorTests testRelativeReferencesAndSettingsPersistWithoutPasswords]' passed (0.003 seconds).
+Test Suite 'CoordinatorTests' passed at 2026-10-01 10:43:45.627.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.175 (0.176) seconds
+Test Suite 'MigrationEngineTests' started at 2026-10-01 10:43:45.627.
+Test Case '-[ZipHarborTests.MigrationEngineTests testCancellationDuringWriteCleansTemporaryAndPreservesSource]' started.
+Test Case '-[ZipHarborTests.MigrationEngineTests testCancellationDuringWriteCleansTemporaryAndPreservesSource]' passed (0.005 seconds).
+Test Case '-[ZipHarborTests.MigrationEngineTests testEveryConflictPolicyAndAskDecision]' started.
+Test Case '-[ZipHarborTests.MigrationEngineTests testEveryConflictPolicyAndAskDecision]' passed (0.007 seconds).
+Test Case '-[ZipHarborTests.MigrationEngineTests testExistingSymlinkCannotEscapeDestination]' started.
+Test Case '-[ZipHarborTests.MigrationEngineTests testExistingSymlinkCannotEscapeDestination]' passed (0.002 seconds).
+Test Case '-[ZipHarborTests.MigrationEngineTests testFlattenedCreationDeduplicatesNamesAndSelectedFolderExtracts]' started.
+Test Case '-[ZipHarborTests.MigrationEngineTests testFlattenedCreationDeduplicatesNamesAndSelectedFolderExtracts]' passed (0.006 seconds).
+Test Case '-[ZipHarborTests.MigrationEngineTests testIndependentReadFormats]' started.
+Test Case '-[ZipHarborTests.MigrationEngineTests testIndependentReadFormats]' passed (0.011 seconds).
+Test Case '-[ZipHarborTests.MigrationEngineTests testMissingVolumeAndWrongPasswordAreTypedErrors]' started.
+Test Case '-[ZipHarborTests.MigrationEngineTests testMissingVolumeAndWrongPasswordAreTypedErrors]' passed (0.004 seconds).
+Test Case '-[ZipHarborTests.MigrationEngineTests testMixedEncryptedArchiveRejectsPasswordBeforePublishingAnyFile]' started.
+Test Case '-[ZipHarborTests.MigrationEngineTests testMixedEncryptedArchiveRejectsPasswordBeforePublishingAnyFile]' passed (0.004 seconds).
+Test Case '-[ZipHarborTests.MigrationEngineTests testPauseResumeAndCancellationCleanOutput]' started.
+Test Case '-[ZipHarborTests.MigrationEngineTests testPauseResumeAndCancellationCleanOutput]' passed (0.169 seconds).
+Test Case '-[ZipHarborTests.MigrationEngineTests testTraversalArchiveIsRejected]' started.
+Test Case '-[ZipHarborTests.MigrationEngineTests testTraversalArchiveIsRejected]' passed (0.001 seconds).
+Test Suite 'MigrationEngineTests' passed at 2026-10-01 10:43:45.839.
+	 Executed 9 tests, with 0 failures (0 unexpected) in 0.210 (0.212) seconds
+Test Suite 'PerformanceAcceptanceTests' started at 2026-10-01 10:43:45.839.
+Test Case '-[ZipHarborTests.PerformanceAcceptanceTests testOneGiBStreamingRoundTripAndManySmallFiles]' started.
+1 GiB SHA256 verified; duration=2.942515015602112s; 2000 files duration=1.5499720573425293s; baseline=60 MiB; sampled peak physical footprint=73 MiB
+Test Case '-[ZipHarborTests.PerformanceAcceptanceTests testOneGiBStreamingRoundTripAndManySmallFiles]' passed (5.828 seconds).
+Test Suite 'PerformanceAcceptanceTests' passed at 2026-10-01 10:43:51.667.
+	 Executed 1 test, with 0 failures (0 unexpected) in 5.828 (5.828) seconds
+Test Suite 'ZipHarborTests.xctest' passed at 2026-10-01 10:43:51.667.
+	 Executed 21 tests, with 0 failures (0 unexpected) in 6.273 (6.279) seconds
+Test Suite 'All tests' passed at 2026-10-01 10:43:51.667.
+	 Executed 21 tests, with 0 failures (0 unexpected) in 6.273 (6.280) seconds
+2026-10-01 10:43:52.352647+0800 ZipHarborUITests-Runner[42793:2824234] [Default] Running tests...
+    t =      nans Interface orientation changed to Portrait
+Test Suite 'All tests' started at 2026-10-01 10:43:52.808.
+Test Suite 'ZipHarborUITests.xctest' started at 2026-10-01 10:43:52.808.
+Test Suite 'ZipHarborUITests' started at 2026-10-01 10:43:52.808.
+Test Case '-[ZipHarborUITests.ZipHarborUITests testAccessibilityLargeTextLayout]' started.
+    t =     0.00s Start Test at 2026-10-01 10:43:52.809
+    t =     0.01s Set Up
+    t =     0.02s Open com.xiaolongxu.zipharbor.app
+    t =     0.02s     Launch com.xiaolongxu.zipharbor.app
+2026-10-01 10:43:52.863 xcodebuild[42740:2823224] [MT] IDELaunchParametersSnapshot: debugger version lookup failed for path '<nil>': noURL
+2026-10-01 10:43:52.863 xcodebuild[42740:2823224] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =     0.26s         Setting up automation session
+objc[42793]: Class UIAccessibilityLoaderWebShared is implemented in both /Library/Developer/CoreSimulator/Volumes/iOS_23F77/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 26.5.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebCore.axbundle/WebCore (0x108d4c310) and /Library/Developer/CoreSimulator/Volumes/iOS_23F77/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 26.5.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebKit.axbundle/WebKit (0x10858c398). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+    t =     0.80s         Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     2.06s Waiting 25.0s for "file-课程资料_2026.zip" Button to exist
+    t =     3.14s     Checking `Expect predicate `existsNoRetry == 1` for object "file-课程资料_2026.zip" Button`
+    t =     3.14s         Checking existence of `"file-课程资料_2026.zip" Button`
+    t =     3.18s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =     3.28s Added attachment named 'home-large-text'
+    t =     3.28s Tap "tab-Settings" Button
+    t =     3.28s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     3.28s     Find the "tab-Settings" Button
+    t =     3.30s     Check for interrupting elements affecting "tab-Settings" Button
+    t =     3.32s     Synthesize event
+    t =     3.61s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     3.61s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =     3.67s Added attachment named 'settings-large-text'
+    t =     3.67s Checking existence of `"defaultDestinationButton" Button`
+    t =     3.68s Tear Down
+Test Case '-[ZipHarborUITests.ZipHarborUITests testAccessibilityLargeTextLayout]' passed (3.923 seconds).
+Test Case '-[ZipHarborUITests.ZipHarborUITests testCancellingExternalFolderChoiceKeepsPreviousDestination]' started.
+    t =     0.00s Start Test at 2026-10-01 10:43:56.732
+    t =     0.01s Set Up
+    t =     0.02s Open com.xiaolongxu.zipharbor.app
+    t =     0.02s     Launch com.xiaolongxu.zipharbor.app
+    t =     0.02s         Terminate com.xiaolongxu.zipharbor.app:42797
+2026-10-01 10:43:57.818 xcodebuild[42740:2823224] [MT] IDELaunchParametersSnapshot: debugger version lookup failed for path '<nil>': noURL
+2026-10-01 10:43:57.818 xcodebuild[42740:2823224] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =     1.29s         Setting up automation session
+    t =     1.87s         Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     3.13s Waiting 25.0s for "file-课程资料_2026.zip" Button to exist
+    t =     4.16s     Checking `Expect predicate `existsNoRetry == 1` for object "file-课程资料_2026.zip" Button`
+    t =     4.16s         Checking existence of `"file-课程资料_2026.zip" Button`
+    t =     4.20s Tap "tab-Settings" Button
+    t =     4.20s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     4.21s     Find the "tab-Settings" Button
+    t =     4.22s     Check for interrupting elements affecting "tab-Settings" Button
+    t =     4.24s     Synthesize event
+    t =     4.52s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     4.53s Tap "defaultDestinationButton" Button
+    t =     4.53s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     4.53s     Find the "defaultDestinationButton" Button
+    t =     4.55s     Check for interrupting elements affecting "defaultDestinationButton" Button
+    t =     4.56s     Synthesize event
+    t =     4.85s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     5.20s Find the "destination-downloads" Button
+    t =     5.23s Tap "destination-other" Button
+    t =     5.23s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     5.23s     Find the "destination-other" Button
+    t =     5.25s     Check for interrupting elements affecting "destination-other" Button
+    t =     5.26s     Synthesize event
+    t =     5.55s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     5.99s Waiting 30.0s for "Browse" Button to exist
+    t =     7.03s     Checking `Expect predicate `existsNoRetry == 1` for object "Browse" Button`
+    t =     7.03s         Checking existence of `"Browse" Button`
+    t =     7.63s Checking existence of `Button (First Match)`
+    t =     7.72s Press Target Application 'com.xiaolongxu.zipharbor.app'[0.50, 0.08] for 0.1 seconds, then drag to Target Application 'com.xiaolongxu.zipharbor.app'[0.50, 0.85] with velocity of 500.00 pixels per second, and then hold for 0.0 seconds 
+    t =     7.72s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     7.72s     Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =     7.75s     Check for interrupting elements affecting "ZipHarbor" Application
+    t =     7.80s     Synthesize event
+    t =     7.80s         Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =     7.95s         Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =     7.98s         Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =     8.01s         Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =     8.04s         Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =     9.70s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    10.05s Waiting 5.0s for "saveDefaultDestinationButton" Button to exist
+    t =    11.08s     Checking `Expect predicate `existsNoRetry == 1` for object "saveDefaultDestinationButton" Button`
+    t =    11.08s         Checking existence of `"saveDefaultDestinationButton" Button`
+    t =    11.10s Find the "destination-downloads" Button
+    t =    11.12s Find the "destination-other" Button
+    t =    11.14s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =    11.21s Added attachment named 'destination-cancel-keeps-selection'
+    t =    11.21s Tear Down
+Test Case '-[ZipHarborUITests.ZipHarborUITests testCancellingExternalFolderChoiceKeepsPreviousDestination]' passed (11.439 seconds).
+Test Case '-[ZipHarborUITests.ZipHarborUITests testCreateTwoStepsAESRoundTripAndBackPreservesSelection]' started.
+    t =     0.00s Start Test at 2026-10-01 10:44:08.172
+    t =     0.02s Set Up
+    t =     0.02s Open com.xiaolongxu.zipharbor.app
+    t =     0.02s     Launch com.xiaolongxu.zipharbor.app
+    t =     0.02s         Terminate com.xiaolongxu.zipharbor.app:42826
+2026-10-01 10:44:09.247 xcodebuild[42740:2823224] [MT] IDELaunchParametersSnapshot: debugger version lookup failed for path '<nil>': noURL
+2026-10-01 10:44:09.247 xcodebuild[42740:2823224] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =     1.28s         Setting up automation session
+    t =     1.81s         Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     3.09s Waiting 25.0s for "file-课程资料_2026.zip" Button to exist
+    t =     4.12s     Checking `Expect predicate `existsNoRetry == 1` for object "file-课程资料_2026.zip" Button`
+    t =     4.12s         Checking existence of `"file-课程资料_2026.zip" Button`
+    t =     4.18s Tap "createArchiveButton" Button
+    t =     4.18s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     4.18s     Find the "createArchiveButton" Button
+    t =     4.19s     Check for interrupting elements affecting "createArchiveButton" Button
+    t =     4.21s     Synthesize event
+    t =     4.50s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     4.85s Tap "source-课堂笔记.txt" Button
+    t =     4.85s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     4.85s     Find the "source-课堂笔记.txt" Button
+    t =     4.87s     Check for interrupting elements affecting "source-课堂笔记.txt" Button
+    t =     4.88s     Synthesize event
+    t =     5.17s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     5.17s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =     5.23s Added attachment named 'create-select'
+    t =     5.23s Tap "createNextButton" Button
+    t =     5.23s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     5.23s     Find the "createNextButton" Button
+    t =     5.25s     Check for interrupting elements affecting "createNextButton" Button
+    t =     5.26s     Synthesize event
+    t =     5.55s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     5.55s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =     5.62s Added attachment named 'create-settings'
+    t =     5.62s Tap "backButton" Button
+    t =     5.62s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     5.62s     Find the "backButton" Button
+    t =     5.64s     Check for interrupting elements affecting "backButton" Button
+    t =     5.65s     Synthesize event
+    t =     5.94s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     5.94s Checking existence of `"已选择 1 项" StaticText`
+    t =     5.95s Tap "createNextButton" Button
+    t =     5.95s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     5.96s     Find the "createNextButton" Button
+    t =     5.97s     Check for interrupting elements affecting "createNextButton" Button
+    t =     5.98s     Synthesize event
+    t =     6.27s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     6.28s Tap "archiveNameField" TextField
+    t =     6.28s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     6.28s     Find the "archiveNameField" TextField
+    t =     6.29s     Check for interrupting elements affecting "archiveNameField" TextField
+    t =     6.31s     Synthesize event
+    t =     6.59s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     6.61s Type '...' into "archiveNameField" TextField
+    t =     6.62s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     7.00s     Find the "archiveNameField" TextField
+    t =     7.04s     Check for interrupting elements affecting "archiveNameField" TextField
+    t =     7.06s     Synthesize event
+    t =     7.93s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     7.94s Type 'UI Roundtrip' into "archiveNameField" TextField
+    t =     7.94s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     7.94s     Find the "archiveNameField" TextField
+    t =     7.97s     Check for interrupting elements affecting "archiveNameField" TextField
+    t =     7.99s     Synthesize event
+    t =     8.39s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     8.40s Tap "passwordToggle" Button
+    t =     8.40s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     8.40s     Find the "passwordToggle" Button
+    t =     8.42s     Check for interrupting elements affecting "passwordToggle" Button
+    t =     8.45s     Synthesize event
+    t =     8.73s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     8.74s Waiting 3.0s for "archivePasswordField" SecureTextField to exist
+    t =     9.78s     Checking `Expect predicate `existsNoRetry == 1` for object "archivePasswordField" SecureTextField`
+    t =     9.78s         Checking existence of `"archivePasswordField" SecureTextField`
+    t =     9.81s Tap "archivePasswordField" SecureTextField
+    t =     9.81s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     9.81s     Find the "archivePasswordField" SecureTextField
+    t =     9.84s     Check for interrupting elements affecting "archivePasswordField" SecureTextField
+    t =     9.86s     Synthesize event
+    t =    10.15s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    10.50s Type '<redacted>' into "archivePasswordField" SecureTextField
+    t =    10.50s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    10.51s     Find the "archivePasswordField" SecureTextField
+    t =    10.55s     Check for interrupting elements affecting "archivePasswordField" SecureTextField
+    t =    10.57s     Synthesize event
+    t =    10.84s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    10.85s Swipe up Target Application 'com.xiaolongxu.zipharbor.app'
+    t =    10.85s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    10.85s     Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =    10.87s     Check for interrupting elements affecting "ZipHarbor 压缩工具" Application
+    t =    10.89s     Synthesize event
+    t =    11.31s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    11.32s Tap "submitCreateArchiveButton" Button
+    t =    11.32s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    11.32s     Find the "submitCreateArchiveButton" Button
+    t =    11.35s     Check for interrupting elements affecting "submitCreateArchiveButton" Button
+    t =    11.37s     Synthesize event
+    t =    11.39s         Scroll element to visible
+    t =    11.39s         Find the "submitCreateArchiveButton" Button
+    t =    11.43s         Computed hit point {195, 440} after scrolling to visible
+    t =    11.72s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    12.23s Waiting 25.0s for "resultDoneButton" Button to exist
+    t =    13.27s     Checking `Expect predicate `existsNoRetry == 1` for object "resultDoneButton" Button`
+    t =    13.27s         Checking existence of `"resultDoneButton" Button`
+    t =    13.31s Tap "resultDoneButton" Button
+    t =    13.31s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    13.31s     Find the "resultDoneButton" Button
+    t =    13.33s     Check for interrupting elements affecting "resultDoneButton" Button
+    t =    13.34s     Synthesize event
+    t =    13.63s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    13.98s Tap "tab-Files" Button
+    t =    13.98s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    13.99s     Find the "tab-Files" Button
+    t =    14.00s     Check for interrupting elements affecting "tab-Files" Button
+    t =    14.01s     Synthesize event
+    t =    14.31s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    14.32s Waiting 5.0s for "file-UI Roundtrip.zip" Button to exist
+    t =    15.36s     Checking `Expect predicate `existsNoRetry == 1` for object "file-UI Roundtrip.zip" Button`
+    t =    15.36s         Checking existence of `"file-UI Roundtrip.zip" Button`
+    t =    15.38s Tap "file-UI Roundtrip.zip" Button
+    t =    15.38s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    15.38s     Find the "file-UI Roundtrip.zip" Button
+    t =    15.40s     Check for interrupting elements affecting "file-UI Roundtrip.zip" Button
+    t =    15.43s     Synthesize event
+    t =    15.72s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    16.10s Waiting 10.0s for "extractToButton" Button to exist
+    t =    17.13s     Checking `Expect predicate `existsNoRetry == 1` for object "extractToButton" Button`
+    t =    17.13s         Checking existence of `"extractToButton" Button`
+    t =    17.17s Tap "extractToButton" Button
+    t =    17.17s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    17.17s     Find the "extractToButton" Button
+    t =    17.19s     Check for interrupting elements affecting "extractToButton" Button
+    t =    17.21s     Synthesize event
+    t =    17.50s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    17.90s Waiting 5.0s for "startExtractionButton" Button to exist
+    t =    18.92s     Checking `Expect predicate `existsNoRetry == 1` for object "startExtractionButton" Button`
+    t =    18.92s         Checking existence of `"startExtractionButton" Button`
+    t =    18.98s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =    19.09s Added attachment named 'extraction-destination'
+    t =    19.09s Tap "startExtractionButton" Button
+    t =    19.09s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    19.09s     Find the "startExtractionButton" Button
+    t =    19.12s     Check for interrupting elements affecting "startExtractionButton" Button
+    t =    19.15s     Synthesize event
+    t =    19.45s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    20.44s Waiting 15.0s for "taskPasswordField" SecureTextField to exist
+    t =    21.51s     Checking `Expect predicate `existsNoRetry == 1` for object "taskPasswordField" SecureTextField`
+    t =    21.51s         Checking existence of `"taskPasswordField" SecureTextField`
+    t =    21.54s Tap "taskPasswordField" SecureTextField
+    t =    21.54s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    21.54s     Find the "taskPasswordField" SecureTextField
+    t =    21.56s     Check for interrupting elements affecting "taskPasswordField" SecureTextField
+    t =    21.58s     Synthesize event
+    t =    21.87s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    22.34s Type '<redacted>' into "taskPasswordField" SecureTextField
+    t =    22.34s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    22.34s     Find the "taskPasswordField" SecureTextField
+    t =    22.37s     Check for interrupting elements affecting "taskPasswordField" SecureTextField
+    t =    22.39s     Synthesize event
+    t =    22.66s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    22.67s Tap "unlockAndContinueButton" Button
+    t =    22.67s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    22.67s     Find the "unlockAndContinueButton" Button
+    t =    22.70s     Check for interrupting elements affecting "unlockAndContinueButton" Button
+    t =    22.72s     Synthesize event
+    t =    23.03s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    23.41s Waiting 20.0s for "resultDoneButton" Button to exist
+    t =    24.45s     Checking `Expect predicate `existsNoRetry == 1` for object "resultDoneButton" Button`
+    t =    24.45s         Checking existence of `"resultDoneButton" Button`
+    t =    24.47s Tap "resultDoneButton" Button
+    t =    24.47s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    24.48s     Find the "resultDoneButton" Button
+    t =    24.49s     Check for interrupting elements affecting "resultDoneButton" Button
+    t =    24.51s     Synthesize event
+    t =    24.81s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    25.17s Tear Down
+Test Case '-[ZipHarborUITests.ZipHarborUITests testCreateTwoStepsAESRoundTripAndBackPreservesSelection]' passed (25.427 seconds).
+Test Case '-[ZipHarborUITests.ZipHarborUITests testDefaultDestinationAndPreserveSettingsAffectExtraction]' started.
+    t =     0.00s Start Test at 2026-10-01 10:44:33.600
+    t =     0.02s Set Up
+    t =     0.02s Open com.xiaolongxu.zipharbor.app
+    t =     0.02s     Launch com.xiaolongxu.zipharbor.app
+    t =     0.02s         Terminate com.xiaolongxu.zipharbor.app:42847
+2026-10-01 10:44:34.665 xcodebuild[42740:2823224] [MT] IDELaunchParametersSnapshot: debugger version lookup failed for path '<nil>': noURL
+2026-10-01 10:44:34.667 xcodebuild[42740:2823224] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =     1.50s         Setting up automation session
+    t =     2.28s         Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     3.79s Waiting 25.0s for "file-课程资料_2026.zip" Button to exist
+    t =     4.85s     Checking `Expect predicate `existsNoRetry == 1` for object "file-课程资料_2026.zip" Button`
+    t =     4.85s         Checking existence of `"file-课程资料_2026.zip" Button`
+    t =     4.90s Tap "tab-Settings" Button
+    t =     4.90s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     4.91s     Find the "tab-Settings" Button
+    t =     4.93s     Check for interrupting elements affecting "tab-Settings" Button
+    t =     4.95s     Synthesize event
+    t =     5.25s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     5.25s Tap "defaultDestinationButton" Button
+    t =     5.25s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     5.26s     Find the "defaultDestinationButton" Button
+    t =     5.28s     Check for interrupting elements affecting "defaultDestinationButton" Button
+    t =     5.30s     Synthesize event
+    t =     5.59s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     5.95s Tap "destination-same" Button
+    t =     5.95s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     5.96s     Find the "destination-same" Button
+    t =     5.99s     Check for interrupting elements affecting "destination-same" Button
+    t =     6.01s     Synthesize event
+    t =     6.31s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     7.01s Tap "saveDefaultDestinationButton" Button
+    t =     7.01s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     7.01s     Find the "saveDefaultDestinationButton" Button
+    t =     7.04s     Check for interrupting elements affecting "saveDefaultDestinationButton" Button
+    t =     7.06s     Synthesize event
+    t =     7.35s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     7.70s Tap "defaultPreserveToggle" Button
+    t =     7.70s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     7.71s     Find the "defaultPreserveToggle" Button
+    t =     7.72s     Check for interrupting elements affecting "defaultPreserveToggle" Button
+    t =     7.74s     Synthesize event
+    t =     8.03s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     8.04s Tap "tab-Files" Button
+    t =     8.04s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     8.04s     Find the "tab-Files" Button
+    t =     8.06s     Check for interrupting elements affecting "tab-Files" Button
+    t =     8.08s     Synthesize event
+    t =     8.37s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     8.37s Tap "file-课程资料_2026.zip" Button
+    t =     8.37s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     8.37s     Find the "file-课程资料_2026.zip" Button
+    t =     8.40s     Check for interrupting elements affecting "file-课程资料_2026.zip" Button
+    t =     8.42s     Synthesize event
+    t =     8.72s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     9.12s Waiting 10.0s for "extractToButton" Button to exist
+    t =    10.17s     Checking `Expect predicate `existsNoRetry == 1` for object "extractToButton" Button`
+    t =    10.17s         Checking existence of `"extractToButton" Button`
+    t =    10.21s Tap "extractToButton" Button
+    t =    10.21s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    10.22s     Find the "extractToButton" Button
+    t =    10.24s     Check for interrupting elements affecting "extractToButton" Button
+    t =    10.26s     Synthesize event
+    t =    10.55s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    10.92s Find the "Keep folder structure" Button
+    t =    10.95s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =    11.03s Added attachment named 'extraction-default-settings'
+    t =    11.03s Tap "startExtractionButton" Button
+    t =    11.03s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    11.04s     Find the "startExtractionButton" Button
+    t =    11.06s     Check for interrupting elements affecting "startExtractionButton" Button
+    t =    11.09s     Synthesize event
+    t =    11.38s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    12.38s Waiting 15.0s for "resultDoneButton" Button to exist
+    t =    13.42s     Checking `Expect predicate `existsNoRetry == 1` for object "resultDoneButton" Button`
+    t =    13.42s         Checking existence of `"resultDoneButton" Button`
+    t =    13.45s Tap "openOutputButton" Button
+    t =    13.45s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    13.45s     Find the "openOutputButton" Button
+    t =    13.47s     Check for interrupting elements affecting "openOutputButton" Button
+    t =    13.48s     Synthesize event
+    t =    13.77s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    14.15s Waiting 5.0s for "README.txt" StaticText to exist
+    t =    15.20s     Checking `Expect predicate `existsNoRetry == 1` for object "README.txt" StaticText`
+    t =    15.20s         Checking existence of `"README.txt" StaticText`
+    t =    15.23s Checking existence of `"课程资料" StaticText`
+    t =    15.24s Tear Down
+Test Case '-[ZipHarborUITests.ZipHarborUITests testDefaultDestinationAndPreserveSettingsAffectExtraction]' passed (15.485 seconds).
+Test Case '-[ZipHarborUITests.ZipHarborUITests testEnglishAndDarkAppearance]' started.
+    t =     0.00s Start Test at 2026-10-01 10:44:49.085
+    t =     0.02s Set Up
+    t =     0.02s Open com.xiaolongxu.zipharbor.app
+    t =     0.02s     Launch com.xiaolongxu.zipharbor.app
+    t =     0.02s         Terminate com.xiaolongxu.zipharbor.app:43208
+2026-10-01 10:44:50.162 xcodebuild[42740:2823224] [MT] IDELaunchParametersSnapshot: debugger version lookup failed for path '<nil>': noURL
+2026-10-01 10:44:50.162 xcodebuild[42740:2823224] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =     1.28s         Setting up automation session
+    t =     1.93s         Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     3.20s Waiting 25.0s for "file-课程资料_2026.zip" Button to exist
+    t =     4.22s     Checking `Expect predicate `existsNoRetry == 1` for object "file-课程资料_2026.zip" Button`
+    t =     4.23s         Checking existence of `"file-课程资料_2026.zip" Button`
+    t =     4.27s Checking existence of `"Quick actions" StaticText`
+    t =     4.28s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =     4.36s Added attachment named 'home-en'
+    t =     4.36s Tap "tab-Settings" Button
+    t =     4.36s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     4.36s     Find the "tab-Settings" Button
+    t =     4.38s     Check for interrupting elements affecting "tab-Settings" Button
+    t =     4.39s     Synthesize event
+    t =     4.68s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     4.68s Tap "darkModeToggle" Button
+    t =     4.68s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     4.68s     Find the "darkModeToggle" Button
+    t =     4.70s     Check for interrupting elements affecting "darkModeToggle" Button
+    t =     4.71s     Synthesize event
+    t =     5.00s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     5.01s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =     5.08s Added attachment named 'settings-dark-en'
+    t =     5.08s Tap "tab-Files" Button
+    t =     5.08s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     5.08s     Find the "tab-Files" Button
+    t =     5.10s     Check for interrupting elements affecting "tab-Files" Button
+    t =     5.11s     Synthesize event
+    t =     5.40s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     5.40s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =     5.48s Added attachment named 'home-dark-en'
+    t =     5.48s Checking existence of `"openArchiveButton" Button`
+    t =     5.50s Tear Down
+Test Case '-[ZipHarborUITests.ZipHarborUITests testEnglishAndDarkAppearance]' passed (5.726 seconds).
+Test Case '-[ZipHarborUITests.ZipHarborUITests testFavoritesAndSelectedDirectoryExtraction]' started.
+    t =     0.00s Start Test at 2026-10-01 10:44:54.812
+    t =     0.02s Set Up
+    t =     0.02s Open com.xiaolongxu.zipharbor.app
+    t =     0.02s     Launch com.xiaolongxu.zipharbor.app
+    t =     0.02s         Terminate com.xiaolongxu.zipharbor.app:43266
+2026-10-01 10:44:55.904 xcodebuild[42740:2823224] [MT] IDELaunchParametersSnapshot: debugger version lookup failed for path '<nil>': noURL
+2026-10-01 10:44:55.904 xcodebuild[42740:2823224] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =     1.30s         Setting up automation session
+    t =     1.89s         Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     3.18s Waiting 25.0s for "file-课程资料_2026.zip" Button to exist
+    t =     4.23s     Checking `Expect predicate `existsNoRetry == 1` for object "file-课程资料_2026.zip" Button`
+    t =     4.23s         Checking existence of `"file-课程资料_2026.zip" Button`
+    t =     4.27s Tap "file-课程资料_2026.zip" Button
+    t =     4.27s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     4.27s     Find the "file-课程资料_2026.zip" Button
+    t =     4.29s     Check for interrupting elements affecting "file-课程资料_2026.zip" Button
+    t =     4.31s     Synthesize event
+    t =     4.60s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     5.01s Waiting 10.0s for "entry-课程资料" Button to exist
+    t =     6.06s     Checking `Expect predicate `existsNoRetry == 1` for object "entry-课程资料" Button`
+    t =     6.06s         Checking existence of `"entry-课程资料" Button`
+    t =     6.08s Tap "Add favorite" Button
+    t =     6.08s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     6.09s     Find the "Add favorite" Button
+    t =     6.10s     Check for interrupting elements affecting "Add favorite" Button
+    t =     6.11s     Synthesize event
+    t =     6.40s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     6.40s Tap "select-课程资料" Button
+    t =     6.41s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     6.41s     Find the "select-课程资料" Button
+    t =     6.43s     Check for interrupting elements affecting "select-课程资料" Button
+    t =     6.44s     Synthesize event
+    t =     6.73s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     6.74s Tap "extractSelectedButton" Button
+    t =     6.74s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     6.74s     Find the "extractSelectedButton" Button
+    t =     6.76s     Check for interrupting elements affecting "extractSelectedButton" Button
+    t =     6.77s     Synthesize event
+    t =     7.17s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     7.55s Tap "startExtractionButton" Button
+    t =     7.55s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     7.56s     Find the "startExtractionButton" Button
+    t =     7.59s     Check for interrupting elements affecting "startExtractionButton" Button
+    t =     7.61s     Synthesize event
+    t =     7.90s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     8.85s Waiting 20.0s for "resultDoneButton" Button to exist
+    t =     9.92s     Checking `Expect predicate `existsNoRetry == 1` for object "resultDoneButton" Button`
+    t =     9.93s         Checking existence of `"resultDoneButton" Button`
+    t =     9.95s Tap "openOutputButton" Button
+    t =     9.95s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     9.95s     Find the "openOutputButton" Button
+    t =     9.96s     Check for interrupting elements affecting "openOutputButton" Button
+    t =     9.98s     Synthesize event
+    t =    10.26s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    10.62s Waiting 5.0s for "课程资料" StaticText to exist
+    t =    11.67s     Checking `Expect predicate `existsNoRetry == 1` for object "课程资料" StaticText`
+    t =    11.67s         Checking existence of `"课程资料" StaticText`
+    t =    11.69s Checking existence of `"课堂笔记.txt" StaticText`
+    t =    11.70s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =    11.76s Added attachment named 'selected-directory-output'
+    t =    11.76s Tap "folderDoneButton" Button
+    t =    11.76s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    11.76s     Find the "folderDoneButton" Button
+    t =    11.78s     Check for interrupting elements affecting "folderDoneButton" Button
+    t =    11.79s     Synthesize event
+    t =    12.09s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    12.42s Tap "resultDoneButton" Button
+    t =    12.42s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    12.42s     Find the "resultDoneButton" Button
+    t =    12.43s     Check for interrupting elements affecting "resultDoneButton" Button
+    t =    12.45s     Synthesize event
+    t =    12.74s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    13.09s Tap "tab-Files" Button
+    t =    13.09s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    13.10s     Find the "tab-Files" Button
+    t =    13.11s     Check for interrupting elements affecting "tab-Files" Button
+    t =    13.12s     Synthesize event
+    t =    13.41s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    13.41s Swipe up Target Application 'com.xiaolongxu.zipharbor.app'
+    t =    13.41s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    13.41s     Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =    13.43s     Check for interrupting elements affecting "ZipHarbor" Application
+    t =    13.44s     Synthesize event
+    t =    13.87s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    14.39s Tap "location-Favorites" Button
+    t =    14.39s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    14.39s     Find the "location-Favorites" Button
+    t =    14.42s     Check for interrupting elements affecting "location-Favorites" Button
+    t =    14.43s     Synthesize event
+    t =    14.72s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    15.06s Waiting 5.0s for "file-课程资料_2026.zip" Button to exist
+    t =    16.10s     Checking `Expect predicate `existsNoRetry == 1` for object "file-课程资料_2026.zip" Button`
+    t =    16.10s         Checking existence of `"file-课程资料_2026.zip" Button`
+    t =    16.13s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =    16.20s Added attachment named 'favorites'
+    t =    16.20s Tear Down
+Test Case '-[ZipHarborUITests.ZipHarborUITests testFavoritesAndSelectedDirectoryExtraction]' passed (16.425 seconds).
+Test Case '-[ZipHarborUITests.ZipHarborUITests testPasswordAutomaticallyContinuesAndDoneDismisses]' started.
+    t =     0.00s Start Test at 2026-10-01 10:45:11.238
+    t =     0.02s Set Up
+    t =     0.02s Open com.xiaolongxu.zipharbor.app
+    t =     0.02s     Launch com.xiaolongxu.zipharbor.app
+    t =     0.02s         Terminate com.xiaolongxu.zipharbor.app:43281
+2026-10-01 10:45:12.322 xcodebuild[42740:2823224] [MT] IDELaunchParametersSnapshot: debugger version lookup failed for path '<nil>': noURL
+2026-10-01 10:45:12.322 xcodebuild[42740:2823224] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =     1.29s         Setting up automation session
+    t =     1.81s         Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     3.06s Waiting 25.0s for "file-课程资料_2026.zip" Button to exist
+    t =     4.08s     Checking `Expect predicate `existsNoRetry == 1` for object "file-课程资料_2026.zip" Button`
+    t =     4.08s         Checking existence of `"file-课程资料_2026.zip" Button`
+    t =     4.12s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =     4.19s Added attachment named 'home-zh'
+    t =     4.20s Tap "file-0903.zip" Button
+    t =     4.20s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     4.20s     Find the "file-0903.zip" Button
+    t =     4.21s     Check for interrupting elements affecting "file-0903.zip" Button
+    t =     4.23s     Synthesize event
+    t =     4.52s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     4.90s Waiting 10.0s for "extractToButton" Button to exist
+    t =     5.95s     Checking `Expect predicate `existsNoRetry == 1` for object "extractToButton" Button`
+    t =     5.95s         Checking existence of `"extractToButton" Button`
+    t =     5.97s Tap "extractToButton" Button
+    t =     5.97s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     5.97s     Find the "extractToButton" Button
+    t =     5.99s     Check for interrupting elements affecting "extractToButton" Button
+    t =     6.00s     Synthesize event
+    t =     6.29s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     6.69s Waiting 5.0s for "startExtractionButton" Button to exist
+    t =     7.73s     Checking `Expect predicate `existsNoRetry == 1` for object "startExtractionButton" Button`
+    t =     7.73s         Checking existence of `"startExtractionButton" Button`
+    t =     7.76s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =     7.83s Added attachment named 'extraction-destination'
+    t =     7.83s Tap "startExtractionButton" Button
+    t =     7.83s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     7.83s     Find the "startExtractionButton" Button
+    t =     7.85s     Check for interrupting elements affecting "startExtractionButton" Button
+    t =     7.87s     Synthesize event
+    t =     8.16s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     9.11s Waiting 15.0s for "taskPasswordField" SecureTextField to exist
+    t =    10.17s     Checking `Expect predicate `existsNoRetry == 1` for object "taskPasswordField" SecureTextField`
+    t =    10.17s         Checking existence of `"taskPasswordField" SecureTextField`
+    t =    10.19s Tap "taskPasswordField" SecureTextField
+    t =    10.19s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    10.19s     Find the "taskPasswordField" SecureTextField
+    t =    10.20s     Check for interrupting elements affecting "taskPasswordField" SecureTextField
+    t =    10.22s     Synthesize event
+    t =    10.50s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    10.90s Type '<redacted>' into "taskPasswordField" SecureTextField
+    t =    10.90s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    10.90s     Find the "taskPasswordField" SecureTextField
+    t =    10.94s     Check for interrupting elements affecting "taskPasswordField" SecureTextField
+    t =    10.96s     Synthesize event
+    t =    11.22s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    11.23s Tap "unlockAndContinueButton" Button
+    t =    11.23s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    11.23s     Find the "unlockAndContinueButton" Button
+    t =    11.25s     Check for interrupting elements affecting "unlockAndContinueButton" Button
+    t =    11.27s     Synthesize event
+    t =    11.57s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    11.95s Waiting 20.0s for "resultDoneButton" Button to exist
+    t =    12.96s     Checking `Expect predicate `existsNoRetry == 1` for object "resultDoneButton" Button`
+    t =    12.96s         Checking existence of `"resultDoneButton" Button`
+    t =    12.98s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =    13.04s Added attachment named 'extraction-result'
+    t =    13.04s Tap "openOutputButton" Button
+    t =    13.04s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    13.05s     Find the "openOutputButton" Button
+    t =    13.06s     Check for interrupting elements affecting "openOutputButton" Button
+    t =    13.07s     Synthesize event
+    t =    13.36s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    13.75s Waiting 5.0s for "课堂笔记.txt" StaticText to exist
+    t =    14.80s     Checking `Expect predicate `existsNoRetry == 1` for object "课堂笔记.txt" StaticText`
+    t =    14.80s         Checking existence of `"课堂笔记.txt" StaticText`
+    t =    14.82s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =    14.89s Added attachment named 'output-folder'
+    t =    14.89s Tap "folderDoneButton" Button
+    t =    14.89s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    14.89s     Find the "folderDoneButton" Button
+    t =    14.91s     Check for interrupting elements affecting "folderDoneButton" Button
+    t =    14.92s     Synthesize event
+    t =    15.21s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    15.55s Tap "resultDoneButton" Button
+    t =    15.55s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    15.56s     Find the "resultDoneButton" Button
+    t =    15.57s     Check for interrupting elements affecting "resultDoneButton" Button
+    t =    15.58s     Synthesize event
+    t =    15.87s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    16.22s Waiting 5.0s for "tab-Tasks" Button to exist
+    t =    17.27s     Checking `Expect predicate `existsNoRetry == 1` for object "tab-Tasks" Button`
+    t =    17.27s         Checking existence of `"tab-Tasks" Button`
+    t =    17.28s Checking existence of `"resultDoneButton" Button`
+    t =    17.29s Tap "taskFilter-Completed" Button
+    t =    17.29s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    17.30s     Find the "taskFilter-Completed" Button
+    t =    17.31s     Check for interrupting elements affecting "taskFilter-Completed" Button
+    t =    17.32s     Synthesize event
+    t =    17.62s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    17.62s Checking existence of `"result-0903" Button`
+    t =    17.64s Tear Down
+Test Case '-[ZipHarborUITests.ZipHarborUITests testPasswordAutomaticallyContinuesAndDoneDismisses]' passed (17.883 seconds).
+Test Case '-[ZipHarborUITests.ZipHarborUITests testPasswordCancelAndClearHistoryKeepFiles]' started.
+    t =     0.00s Start Test at 2026-10-01 10:45:29.122
+    t =     0.02s Set Up
+    t =     0.02s Open com.xiaolongxu.zipharbor.app
+    t =     0.02s     Launch com.xiaolongxu.zipharbor.app
+    t =     0.02s         Terminate com.xiaolongxu.zipharbor.app:43324
+2026-10-01 10:45:30.199 xcodebuild[42740:2823224] [MT] IDELaunchParametersSnapshot: debugger version lookup failed for path '<nil>': noURL
+2026-10-01 10:45:30.199 xcodebuild[42740:2823224] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =     1.29s         Setting up automation session
+    t =     1.80s         Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     3.04s Waiting 25.0s for "file-课程资料_2026.zip" Button to exist
+    t =     4.08s     Checking `Expect predicate `existsNoRetry == 1` for object "file-课程资料_2026.zip" Button`
+    t =     4.08s         Checking existence of `"file-课程资料_2026.zip" Button`
+    t =     4.12s Tap "file-0903.zip" Button
+    t =     4.12s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     4.13s     Find the "file-0903.zip" Button
+    t =     4.15s     Check for interrupting elements affecting "file-0903.zip" Button
+    t =     4.16s     Synthesize event
+    t =     4.45s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     4.83s Waiting 10.0s for "extractToButton" Button to exist
+    t =     5.90s     Checking `Expect predicate `existsNoRetry == 1` for object "extractToButton" Button`
+    t =     5.90s         Checking existence of `"extractToButton" Button`
+    t =     5.93s Tap "extractToButton" Button
+    t =     5.93s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     5.93s     Find the "extractToButton" Button
+    t =     5.94s     Check for interrupting elements affecting "extractToButton" Button
+    t =     5.96s     Synthesize event
+    t =     6.24s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     6.62s Waiting 5.0s for "startExtractionButton" Button to exist
+    t =     7.67s     Checking `Expect predicate `existsNoRetry == 1` for object "startExtractionButton" Button`
+    t =     7.67s         Checking existence of `"startExtractionButton" Button`
+    t =     7.70s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =     7.77s Added attachment named 'extraction-destination'
+    t =     7.77s Tap "startExtractionButton" Button
+    t =     7.77s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     7.77s     Find the "startExtractionButton" Button
+    t =     7.79s     Check for interrupting elements affecting "startExtractionButton" Button
+    t =     7.81s     Synthesize event
+    t =     8.10s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     9.04s Waiting 15.0s for "taskPasswordField" SecureTextField to exist
+    t =    10.08s     Checking `Expect predicate `existsNoRetry == 1` for object "taskPasswordField" SecureTextField`
+    t =    10.08s         Checking existence of `"taskPasswordField" SecureTextField`
+    t =    10.10s Tap "sheetDoneButton" Button
+    t =    10.10s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    10.11s     Find the "sheetDoneButton" Button
+    t =    10.12s     Check for interrupting elements affecting "sheetDoneButton" Button
+    t =    10.13s     Synthesize event
+    t =    10.43s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    10.80s Waiting 5.0s for "tab-Settings" Button to exist
+    t =    11.85s     Checking `Expect predicate `existsNoRetry == 1` for object "tab-Settings" Button`
+    t =    11.85s         Checking existence of `"tab-Settings" Button`
+    t =    11.87s Tap "tab-Settings" Button
+    t =    11.87s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    11.87s     Find the "tab-Settings" Button
+    t =    11.88s     Check for interrupting elements affecting "tab-Settings" Button
+    t =    11.89s     Synthesize event
+    t =    12.18s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    12.18s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =    12.25s Added attachment named 'settings-zh'
+    t =    12.25s Tap "clearHistoryButton" Button
+    t =    12.25s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    12.25s     Find the "clearHistoryButton" Button
+    t =    12.27s     Check for interrupting elements affecting "clearHistoryButton" Button
+    t =    12.29s     Synthesize event
+    t =    12.57s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    13.02s Get all elements bound by index for: Elements matching predicate '"清除最近记录" IN identifiers'
+    t =    13.05s Tap "清除最近记录" Button
+    t =    13.05s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    13.05s     Find the "清除最近记录" Button
+    t =    13.07s     Check for interrupting elements affecting "清除最近记录" Button
+    t =    13.09s     Synthesize event
+    t =    13.38s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    13.74s Tap "tab-Files" Button
+    t =    13.74s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    13.75s     Find the "tab-Files" Button
+    t =    13.77s     Check for interrupting elements affecting "tab-Files" Button
+    t =    13.78s     Synthesize event
+    t =    14.08s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    14.08s Checking existence of `"file-0903.zip" Button`
+    t =    14.10s Tear Down
+Test Case '-[ZipHarborUITests.ZipHarborUITests testPasswordCancelAndClearHistoryKeepFiles]' passed (14.346 seconds).
+Test Case '-[ZipHarborUITests.ZipHarborUITests testPhotosAndVideoImportThenCreateArchive]' started.
+    t =     0.00s Start Test at 2026-10-01 10:45:43.469
+    t =     0.02s Set Up
+    t =     0.02s Open com.xiaolongxu.zipharbor.app
+    t =     0.02s     Launch com.xiaolongxu.zipharbor.app
+    t =     0.02s         Terminate com.xiaolongxu.zipharbor.app:43363
+2026-10-01 10:45:44.550 xcodebuild[42740:2823224] [MT] IDELaunchParametersSnapshot: debugger version lookup failed for path '<nil>': noURL
+2026-10-01 10:45:44.550 xcodebuild[42740:2823224] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =     1.29s         Setting up automation session
+    t =     1.80s         Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     3.02s Waiting 25.0s for "file-课程资料_2026.zip" Button to exist
+    t =     4.07s     Checking `Expect predicate `existsNoRetry == 1` for object "file-课程资料_2026.zip" Button`
+    t =     4.07s         Checking existence of `"file-课程资料_2026.zip" Button`
+    t =     4.11s Tap "createArchiveButton" Button
+    t =     4.11s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     4.11s     Find the "createArchiveButton" Button
+    t =     4.13s     Check for interrupting elements affecting "createArchiveButton" Button
+    t =     4.15s     Synthesize event
+    t =     4.44s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     4.79s Tap "addPhotosButton" Button
+    t =     4.79s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     4.79s     Find the "addPhotosButton" Button
+    t =     4.80s     Check for interrupting elements affecting "addPhotosButton" Button
+    t =     4.82s     Synthesize event
+    t =     5.11s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     5.49s Waiting 20.0s for "Cancel" Button to exist
+    t =     6.52s     Checking `Expect predicate `existsNoRetry == 1` for object "Cancel" Button`
+    t =     6.52s         Checking existence of `"Cancel" Button`
+    t =     6.86s Waiting 10.0s for "PXGGridLayout-Info" Image to exist
+    t =     7.91s     Checking `Expect predicate `existsNoRetry == 1` for object "PXGGridLayout-Info" Image`
+    t =     7.91s         Checking existence of `"PXGGridLayout-Info" Image`
+    t =     8.10s Get number of matches for: Elements matching predicate '"PXGGridLayout-Info" IN identifiers'
+    t =     8.24s Tap "PXGGridLayout-Info" Image[0.50, 0.50]
+    t =     8.24s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     8.25s     Find the "PXGGridLayout-Info" Image
+    t =     8.39s     Check for interrupting elements affecting "PXGGridLayout-Info" Image
+    t =     8.50s     Synthesize event
+    t =     8.50s         Find the "PXGGridLayout-Info" Image
+    t =     8.65s         Find the "PXGGridLayout-Info" Image
+    t =     8.80s         Find the "PXGGridLayout-Info" Image
+    t =     9.23s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     9.23s Tap "PXGGridLayout-Info" Image[0.50, 0.50]
+    t =     9.23s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     9.23s     Find the "PXGGridLayout-Info" Image
+    t =     9.38s     Check for interrupting elements affecting "PXGGridLayout-Info" Image
+    t =     9.49s     Synthesize event
+    t =     9.49s         Find the "PXGGridLayout-Info" Image
+    t =     9.64s         Find the "PXGGridLayout-Info" Image
+    t =     9.78s         Find the "PXGGridLayout-Info" Image
+    t =    10.21s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    10.21s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =    10.39s Added attachment named 'photos-picker-selected'
+    t =    10.39s Waiting 5.0s for "Add" Button to exist
+    t =    11.42s     Checking `Expect predicate `existsNoRetry == 1` for object "Add" Button`
+    t =    11.42s         Checking existence of `"Add" Button`
+    t =    11.59s Tap "Add" Button
+    t =    11.59s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    11.59s     Find the "Add" Button
+    t =    11.75s     Check for interrupting elements affecting "Add" Button
+    t =    11.86s     Synthesize event
+    t =    12.15s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    12.62s Waiting 20.0s for "Selected 2 items" StaticText to exist
+    t =    13.65s     Checking `Expect predicate `existsNoRetry == 1` for object "Selected 2 items" StaticText`
+    t =    13.66s         Checking existence of `"Selected 2 items" StaticText`
+    t =    13.67s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =    13.73s Added attachment named 'photos-video-imported'
+    t =    13.73s Tap "createNextButton" Button
+    t =    13.73s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    13.73s     Find the "createNextButton" Button
+    t =    13.75s     Check for interrupting elements affecting "createNextButton" Button
+    t =    13.76s     Synthesize event
+    t =    14.06s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    14.06s Tap "submitCreateArchiveButton" Button
+    t =    14.06s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    14.06s     Find the "submitCreateArchiveButton" Button
+    t =    14.08s     Check for interrupting elements affecting "submitCreateArchiveButton" Button
+    t =    14.09s     Synthesize event
+    t =    14.38s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    14.78s Waiting 20.0s for "resultDoneButton" Button to exist
+    t =    15.82s     Checking `Expect predicate `existsNoRetry == 1` for object "resultDoneButton" Button`
+    t =    15.82s         Checking existence of `"resultDoneButton" Button`
+    t =    15.84s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =    15.91s Added attachment named 'photos-video-archive-result'
+    t =    15.91s Tear Down
+Test Case '-[ZipHarborUITests.ZipHarborUITests testPhotosAndVideoImportThenCreateArchive]' passed (16.132 seconds).
+Test Case '-[ZipHarborUITests.ZipHarborUITests testSelectedFolderExtractionAndPreview]' started.
+    t =     0.00s Start Test at 2026-10-01 10:45:59.601
+    t =     0.02s Set Up
+    t =     0.02s Open com.xiaolongxu.zipharbor.app
+    t =     0.02s     Launch com.xiaolongxu.zipharbor.app
+    t =     0.02s         Terminate com.xiaolongxu.zipharbor.app:43403
+2026-10-01 10:46:00.708 xcodebuild[42740:2823224] [MT] IDELaunchParametersSnapshot: debugger version lookup failed for path '<nil>': noURL
+2026-10-01 10:46:00.708 xcodebuild[42740:2823224] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =     1.31s         Setting up automation session
+    t =     1.84s         Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     3.09s Waiting 25.0s for "file-课程资料_2026.zip" Button to exist
+    t =     4.13s     Checking `Expect predicate `existsNoRetry == 1` for object "file-课程资料_2026.zip" Button`
+    t =     4.14s         Checking existence of `"file-课程资料_2026.zip" Button`
+    t =     4.18s Tap "file-课程资料_2026.zip" Button
+    t =     4.18s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     4.18s     Find the "file-课程资料_2026.zip" Button
+    t =     4.20s     Check for interrupting elements affecting "file-课程资料_2026.zip" Button
+    t =     4.21s     Synthesize event
+    t =     4.50s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     4.89s Waiting 10.0s for "entry-课程资料" Button to exist
+    t =     5.93s     Checking `Expect predicate `existsNoRetry == 1` for object "entry-课程资料" Button`
+    t =     5.93s         Checking existence of `"entry-课程资料" Button`
+    t =     5.96s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =     6.02s Added attachment named 'archive-detail'
+    t =     6.02s Tap "entry-课程资料" Button
+    t =     6.02s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     6.02s     Find the "entry-课程资料" Button
+    t =     6.03s     Check for interrupting elements affecting "entry-课程资料" Button
+    t =     6.05s     Synthesize event
+    t =     6.33s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     6.34s Checking existence of `"entry-README.txt" Button`
+    t =     6.35s Tap "entry-README.txt" Button
+    t =     6.35s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     6.35s     Find the "entry-README.txt" Button
+    t =     6.37s     Check for interrupting elements affecting "entry-README.txt" Button
+    t =     6.38s     Synthesize event
+    t =     6.67s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     7.10s Waiting 10.0s for "Read-only preview." StaticText to exist
+    t =     8.12s     Checking `Expect predicate `existsNoRetry == 1` for object "Read-only preview." StaticText`
+    t =     8.12s         Checking existence of `"Read-only preview." StaticText`
+    t =     8.22s         Capturing element debug description
+    t =     9.17s     Checking `Expect predicate `existsNoRetry == 1` for object "Read-only preview." StaticText`
+    t =     9.17s         Checking existence of `"Read-only preview." StaticText`
+    t =     9.20s         Capturing element debug description
+    t =    10.14s     Checking `Expect predicate `existsNoRetry == 1` for object "Read-only preview." StaticText`
+    t =    10.14s         Checking existence of `"Read-only preview." StaticText`
+    t =    10.18s         Capturing element debug description
+    t =    11.13s     Checking `Expect predicate `existsNoRetry == 1` for object "Read-only preview." StaticText`
+    t =    11.13s         Checking existence of `"Read-only preview." StaticText`
+    t =    11.16s         Capturing element debug description
+    t =    12.10s     Checking `Expect predicate `existsNoRetry == 1` for object "Read-only preview." StaticText`
+    t =    12.10s         Checking existence of `"Read-only preview." StaticText`
+    t =    12.13s         Capturing element debug description
+    t =    13.16s     Checking `Expect predicate `existsNoRetry == 1` for object "Read-only preview." StaticText`
+    t =    13.16s         Checking existence of `"Read-only preview." StaticText`
+    t =    13.20s         Capturing element debug description
+    t =    14.14s     Checking `Expect predicate `existsNoRetry == 1` for object "Read-only preview." StaticText`
+    t =    14.14s         Checking existence of `"Read-only preview." StaticText`
+    t =    14.17s         Capturing element debug description
+    t =    15.14s     Checking `Expect predicate `existsNoRetry == 1` for object "Read-only preview." StaticText`
+    t =    15.14s         Checking existence of `"Read-only preview." StaticText`
+    t =    15.18s         Capturing element debug description
+    t =    16.13s     Checking `Expect predicate `existsNoRetry == 1` for object "Read-only preview." StaticText`
+    t =    16.13s         Checking existence of `"Read-only preview." StaticText`
+    t =    16.17s         Capturing element debug description
+    t =    17.10s     Checking `Expect predicate `existsNoRetry == 1` for object "Read-only preview." StaticText`
+    t =    17.10s         Checking existence of `"Read-only preview." StaticText`
+    t =    17.14s         Capturing element debug description
+    t =    17.14s     Checking existence of `"Read-only preview." StaticText`
+    t =    17.17s Collecting debug information to assist test failure triage
+    t =    17.17s     Requesting snapshot of accessibility hierarchy for app with pid 43455
+    t =    17.21s Waiting 5.0s for NavigationBar (First Match) to exist
+    t =    18.27s     Checking `Expect predicate `existsNoRetry == 1` for object NavigationBar (First Match)`
+    t =    18.27s         Checking existence of `NavigationBar (First Match)`
+    t =    18.29s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =    18.38s Added attachment named 'quick-look'
+    t =    18.38s Tear Down
+Test Case '-[ZipHarborUITests.ZipHarborUITests testSelectedFolderExtractionAndPreview]' passed (18.608 seconds).
+Test Case '-[ZipHarborUITests.ZipHarborUITests testSystemFilesImportsRealArchive]' started.
+    t =     0.00s Start Test at 2026-10-01 10:46:18.209
+    t =     0.02s Set Up
+    t =     0.02s Open com.xiaolongxu.zipharbor.app
+    t =     0.02s     Launch com.xiaolongxu.zipharbor.app
+    t =     0.02s         Terminate com.xiaolongxu.zipharbor.app:43455
+2026-10-01 10:46:19.294 xcodebuild[42740:2823224] [MT] IDELaunchParametersSnapshot: debugger version lookup failed for path '<nil>': noURL
+2026-10-01 10:46:19.294 xcodebuild[42740:2823224] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =     1.29s         Setting up automation session
+    t =     1.82s         Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     3.05s Waiting 25.0s for "file-课程资料_2026.zip" Button to exist
+    t =     4.07s     Checking `Expect predicate `existsNoRetry == 1` for object "file-课程资料_2026.zip" Button`
+    t =     4.07s         Checking existence of `"file-课程资料_2026.zip" Button`
+    t =     4.11s Tap "openArchiveButton" Button
+    t =     4.11s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     4.11s     Find the "openArchiveButton" Button
+    t =     4.13s     Check for interrupting elements affecting "openArchiveButton" Button
+    t =     4.15s     Synthesize event
+    t =     4.43s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     4.44s Waiting 30.0s for "Browse" Button to exist
+    t =     5.46s     Checking `Expect predicate `existsNoRetry == 1` for object "Browse" Button`
+    t =     5.46s         Checking existence of `"Browse" Button`
+    t =     6.51s Tap "Browse" Button
+    t =     6.51s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     6.52s     Find the "Browse" Button
+    t =     6.70s     Check for interrupting elements affecting "Browse" Button
+    t =     6.75s     Synthesize event
+    t =     7.04s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     7.04s Waiting 3.0s for "Provider QA.zip" StaticText to exist
+    t =     8.09s     Checking `Expect predicate `existsNoRetry == 1` for object "Provider QA.zip" StaticText`
+    t =     8.09s         Checking existence of `"Provider QA.zip" StaticText`
+    t =     8.14s         Capturing element debug description
+    t =     9.08s     Checking `Expect predicate `existsNoRetry == 1` for object "Provider QA.zip" StaticText`
+    t =     9.08s         Checking existence of `"Provider QA.zip" StaticText`
+    t =     9.12s         Capturing element debug description
+    t =    10.05s     Checking `Expect predicate `existsNoRetry == 1` for object "Provider QA.zip" StaticText`
+    t =    10.05s         Checking existence of `"Provider QA.zip" StaticText`
+    t =    10.10s         Capturing element debug description
+    t =    10.10s     Checking existence of `"Provider QA.zip" StaticText`
+    t =    10.16s Collecting debug information to assist test failure triage
+    t =    10.16s     Requesting snapshot of accessibility hierarchy for app with pid 43505
+    t =    10.24s Checking existence of `"Downloads" StaticText`
+    t =    10.28s Waiting 10.0s for Any (First Match) to exist
+    t =    11.33s     Checking `Expect predicate `existsNoRetry == 1` for object Any (First Match)`
+    t =    11.33s         Checking existence of `Any (First Match)`
+    t =    11.41s Tap Any (First Match)
+    t =    11.41s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    11.41s     Find the Any (First Match)
+    t =    11.48s     Check for interrupting elements affecting "DOC.sidebar.item.On My iPhone" Cell
+    t =    11.53s     Synthesize event
+    t =    11.83s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    11.83s Waiting 10.0s for Cell (First Match) to exist
+    t =    12.89s     Checking `Expect predicate `existsNoRetry == 1` for object Cell (First Match)`
+    t =    12.89s         Checking existence of `Cell (First Match)`
+    t =    12.97s Tap Cell (First Match)
+    t =    12.97s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    12.97s     Find the Cell (First Match)
+    t =    13.04s     Check for interrupting elements affecting "ZipHarbor, Container" Cell
+    t =    13.09s     Synthesize event
+    t =    13.10s         Scroll element to visible
+    t =    13.10s         Find the "ZipHarbor, Container" Cell
+    t =    13.18s         Computed hit point {195, 559.33333333333337} after scrolling to visible
+    t =    13.46s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    13.47s Waiting 10.0s for "Downloads" StaticText to exist
+    t =    14.53s     Checking `Expect predicate `existsNoRetry == 1` for object "Downloads" StaticText`
+    t =    14.53s         Checking existence of `"Downloads" StaticText`
+    t =    14.58s Tap "Downloads" StaticText
+    t =    14.58s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    14.58s     Find the "Downloads" StaticText
+    t =    14.62s     Check for interrupting elements affecting "Downloads" StaticText
+    t =    14.65s     Synthesize event
+    t =    14.95s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    14.95s Waiting 10.0s for "Provider QA.zip" StaticText to exist
+    t =    15.99s     Checking `Expect predicate `existsNoRetry == 1` for object "Provider QA.zip" StaticText`
+    t =    15.99s         Checking existence of `"Provider QA.zip" StaticText`
+    t =    16.05s Tap "Provider QA.zip" StaticText
+    t =    16.05s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    16.05s     Find the "Provider QA.zip" StaticText
+    t =    16.09s     Check for interrupting elements affecting "Provider QA.zip" StaticText
+    t =    16.12s     Synthesize event
+    t =    16.42s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    16.42s Tap "Open" Button
+    t =    16.42s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    16.42s     Find the "Open" Button
+    t =    16.46s     Check for interrupting elements affecting "Open" Button
+    t =    16.50s     Synthesize event
+    t =    16.80s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    17.31s Waiting 20.0s for "entry-课程资料" Button to exist
+    t =    18.34s     Checking `Expect predicate `existsNoRetry == 1` for object "entry-课程资料" Button`
+    t =    18.34s         Checking existence of `"entry-课程资料" Button`
+    t =    18.37s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =    18.43s Added attachment named 'system-files-imported-archive'
+    t =    18.44s Tear Down
+Test Case '-[ZipHarborUITests.ZipHarborUITests testSystemFilesImportsRealArchive]' passed (18.680 seconds).
+Test Case '-[ZipHarborUITests.ZipHarborUITests testSystemPickerAndSharePresentation]' started.
+    t =     0.00s Start Test at 2026-10-01 10:46:36.891
+    t =     0.02s Set Up
+    t =     0.02s Open com.xiaolongxu.zipharbor.app
+    t =     0.02s     Launch com.xiaolongxu.zipharbor.app
+    t =     0.02s         Terminate com.xiaolongxu.zipharbor.app:43505
+2026-10-01 10:46:37.975 xcodebuild[42740:2823224] [MT] IDELaunchParametersSnapshot: debugger version lookup failed for path '<nil>': noURL
+2026-10-01 10:46:37.975 xcodebuild[42740:2823224] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =     1.29s         Setting up automation session
+    t =     1.81s         Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     3.05s Waiting 25.0s for "file-课程资料_2026.zip" Button to exist
+    t =     4.10s     Checking `Expect predicate `existsNoRetry == 1` for object "file-课程资料_2026.zip" Button`
+    t =     4.10s         Checking existence of `"file-课程资料_2026.zip" Button`
+    t =     4.15s Tap "openArchiveButton" Button
+    t =     4.15s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     4.15s     Find the "openArchiveButton" Button
+    t =     4.17s     Check for interrupting elements affecting "openArchiveButton" Button
+    t =     4.20s     Synthesize event
+    t =     4.55s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     4.56s Waiting 30.0s for "Browse" Button to exist
+    t =     5.59s     Checking `Expect predicate `existsNoRetry == 1` for object "Browse" Button`
+    t =     5.59s         Checking existence of `"Browse" Button`
+    t =     6.52s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =     6.66s Added attachment named 'system-files-picker'
+    t =     6.66s Checking existence of `Button (First Match)`
+    t =     6.72s Press Target Application 'com.xiaolongxu.zipharbor.app'[0.50, 0.08] for 0.1 seconds, then drag to Target Application 'com.xiaolongxu.zipharbor.app'[0.50, 0.85] with velocity of 500.00 pixels per second, and then hold for 0.0 seconds 
+    t =     6.72s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     6.73s     Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =     6.76s     Check for interrupting elements affecting "ZipHarbor" Application
+    t =     6.85s     Synthesize event
+    t =     6.85s         Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =     6.90s         Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =     6.93s         Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =     6.96s         Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =     7.09s         Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =     8.75s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     9.09s Waiting 5.0s for "file-课程资料_2026.zip" Button to exist
+    t =    10.13s     Checking `Expect predicate `existsNoRetry == 1` for object "file-课程资料_2026.zip" Button`
+    t =    10.13s         Checking existence of `"file-课程资料_2026.zip" Button`
+    t =    10.15s Tap "file-课程资料_2026.zip" Button
+    t =    10.15s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    10.15s     Find the "file-课程资料_2026.zip" Button
+    t =    10.17s     Check for interrupting elements affecting "file-课程资料_2026.zip" Button
+    t =    10.19s     Synthesize event
+    t =    10.48s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    10.87s Waiting 10.0s for "extractToButton" Button to exist
+    t =    11.90s     Checking `Expect predicate `existsNoRetry == 1` for object "extractToButton" Button`
+    t =    11.90s         Checking existence of `"extractToButton" Button`
+    t =    11.92s Tap "Share archive" Button
+    t =    11.92s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    11.93s     Find the "Share archive" Button
+    t =    11.94s     Check for interrupting elements affecting "Share archive" Button
+    t =    11.96s     Synthesize event
+    t =    12.24s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    12.30s Waiting 15.0s for Button (First Match) to exist
+    t =    13.36s     Checking `Expect predicate `existsNoRetry == 1` for object Button (First Match)`
+    t =    13.36s         Checking existence of `Button (First Match)`
+    t =    13.41s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =    13.49s Added attachment named 'system-share'
+    t =    13.49s Tear Down
+Test Case '-[ZipHarborUITests.ZipHarborUITests testSystemPickerAndSharePresentation]' passed (13.744 seconds).
+Test Case '-[ZipHarborUITests.ZipHarborUITests testWrongPasswordCanRetryWithoutRestartingExtraction]' started.
+    t =     0.00s Start Test at 2026-10-01 10:46:50.633
+    t =     0.01s Set Up
+    t =     0.01s Open com.xiaolongxu.zipharbor.app
+    t =     0.01s     Launch com.xiaolongxu.zipharbor.app
+    t =     0.02s         Terminate com.xiaolongxu.zipharbor.app:43586
+2026-10-01 10:46:51.741 xcodebuild[42740:2823224] [MT] IDELaunchParametersSnapshot: debugger version lookup failed for path '<nil>': noURL
+2026-10-01 10:46:51.741 xcodebuild[42740:2823224] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =     1.32s         Setting up automation session
+    t =     1.95s         Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     3.24s Waiting 25.0s for "file-课程资料_2026.zip" Button to exist
+    t =     4.31s     Checking `Expect predicate `existsNoRetry == 1` for object "file-课程资料_2026.zip" Button`
+    t =     4.31s         Checking existence of `"file-课程资料_2026.zip" Button`
+    t =     4.35s Tap "file-0903.zip" Button
+    t =     4.35s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     4.36s     Find the "file-0903.zip" Button
+    t =     4.38s     Check for interrupting elements affecting "file-0903.zip" Button
+    t =     4.40s     Synthesize event
+    t =     4.69s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     5.09s Waiting 10.0s for "extractToButton" Button to exist
+    t =     6.14s     Checking `Expect predicate `existsNoRetry == 1` for object "extractToButton" Button`
+    t =     6.14s         Checking existence of `"extractToButton" Button`
+    t =     6.16s Tap "extractToButton" Button
+    t =     6.16s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     6.17s     Find the "extractToButton" Button
+    t =     6.18s     Check for interrupting elements affecting "extractToButton" Button
+    t =     6.20s     Synthesize event
+    t =     6.48s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     6.88s Waiting 5.0s for "startExtractionButton" Button to exist
+    t =     7.90s     Checking `Expect predicate `existsNoRetry == 1` for object "startExtractionButton" Button`
+    t =     7.90s         Checking existence of `"startExtractionButton" Button`
+    t =     7.93s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =     8.01s Added attachment named 'extraction-destination'
+    t =     8.01s Tap "startExtractionButton" Button
+    t =     8.01s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     8.01s     Find the "startExtractionButton" Button
+    t =     8.03s     Check for interrupting elements affecting "startExtractionButton" Button
+    t =     8.05s     Synthesize event
+    t =     8.33s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     9.28s Waiting 15.0s for "taskPasswordField" SecureTextField to exist
+    t =    10.29s     Checking `Expect predicate `existsNoRetry == 1` for object "taskPasswordField" SecureTextField`
+    t =    10.29s         Checking existence of `"taskPasswordField" SecureTextField`
+    t =    10.31s Tap "taskPasswordField" SecureTextField
+    t =    10.31s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    10.31s     Find the "taskPasswordField" SecureTextField
+    t =    10.32s     Check for interrupting elements affecting "taskPasswordField" SecureTextField
+    t =    10.34s     Synthesize event
+    t =    10.62s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    11.01s Type '<redacted>' into "taskPasswordField" SecureTextField
+    t =    11.01s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    11.01s     Find the "taskPasswordField" SecureTextField
+    t =    11.04s     Check for interrupting elements affecting "taskPasswordField" SecureTextField
+    t =    11.06s     Synthesize event
+    t =    11.35s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    11.35s Tap "unlockAndContinueButton" Button
+    t =    11.35s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    11.35s     Find the "unlockAndContinueButton" Button
+    t =    11.41s     Check for interrupting elements affecting "unlockAndContinueButton" Button
+    t =    11.42s     Synthesize event
+    t =    11.72s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    12.10s Waiting 10.0s for "密码不正确，请重试。" StaticText to exist
+    t =    13.13s     Checking `Expect predicate `existsNoRetry == 1` for object "密码不正确，请重试。" StaticText`
+    t =    13.13s         Checking existence of `"密码不正确，请重试。" StaticText`
+    t =    13.15s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =    13.23s Added attachment named 'wrong-password'
+    t =    13.23s Tap "taskPasswordField" SecureTextField
+    t =    13.23s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    13.23s     Find the "taskPasswordField" SecureTextField
+    t =    13.24s     Check for interrupting elements affecting "taskPasswordField" SecureTextField
+    t =    13.26s     Synthesize event
+    t =    13.56s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    13.83s Type '...' into "taskPasswordField" SecureTextField
+    t =    13.83s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    13.83s     Find the "taskPasswordField" SecureTextField
+    t =    13.85s     Check for interrupting elements affecting "taskPasswordField" SecureTextField
+    t =    13.87s     Synthesize event
+    t =    14.41s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    14.41s Type '<redacted>' into "taskPasswordField" SecureTextField
+    t =    14.41s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    14.41s     Find the "taskPasswordField" SecureTextField
+    t =    14.44s     Check for interrupting elements affecting "taskPasswordField" SecureTextField
+    t =    14.45s     Synthesize event
+    t =    14.73s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    14.73s Tap "unlockAndContinueButton" Button
+    t =    14.73s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    14.73s     Find the "unlockAndContinueButton" Button
+    t =    14.76s     Check for interrupting elements affecting "unlockAndContinueButton" Button
+    t =    14.77s     Synthesize event
+    t =    15.06s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    15.44s Waiting 20.0s for "resultDoneButton" Button to exist
+    t =    16.47s     Checking `Expect predicate `existsNoRetry == 1` for object "resultDoneButton" Button`
+    t =    16.47s         Checking existence of `"resultDoneButton" Button`
+    t =    16.50s Tap "resultDoneButton" Button
+    t =    16.50s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    16.50s     Find the "resultDoneButton" Button
+    t =    16.51s     Check for interrupting elements affecting "resultDoneButton" Button
+    t =    16.53s     Synthesize event
+    t =    16.81s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    17.17s Tear Down
+Test Case '-[ZipHarborUITests.ZipHarborUITests testWrongPasswordCanRetryWithoutRestartingExtraction]' passed (17.395 seconds).
+Test Suite 'ZipHarborUITests' passed at 2026-10-01 10:47:08.028.
+	 Executed 13 tests, with 0 failures (0 unexpected) in 195.213 (195.220) seconds
+Test Suite 'ZipHarborUITests.xctest' passed at 2026-10-01 10:47:08.028.
+	 Executed 13 tests, with 0 failures (0 unexpected) in 195.213 (195.220) seconds
+Test Suite 'All tests' passed at 2026-10-01 10:47:08.028.
+	 Executed 13 tests, with 0 failures (0 unexpected) in 195.213 (195.221) seconds
+2026-10-01 10:47:08.338 xcodebuild[42740:2823224] [MT] IDETestOperationsObserverDebug: 204.622 elapsed -- Testing started completed.
+2026-10-01 10:47:08.338 xcodebuild[42740:2823224] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-01 10:47:08.338 xcodebuild[42740:2823224] [MT] IDETestOperationsObserverDebug: 204.622 sec, +204.622 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/ZipHarbor-Sim-Acceptance2-Final.xcresult
+
+** TEST SUCCEEDED **
+
+Testing started

@@ -1,0 +1,7 @@
+{
+  "iphone_simulator": "A875629A-52DA-43B2-9917-62B406AE0AB4",
+  "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-26-5",
+  "model": "iPhone 14",
+  "bundle_id": "com.xiaolongxu.zipharbor.app",
+  "device_scope": "simulator only"
+}

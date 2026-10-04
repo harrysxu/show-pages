@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="ZipHarbor 新工程技术架构 · ZipHarbor"><title>ZipHarbor 新工程技术架构 · ZipHarbor</title>
+<link rel="icon" href="app-icon/zipharbor-icon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/site.css"></head>
+<body><a class="skip" href="#main">跳转到正文</a>
+<header class="site-header"><a class="brand" href="index.html"><img src="app-icon/zipharbor-icon-1024.png" width="36" height="36" alt="">ZipHarbor</a><nav aria-label="网站导航"><a href="index.html">首页</a><a href="support.html">技术支持</a><a href="privacy.html">隐私政策</a><a href="docs.html">产品文档</a></nav></header>
+<main id="main" class="with-toc"><details class="toc-panel" open><summary>本页目录</summary><div class="toc">
+<ul>
+<li><a href="#zipharbor">ZipHarbor 新工程技术架构</a><ul>
+<li><a href="#_1">组织与依赖方向</a></li>
+<li><a href="#_2">主要职责</a></li>
+<li><a href="#_3">协议与数据</a></li>
+<li><a href="#_4">文件完整性</a></li>
+<li><a href="#_5">工程与签名</a></li>
+<li><a href="#_6">测试与运维边界</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</details><article><p class="kicker">产品文档 / 历史记录与验收范围以文中日期为准</p><h1 id="zipharbor">ZipHarbor 新工程技术架构</h1>
+<h2 id="_1">组织与依赖方向</h2>
+<pre><code>SwiftUI Features → Application → Domain protocols/value types
+                         ↓
+             Infrastructure implementations
+</code></pre>
+<p>App 是 composition root；Application 负责业务编排，Domain 不依赖 SwiftUI/SwiftData。Infrastructure 提供本地持久化、文件授权、归档引擎、系统选择/分享及身份认证。DesignSystem 管理视觉 token 和复用组件。</p>
+<h2 id="_2">主要职责</h2>
+<div aria-label="文档数据表" class="table-scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>模块</th>
+<th>职责</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AppSession</td>
+<td>导航、导入入口、文件库缓存、错误及系统预览/分享入口</td>
+</tr>
+<tr>
+<td>ArchiveViewModel</td>
+<td>当前归档目录、过滤、选中路径、按需预览和检查密码</td>
+</tr>
+<tr>
+<td>CreateViewModel</td>
+<td>两步表单、输入选择、名称清理、设置复用</td>
+</tr>
+<tr>
+<td>TaskCoordinator</td>
+<td>独立任务状态、串行队列、密码续接、冲突决策、取消重试、历史</td>
+</tr>
+<tr>
+<td>AppSettings</td>
+<td>UserDefaults 持久化偏好；不保存密码</td>
+</tr>
+<tr>
+<td>FileAccess</td>
+<td>NSFileCoordinator、security scope、异步复制及失败清理</td>
+</tr>
+<tr>
+<td>FileReference</td>
+<td>本机相对路径或外部书签、子路径解析和访问生命周期</td>
+</tr>
+<tr>
+<td>LibArchiveEngine</td>
+<td>独立工作队列上的流式压缩、读取、提取、分卷与路径检查</td>
+</tr>
+<tr>
+<td>ArchiveOperationControl</td>
+<td>NSCondition 保护的暂停、取消及等待冲突处理；不在主线程阻塞</td>
+</tr>
+<tr>
+<td>AppLockService</td>
+<td>LocalAuthentication，防止重复认证请求</td>
+</tr>
+</tbody>
+</table></div>
+<p>MainActor 仅承担 ViewModel、导航和 SwiftData 更新；归档循环及文件复制在专用 DispatchQueue 执行。ArchiveEngine 可注入实现。OperationControl 用锁保护跨线程状态，所有 C reader/writer 保持在同一工作线程。</p>
+<h2 id="_3">协议与数据</h2>
+<p><code>ArchiveEngine</code> 提供 inspect、extract、create，执行接口接收 operation control 与结构化进度。进度包含比例、处理字节/总字节、当前文件和项目数。界面更新按约 1% 节流，避免每个缓冲块都写数据库。</p>
+<p><code>JobSpec</code> 保存可重试的请求值：任务类型、输入 FileReference、目标目录、归档名称、路径选择、格式、压缩级别、分卷和目录选项。密码不属于持久化请求。LibraryItem 与 JobRecord 为 SwiftData 模型；UI 和协调器在同一个 MainActor context 中更新，消除旧版共享 activeContext 的问题。</p>
+<p>任务状态包括 queued、running、paused、waitingPassword、waitingConflict、completed、failed、cancelled、interrupted。缺少或错误密码保留原任务，暂停队列，待密码后直接重试原请求。遇到重名时，工作线程等待用户选择或取消；替换选择只有在完整新文件写入后生效。失败重试创建新的历史记录，保持失败事实。</p>
+<h2 id="_4">文件完整性</h2>
+<ul>
+<li>创建压缩包先写同目录隐藏临时文件，writer 正常关闭后再发布。</li>
+<li>解压每个条目写隐藏 <code>.partial</code> 文件，校验读取和关闭后发布；替换普通文件采用同目录 rename。</li>
+<li>中断清理当前临时内容；已成功解压文件保留，源文件和旧文件不会在新数据写完前被删除。</li>
+<li>拒绝绝对路径、父级穿越、符号链接与硬链接条目。解析既有路径中的符号链接后重新确认输出位于授权目标内。</li>
+<li>跳过的条目仍计入处理进度；大文件按 128/256 KiB 缓冲处理。</li>
+<li>Foundation FileHandle/Data 的每个缓冲块置于 autoreleasepool，避免大型 ZIP 读写产生的临时对象累积；1 GiB 用例另测任务物理内存峰值并校验 SHA256。</li>
+<li>对所选加密条目先检查密码，再写出内容；混合普通/加密 ZIP 缺少或错误密码不会先发布普通条目。</li>
+<li>系统预览、分享及目录浏览持有对应书签根的授权；分享完整分卷时，所有文件仍在授权期内。外部子目录的父级引用保留原授权根。</li>
+<li>分卷不一次加载整卷；导入按用户选择收齐全部卷，编号中间缺失给出具体错误。</li>
+<li>TAR 容器及原始 gzip/bzip2 流分别支持；未知扩展名保留错误信息。</li>
+<li>创建展开目录时，同名文件使用编号区分，保留目录时同名输入根目录也采用编号。</li>
+</ul>
+<p>输出位置由用户确认，外部书签失效不会静默更换为其他目标。iCloud、第三方文件提供者的下载/写入取决于系统 Files 授权和提供者状态。</p>
+<h2 id="_5">工程与签名</h2>
+<p>iOS/iPadOS 17+，Swift 6，Bundle ID <code>com.xiaolongxu.zipharbor.app</code>，团队 <code>3LSP26D33P</code>，Xcode 自动签名。ArchiveKit 精确版本 1.0.0，Package.resolved 提交其 revision。App 的 Core Data/CloudKit/远程推送模板能力已移除。</p>
+<p>Resources 采用 en/zh-Hans <code>.strings</code>，含 InfoPlist 权限本地化。发布构建不处理 <code>--qa-fixtures</code>，测试样例仅在 DEBUG 分支且显式启动参数存在时生成。测试文件不打包到主 App。</p>
+<h2 id="_6">测试与运维边界</h2>
+<p>测试包含引擎多格式往返、独立格式样例、冲突/目录/密码/分卷、任务协调与记录保留、1 GiB 内容校验和大量小文件、UI 全流程及真机运行。xcresult 与截图为证据，不以“安装成功”代替功能验收。</p>
+<p>应用不上传文件、不采集后台遥测。跨进程 checkpoint、系统长期后台运行与通知不在交付范围；系统终止后中断任务由用户重试。</p><p class="source-link"><a href="06-新工程技术架构.md" download>下载 Markdown 文档</a></p></article></main>
+<footer><span>ZipHarbor · 面向 iPhone 和 iPad 的本地压缩文件工具。</span><a href="docs.html">产品、设计与验收文档</a></footer>
+</body></html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>ZipHarbor · 原型对照验收</title><style>*{box-sizing:border-box}body{margin:0;background:#f3f5fa;color:#171c2e;font-family:-apple-system,BlinkMacSystemFont,sans-serif}main{max-width:1000px;margin:auto;padding:32px 20px}h1{font-size:28px}p{line-height:1.8;color:#626b82}.tabs{display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:0;background:#f3f5faee;padding:15px 0;z-index:2}button,select{border:1px solid #dfe3f1;background:white;padding:10px 16px;border-radius:12px;font:inherit;cursor:pointer}button[aria-pressed=true]{background:#5669ee;color:white}.pair,.extras{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}figure{margin:0;background:white;border:1px solid #edf0f5;padding:14px;border-radius:20px}figcaption{padding:8px 0 16px;color:#8990a3}img{display:block;width:100%;height:auto;border-radius:16px}section[hidden]{display:none}.extras{grid-template-columns:repeat(3,minmax(0,1fr))}a{color:#4354d3}.source{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:20px}@media(max-width:600px){.pair{gap:8px}figure{padding:6px}.extras{grid-template-columns:repeat(2,minmax(0,1fr))}figcaption{font-size:11px}main{padding:20px 12px}}</style></head><body><main><p><a href="docs.html">← 返回文档目录</a> · <a href="10-iPhone14真机验收-20261001.html">最新真机验收报告</a></p>
+<h1>ZipHarbor · 原型与原生界面对照</h1>
+<p>2026-10-01 · 原型来自 Safari，原生界面来自 XCTest。iPhone 14 真机完成 21 项核心测试与完整 UI suite：12 项通过、1 项合成媒体用例跳过、0 失败；补充冲突 UI 在真机与模拟器各 1 项通过。此页用于检查结构、配色、层级和交互结果；真实内容、系统安全区、长标题排版、SF Symbols 和系统弹层会产生差异。</p>
+<p><a href="08-UI-UX原型对照验收.html">UI/UX 验收说明</a> · <a href="07-新工程最终验收报告.html">测试范围与人工验收边界</a></p>
+<div class="source"><label for="device">原生截图来源</label><select id="device"><option value="device">iPhone 14 真机 · iOS 27.0</option><option value="simulator">iPhone 14 模拟器 · iOS 26.5</option></select></div>
+<nav aria-label="对照页面" class="tabs">
+<button aria-pressed="false" data-target="首页">首页</button>
+<button aria-pressed="false" data-target="归档详情">归档详情</button>
+<button aria-pressed="false" data-target="选择文件">选择文件</button>
+<button aria-pressed="false" data-target="压缩设置">压缩设置</button>
+<button aria-pressed="false" data-target="设置">设置</button>
+<button aria-pressed="false" data-target="补充证据">补充证据</button></nav>
+<section data-page="首页"><h2>首页</h2><div class="pair"><figure><figcaption>HTML 原型</figcaption><img alt="首页原型" src="migration-evidence/prototype/home-phone.png"/></figure><figure><figcaption class="native-caption">原生 App · iPhone 14 真机</figcaption><img alt="首页实际界面" data-screen="home-zh" src="migration-evidence/device/home-zh.png"/></figure></div></section>
+<section data-page="归档详情"><h2>归档详情</h2><div class="pair"><figure><figcaption>HTML 原型</figcaption><img alt="归档详情原型" src="migration-evidence/prototype/archive-phone.png"/></figure><figure><figcaption class="native-caption">原生 App · iPhone 14 真机</figcaption><img alt="归档详情实际界面" data-screen="archive-detail" src="migration-evidence/device/archive-detail.png"/></figure></div></section>
+<section data-page="选择文件"><h2>选择文件</h2><div class="pair"><figure><figcaption>HTML 原型</figcaption><img alt="选择文件原型" src="migration-evidence/prototype/create-select-phone.png"/></figure><figure><figcaption class="native-caption">原生 App · iPhone 14 真机</figcaption><img alt="选择文件实际界面" data-screen="create-select" src="migration-evidence/device/create-select.png"/></figure></div></section>
+<section data-page="压缩设置"><h2>压缩设置</h2><div class="pair"><figure><figcaption>HTML 原型</figcaption><img alt="压缩设置原型" src="migration-evidence/prototype/create-settings-phone.png"/></figure><figure><figcaption class="native-caption">原生 App · iPhone 14 真机</figcaption><img alt="压缩设置实际界面" data-screen="create-settings" src="migration-evidence/device/create-settings.png"/></figure></div></section>
+<section data-page="设置"><h2>设置</h2><div class="pair"><figure><figcaption>HTML 原型</figcaption><img alt="设置原型" src="migration-evidence/prototype/settings-phone.png"/></figure><figure><figcaption class="native-caption">原生 App · iPhone 14 真机</figcaption><img alt="设置实际界面" data-screen="settings-zh" src="migration-evidence/device/settings-zh.png"/></figure></div></section>
+<section data-page="补充证据"><h2>补充证据</h2><div class="extras">
+<figure><figcaption>真机英文深色</figcaption><img alt="真机英文深色" src="migration-evidence/device/home-dark-en.png"/></figure>
+<figure><figcaption>真机密码结果</figcaption><img alt="真机密码结果" src="migration-evidence/device/extraction-result.png"/></figure>
+<figure><figcaption>真机实际 Files 导入</figcaption><img alt="真机实际 Files 导入" src="migration-evidence/device/system-files-imported-archive.png"/></figure>
+<figure><figcaption>真机大字设置</figcaption><img alt="真机大字设置" src="migration-evidence/device/settings-large-text.png"/></figure>
+<figure><figcaption>真机系统分享</figcaption><img alt="真机系统分享" src="migration-evidence/device/system-share.png"/></figure>
+<figure><figcaption>模拟器合成照片视频</figcaption><img alt="模拟器合成照片视频" src="migration-evidence/media/photos-video-imported.png"/></figure>
+<figure><figcaption>iPad 布局</figcaption><img alt="iPad 布局" src="migration-evidence/ipad/home-en.png"/></figure>
+<figure><figcaption>真机任务已完成</figcaption><img alt="真机任务已完成" src="migration-evidence/device-conflict/tasks-completed.png"/></figure>
+<figure><figcaption>真机取消与重试</figcaption><img alt="真机取消与重试" src="migration-evidence/device-conflict/tasks-cancelled.png"/></figure>
+<figure><figcaption>真机全部冲突处理</figcaption><img alt="真机全部冲突处理" src="migration-evidence/device-conflict/conflict-apply-to-all.png"/></figure>
+<figure><figcaption>真机保留两者输出</figcaption><img alt="真机保留两者输出" src="migration-evidence/device-conflict/conflict-kept-both-output.png"/></figure>
+</div></section></main><script>
+const sections=[...document.querySelectorAll('section[data-page]')];
+const buttons=[...document.querySelectorAll('button[data-target]')];
+function show(name){sections.forEach(s=>s.hidden=s.dataset.page!==name);buttons.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.target===name)));}
+buttons.forEach(b=>b.addEventListener('click',()=>show(b.dataset.target)));
+document.querySelector('#device').addEventListener('change',event=>{
+  const folder=event.target.value;
+  document.querySelectorAll('img[data-screen]').forEach(img=>img.src='migration-evidence/'+folder+'/'+img.dataset.screen+'.png');
+  document.querySelectorAll('.native-caption').forEach(c=>c.textContent='原生 App · iPhone 14 '+(folder==='device'?'真机':'模拟器'));
+});
+show('首页');
+</script></body></html>

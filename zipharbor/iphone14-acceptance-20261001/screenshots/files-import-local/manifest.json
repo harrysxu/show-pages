@@ -1,0 +1,17 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "IPHONE14_UDID",
+        "deviceName" : "iPhone 14 验收设备",
+        "exportedFileName" : "A9ADDBBF-0FA1-4A61-8B80-F8DFE64C3169.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "system-files-import-missing-source_0_089631CE-52ED-47C4-9DD6-86E4BAFEFA4B.png",
+        "timestamp" : 1790867762.101
+      }
+    ],
+    "testIdentifier" : "ZipHarborUITests/testSystemFilesImportsRealArchive()",
+    "testIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testSystemFilesImportsRealArchive"
+  }
+]

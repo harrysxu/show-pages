@@ -1,0 +1,10 @@
+{
+  "create-settings": "docs/simulator-acceptance-20261001/screenshots/create-settings.png",
+  "home-dark-en": "docs/simulator-acceptance-20261001/screenshots/home-dark-en.png",
+  "extraction-result": "docs/simulator-acceptance-20261001/screenshots/extraction-result.png",
+  "home-zh": "docs/simulator-acceptance-20261001/screenshots/home-zh.png",
+  "photos-video-imported": "docs/simulator-acceptance-20261001/screenshots/photos-video-imported.png",
+  "conflict-kept-both-output": "docs/simulator-acceptance-20261001/screenshots/conflict-kept-both-output.png",
+  "conflict-apply-to-all": "docs/simulator-acceptance-20261001/screenshots/conflict-apply-to-all.png",
+  "system-files-imported-archive": "docs/simulator-acceptance-20261001/screenshots/system-files-imported-archive.png"
+}

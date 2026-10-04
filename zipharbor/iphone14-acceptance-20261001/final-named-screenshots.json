@@ -1,0 +1,15 @@
+{
+  "settings-large-text": "screenshots/final-named/settings-large-text.png",
+  "create-settings": "screenshots/final-named/create-settings.png",
+  "home-dark-en": "screenshots/final-named/home-dark-en.png",
+  "extraction-result": "screenshots/final-named/extraction-result.png",
+  "home-zh": "screenshots/final-named/home-zh.png",
+  "settings-zh": "screenshots/final-named/settings-zh.png",
+  "conflict-kept-both-output": "screenshots/final-named/conflict-kept-both-output.png",
+  "conflict-apply-to-all": "screenshots/final-named/conflict-apply-to-all.png",
+  "tasks-cancelled": "screenshots/final-named/tasks-cancelled.png",
+  "tasks-completed": "screenshots/final-named/tasks-completed.png",
+  "archive-detail": "screenshots/final-named/archive-detail.png",
+  "system-files-imported-archive": "screenshots/final-named/system-files-imported-archive.png",
+  "system-share": "screenshots/final-named/system-share.png"
+}

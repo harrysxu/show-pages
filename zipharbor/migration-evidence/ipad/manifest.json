@@ -1,0 +1,68 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "7EDA3F8B-989C-4615-8775-45C2623092CA",
+        "deviceName" : "ZipHarbor iPad QA",
+        "exportedFileName" : "5F2246BD-12E1-4F1E-9008-75AF60E6C4D6.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "extraction-destination_0_B2C381CF-51E3-4661-B521-1CD4D2D5E845.png",
+        "timestamp" : 1790822695.753
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "7EDA3F8B-989C-4615-8775-45C2623092CA",
+        "deviceName" : "ZipHarbor iPad QA",
+        "exportedFileName" : "1C2F0765-E3EE-48A6-92FF-82797FDD0FAF.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "create-settings_0_B3CED42C-BC4A-4CEB-8801-9B0DC43B203F.png",
+        "timestamp" : 1790822681.212
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "7EDA3F8B-989C-4615-8775-45C2623092CA",
+        "deviceName" : "ZipHarbor iPad QA",
+        "exportedFileName" : "76C29231-9B25-46DB-8B2F-554CA2C09A0A.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "create-select_0_87C94840-1DE3-441A-9119-871CB112E68F.png",
+        "timestamp" : 1790822680.778
+      }
+    ],
+    "testIdentifier" : "ZipHarborUITests/testCreateTwoStepsAESRoundTripAndBackPreservesSelection()",
+    "testIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testCreateTwoStepsAESRoundTripAndBackPreservesSelection"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "7EDA3F8B-989C-4615-8775-45C2623092CA",
+        "deviceName" : "ZipHarbor iPad QA",
+        "exportedFileName" : "2493F85B-DD11-44CB-AC14-B79D26678ABF.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "home-dark-en_0_F747B241-0871-4B7D-A414-DABEE0AA3CEA.png",
+        "timestamp" : 1790822707.915
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "7EDA3F8B-989C-4615-8775-45C2623092CA",
+        "deviceName" : "ZipHarbor iPad QA",
+        "exportedFileName" : "CA521831-6E96-4447-8A65-85C774D2B3BF.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "settings-dark-en_0_C3719E08-EF9F-4999-8B4E-A63250392BF5.png",
+        "timestamp" : 1790822707.498
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "7EDA3F8B-989C-4615-8775-45C2623092CA",
+        "deviceName" : "ZipHarbor iPad QA",
+        "exportedFileName" : "589A1612-C1DE-4B48-BC85-2DE30DDDA304.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "home-en_0_2108DA2E-654A-44B6-A358-6E565982FD98.png",
+        "timestamp" : 1790822706.741
+      }
+    ],
+    "testIdentifier" : "ZipHarborUITests/testEnglishAndDarkAppearance()",
+    "testIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testEnglishAndDarkAppearance"
+  }
+]

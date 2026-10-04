@@ -1,0 +1,32 @@
+{
+  "conflict-kept-both-output": {
+    "test": "ZipHarborUITests/testRepeatedExtractionConflictCancelRetryAndKeepBoth()",
+    "source": "19A6BF25-B181-480B-9433-1A792B3112D2.png",
+    "timestamp": 1790834431.449
+  },
+  "conflict-apply-to-all": {
+    "test": "ZipHarborUITests/testRepeatedExtractionConflictCancelRetryAndKeepBoth()",
+    "source": "D2FCCE33-7F07-49AB-9F9A-393A6C2BF9E5.png",
+    "timestamp": 1790834427.051
+  },
+  "tasks-cancelled": {
+    "test": "ZipHarborUITests/testRepeatedExtractionConflictCancelRetryAndKeepBoth()",
+    "source": "8B740C35-D45E-4B0A-817F-5272353AEAE5.png",
+    "timestamp": 1790834422.998
+  },
+  "conflict-choice": {
+    "test": "ZipHarborUITests/testRepeatedExtractionConflictCancelRetryAndKeepBoth()",
+    "source": "34AAB91E-50F1-46F9-B4EE-A425A8B7E0A3.png",
+    "timestamp": 1790834420.326
+  },
+  "extraction-destination": {
+    "test": "ZipHarborUITests/testRepeatedExtractionConflictCancelRetryAndKeepBoth()",
+    "source": "F2ED706C-E618-4670-9687-961C40A3BCDF.png",
+    "timestamp": 1790834407.377
+  },
+  "tasks-completed": {
+    "test": "ZipHarborUITests/testRepeatedExtractionConflictCancelRetryAndKeepBoth()",
+    "source": "560332E4-A1F2-471C-8332-130E3BA194F6.png",
+    "timestamp": 1790834412.73
+  }
+}

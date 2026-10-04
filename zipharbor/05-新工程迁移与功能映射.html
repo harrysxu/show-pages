@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="ZipHarbor 新工程迁移与功能映射 · ZipHarbor"><title>ZipHarbor 新工程迁移与功能映射 · ZipHarbor</title>
+<link rel="icon" href="app-icon/zipharbor-icon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/site.css"></head>
+<body><a class="skip" href="#main">跳转到正文</a>
+<header class="site-header"><a class="brand" href="index.html"><img src="app-icon/zipharbor-icon-1024.png" width="36" height="36" alt="">ZipHarbor</a><nav aria-label="网站导航"><a href="index.html">首页</a><a href="support.html">技术支持</a><a href="privacy.html">隐私政策</a><a href="docs.html">产品文档</a></nav></header>
+<main id="main" class="with-toc"><details class="toc-panel" open><summary>本页目录</summary><div class="toc">
+<ul>
+<li><a href="#zipharbor">ZipHarbor 新工程迁移与功能映射</a><ul>
+<li><a href="#_1">工程与产品边界</a></li>
+<li><a href="#_2">功能映射</a></li>
+<li><a href="#_3">文件位置与默认值</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</details><article><p class="kicker">产品文档 / 历史记录与验收范围以文中日期为准</p><h1 id="zipharbor">ZipHarbor 新工程迁移与功能映射</h1>
+<p>迁移日期：2026-10-01。开发入口为 <code>ZipHarbor/ZipHarbor.xcodeproj</code>，scheme 为 ZipHarbor。旧 <code>app/</code> 保留作迁移来源。应用标识为 <code>com.xiaolongxu.zipharbor.app</code>，与旧应用独立，不迁移旧数据库。</p>
+<h2 id="_1">工程与产品边界</h2>
+<p>iOS/iPadOS 17+，Swift 6，SwiftUI，SwiftData 本地存储。保留用户初始化的原生 Xcode 工程、同步文件夹与三个 targets；移除模板 Core Data、CloudKit、推送和多平台配置。iCloud Drive 由用户通过系统 Files 授权访问，不代表使用 CloudKit。ArchiveKit 1.0.0 精确锁定；本地打包完整依赖许可，设置页可查看。</p>
+<p>本次实现旧版真实能力及 HTML 原型的实际交互。不包含账号、广告、云端解压、完整文件管理器、回收站、快捷指令、跨进程断点续传或加密 7z 创建。加密 RAR 保持明确不支持。分卷指 <code>.zip.001</code> 原始切片方式，不承诺传统 split ZIP/多卷 RAR 的全面兼容。</p>
+<h2 id="_2">功能映射</h2>
+<div aria-label="文档数据表" class="table-scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>来源能力</th>
+<th>新工程实现</th>
+<th>关键行为</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Files / URL 导入</td>
+<td>FileAccess、AppSession</td>
+<td>安全访问授权、协调读取、复制到独立目录；外部打开后进入详情</td>
+</tr>
+<tr>
+<td>照片及视频</td>
+<td>CreateView、PickedMedia</td>
+<td>系统 PhotosPicker，仅处理选中内容，FileRepresentation 避免把视频整体加载到内存</td>
+</tr>
+<tr>
+<td>多格式归档浏览</td>
+<td>LibArchiveEngine、ArchiveViewModel</td>
+<td>ZIP/7z/RAR/TAR/GZIP/BZIP2；复合扩展名、目录导航、类型筛选、搜索</td>
+</tr>
+<tr>
+<td>文件与目录选择</td>
+<td>ArchiveViewModel</td>
+<td>选择和打开分为独立点击区域；目录包含后代</td>
+</tr>
+<tr>
+<td>全部 / 部分解压</td>
+<td>TaskCoordinator、LibArchiveEngine</td>
+<td>目标目录、层级保留/展开、输出文件夹、真实进度</td>
+</tr>
+<tr>
+<td>重名处理</td>
+<td>ArchiveOperationControl、ConflictView</td>
+<td>询问/保留两份/跳过/替换；可应用到全部冲突</td>
+</tr>
+<tr>
+<td>ZIP / 7z 创建</td>
+<td>CreateViewModel、LibArchiveEngine</td>
+<td>两步创建；名称、目标目录、压缩级别、目录结构</td>
+</tr>
+<tr>
+<td>AES ZIP</td>
+<td>密码弹层及引擎</td>
+<td>密码仅保存在内存；缺少密码/错误密码分别处理</td>
+</tr>
+<tr>
+<td>密码后继续解压</td>
+<td>TaskCoordinator 原任务恢复</td>
+<td>保留 JobSpec 与任务 ID，输入后直接继续，无需再点解压</td>
+</tr>
+<tr>
+<td>分卷</td>
+<td>LibArchiveEngine、创建设置及系统分享</td>
+<td>64/128/256/512 MB；流式分块、缺卷检查、全部分卷分享</td>
+</tr>
+<tr>
+<td>收藏 / 最近文件</td>
+<td>LibraryItem、首页和收藏位置</td>
+<td>本地持久化，原型最近文件列表与查看全部</td>
+</tr>
+<tr>
+<td>任务历史</td>
+<td>JobRecord、TasksView</td>
+<td>筛选、重试、查看结果、打开文件夹、沿用最近设置</td>
+</tr>
+<tr>
+<td>暂停 / 继续 / 取消</td>
+<td>独立 operation control</td>
+<td>工作队列检查点；切换页面仍继续；取消清理临时文件</td>
+</tr>
+<tr>
+<td>应用锁</td>
+<td>AppLockService</td>
+<td>LocalAuthentication，Face ID 或设备密码；验证失败保持锁定</td>
+</tr>
+<tr>
+<td>深色外观</td>
+<td>AppSettings、DesignSystem</td>
+<td>原型颜色 token、持久化开关</td>
+</tr>
+<tr>
+<td>默认解压设置</td>
+<td>AppSettings、ExtractionSheet</td>
+<td>实际使用默认目标与目录结构；外部位置书签</td>
+</tr>
+<tr>
+<td>清除记录</td>
+<td>TaskCoordinator</td>
+<td>只清除已结束任务；不删除文件、收藏及运行中任务</td>
+</tr>
+<tr>
+<td>中英文</td>
+<td>Resources/en、zh-Hans</td>
+<td>界面、错误、系统权限提示；文件名保持原样</td>
+</tr>
+<tr>
+<td>Quick Look / 分享</td>
+<td>SystemBridges、FolderBrowser、ResultView</td>
+<td>只读预览、嵌套目录、原生分享面板</td>
+</tr>
+<tr>
+<td>原型结果弹层</td>
+<td>ResultView</td>
+<td>真实文件位置与结果；“完成”明确关闭</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="_3">文件位置与默认值</h2>
+<ul>
+<li>导入文件复制至 Documents/Library/随机目录，分卷保留在同一目录。</li>
+<li>本机输出使用 Documents/Downloads，对系统 Files 开启文档共享。</li>
+<li>默认解压位置为压缩包所在位置；打开目标弹层时读取真实设置。</li>
+<li>每次解压生成按归档名称命名的结果目录，重名条目按所选策略处理。</li>
+<li>本机路径以 Documents 相对路径保存，避免沙盒绝对路径变化导致文件失联。</li>
+<li>外部位置使用书签，执行期间保持访问权限，失效时显示重新选择位置的错误。</li>
+<li>串行任务队列；暂停当前任务保留执行位置并等待恢复。系统终止后的任务标为已中断，可以从头重试。</li>
+<li>任务记录保留 30 天；过期和清除记录均不删除结果文件。</li>
+<li>默认浅色，用户可开启深色并持久保存。</li>
+</ul>
+<p>最终验证结果及已知边界见 <code>07-新工程最终验收报告.md</code>。</p><p class="source-link"><a href="05-新工程迁移与功能映射.md" download>下载 Markdown 文档</a></p></article></main>
+<footer><span>ZipHarbor · 面向 iPhone 和 iPad 的本地压缩文件工具。</span><a href="docs.html">产品、设计与验收文档</a></footer>
+</body></html>

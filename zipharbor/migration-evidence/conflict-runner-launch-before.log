@@ -1,0 +1,367 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project ZipHarbor/ZipHarbor.xcodeproj -scheme ZipHarbor -destination platform=iOS,id=IPHONE14_UDID -derivedDataPath /tmp/ZipHarbor-Device -allowProvisioningUpdates -resultBundlePath /tmp/ZipHarbor-Device-Conflict-Acceptance.xcresult -parallel-testing-enabled NO test "-only-testing:ZipHarborUITests/ZipHarborUITests/testRepeatedExtractionConflictCancelRetryAndKeepBoth"
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  ArchiveKit: https://github.com/Lakr233/libarchive.xcframework.git @ 1.0.0
+
+Writing result bundle at path:
+	/tmp/ZipHarbor-Device-Conflict-Acceptance.xcresult
+
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (5 targets)
+    Target 'ZipHarborUITests' in project 'ZipHarbor'
+        ➜ Explicit dependency on target 'ZipHarbor' in project 'ZipHarbor'
+    Target 'ZipHarborTests' in project 'ZipHarbor'
+        ➜ Explicit dependency on target 'ZipHarbor' in project 'ZipHarbor'
+    Target 'ZipHarbor' in project 'ZipHarbor'
+        ➜ Explicit dependency on target 'ArchiveKit-product' in project 'ArchiveKit'
+    Target 'ArchiveKit-product' in project 'ArchiveKit'
+        ➜ Explicit dependency on target 'ArchiveKit' in project 'ArchiveKit'
+    Target 'ArchiveKit' in project 'ArchiveKit' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ClangStatCache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.0.sdk /tmp/ZipHarbor-Device/SDKStatCaches.noindex/iphoneos27.0-24A430-6c78b3cbc238196c85e1bf6c792c5915.sdkstatcache
+    cd /Users/USER/github_space/zip-app/ZipHarbor/ZipHarbor.xcodeproj
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.0.sdk -o /tmp/ZipHarbor-Device/SDKStatCaches.noindex/iphoneos27.0-24A430-6c78b3cbc238196c85e1bf6c792c5915.sdkstatcache
+
+SwiftDriver ZipHarborUITests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name ZipHarborUITests -Onone @/tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.SwiftFileList -DDEBUG -module-alias Testing\=_Testing_Unavailable -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.0.sdk -target arm64-apple-ios17.0 -g -module-cache-path /tmp/ZipHarbor-Device/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/ZipHarbor-Device/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/lib -F /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.0.sdk/Developer/Library/Frameworks -parse-as-library -c -j15 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/ZipHarbor-Device/SDKStatCaches.noindex/iphoneos27.0-24A430-6c78b3cbc238196c85e1bf6c792c5915.sdkstatcache -output-file-map /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/ZipHarbor-Device/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/ZipHarbor-Device/ModuleCache.noindex -sdk-module-cache-path /tmp/ZipHarbor-Device/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/ZipHarbor-Device/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/ZipHarborUITests-generated-files.hmap -Xcc -I/tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/ZipHarborUITests-own-target-headers.hmap -Xcc -I/tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/ZipHarborUITests-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarbor-576ff8f1de8c1a2cbc0351e2756fa15b-VFS-iphoneos/all-product-headers.yaml -Xcc -iquote -Xcc /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/ZipHarborUITests-project-headers.hmap -Xcc -I/tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/include -Xcc -I/tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/DerivedSources-normal/arm64 -Xcc -I/tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/DerivedSources/arm64 -Xcc -I/tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests-Swift.h -working-directory /Users/USER/github_space/zip-app/ZipHarbor -experimental-emit-module-separately -disable-cmo
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ ZipHarborUITests (in target 'ZipHarborUITests' from project 'ZipHarbor')
+
+SwiftCompile normal arm64 (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    
+
+SwiftCompile normal arm64 Compiling\ ZipHarborUITests.swift /Users/USER/github_space/zip-app/ZipHarbor/ZipHarborUITests/ZipHarborUITests.swift (in target 'ZipHarborUITests' from project 'ZipHarbor')
+
+SwiftCompile normal arm64 /Users/USER/github_space/zip-app/ZipHarbor/ZipHarborUITests/ZipHarborUITests.swift (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    builtin-SwiftPerFileCompile ZipHarborUITests.swift
+
+SwiftDriverJobDiscovery normal arm64 Emitting module for ZipHarborUITests (in target 'ZipHarborUITests' from project 'ZipHarbor')
+
+SwiftDriver\ Compilation\ Requirements ZipHarborUITests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name ZipHarborUITests -Onone @/tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.SwiftFileList -DDEBUG -module-alias Testing\=_Testing_Unavailable -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.0.sdk -target arm64-apple-ios17.0 -g -module-cache-path /tmp/ZipHarbor-Device/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/ZipHarbor-Device/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/lib -F /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.0.sdk/Developer/Library/Frameworks -parse-as-library -c -j15 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/ZipHarbor-Device/SDKStatCaches.noindex/iphoneos27.0-24A430-6c78b3cbc238196c85e1bf6c792c5915.sdkstatcache -output-file-map /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/ZipHarbor-Device/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/ZipHarbor-Device/ModuleCache.noindex -sdk-module-cache-path /tmp/ZipHarbor-Device/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/ZipHarbor-Device/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/ZipHarborUITests-generated-files.hmap -Xcc -I/tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/ZipHarborUITests-own-target-headers.hmap -Xcc -I/tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/ZipHarborUITests-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarbor-576ff8f1de8c1a2cbc0351e2756fa15b-VFS-iphoneos/all-product-headers.yaml -Xcc -iquote -Xcc /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/ZipHarborUITests-project-headers.hmap -Xcc -I/tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/include -Xcc -I/tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/DerivedSources-normal/arm64 -Xcc -I/tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/DerivedSources/arm64 -Xcc -I/tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests-Swift.h -working-directory /Users/USER/github_space/zip-app/ZipHarbor -experimental-emit-module-separately -disable-cmo
+
+Copy /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.swiftsourceinfo (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.swiftsourceinfo /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo
+
+Copy /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests.swiftmodule/arm64-apple-ios.abi.json /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.abi.json (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.abi.json /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests.swiftmodule/arm64-apple-ios.abi.json
+
+SwiftDriverJobDiscovery normal arm64 Compiling ZipHarborUITests.swift (in target 'ZipHarborUITests' from project 'ZipHarbor')
+
+SwiftDriver\ Compilation ZipHarborUITests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    builtin-Swift-Compilation -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name ZipHarborUITests -Onone @/tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.SwiftFileList -DDEBUG -module-alias Testing\=_Testing_Unavailable -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.0.sdk -target arm64-apple-ios17.0 -g -module-cache-path /tmp/ZipHarbor-Device/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/ZipHarbor-Device/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/lib -F /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.0.sdk/Developer/Library/Frameworks -parse-as-library -c -j15 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/ZipHarbor-Device/SDKStatCaches.noindex/iphoneos27.0-24A430-6c78b3cbc238196c85e1bf6c792c5915.sdkstatcache -output-file-map /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/ZipHarbor-Device/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/ZipHarbor-Device/ModuleCache.noindex -sdk-module-cache-path /tmp/ZipHarbor-Device/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/ZipHarbor-Device/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/ZipHarborUITests-generated-files.hmap -Xcc -I/tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/ZipHarborUITests-own-target-headers.hmap -Xcc -I/tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/ZipHarborUITests-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarbor-576ff8f1de8c1a2cbc0351e2756fa15b-VFS-iphoneos/all-product-headers.yaml -Xcc -iquote -Xcc /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/ZipHarborUITests-project-headers.hmap -Xcc -I/tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/include -Xcc -I/tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/DerivedSources-normal/arm64 -Xcc -I/tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/DerivedSources/arm64 -Xcc -I/tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests-Swift.h -working-directory /Users/USER/github_space/zip-app/ZipHarbor -experimental-emit-module-separately -disable-cmo
+
+Ld /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest/ZipHarborUITests normal (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios17.0 -bundle -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.0.sdk -O0 -Xlinker -no_warn_duplicate_libraries -L/tmp/ZipHarbor-Device/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphoneos -L/tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos -L/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/lib -F/tmp/ZipHarbor-Device/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphoneos -F/tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Frameworks -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.0.sdk/Developer/Library/Frameworks -filelist /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.LinkFileList -Xlinker -rpath -Xlinker /usr/lib/swift -Xlinker -rpath -Xlinker @loader_path/Frameworks -Xlinker -dead_strip -Xlinker -object_path_lto -Xlinker /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -dependency_info -Xlinker /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.swiftmodule -Xlinker -needed_framework -Xlinker XCTest -framework XCTest -Xlinker -needed-lXCTestSwiftSupport -lXCTestSwiftSupport -Xlinker -no_adhoc_codesign -o /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest/ZipHarborUITests
+
+GenerateDSYMFile /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest.dSYM /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest/ZipHarborUITests (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    export PATH\=/Applications/Xcode.app/Contents/SharedFrameworks/SwiftBuild.framework/Versions/A/PlugIns/SWBBuildService.bundle/Contents/PlugIns/SWBUniversalPlatformPlugin.bundle/Contents/Frameworks/SWBUniversalPlatform.framework/Resources:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/local/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/libexec:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/usr/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/usr/local/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/local/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/local/bin:/Users/USER/.codex/packages/app-server-daemon/releases/0.159.3-aarch64-apple-darwin/codex-path:/Users/USER/.antigravity-ide/antigravity-ide/bin:/opt/homebrew/opt/libpq/bin:/Users/USER/.cargo/bin:/Users/USER/bin:/Users/USER/.local/bin:/usr/local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Applications/VMware\ Fusion.app/Contents/Public:/Users/USER/.codex/tmp/arg0/codex-arg0jQmx0n:/Users/USER/.codex/tmp/arg0/codex-arg0fiC75j:/Users/USER/.codex/packages/app-server-daemon/releases/0.159.2-aarch64-apple-darwin/codex-path:/Users/USER/.codex/tmp/arg0/codex-arg0Pk2oVk:/Users/USER/.codex/packages/app-server-daemon/releases/0.159.0-aarch64-apple-darwin/codex-path:/Users/USER/.codex/tmp/arg0/codex-arg0P6dOMQ:/Users/USER/.codex/packages/app-server-daemon/releases/0.158.0-aarch64-apple-darwin/codex-path:/Users/USER/.codex/tmp/arg0/codex-arg0TwuA4p:/Users/USER/.codex/packages/app-server-daemon/releases/0.157.1-aarch64-apple-darwin/codex-path:/Users/USER/.codex/tmp/arg0/codex-arg0B5FiaY:/opt/homebrew/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Applications/iTerm.app/Contents/Resources/utilities
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest/ZipHarborUITests -o /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest.dSYM
+
+CopySwiftLibs /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    builtin-swiftStdLibTool --copy --verbose --sign FFD2AF526670F8DE3BED6017FCAE181F2157970F --scan-executable /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest/ZipHarborUITests --scan-folder /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest/Frameworks --scan-folder /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest/PlugIns --scan-folder /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest/SystemExtensions --scan-folder /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest/Extensions --platform iphoneos --toolchain /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest/Frameworks --strip-bitcode --scan-executable /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/lib/libXCTestSwiftSupport.dylib --strip-bitcode-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os
+
+ExtractAppIntentsMetadata (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name ZipHarborUITests --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.0.sdk --xcode-version 27A266a --platform-family iOS --deployment-target 17.0 --bundle-identifier com.xiaolongxu.zipharbor.app.uitests --output /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest --target-triple arm64-apple-ios17.0 --binary-file /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest/ZipHarborUITests --dependency-file /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests_dependency_info.dat --stringsdata-file /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.SwiftFileList --metadata-file-list /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/ZipHarborUITests.DependencyMetadataFileList --static-metadata-file-list /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/ZipHarborUITests.DependencyStaticMetadataFileList --swift-const-vals-list /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --no-app-shortcuts-localization
+2026-10-01 13:56:47.231 appintentsmetadataprocessor[55323:2980630] Starting appintentsmetadataprocessor export
+2026-10-01 13:56:47.236 appintentsmetadataprocessor[55323:2980630] warning: Metadata extraction skipped, no AppIntents.framework dependency found
+
+CodeSign /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    
+    Signing Identity:     "Apple Development: xiaolong xu (HY7V43DS7R)"
+    Provisioning Profile: "iOS Team Provisioning Profile: *"
+                          (63dd1084-944d-4fc2-ba15-f1a3f72c90a3)
+    
+    /usr/bin/codesign --force --sign FFD2AF526670F8DE3BED6017FCAE181F2157970F --entitlements /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/ZipHarborUITests.xctest.xcent --timestamp\=none --generate-entitlement-der /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest
+
+CodeSign /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests-Runner.app (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    
+    Signing Identity:     "Apple Development: xiaolong xu (HY7V43DS7R)"
+    Provisioning Profile: "iOS Team Provisioning Profile: *"
+                          (63dd1084-944d-4fc2-ba15-f1a3f72c90a3)
+    
+    /usr/bin/codesign --force --sign FFD2AF526670F8DE3BED6017FCAE181F2157970F --entitlements /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/ZipHarborUITests.xctest.xcent --timestamp\=none --generate-entitlement-der /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests-Runner.app
+/tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests-Runner.app: replacing existing signature
+
+PruneExplicitPrecompiledModules /tmp/ZipHarbor-Device/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+
+PruneExplicitPrecompiledModules /tmp/ZipHarbor-Device/SDKExplicitPrecompiledModules
+
+PruneExplicitPrecompiledModules /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ExplicitPrecompiledModules
+
+2026-10-01 13:57:18.872 xcodebuild[55280:2982167]  IDELaunchReport: 6cc4e48957e71580:6cc4e48957e72040:Launching ZipHarborUITests Finished with error: The application could not be launched because the Developer App Certificate is not trusted.
+Domain: IDELaunchCoreDevice
+Code: 0
+Recovery Suggestion: Verify that the Developer App certificate for your account is trusted on your device. Open Settings on the device and navigate to General -> VPN & Device Management, then select your Developer App certificate to trust it.
+User Info: {
+    DVTErrorCreationDateKey = "2026-10-01 05:57:18 +0000";
+    IDERunOperationFailingWorker = IDELaunchCoreDeviceWorker;
+}
+--
+The application failed to launch.
+Domain: com.apple.dt.CoreDeviceError
+Code: 10002
+User Info: {
+    BundleIdentifier = "com.xiaolongxu.zipharbor.app.uitests.xctrunner";
+}
+--
+The request to open "com.xiaolongxu.zipharbor.app.uitests.xctrunner" failed.
+Domain: FBSOpenApplicationServiceErrorDomain
+Code: 1
+Failure Reason: The request was denied by service delegate (SBMainWorkspace) for reason: Security ("Unable to launch com.xiaolongxu.zipharbor.app.uitests.xctrunner because it has an invalid code signature, inadequate entitlements or its profile has not been explicitly trusted by the user").
+User Info: {
+    BSErrorCodeDescription = RequestDenied;
+    FBSOpenApplicationRequestID = 0x9a41;
+}
+--
+The operation couldn’t be completed. Unable to launch com.xiaolongxu.zipharbor.app.uitests.xctrunner because it has an invalid code signature, inadequate entitlements or its profile has not been explicitly trusted by the user.
+Domain: FBSOpenApplicationErrorDomain
+Code: 3
+Failure Reason: Unable to launch com.xiaolongxu.zipharbor.app.uitests.xctrunner because it has an invalid code signature, inadequate entitlements or its profile has not been explicitly trusted by the user.
+User Info: {
+    BSErrorCodeDescription = Security;
+}
+--
+
+2026-10-01 13:57:18.872 xcodebuild[55280:2982167]  IDELaunchReport: 6cc4e48957e71580:6cc4e48957e72040:Launching ZipHarborUITests com.apple.dt.IDERunOperationWorkerFinished {
+    "device_identifier" = "IPHONE14_UDID";
+    "device_isCoreDevice" = 1;
+    "device_model" = "iPhone14,7";
+    "device_osBuild" = "27.0 (24A437)";
+    "device_osBuild_monotonic" = 24000437000000000;
+    "device_os_variant" = 1;
+    "device_platform" = "com.apple.platform.iphoneos";
+    "device_platform_family" = 2;
+    "device_reality" = 1;
+    "device_thinningType" = "iPhone14,7";
+    "device_transport" = 1;
+    "launchSession_initiator" = 1;
+    "launchSession_schemeCommand" = Test;
+    "launchSession_schemeCommand_enum" = 2;
+    "launchSession_targetArch" = arm64;
+    "launchSession_targetArch_enum" = 6;
+    "operation_duration_ms" = 149;
+    "operation_errorCode" = 0;
+    "operation_errorDomain" = IDELaunchCoreDevice;
+    "operation_errorWorker" = IDELaunchCoreDeviceWorker;
+    "operation_error_reportable" = 0;
+    "operation_name" = IDELaunchCoreDeviceWorker;
+    "param_consoleMode" = 0;
+    "param_debugger_attachToExtensions" = 0;
+    "param_debugger_attachToXPC" = 0;
+    "param_debugger_type" = 1;
+    "param_destination_isProxy" = 0;
+    "param_destination_platform" = "com.apple.platform.iphoneos";
+    "param_diag_MTE_enable" = 0;
+    "param_diag_MainThreadChecker_stopOnIssue" = 0;
+    "param_diag_MallocStackLogging_enableDuringAttach" = 0;
+    "param_diag_MallocStackLogging_enableForXPC" = 0;
+    "param_diag_allowLocationSimulation" = 1;
+    "param_diag_checker_mtc_enable" = 0;
+    "param_diag_checker_tpc_enable" = 1;
+    "param_diag_gpu_frameCapture_enable" = 3;
+    "param_diag_gpu_shaderValidation_enable" = 0;
+    "param_diag_gpu_validation_enable" = 1;
+    "param_diag_guardMalloc_enable" = 0;
+    "param_diag_memoryGraphOnResourceException" = 0;
+    "param_diag_queueDebugging_enable" = 0;
+    "param_diag_runtimeProfile_generate" = 0;
+    "param_diag_sanitizer_asan_enable" = 0;
+    "param_diag_sanitizer_mtasan_enable" = 0;
+    "param_diag_sanitizer_tsan_enable" = 0;
+    "param_diag_sanitizer_tsan_stopOnIssue" = 0;
+    "param_diag_sanitizer_ubsan_enable" = 0;
+    "param_diag_sanitizer_ubsan_stopOnIssue" = 0;
+    "param_diag_showNonLocalizedStrings" = 0;
+    "param_diag_viewDebugging_enabled" = 0;
+    "param_diag_viewDebugging_insertDylibOnLaunch" = 0;
+    "param_install_style" = 2;
+    "param_launcher_UID" = 2;
+    "param_launcher_allowDeviceSensorReplayData" = 0;
+    "param_launcher_kind" = 0;
+    "param_launcher_style" = 0;
+    "param_launcher_substyle" = 64;
+    "param_runnable_appExtensionHostRunMode" = 0;
+    "param_runnable_productType" = "com.apple.product-type.application";
+    "param_testing_launchedForTesting" = 1;
+    "param_testing_suppressSimulatorApp" = 1;
+    "param_testing_usingCLI" = 0;
+    "sdk_canonicalName" = "iphoneos27.0";
+    "sdk_osVersion" = "27.0";
+    "sdk_platformID" = 2;
+    "sdk_variant" = iphoneos;
+    "sdk_version_monotonic" = 24000430000000000;
+}
+2026-10-01 13:57:18.873 xcodebuild[55280:2982167]  IDELaunchReport: 6cc4e48957e71580:6cc4e48957e71580: Finished with error: The application could not be launched because the Developer App Certificate is not trusted.
+Domain: IDELaunchCoreDevice
+Code: 0
+Recovery Suggestion: Verify that the Developer App certificate for your account is trusted on your device. Open Settings on the device and navigate to General -> VPN & Device Management, then select your Developer App certificate to trust it.
+User Info: {
+    DVTErrorCreationDateKey = "2026-10-01 05:57:18 +0000";
+    IDERunOperationFailingWorker = IDELaunchCoreDeviceWorker;
+}
+--
+The application failed to launch.
+Domain: com.apple.dt.CoreDeviceError
+Code: 10002
+User Info: {
+    BundleIdentifier = "com.xiaolongxu.zipharbor.app.uitests.xctrunner";
+}
+--
+The request to open "com.xiaolongxu.zipharbor.app.uitests.xctrunner" failed.
+Domain: FBSOpenApplicationServiceErrorDomain
+Code: 1
+Failure Reason: The request was denied by service delegate (SBMainWorkspace) for reason: Security ("Unable to launch com.xiaolongxu.zipharbor.app.uitests.xctrunner because it has an invalid code signature, inadequate entitlements or its profile has not been explicitly trusted by the user").
+User Info: {
+    BSErrorCodeDescription = RequestDenied;
+    FBSOpenApplicationRequestID = 0x9a41;
+}
+--
+The operation couldn’t be completed. Unable to launch com.xiaolongxu.zipharbor.app.uitests.xctrunner because it has an invalid code signature, inadequate entitlements or its profile has not been explicitly trusted by the user.
+Domain: FBSOpenApplicationErrorDomain
+Code: 3
+Failure Reason: Unable to launch com.xiaolongxu.zipharbor.app.uitests.xctrunner because it has an invalid code signature, inadequate entitlements or its profile has not been explicitly trusted by the user.
+User Info: {
+    BSErrorCodeDescription = Security;
+}
+--
+
+2026-10-01 13:57:18.873 xcodebuild[55280:2982167]  IDELaunchReport: 6cc4e48957e71580:6cc4e48957e71580: com.apple.dt.IDERunOperationWorkerFinished {
+    "device_identifier" = "IPHONE14_UDID";
+    "device_isCoreDevice" = 1;
+    "device_model" = "iPhone14,7";
+    "device_osBuild" = "27.0 (24A437)";
+    "device_osBuild_monotonic" = 24000437000000000;
+    "device_os_variant" = 1;
+    "device_platform" = "com.apple.platform.iphoneos";
+    "device_platform_family" = 2;
+    "device_reality" = 1;
+    "device_thinningType" = "iPhone14,7";
+    "device_transport" = 1;
+    "launchSession_initiator" = 1;
+    "launchSession_schemeCommand" = Test;
+    "launchSession_schemeCommand_enum" = 2;
+    "launchSession_targetArch" = arm64;
+    "launchSession_targetArch_enum" = 6;
+    "operation_duration_ms" = 31392;
+    "operation_errorCode" = 0;
+    "operation_errorDomain" = IDELaunchCoreDevice;
+    "operation_errorWorker" = IDELaunchCoreDeviceWorker;
+    "operation_error_reportable" = 0;
+    "operation_name" = IDERunOperationWorkerGroup;
+    "param_consoleMode" = 0;
+    "param_debugger_attachToExtensions" = 0;
+    "param_debugger_attachToXPC" = 0;
+    "param_debugger_type" = 1;
+    "param_destination_isProxy" = 0;
+    "param_destination_platform" = "com.apple.platform.iphoneos";
+    "param_diag_MTE_enable" = 0;
+    "param_diag_MainThreadChecker_stopOnIssue" = 0;
+    "param_diag_MallocStackLogging_enableDuringAttach" = 0;
+    "param_diag_MallocStackLogging_enableForXPC" = 0;
+    "param_diag_allowLocationSimulation" = 1;
+    "param_diag_checker_mtc_enable" = 0;
+    "param_diag_checker_tpc_enable" = 1;
+    "param_diag_gpu_frameCapture_enable" = 3;
+    "param_diag_gpu_shaderValidation_enable" = 0;
+    "param_diag_gpu_validation_enable" = 1;
+    "param_diag_guardMalloc_enable" = 0;
+    "param_diag_memoryGraphOnResourceException" = 0;
+    "param_diag_queueDebugging_enable" = 0;
+    "param_diag_runtimeProfile_generate" = 0;
+    "param_diag_sanitizer_asan_enable" = 0;
+    "param_diag_sanitizer_mtasan_enable" = 0;
+    "param_diag_sanitizer_tsan_enable" = 0;
+    "param_diag_sanitizer_tsan_stopOnIssue" = 0;
+    "param_diag_sanitizer_ubsan_enable" = 0;
+    "param_diag_sanitizer_ubsan_stopOnIssue" = 0;
+    "param_diag_showNonLocalizedStrings" = 0;
+    "param_diag_viewDebugging_enabled" = 0;
+    "param_diag_viewDebugging_insertDylibOnLaunch" = 0;
+    "param_install_style" = 2;
+    "param_launcher_UID" = 2;
+    "param_launcher_allowDeviceSensorReplayData" = 0;
+    "param_launcher_kind" = 0;
+    "param_launcher_style" = 0;
+    "param_launcher_substyle" = 64;
+    "param_runnable_appExtensionHostRunMode" = 0;
+    "param_runnable_productType" = "com.apple.product-type.application";
+    "param_testing_launchedForTesting" = 1;
+    "param_testing_suppressSimulatorApp" = 1;
+    "param_testing_usingCLI" = 0;
+    "sdk_canonicalName" = "iphoneos27.0";
+    "sdk_osVersion" = "27.0";
+    "sdk_platformID" = 2;
+    "sdk_variant" = iphoneos;
+    "sdk_version_monotonic" = 24000430000000000;
+}
+
+
+*** If you believe this error represents a bug, please attach the result bundle at /tmp/ZipHarbor-Device-Conflict-Acceptance.xcresult
+
+2026-10-01 13:57:19.268 xcodebuild[55280:2980226]  IDETestOperationsObserverDebug: Failure collecting diagnostics from devices: Process exited with error 1:
+ ERROR: The operation couldn?t be completed. (CoreDeviceCLISupport.DiagnoseError error 0.)
+This tool generates files that allow Apple to investigate issues with your
+computer and help improve Apple products. The files might contain personal
+information found on your device or associated with your Apple Account(s),
+including but not limited to your name, serial numbers of your device,
+your device name, your device's location over the last one to two days,
+your attached peripheral devices, your user name, your email address and
+email settings, file paths, file names, Siri suggestions, your computer's
+IP addresses, and network connection information.
+
+This information is used by Apple in accordance with its privacy policy
+(www.apple.com/privacy) and is not shared with any other company. By using
+this tool and sending the results to Apple, you consent to Apple using the
+contents of these files to improve Apple products.
+
+An error occurred while running devicectl diagnose. Will archive the diagnostics collected thus far.
+Wrote file to /tmp/ZipHarbor-Device-Conflict-Acceptance.xcresult/Staging/1_Test/Diagnostics/devicectl_diagnostics.zip
+Partial devicectl diagnose bundle located here: /tmp/ZipHarbor-Device-Conflict-Acceptance.xcresult/Staging/1_Test/Diagnostics/devicectl_diagnostics.zip
+
+2026-10-01 13:57:19.293 xcodebuild[55280:2980027] [MT] IDETestOperationsObserverDebug: 31.903 elapsed -- Testing started completed.
+2026-10-01 13:57:19.293 xcodebuild[55280:2980027] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-01 13:57:19.293 xcodebuild[55280:2980027] [MT] IDETestOperationsObserverDebug: 31.903 sec, +31.903 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/ZipHarbor-Device-Conflict-Acceptance.xcresult
+
+Testing failed:
+	The application could not be launched because the Developer App Certificate is not trusted.
+	ZipHarborUITests-Runner encountered an error (Failed to install or launch the test runner. (Underlying Error: The application could not be launched because the Developer App Certificate is not trusted. Verify that the Developer App certificate for your account is trusted on your device. Open Settings on the device and navigate to General -> VPN & Device Management, then select your Developer App certificate to trust it. (Underlying Error: The application failed to launch. (Underlying Error: The request to open "com.xiaolongxu.zipharbor.app.uitests.xctrunner" failed. The request was denied by service delegate (SBMainWorkspace) for reason: Security ("Unable to launch com.xiaolongxu.zipharbor.app.uitests.xctrunner because it has an invalid code signature, inadequate entitlements or its profile has not been explicitly trusted by the user"). (Underlying Error: The operation couldn’t be completed. Unable to launch com.xiaolongxu.zipharbor.app.uitests.xctrunner because it has an invalid code signature, inadequate entitlements or its profile has not been explicitly trusted by the user.)))))
+
+** TEST FAILED **
+
+Testing started

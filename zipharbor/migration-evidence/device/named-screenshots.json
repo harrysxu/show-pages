@@ -1,0 +1,112 @@
+{
+  "settings-large-text": {
+    "test": "ZipHarborUITests/testAccessibilityLargeTextLayout()",
+    "source": "6BF36E7A-FAC8-464F-910A-912DB9338263.png",
+    "timestamp": 1790833433.853
+  },
+  "home-large-text": {
+    "test": "ZipHarborUITests/testAccessibilityLargeTextLayout()",
+    "source": "DC42D19C-D616-4B2A-8D17-C45891DCA9F5.png",
+    "timestamp": 1790833433.102
+  },
+  "destination-cancel-keeps-selection": {
+    "test": "ZipHarborUITests/testCancellingExternalFolderChoiceKeepsPreviousDestination()",
+    "source": "32010452-734F-42FE-B291-32513C7CA34F.png",
+    "timestamp": 1790833444.158
+  },
+  "extraction-destination": {
+    "test": "ZipHarborUITests/testWrongPasswordCanRetryWithoutRestartingExtraction()",
+    "source": "3BAB9DC0-33CE-4447-9014-6C1FFF4A3F85.png",
+    "timestamp": 1790833612.897
+  },
+  "create-settings": {
+    "test": "ZipHarborUITests/testCreateTwoStepsAESRoundTripAndBackPreservesSelection()",
+    "source": "5874E03D-79A9-48F3-A485-8AF88C98EBAE.png",
+    "timestamp": 1790833450.38
+  },
+  "create-select": {
+    "test": "ZipHarborUITests/testCreateTwoStepsAESRoundTripAndBackPreservesSelection()",
+    "source": "A3C04054-171A-4C95-9240-1BA0EA66C91D.png",
+    "timestamp": 1790833449.832
+  },
+  "extraction-default-settings": {
+    "test": "ZipHarborUITests/testDefaultDestinationAndPreserveSettingsAffectExtraction()",
+    "source": "25CE02C0-600F-4E78-BB58-462A5363D8CF.png",
+    "timestamp": 1790833486.17
+  },
+  "home-dark-en": {
+    "test": "ZipHarborUITests/testEnglishAndDarkAppearance()",
+    "source": "53332D47-372E-43F4-A776-A48F8062E041.png",
+    "timestamp": 1790833497.005
+  },
+  "settings-dark-en": {
+    "test": "ZipHarborUITests/testEnglishAndDarkAppearance()",
+    "source": "7E1961CB-9C36-418E-95A1-6C9E32229473.png",
+    "timestamp": 1790833496.354
+  },
+  "home-en": {
+    "test": "ZipHarborUITests/testEnglishAndDarkAppearance()",
+    "source": "7DEC8294-CBD4-4FEF-B251-B17EFF1F7452.png",
+    "timestamp": 1790833495.183
+  },
+  "favorites": {
+    "test": "ZipHarborUITests/testFavoritesAndSelectedDirectoryExtraction()",
+    "source": "19E3615E-F54E-4458-A5C4-94628674543D.png",
+    "timestamp": 1790833515.443
+  },
+  "selected-directory-output": {
+    "test": "ZipHarborUITests/testFavoritesAndSelectedDirectoryExtraction()",
+    "source": "A80ADCAB-9341-4D5F-8591-0C162DE7828F.png",
+    "timestamp": 1790833509.827
+  },
+  "output-folder": {
+    "test": "ZipHarborUITests/testPasswordAutomaticallyContinuesAndDoneDismisses()",
+    "source": "62437F44-F6ED-40C0-B03C-22D5394F8C04.png",
+    "timestamp": 1790833532.964
+  },
+  "extraction-result": {
+    "test": "ZipHarborUITests/testPasswordAutomaticallyContinuesAndDoneDismisses()",
+    "source": "6922738E-BB34-4EE6-AE4F-A655C5387E31.png",
+    "timestamp": 1790833530.825
+  },
+  "home-zh": {
+    "test": "ZipHarborUITests/testPasswordAutomaticallyContinuesAndDoneDismisses()",
+    "source": "3350E453-0E8C-42E7-AE87-41C8894AF5DE.png",
+    "timestamp": 1790833519.757
+  },
+  "settings-zh": {
+    "test": "ZipHarborUITests/testPasswordCancelAndClearHistoryKeepFiles()",
+    "source": "0A3C8108-56D7-4CBB-BDC8-C4D64F869A93.png",
+    "timestamp": 1790833549.793
+  },
+  "quick-look": {
+    "test": "ZipHarborUITests/testSelectedFolderExtractionAndPreview()",
+    "source": "F00C1433-DA8D-4B8F-A7F0-E4F4D0F28BE8.png",
+    "timestamp": 1790833571.371
+  },
+  "archive-detail": {
+    "test": "ZipHarborUITests/testSelectedFolderExtractionAndPreview()",
+    "source": "805FE193-C156-469D-ACC2-FB1569B1846A.png",
+    "timestamp": 1790833558.589
+  },
+  "system-files-imported-archive": {
+    "test": "ZipHarborUITests/testSystemFilesImportsRealArchive()",
+    "source": "B872EC3A-B2E9-4BDD-83B1-85F43B042B2D.png",
+    "timestamp": 1790833590.673
+  },
+  "system-share": {
+    "test": "ZipHarborUITests/testSystemPickerAndSharePresentation()",
+    "source": "25676A3F-0C50-4F03-B4D7-5F724F9036ED.png",
+    "timestamp": 1790833604.673
+  },
+  "system-files-picker": {
+    "test": "ZipHarborUITests/testSystemPickerAndSharePresentation()",
+    "source": "C47F51E6-6BBF-41C1-84D2-59D19A34BB3C.png",
+    "timestamp": 1790833596.673
+  },
+  "wrong-password": {
+    "test": "ZipHarborUITests/testWrongPasswordCanRetryWithoutRestartingExtraction()",
+    "source": "9B20B651-2C7D-4164-873E-01A093538184.png",
+    "timestamp": 1790833619.765
+  }
+}

@@ -1,0 +1,299 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "IPHONE14_UDID",
+        "deviceName" : "iPhone 14 验收设备",
+        "exportedFileName" : "6BF36E7A-FAC8-464F-910A-912DB9338263.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "settings-large-text_0_CC630E00-A006-49CC-8E5B-60C481DCDD56.png",
+        "timestamp" : 1790833433.853
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "IPHONE14_UDID",
+        "deviceName" : "iPhone 14 验收设备",
+        "exportedFileName" : "DC42D19C-D616-4B2A-8D17-C45891DCA9F5.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "home-large-text_0_D6E33D7D-F46F-4022-A19A-A9CF31A4A350.png",
+        "timestamp" : 1790833433.102
+      }
+    ],
+    "testIdentifier" : "ZipHarborUITests/testAccessibilityLargeTextLayout()",
+    "testIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testAccessibilityLargeTextLayout"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "IPHONE14_UDID",
+        "deviceName" : "iPhone 14 验收设备",
+        "exportedFileName" : "32010452-734F-42FE-B291-32513C7CA34F.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "destination-cancel-keeps-selection_0_7999D420-9A55-4FCC-BA00-BD53D5BCD013.png",
+        "timestamp" : 1790833444.158
+      }
+    ],
+    "testIdentifier" : "ZipHarborUITests/testCancellingExternalFolderChoiceKeepsPreviousDestination()",
+    "testIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testCancellingExternalFolderChoiceKeepsPreviousDestination"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "IPHONE14_UDID",
+        "deviceName" : "iPhone 14 验收设备",
+        "exportedFileName" : "3F412EB9-878F-4A1F-B40A-735FE5FC351D.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "extraction-destination_0_50CA42C7-03D9-467D-A74F-222DEA683E09.png",
+        "timestamp" : 1790833467.017
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "IPHONE14_UDID",
+        "deviceName" : "iPhone 14 验收设备",
+        "exportedFileName" : "5874E03D-79A9-48F3-A485-8AF88C98EBAE.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "create-settings_0_290F211E-C68B-4AAD-8651-B311B6782B3E.png",
+        "timestamp" : 1790833450.38
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "IPHONE14_UDID",
+        "deviceName" : "iPhone 14 验收设备",
+        "exportedFileName" : "A3C04054-171A-4C95-9240-1BA0EA66C91D.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "create-select_0_C621C73A-7C6C-4DC3-A013-81769490BFB6.png",
+        "timestamp" : 1790833449.832
+      }
+    ],
+    "testIdentifier" : "ZipHarborUITests/testCreateTwoStepsAESRoundTripAndBackPreservesSelection()",
+    "testIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testCreateTwoStepsAESRoundTripAndBackPreservesSelection"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "IPHONE14_UDID",
+        "deviceName" : "iPhone 14 验收设备",
+        "exportedFileName" : "25CE02C0-600F-4E78-BB58-462A5363D8CF.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "extraction-default-settings_0_088FA608-D635-4BB0-B13C-E7F74B8C9277.png",
+        "timestamp" : 1790833486.17
+      }
+    ],
+    "testIdentifier" : "ZipHarborUITests/testDefaultDestinationAndPreserveSettingsAffectExtraction()",
+    "testIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testDefaultDestinationAndPreserveSettingsAffectExtraction"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "IPHONE14_UDID",
+        "deviceName" : "iPhone 14 验收设备",
+        "exportedFileName" : "53332D47-372E-43F4-A776-A48F8062E041.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "home-dark-en_0_84EDE204-E50D-4474-BBDB-756ADB2B6DEF.png",
+        "timestamp" : 1790833497.005
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "IPHONE14_UDID",
+        "deviceName" : "iPhone 14 验收设备",
+        "exportedFileName" : "7E1961CB-9C36-418E-95A1-6C9E32229473.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "settings-dark-en_0_2896E81C-EB91-41D0-9BE9-B252369F0C03.png",
+        "timestamp" : 1790833496.354
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "IPHONE14_UDID",
+        "deviceName" : "iPhone 14 验收设备",
+        "exportedFileName" : "7DEC8294-CBD4-4FEF-B251-B17EFF1F7452.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "home-en_0_FE022490-BBBB-4DF9-9560-65C8DEC55217.png",
+        "timestamp" : 1790833495.183
+      }
+    ],
+    "testIdentifier" : "ZipHarborUITests/testEnglishAndDarkAppearance()",
+    "testIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testEnglishAndDarkAppearance"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "IPHONE14_UDID",
+        "deviceName" : "iPhone 14 验收设备",
+        "exportedFileName" : "19E3615E-F54E-4458-A5C4-94628674543D.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "favorites_0_C5AD1250-EC9C-430D-97D9-9223F4782ABC.png",
+        "timestamp" : 1790833515.443
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "IPHONE14_UDID",
+        "deviceName" : "iPhone 14 验收设备",
+        "exportedFileName" : "A80ADCAB-9341-4D5F-8591-0C162DE7828F.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "selected-directory-output_0_59DF8B92-8F8E-4529-A4DD-67D8C667922F.png",
+        "timestamp" : 1790833509.827
+      }
+    ],
+    "testIdentifier" : "ZipHarborUITests/testFavoritesAndSelectedDirectoryExtraction()",
+    "testIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testFavoritesAndSelectedDirectoryExtraction"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "IPHONE14_UDID",
+        "deviceName" : "iPhone 14 验收设备",
+        "exportedFileName" : "62437F44-F6ED-40C0-B03C-22D5394F8C04.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "output-folder_0_F328C17F-8DF9-4523-AF0D-9590ADD48126.png",
+        "timestamp" : 1790833532.964
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "IPHONE14_UDID",
+        "deviceName" : "iPhone 14 验收设备",
+        "exportedFileName" : "6922738E-BB34-4EE6-AE4F-A655C5387E31.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "extraction-result_0_BF1FB816-9284-45FA-AF07-F836C4E9DE12.png",
+        "timestamp" : 1790833530.825
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "IPHONE14_UDID",
+        "deviceName" : "iPhone 14 验收设备",
+        "exportedFileName" : "C5122128-9768-44FD-A17D-3FBAC47A7DE1.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "extraction-destination_0_1E6D54A8-FC92-46D8-A987-72439271D559.png",
+        "timestamp" : 1790833523.924
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "IPHONE14_UDID",
+        "deviceName" : "iPhone 14 验收设备",
+        "exportedFileName" : "3350E453-0E8C-42E7-AE87-41C8894AF5DE.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "home-zh_0_4D90F436-96D8-46B6-BD1D-BE3E64893043.png",
+        "timestamp" : 1790833519.757
+      }
+    ],
+    "testIdentifier" : "ZipHarborUITests/testPasswordAutomaticallyContinuesAndDoneDismisses()",
+    "testIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testPasswordAutomaticallyContinuesAndDoneDismisses"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "IPHONE14_UDID",
+        "deviceName" : "iPhone 14 验收设备",
+        "exportedFileName" : "0A3C8108-56D7-4CBB-BDC8-C4D64F869A93.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "settings-zh_0_016D49B0-309F-44FA-90C7-C2879E56E8BF.png",
+        "timestamp" : 1790833549.793
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "IPHONE14_UDID",
+        "deviceName" : "iPhone 14 验收设备",
+        "exportedFileName" : "2B4A230A-3DA6-4BD8-AA46-F6C3FA5FE2B4.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "extraction-destination_0_C79105DB-39EA-4B0B-A7CC-D6D76E0079D5.png",
+        "timestamp" : 1790833544.618
+      }
+    ],
+    "testIdentifier" : "ZipHarborUITests/testPasswordCancelAndClearHistoryKeepFiles()",
+    "testIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testPasswordCancelAndClearHistoryKeepFiles"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "IPHONE14_UDID",
+        "deviceName" : "iPhone 14 验收设备",
+        "exportedFileName" : "F00C1433-DA8D-4B8F-A7F0-E4F4D0F28BE8.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "quick-look_0_964A405D-4D2C-4A73-AEF1-AD81D4BBA5F4.png",
+        "timestamp" : 1790833571.371
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "IPHONE14_UDID",
+        "deviceName" : "iPhone 14 验收设备",
+        "exportedFileName" : "805FE193-C156-469D-ACC2-FB1569B1846A.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "archive-detail_0_0644025D-704F-4C37-8E65-5BF410217A71.png",
+        "timestamp" : 1790833558.589
+      }
+    ],
+    "testIdentifier" : "ZipHarborUITests/testSelectedFolderExtractionAndPreview()",
+    "testIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testSelectedFolderExtractionAndPreview"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "IPHONE14_UDID",
+        "deviceName" : "iPhone 14 验收设备",
+        "exportedFileName" : "B872EC3A-B2E9-4BDD-83B1-85F43B042B2D.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "system-files-imported-archive_0_DEA470CF-8EF4-4584-AAD4-5A0EA84DD205.png",
+        "timestamp" : 1790833590.673
+      }
+    ],
+    "testIdentifier" : "ZipHarborUITests/testSystemFilesImportsRealArchive()",
+    "testIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testSystemFilesImportsRealArchive"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "IPHONE14_UDID",
+        "deviceName" : "iPhone 14 验收设备",
+        "exportedFileName" : "25676A3F-0C50-4F03-B4D7-5F724F9036ED.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "system-share_0_F337B10B-B74F-4181-9667-82715B9D3BA8.png",
+        "timestamp" : 1790833604.673
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "IPHONE14_UDID",
+        "deviceName" : "iPhone 14 验收设备",
+        "exportedFileName" : "C47F51E6-6BBF-41C1-84D2-59D19A34BB3C.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "system-files-picker_0_390E1ACA-D7A8-4FFA-9E6F-AE98DE9398DE.png",
+        "timestamp" : 1790833596.673
+      }
+    ],
+    "testIdentifier" : "ZipHarborUITests/testSystemPickerAndSharePresentation()",
+    "testIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testSystemPickerAndSharePresentation"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "IPHONE14_UDID",
+        "deviceName" : "iPhone 14 验收设备",
+        "exportedFileName" : "9B20B651-2C7D-4164-873E-01A093538184.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "wrong-password_0_DB2AD006-E111-45C7-A75F-B849716B68EF.png",
+        "timestamp" : 1790833619.765
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "IPHONE14_UDID",
+        "deviceName" : "iPhone 14 验收设备",
+        "exportedFileName" : "3BAB9DC0-33CE-4447-9014-6C1FFF4A3F85.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "extraction-destination_0_784B654E-871E-4B18-9C1F-27E82CCAAA35.png",
+        "timestamp" : 1790833612.897
+      }
+    ],
+    "testIdentifier" : "ZipHarborUITests/testWrongPasswordCanRetryWithoutRestartingExtraction()",
+    "testIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testWrongPasswordCanRetryWithoutRestartingExtraction"
+  }
+]

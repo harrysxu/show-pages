@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="ZipHarbor 模拟器与 App Icon 验收记录 · ZipHarbor"><title>ZipHarbor 模拟器与 App Icon 验收记录 · ZipHarbor</title>
+<link rel="icon" href="app-icon/zipharbor-icon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/site.css"></head>
+<body><a class="skip" href="#main">跳转到正文</a>
+<header class="site-header"><a class="brand" href="index.html"><img src="app-icon/zipharbor-icon-1024.png" width="36" height="36" alt="">ZipHarbor</a><nav aria-label="网站导航"><a href="index.html">首页</a><a href="support.html">技术支持</a><a href="privacy.html">隐私政策</a><a href="docs.html">产品文档</a></nav></header>
+<main id="main" class="with-toc"><details class="toc-panel" open><summary>本页目录</summary><div class="toc">
+<ul>
+<li><a href="#zipharbor-app-icon">ZipHarbor 模拟器与 App Icon 验收记录</a><ul>
+<li><a href="#_1">结论</a></li>
+<li><a href="#_2">执行环境</a></li>
+<li><a href="#_3">产品测试覆盖</a></li>
+<li><a href="#app-icon">App Icon 验收</a></li>
+<li><a href="#_4">结果索引</a></li>
+<li><a href="#_5">未覆盖的人工边界</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</details><article><p class="kicker">产品文档 / 历史记录与验收范围以文中日期为准</p><h1 id="zipharbor-app-icon">ZipHarbor 模拟器与 App Icon 验收记录</h1>
+<p>日期：2026-10-01。工程：<code>ZipHarbor/ZipHarbor.xcodeproj</code>，Bundle ID：<code>com.xiaolongxu.zipharbor.app</code>。</p>
+<h2 id="_1">结论</h2>
+<p>带新 App Icon 的 Debug 构建已在一台全新的 iPhone 14 模拟器中完成完整测试。Xcode 结果包显示 <strong>35/35 通过、0 失败、0 跳过</strong>：21 项引擎/单元/性能测试和 14 项 UI 工作流全部通过。新图标同时通过资源编译和模拟器构建产物检查。</p>
+<p>本轮只做模拟器验收；没有把本轮图标构建宣称为 iPhone 14 真机验收。此前的真机功能证据仍见 <a href="07-新工程最终验收报告.html">07-新工程最终验收报告</a>。</p>
+<h2 id="_2">执行环境</h2>
+<div aria-label="文档数据表" class="table-scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>设备</td>
+<td>iPhone 14（全新 QA 模拟器）</td>
+</tr>
+<tr>
+<td>UDID</td>
+<td><code>A875629A-52DA-43B2-9917-62B406AE0AB4</code></td>
+</tr>
+<tr>
+<td>系统</td>
+<td>iOS 26.5，Build 23F77</td>
+</tr>
+<tr>
+<td>构建</td>
+<td>Debug，Swift 6，iOS 17.0 最低版本</td>
+</tr>
+<tr>
+<td>结果</td>
+<td><code>results/iPhone14-full.xcresult</code></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="_3">产品测试覆盖</h2>
+<ul>
+<li>ZIP、ZIP AES、7z 创建与往返解压；独立 TAR、tar.gz、tar.bz2、gzip、bzip2、RAR5 读取。</li>
+<li>中文文件名、空目录、目录结构、分卷 ZIP、缺卷、路径穿越和已有符号链接逃逸。</li>
+<li>缺少密码、错误密码、输入正确密码后自动继续原任务；“完成”按钮关闭结果弹窗。</li>
+<li>重复解压冲突：取消、失败筛选重试、应用到全部冲突、保留两者。</li>
+<li>任务暂停/恢复、启动前取消、写入中取消、历史记录清理和任务重启状态。</li>
+<li>两步 AES 创建流程、返回保留选择、选中目录解压、预览和收藏。</li>
+<li>中英文、深色模式、最大 Dynamic Type、大字号布局、设置项和默认目录。</li>
+<li>系统 Files 导入真实归档、分享面板、外部目录选择取消保持原目标。</li>
+<li>模拟器照片和视频选择后创建归档；测试素材为本轮生成的合成 PNG 与 2 秒 MP4，不读取私人媒体。</li>
+</ul>
+<h2 id="app-icon">App Icon 验收</h2>
+<p>新图标使用蓝紫渐变和拉链文件夹图形：文件夹表达归档，拉链表达压缩与解压。标准和深色资源均为 1024×1024 RGB、不含 alpha，已经接入 <code>Assets.xcassets/AppIcon.appiconset</code>。</p>
+<p><code>xcrun actool</code> 针对 iPhone/iPad、iOS 17.0 编译成功，0 warning、0 error。测试构建产物中的 <code>AppIcon60x60@2x.png</code> 已检查为新图标缩略图。设计稿、深色版本、缩小预览和校验记录见 <a href="app-icon/README.html">App Icon 资源说明</a>。</p>
+<h2 id="_4">结果索引</h2>
+<ul>
+<li><a href="simulator-acceptance-20261001/summary.json">XCTest 结果摘要</a></li>
+<li><a href="simulator-acceptance-20261001/tests.json">测试列表</a></li>
+<li><a href="simulator-acceptance-20261001/iPhone14-full.log">完整测试日志</a></li>
+<li><a href="simulator-acceptance-20261001/acceptance.json">验收结构化记录</a></li>
+<li><a href="simulator-acceptance-20261001/screenshots/">关键 UI 截图</a></li>
+<li><a href="app-icon/validation.json">App Icon 编译校验</a></li>
+</ul>
+<p>执行命令：</p>
+<pre><code class="language-sh">xcodebuild -project ZipHarbor/ZipHarbor.xcodeproj \
+  -scheme ZipHarbor \
+  -destination 'platform=iOS Simulator,id=A875629A-52DA-43B2-9917-62B406AE0AB4' \
+  -derivedDataPath /tmp/ZipHarbor-Migration \
+  -parallel-testing-enabled NO \
+  -resultBundlePath docs/simulator-acceptance-20261001/results/iPhone14-full.xcresult test
+</code></pre>
+<h2 id="_5">未覆盖的人工边界</h2>
+<p>真实 iCloud/第三方文件提供者下载与写入、本人 Face ID 成功/失败/取消、真人 VoiceOver，以及真机上长任务暂停/恢复触控仍需要对应环境和人工参与。模拟器通过不替代这些场景的人工验收。</p><p class="source-link"><a href="09-模拟器图标与最终产品验收-20261001.md" download>下载 Markdown 文档</a></p></article></main>
+<footer><span>ZipHarbor · 面向 iPhone 和 iPad 的本地压缩文件工具。</span><a href="docs.html">产品、设计与验收文档</a></footer>
+</body></html>

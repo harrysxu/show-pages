@@ -1,0 +1,399 @@
+{
+  "devices" : [
+    {
+      "architecture" : "arm64",
+      "deviceId" : "A875629A-52DA-43B2-9917-62B406AE0AB4",
+      "deviceName" : "ZipHarbor Final iPhone 14 QA 20261001",
+      "modelName" : "iPhone 14",
+      "osBuildNumber" : "23F77",
+      "osVersion" : "26.5",
+      "platform" : "iOS Simulator"
+    }
+  ],
+  "testNodes" : [
+    {
+      "children" : [
+        {
+          "children" : [
+            {
+              "children" : [
+                {
+                  "duration" : "0.0012s",
+                  "durationInSeconds" : 0.0012140274047851562,
+                  "name" : "testArchivePathValidationBlocksTraversalAndAbsolutePaths()",
+                  "nodeIdentifier" : "ArchiveModelTests/testArchivePathValidationBlocksTraversalAndAbsolutePaths()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborTests/ArchiveModelTests/testArchivePathValidationBlocksTraversalAndAbsolutePaths",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.043s",
+                  "durationInSeconds" : 0.04328298568725586,
+                  "name" : "testCreateInspectAndExtractZipRoundTrip()",
+                  "nodeIdentifier" : "ArchiveModelTests/testCreateInspectAndExtractZipRoundTrip()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborTests/ArchiveModelTests/testCreateInspectAndExtractZipRoundTrip",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.00054s",
+                  "durationInSeconds" : 0.0005390644073486328,
+                  "name" : "testFormatDetectionUsesCompoundExtensionsFirst()",
+                  "nodeIdentifier" : "ArchiveModelTests/testFormatDetectionUsesCompoundExtensionsFirst()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborTests/ArchiveModelTests/testFormatDetectionUsesCompoundExtensionsFirst",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.0016s",
+                  "durationInSeconds" : 0.0016459226608276367,
+                  "name" : "testSevenZipPasswordCreationIsRejected()",
+                  "nodeIdentifier" : "ArchiveModelTests/testSevenZipPasswordCreationIsRejected()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborTests/ArchiveModelTests/testSevenZipPasswordCreationIsRejected",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.035s",
+                  "durationInSeconds" : 0.035153985023498535,
+                  "name" : "testSevenZipRoundTrip()",
+                  "nodeIdentifier" : "ArchiveModelTests/testSevenZipRoundTrip()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborTests/ArchiveModelTests/testSevenZipRoundTrip",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.0051s",
+                  "durationInSeconds" : 0.005123019218444824,
+                  "name" : "testSplitZipIsReassembledForInspectAndExtract()",
+                  "nodeIdentifier" : "ArchiveModelTests/testSplitZipIsReassembledForInspectAndExtract()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborTests/ArchiveModelTests/testSplitZipIsReassembledForInspectAndExtract",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.0049s",
+                  "durationInSeconds" : 0.004864931106567383,
+                  "name" : "testZipAESRoundTrip()",
+                  "nodeIdentifier" : "ArchiveModelTests/testZipAESRoundTrip()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborTests/ArchiveModelTests/testZipAESRoundTrip",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.0026s",
+                  "durationInSeconds" : 0.0026290416717529297,
+                  "name" : "testZipAESWithoutPasswordRequestsPassword()",
+                  "nodeIdentifier" : "ArchiveModelTests/testZipAESWithoutPasswordRequestsPassword()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborTests/ArchiveModelTests/testZipAESWithoutPasswordRequestsPassword",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                }
+              ],
+              "name" : "ArchiveModelTests",
+              "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborTests/ArchiveModelTests",
+              "nodeType" : "Test Suite",
+              "result" : "Passed"
+            },
+            {
+              "children" : [
+                {
+                  "duration" : "0.014s",
+                  "durationInSeconds" : 0.013963937759399414,
+                  "name" : "testClearAndRetentionKeepActiveJobsFilesAndFavorites()",
+                  "nodeIdentifier" : "CoordinatorTests/testClearAndRetentionKeepActiveJobsFilesAndFavorites()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborTests/CoordinatorTests/testClearAndRetentionKeepActiveJobsFilesAndFavorites",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.16s",
+                  "durationInSeconds" : 0.1639080047607422,
+                  "name" : "testPasswordContinuesOriginalJobWithoutDuplicateHistory()",
+                  "nodeIdentifier" : "CoordinatorTests/testPasswordContinuesOriginalJobWithoutDuplicateHistory()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborTests/CoordinatorTests/testPasswordContinuesOriginalJobWithoutDuplicateHistory",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.0037s",
+                  "durationInSeconds" : 0.003659963607788086,
+                  "name" : "testRelativeReferencesAndSettingsPersistWithoutPasswords()",
+                  "nodeIdentifier" : "CoordinatorTests/testRelativeReferencesAndSettingsPersistWithoutPasswords()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborTests/CoordinatorTests/testRelativeReferencesAndSettingsPersistWithoutPasswords",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                }
+              ],
+              "name" : "CoordinatorTests",
+              "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborTests/CoordinatorTests",
+              "nodeType" : "Test Suite",
+              "result" : "Passed"
+            },
+            {
+              "children" : [
+                {
+                  "duration" : "0.012s",
+                  "durationInSeconds" : 0.01152503490447998,
+                  "name" : "testCancellationDuringWriteCleansTemporaryAndPreservesSource()",
+                  "nodeIdentifier" : "MigrationEngineTests/testCancellationDuringWriteCleansTemporaryAndPreservesSource()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborTests/MigrationEngineTests/testCancellationDuringWriteCleansTemporaryAndPreservesSource",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.007s",
+                  "durationInSeconds" : 0.0069789886474609375,
+                  "name" : "testEveryConflictPolicyAndAskDecision()",
+                  "nodeIdentifier" : "MigrationEngineTests/testEveryConflictPolicyAndAskDecision()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborTests/MigrationEngineTests/testEveryConflictPolicyAndAskDecision",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.0027s",
+                  "durationInSeconds" : 0.0026769638061523438,
+                  "name" : "testExistingSymlinkCannotEscapeDestination()",
+                  "nodeIdentifier" : "MigrationEngineTests/testExistingSymlinkCannotEscapeDestination()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborTests/MigrationEngineTests/testExistingSymlinkCannotEscapeDestination",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.0075s",
+                  "durationInSeconds" : 0.00745701789855957,
+                  "name" : "testFlattenedCreationDeduplicatesNamesAndSelectedFolderExtracts()",
+                  "nodeIdentifier" : "MigrationEngineTests/testFlattenedCreationDeduplicatesNamesAndSelectedFolderExtracts()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborTests/MigrationEngineTests/testFlattenedCreationDeduplicatesNamesAndSelectedFolderExtracts",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.013s",
+                  "durationInSeconds" : 0.012804031372070312,
+                  "name" : "testIndependentReadFormats()",
+                  "nodeIdentifier" : "MigrationEngineTests/testIndependentReadFormats()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborTests/MigrationEngineTests/testIndependentReadFormats",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.0045s",
+                  "durationInSeconds" : 0.004542946815490723,
+                  "name" : "testMissingVolumeAndWrongPasswordAreTypedErrors()",
+                  "nodeIdentifier" : "MigrationEngineTests/testMissingVolumeAndWrongPasswordAreTypedErrors()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborTests/MigrationEngineTests/testMissingVolumeAndWrongPasswordAreTypedErrors",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.0047s",
+                  "durationInSeconds" : 0.004745960235595703,
+                  "name" : "testMixedEncryptedArchiveRejectsPasswordBeforePublishingAnyFile()",
+                  "nodeIdentifier" : "MigrationEngineTests/testMixedEncryptedArchiveRejectsPasswordBeforePublishingAnyFile()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborTests/MigrationEngineTests/testMixedEncryptedArchiveRejectsPasswordBeforePublishingAnyFile",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.18s",
+                  "durationInSeconds" : 0.18088507652282715,
+                  "name" : "testPauseResumeAndCancellationCleanOutput()",
+                  "nodeIdentifier" : "MigrationEngineTests/testPauseResumeAndCancellationCleanOutput()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborTests/MigrationEngineTests/testPauseResumeAndCancellationCleanOutput",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "0.00087s",
+                  "durationInSeconds" : 0.0008720159530639648,
+                  "name" : "testTraversalArchiveIsRejected()",
+                  "nodeIdentifier" : "MigrationEngineTests/testTraversalArchiveIsRejected()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborTests/MigrationEngineTests/testTraversalArchiveIsRejected",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                }
+              ],
+              "name" : "MigrationEngineTests",
+              "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborTests/MigrationEngineTests",
+              "nodeType" : "Test Suite",
+              "result" : "Passed"
+            },
+            {
+              "children" : [
+                {
+                  "duration" : "6秒",
+                  "durationInSeconds" : 6.271579027175903,
+                  "name" : "testOneGiBStreamingRoundTripAndManySmallFiles()",
+                  "nodeIdentifier" : "PerformanceAcceptanceTests/testOneGiBStreamingRoundTripAndManySmallFiles()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborTests/PerformanceAcceptanceTests/testOneGiBStreamingRoundTripAndManySmallFiles",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                }
+              ],
+              "name" : "PerformanceAcceptanceTests",
+              "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborTests/PerformanceAcceptanceTests",
+              "nodeType" : "Test Suite",
+              "result" : "Passed"
+            }
+          ],
+          "name" : "ZipHarborTests",
+          "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborTests",
+          "nodeType" : "Unit test bundle",
+          "result" : "Passed"
+        },
+        {
+          "children" : [
+            {
+              "children" : [
+                {
+                  "duration" : "4秒",
+                  "durationInSeconds" : 4.4388099908828735,
+                  "name" : "testAccessibilityLargeTextLayout()",
+                  "nodeIdentifier" : "ZipHarborUITests/testAccessibilityLargeTextLayout()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testAccessibilityLargeTextLayout",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "9秒",
+                  "durationInSeconds" : 9.558758020401001,
+                  "name" : "testCancellingExternalFolderChoiceKeepsPreviousDestination()",
+                  "nodeIdentifier" : "ZipHarborUITests/testCancellingExternalFolderChoiceKeepsPreviousDestination()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testCancellingExternalFolderChoiceKeepsPreviousDestination",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "25秒",
+                  "durationInSeconds" : 25.898193955421448,
+                  "name" : "testCreateTwoStepsAESRoundTripAndBackPreservesSelection()",
+                  "nodeIdentifier" : "ZipHarborUITests/testCreateTwoStepsAESRoundTripAndBackPreservesSelection()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testCreateTwoStepsAESRoundTripAndBackPreservesSelection",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "14秒",
+                  "durationInSeconds" : 14.52699899673462,
+                  "name" : "testDefaultDestinationAndPreserveSettingsAffectExtraction()",
+                  "nodeIdentifier" : "ZipHarborUITests/testDefaultDestinationAndPreserveSettingsAffectExtraction()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testDefaultDestinationAndPreserveSettingsAffectExtraction",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "5秒",
+                  "durationInSeconds" : 5.683219075202942,
+                  "name" : "testEnglishAndDarkAppearance()",
+                  "nodeIdentifier" : "ZipHarborUITests/testEnglishAndDarkAppearance()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testEnglishAndDarkAppearance",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "16秒",
+                  "durationInSeconds" : 16.168731093406677,
+                  "name" : "testFavoritesAndSelectedDirectoryExtraction()",
+                  "nodeIdentifier" : "ZipHarborUITests/testFavoritesAndSelectedDirectoryExtraction()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testFavoritesAndSelectedDirectoryExtraction",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "18秒",
+                  "durationInSeconds" : 18.413473963737488,
+                  "name" : "testPasswordAutomaticallyContinuesAndDoneDismisses()",
+                  "nodeIdentifier" : "ZipHarborUITests/testPasswordAutomaticallyContinuesAndDoneDismisses()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testPasswordAutomaticallyContinuesAndDoneDismisses",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "14秒",
+                  "durationInSeconds" : 14.663465023040771,
+                  "name" : "testPasswordCancelAndClearHistoryKeepFiles()",
+                  "nodeIdentifier" : "ZipHarborUITests/testPasswordCancelAndClearHistoryKeepFiles()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testPasswordCancelAndClearHistoryKeepFiles",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "16秒",
+                  "durationInSeconds" : 16.93016803264618,
+                  "name" : "testPhotosAndVideoImportThenCreateArchive()",
+                  "nodeIdentifier" : "ZipHarborUITests/testPhotosAndVideoImportThenCreateArchive()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testPhotosAndVideoImportThenCreateArchive",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "29秒",
+                  "durationInSeconds" : 29.18613910675049,
+                  "name" : "testRepeatedExtractionConflictCancelRetryAndKeepBoth()",
+                  "nodeIdentifier" : "ZipHarborUITests/testRepeatedExtractionConflictCancelRetryAndKeepBoth()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testRepeatedExtractionConflictCancelRetryAndKeepBoth",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "18秒",
+                  "durationInSeconds" : 18.70032799243927,
+                  "name" : "testSelectedFolderExtractionAndPreview()",
+                  "nodeIdentifier" : "ZipHarborUITests/testSelectedFolderExtractionAndPreview()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testSelectedFolderExtractionAndPreview",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "14秒",
+                  "durationInSeconds" : 14.566357970237732,
+                  "name" : "testSystemFilesImportsRealArchive()",
+                  "nodeIdentifier" : "ZipHarborUITests/testSystemFilesImportsRealArchive()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testSystemFilesImportsRealArchive",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "13秒",
+                  "durationInSeconds" : 13.221057057380676,
+                  "name" : "testSystemPickerAndSharePresentation()",
+                  "nodeIdentifier" : "ZipHarborUITests/testSystemPickerAndSharePresentation()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testSystemPickerAndSharePresentation",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "17秒",
+                  "durationInSeconds" : 17.483300924301147,
+                  "name" : "testWrongPasswordCanRetryWithoutRestartingExtraction()",
+                  "nodeIdentifier" : "ZipHarborUITests/testWrongPasswordCanRetryWithoutRestartingExtraction()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testWrongPasswordCanRetryWithoutRestartingExtraction",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                }
+              ],
+              "name" : "ZipHarborUITests",
+              "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests",
+              "nodeType" : "Test Suite",
+              "result" : "Passed"
+            }
+          ],
+          "name" : "ZipHarborUITests",
+          "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests",
+          "nodeType" : "UI test bundle",
+          "result" : "Passed"
+        }
+      ],
+      "name" : "ZipHarbor",
+      "nodeType" : "Test Plan",
+      "result" : "Passed"
+    }
+  ],
+  "testPlanConfigurations" : [
+    {
+      "configurationId" : "1",
+      "configurationName" : "Test Scheme Action"
+    }
+  ]
+}

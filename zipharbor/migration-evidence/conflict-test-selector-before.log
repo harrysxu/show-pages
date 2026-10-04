@@ -1,0 +1,536 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project ZipHarbor/ZipHarbor.xcodeproj -scheme ZipHarbor -destination platform=iOS,id=IPHONE14_UDID -derivedDataPath /tmp/ZipHarbor-Device -allowProvisioningUpdates -resultBundlePath /tmp/ZipHarbor-Device-Conflict-Verified.xcresult -parallel-testing-enabled NO test "-only-testing:ZipHarborUITests/ZipHarborUITests/testRepeatedExtractionConflictCancelRetryAndKeepBoth"
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  ArchiveKit: https://github.com/Lakr233/libarchive.xcframework.git @ 1.0.0
+
+Writing result bundle at path:
+	/tmp/ZipHarbor-Device-Conflict-Verified.xcresult
+
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (5 targets)
+    Target 'ZipHarborUITests' in project 'ZipHarbor'
+        ➜ Explicit dependency on target 'ZipHarbor' in project 'ZipHarbor'
+    Target 'ZipHarborTests' in project 'ZipHarbor'
+        ➜ Explicit dependency on target 'ZipHarbor' in project 'ZipHarbor'
+    Target 'ZipHarbor' in project 'ZipHarbor'
+        ➜ Explicit dependency on target 'ArchiveKit-product' in project 'ArchiveKit'
+    Target 'ArchiveKit-product' in project 'ArchiveKit'
+        ➜ Explicit dependency on target 'ArchiveKit' in project 'ArchiveKit'
+    Target 'ArchiveKit' in project 'ArchiveKit' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ClangStatCache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.0.sdk /tmp/ZipHarbor-Device/SDKStatCaches.noindex/iphoneos27.0-24A430-6c78b3cbc238196c85e1bf6c792c5915.sdkstatcache
+    cd /Users/USER/github_space/zip-app/ZipHarbor/ZipHarbor.xcodeproj
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.0.sdk -o /tmp/ZipHarbor-Device/SDKStatCaches.noindex/iphoneos27.0-24A430-6c78b3cbc238196c85e1bf6c792c5915.sdkstatcache
+
+SwiftDriver ZipHarborUITests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name ZipHarborUITests -Onone @/tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.SwiftFileList -DDEBUG -module-alias Testing\=_Testing_Unavailable -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.0.sdk -target arm64-apple-ios17.0 -g -module-cache-path /tmp/ZipHarbor-Device/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/ZipHarbor-Device/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/lib -F /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.0.sdk/Developer/Library/Frameworks -parse-as-library -c -j15 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/ZipHarbor-Device/SDKStatCaches.noindex/iphoneos27.0-24A430-6c78b3cbc238196c85e1bf6c792c5915.sdkstatcache -output-file-map /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/ZipHarbor-Device/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/ZipHarbor-Device/ModuleCache.noindex -sdk-module-cache-path /tmp/ZipHarbor-Device/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/ZipHarbor-Device/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/ZipHarborUITests-generated-files.hmap -Xcc -I/tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/ZipHarborUITests-own-target-headers.hmap -Xcc -I/tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/ZipHarborUITests-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarbor-576ff8f1de8c1a2cbc0351e2756fa15b-VFS-iphoneos/all-product-headers.yaml -Xcc -iquote -Xcc /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/ZipHarborUITests-project-headers.hmap -Xcc -I/tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/include -Xcc -I/tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/DerivedSources-normal/arm64 -Xcc -I/tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/DerivedSources/arm64 -Xcc -I/tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests-Swift.h -working-directory /Users/USER/github_space/zip-app/ZipHarbor -experimental-emit-module-separately -disable-cmo
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ ZipHarborUITests (in target 'ZipHarborUITests' from project 'ZipHarbor')
+
+SwiftCompile normal arm64 (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    
+
+SwiftCompile normal arm64 Compiling\ ZipHarborUITests.swift /Users/USER/github_space/zip-app/ZipHarbor/ZipHarborUITests/ZipHarborUITests.swift (in target 'ZipHarborUITests' from project 'ZipHarbor')
+
+SwiftCompile normal arm64 /Users/USER/github_space/zip-app/ZipHarbor/ZipHarborUITests/ZipHarborUITests.swift (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    builtin-SwiftPerFileCompile ZipHarborUITests.swift
+
+SwiftDriverJobDiscovery normal arm64 Emitting module for ZipHarborUITests (in target 'ZipHarborUITests' from project 'ZipHarbor')
+
+SwiftDriver\ Compilation\ Requirements ZipHarborUITests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name ZipHarborUITests -Onone @/tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.SwiftFileList -DDEBUG -module-alias Testing\=_Testing_Unavailable -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.0.sdk -target arm64-apple-ios17.0 -g -module-cache-path /tmp/ZipHarbor-Device/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/ZipHarbor-Device/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/lib -F /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.0.sdk/Developer/Library/Frameworks -parse-as-library -c -j15 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/ZipHarbor-Device/SDKStatCaches.noindex/iphoneos27.0-24A430-6c78b3cbc238196c85e1bf6c792c5915.sdkstatcache -output-file-map /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/ZipHarbor-Device/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/ZipHarbor-Device/ModuleCache.noindex -sdk-module-cache-path /tmp/ZipHarbor-Device/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/ZipHarbor-Device/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/ZipHarborUITests-generated-files.hmap -Xcc -I/tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/ZipHarborUITests-own-target-headers.hmap -Xcc -I/tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/ZipHarborUITests-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarbor-576ff8f1de8c1a2cbc0351e2756fa15b-VFS-iphoneos/all-product-headers.yaml -Xcc -iquote -Xcc /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/ZipHarborUITests-project-headers.hmap -Xcc -I/tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/include -Xcc -I/tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/DerivedSources-normal/arm64 -Xcc -I/tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/DerivedSources/arm64 -Xcc -I/tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests-Swift.h -working-directory /Users/USER/github_space/zip-app/ZipHarbor -experimental-emit-module-separately -disable-cmo
+
+Copy /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.swiftsourceinfo (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.swiftsourceinfo /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo
+
+Copy /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests.swiftmodule/arm64-apple-ios.abi.json /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.abi.json (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.abi.json /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests.swiftmodule/arm64-apple-ios.abi.json
+
+SwiftDriverJobDiscovery normal arm64 Compiling ZipHarborUITests.swift (in target 'ZipHarborUITests' from project 'ZipHarbor')
+
+SwiftDriver\ Compilation ZipHarborUITests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    builtin-Swift-Compilation -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name ZipHarborUITests -Onone @/tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.SwiftFileList -DDEBUG -module-alias Testing\=_Testing_Unavailable -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.0.sdk -target arm64-apple-ios17.0 -g -module-cache-path /tmp/ZipHarbor-Device/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/ZipHarbor-Device/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/lib -F /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.0.sdk/Developer/Library/Frameworks -parse-as-library -c -j15 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/ZipHarbor-Device/SDKStatCaches.noindex/iphoneos27.0-24A430-6c78b3cbc238196c85e1bf6c792c5915.sdkstatcache -output-file-map /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/ZipHarbor-Device/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/ZipHarbor-Device/ModuleCache.noindex -sdk-module-cache-path /tmp/ZipHarbor-Device/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/ZipHarbor-Device/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/ZipHarborUITests-generated-files.hmap -Xcc -I/tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/ZipHarborUITests-own-target-headers.hmap -Xcc -I/tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/ZipHarborUITests-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarbor-576ff8f1de8c1a2cbc0351e2756fa15b-VFS-iphoneos/all-product-headers.yaml -Xcc -iquote -Xcc /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/ZipHarborUITests-project-headers.hmap -Xcc -I/tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/include -Xcc -I/tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/DerivedSources-normal/arm64 -Xcc -I/tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/DerivedSources/arm64 -Xcc -I/tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests-Swift.h -working-directory /Users/USER/github_space/zip-app/ZipHarbor -experimental-emit-module-separately -disable-cmo
+
+Ld /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest/ZipHarborUITests normal (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios17.0 -bundle -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.0.sdk -O0 -Xlinker -no_warn_duplicate_libraries -L/tmp/ZipHarbor-Device/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphoneos -L/tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos -L/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/lib -F/tmp/ZipHarbor-Device/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphoneos -F/tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Frameworks -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.0.sdk/Developer/Library/Frameworks -filelist /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.LinkFileList -Xlinker -rpath -Xlinker /usr/lib/swift -Xlinker -rpath -Xlinker @loader_path/Frameworks -Xlinker -dead_strip -Xlinker -object_path_lto -Xlinker /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -dependency_info -Xlinker /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.swiftmodule -Xlinker -needed_framework -Xlinker XCTest -framework XCTest -Xlinker -needed-lXCTestSwiftSupport -lXCTestSwiftSupport -Xlinker -no_adhoc_codesign -o /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest/ZipHarborUITests
+
+GenerateDSYMFile /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest.dSYM /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest/ZipHarborUITests (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    export PATH\=/Applications/Xcode.app/Contents/SharedFrameworks/SwiftBuild.framework/Versions/A/PlugIns/SWBBuildService.bundle/Contents/PlugIns/SWBUniversalPlatformPlugin.bundle/Contents/Frameworks/SWBUniversalPlatform.framework/Resources:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/local/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/libexec:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/usr/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/usr/local/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/local/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/local/bin:/Users/USER/.codex/packages/app-server-daemon/releases/0.159.3-aarch64-apple-darwin/codex-path:/Users/USER/.antigravity-ide/antigravity-ide/bin:/opt/homebrew/opt/libpq/bin:/Users/USER/.cargo/bin:/Users/USER/bin:/Users/USER/.local/bin:/usr/local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Applications/VMware\ Fusion.app/Contents/Public:/Users/USER/.codex/tmp/arg0/codex-arg0jQmx0n:/Users/USER/.codex/tmp/arg0/codex-arg0fiC75j:/Users/USER/.codex/packages/app-server-daemon/releases/0.159.2-aarch64-apple-darwin/codex-path:/Users/USER/.codex/tmp/arg0/codex-arg0Pk2oVk:/Users/USER/.codex/packages/app-server-daemon/releases/0.159.0-aarch64-apple-darwin/codex-path:/Users/USER/.codex/tmp/arg0/codex-arg0P6dOMQ:/Users/USER/.codex/packages/app-server-daemon/releases/0.158.0-aarch64-apple-darwin/codex-path:/Users/USER/.codex/tmp/arg0/codex-arg0TwuA4p:/Users/USER/.codex/packages/app-server-daemon/releases/0.157.1-aarch64-apple-darwin/codex-path:/Users/USER/.codex/tmp/arg0/codex-arg0B5FiaY:/opt/homebrew/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Applications/iTerm.app/Contents/Resources/utilities
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest/ZipHarborUITests -o /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest.dSYM
+
+ExtractAppIntentsMetadata (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name ZipHarborUITests --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.0.sdk --xcode-version 27A266a --platform-family iOS --deployment-target 17.0 --bundle-identifier com.xiaolongxu.zipharbor.app.uitests --output /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest --target-triple arm64-apple-ios17.0 --binary-file /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest/ZipHarborUITests --dependency-file /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests_dependency_info.dat --stringsdata-file /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.SwiftFileList --metadata-file-list /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/ZipHarborUITests.DependencyMetadataFileList --static-metadata-file-list /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/ZipHarborUITests.DependencyStaticMetadataFileList --swift-const-vals-list /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --no-app-shortcuts-localization
+2026-10-01 13:53:27.853 appintentsmetadataprocessor[54524:2970510] Starting appintentsmetadataprocessor export
+2026-10-01 13:53:27.857 appintentsmetadataprocessor[54524:2970510] warning: Metadata extraction skipped, no AppIntents.framework dependency found
+
+CopySwiftLibs /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    builtin-swiftStdLibTool --copy --verbose --sign FFD2AF526670F8DE3BED6017FCAE181F2157970F --scan-executable /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest/ZipHarborUITests --scan-folder /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest/Frameworks --scan-folder /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest/PlugIns --scan-folder /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest/SystemExtensions --scan-folder /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest/Extensions --platform iphoneos --toolchain /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest/Frameworks --strip-bitcode --scan-executable /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/lib/libXCTestSwiftSupport.dylib --strip-bitcode-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os
+
+CodeSign /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    
+    Signing Identity:     "Apple Development: xiaolong xu (HY7V43DS7R)"
+    Provisioning Profile: "iOS Team Provisioning Profile: *"
+                          (63dd1084-944d-4fc2-ba15-f1a3f72c90a3)
+    
+    /usr/bin/codesign --force --sign FFD2AF526670F8DE3BED6017FCAE181F2157970F --entitlements /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/ZipHarborUITests.xctest.xcent --timestamp\=none --generate-entitlement-der /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest
+
+CodeSign /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests-Runner.app (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    
+    Signing Identity:     "Apple Development: xiaolong xu (HY7V43DS7R)"
+    Provisioning Profile: "iOS Team Provisioning Profile: *"
+                          (63dd1084-944d-4fc2-ba15-f1a3f72c90a3)
+    
+    /usr/bin/codesign --force --sign FFD2AF526670F8DE3BED6017FCAE181F2157970F --entitlements /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphoneos/ZipHarborUITests.build/ZipHarborUITests.xctest.xcent --timestamp\=none --generate-entitlement-der /tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests-Runner.app
+/tmp/ZipHarbor-Device/Build/Products/Debug-iphoneos/ZipHarborUITests-Runner.app: replacing existing signature
+
+PruneExplicitPrecompiledModules /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ExplicitPrecompiledModules
+
+PruneExplicitPrecompiledModules /tmp/ZipHarbor-Device/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+
+PruneExplicitPrecompiledModules /tmp/ZipHarbor-Device/SDKExplicitPrecompiledModules
+
+2026-10-01 13:53:34.587622+0800 ZipHarborUITests-Runner[14457:5911507] [Default] Running tests...
+2026-10-01 13:53:34.678045+0800 ZipHarborUITests-Runner[14457:5911507] [MC] Reading from public effective user settings.
+    t =      nans Interface orientation changed to Portrait
+Test Suite 'Selected tests' started at 2026-10-01 13:53:35.081.
+Test Suite 'ZipHarborUITests.xctest' started at 2026-10-01 13:53:35.083.
+Test Suite 'ZipHarborUITests' started at 2026-10-01 13:53:35.083.
+Test Case '-[ZipHarborUITests.ZipHarborUITests testRepeatedExtractionConflictCancelRetryAndKeepBoth]' started.
+    t =     0.00s Start Test at 2026-10-01 13:53:35.087
+    t =     0.02s Set Up
+    t =     0.03s Open com.xiaolongxu.zipharbor.app
+    t =     0.03s     Launch com.xiaolongxu.zipharbor.app
+2026-10-01 13:53:35.160 xcodebuild[54469:2969922] [MT] IDELaunchParametersSnapshot: debugger version lookup failed for path '<nil>': noURL
+2026-10-01 13:53:35.160 xcodebuild[54469:2969922] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =    12.58s         Setting up automation session
+    t =    12.95s         Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    14.15s Waiting 25.0s for "file-课程资料_2026.zip" Button to exist
+    t =    15.19s     Checking `Expect predicate `existsNoRetry == 1` for object "file-课程资料_2026.zip" Button`
+    t =    15.19s         Checking existence of `"file-课程资料_2026.zip" Button`
+    t =    15.20s             Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    15.35s             Find: Descendants matching type Button
+    t =    15.36s             Find: Elements matching predicate '"file-课程资料_2026.zip" IN identifiers'
+    t =    15.37s Tap "file-课程资料_2026.zip" Button
+    t =    15.37s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    15.37s     Find the "file-课程资料_2026.zip" Button
+    t =    15.38s         Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    15.43s         Find: Descendants matching type Button
+    t =    15.43s         Find: Elements matching predicate '"file-课程资料_2026.zip" IN identifiers'
+    t =    15.44s     Check for interrupting elements affecting "file-课程资料_2026.zip" Button
+    t =    15.46s         Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    15.50s         Find: Descendants matching predicate identifier == "NotificationShortLookView" OR elementType == 7
+    t =    15.50s     Synthesize event
+    t =    15.81s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    16.18s Waiting 10.0s for "extractToButton" Button to exist
+    t =    17.20s     Checking `Expect predicate `existsNoRetry == 1` for object "extractToButton" Button`
+    t =    17.21s         Checking existence of `"extractToButton" Button`
+    t =    17.21s             Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    17.28s             Find: Descendants matching type Button
+    t =    17.28s             Find: Elements matching predicate '"extractToButton" IN identifiers'
+    t =    17.28s Tap "extractToButton" Button
+    t =    17.28s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    17.29s     Find the "extractToButton" Button
+    t =    17.30s         Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    17.34s         Find: Descendants matching type Button
+    t =    17.34s         Find: Elements matching predicate '"extractToButton" IN identifiers'
+    t =    17.34s     Check for interrupting elements affecting "extractToButton" Button
+    t =    17.37s         Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    17.40s         Find: Descendants matching predicate identifier == "NotificationShortLookView" OR elementType == 7
+    t =    17.41s     Synthesize event
+    t =    17.71s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    18.13s Waiting 5.0s for "startExtractionButton" Button to exist
+    t =    19.15s     Checking `Expect predicate `existsNoRetry == 1` for object "startExtractionButton" Button`
+    t =    19.16s         Checking existence of `"startExtractionButton" Button`
+    t =    19.17s             Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    19.28s             Find: Descendants matching type Button
+    t =    19.28s             Find: Elements matching predicate '"startExtractionButton" IN identifiers'
+    t =    19.29s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =    19.29s     Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    19.48s Added attachment named 'extraction-destination'
+    t =    19.48s Tap "startExtractionButton" Button
+    t =    19.48s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    19.49s     Find the "startExtractionButton" Button
+    t =    19.49s         Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    19.57s         Find: Descendants matching type Button
+    t =    19.57s         Find: Elements matching predicate '"startExtractionButton" IN identifiers'
+    t =    19.57s     Check for interrupting elements affecting "startExtractionButton" Button
+    t =    19.58s         Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    19.63s         Find: Descendants matching predicate identifier == "NotificationShortLookView" OR elementType == 7
+    t =    19.63s     Synthesize event
+    t =    19.93s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    20.95s Waiting 20.0s for "resultDoneButton" Button to exist
+    t =    21.98s     Checking `Expect predicate `existsNoRetry == 1` for object "resultDoneButton" Button`
+    t =    21.98s         Checking existence of `"resultDoneButton" Button`
+    t =    21.99s             Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    22.08s             Find: Descendants matching type Button
+    t =    22.09s             Find: Elements matching predicate '"resultDoneButton" IN identifiers'
+    t =    22.09s Tap "resultDoneButton" Button
+    t =    22.09s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    22.10s     Find the "resultDoneButton" Button
+    t =    22.10s         Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    22.16s         Find: Descendants matching type Button
+    t =    22.16s         Find: Elements matching predicate '"resultDoneButton" IN identifiers'
+    t =    22.16s     Check for interrupting elements affecting "resultDoneButton" Button
+    t =    22.18s         Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    22.23s         Find: Descendants matching predicate identifier == "NotificationShortLookView" OR elementType == 7
+    t =    22.23s     Synthesize event
+    t =    22.54s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    22.91s Tap "taskFilter-Completed" Button
+    t =    22.91s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    22.93s     Find the "taskFilter-Completed" Button
+    t =    22.93s         Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    22.99s         Find: Descendants matching type Button
+    t =    22.99s         Find: Elements matching predicate '"taskFilter-Completed" IN identifiers'
+    t =    23.00s     Check for interrupting elements affecting "taskFilter-Completed" Button
+    t =    23.02s         Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    23.06s         Find: Descendants matching predicate identifier == "NotificationShortLookView" OR elementType == 7
+    t =    23.07s     Synthesize event
+    t =    23.38s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    23.40s Waiting 5.0s for "result-课程资料_2026" Button to exist
+    t =    24.43s     Checking `Expect predicate `existsNoRetry == 1` for object "result-课程资料_2026" Button`
+    t =    24.43s         Checking existence of `"result-课程资料_2026" Button`
+    t =    24.44s             Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    24.50s             Find: Descendants matching type Button
+    t =    24.50s             Find: Elements matching predicate '"result-课程资料_2026" IN identifiers'
+    t =    24.50s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =    24.51s     Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    24.69s Added attachment named 'tasks-completed'
+    t =    24.69s Tap "tab-Files" Button
+    t =    24.69s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    24.70s     Find the "tab-Files" Button
+    t =    24.70s         Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    24.74s         Find: Descendants matching type Button
+    t =    24.74s         Find: Elements matching predicate '"tab-Files" IN identifiers'
+    t =    24.74s     Check for interrupting elements affecting "tab-Files" Button
+    t =    24.75s         Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    24.79s         Find: Descendants matching predicate identifier == "NotificationShortLookView" OR elementType == 7
+    t =    24.79s     Synthesize event
+    t =    25.08s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    25.10s Tap "file-课程资料_2026.zip" Button
+    t =    25.10s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    25.11s     Find the "file-课程资料_2026.zip" Button
+    t =    25.12s         Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    25.21s         Find: Descendants matching type Button
+    t =    25.21s         Find: Elements matching predicate '"file-课程资料_2026.zip" IN identifiers'
+    t =    25.22s     Check for interrupting elements affecting "file-课程资料_2026.zip" Button
+    t =    25.24s         Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    25.29s         Find: Descendants matching predicate identifier == "NotificationShortLookView" OR elementType == 7
+    t =    25.30s     Synthesize event
+    t =    25.61s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    25.98s Waiting 10.0s for "extractToButton" Button to exist
+    t =    27.00s     Checking `Expect predicate `existsNoRetry == 1` for object "extractToButton" Button`
+    t =    27.00s         Checking existence of `"extractToButton" Button`
+    t =    27.01s             Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    27.08s             Find: Descendants matching type Button
+    t =    27.09s             Find: Elements matching predicate '"extractToButton" IN identifiers'
+    t =    27.09s Tap "extractToButton" Button
+    t =    27.10s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    27.10s     Find the "extractToButton" Button
+    t =    27.11s         Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    27.16s         Find: Descendants matching type Button
+    t =    27.16s         Find: Elements matching predicate '"extractToButton" IN identifiers'
+    t =    27.16s     Check for interrupting elements affecting "extractToButton" Button
+    t =    27.18s         Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    27.22s         Find: Descendants matching predicate identifier == "NotificationShortLookView" OR elementType == 7
+    t =    27.23s     Synthesize event
+    t =    27.53s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    27.94s Waiting 5.0s for "startExtractionButton" Button to exist
+    t =    28.96s     Checking `Expect predicate `existsNoRetry == 1` for object "startExtractionButton" Button`
+    t =    28.97s         Checking existence of `"startExtractionButton" Button`
+    t =    28.98s             Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    29.08s             Find: Descendants matching type Button
+    t =    29.09s             Find: Elements matching predicate '"startExtractionButton" IN identifiers'
+    t =    29.09s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =    29.09s     Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    29.28s Added attachment named 'extraction-destination'
+    t =    29.28s Tap "startExtractionButton" Button
+    t =    29.28s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    29.28s     Find the "startExtractionButton" Button
+    t =    29.28s         Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    29.36s         Find: Descendants matching type Button
+    t =    29.36s         Find: Elements matching predicate '"startExtractionButton" IN identifiers'
+    t =    29.36s     Check for interrupting elements affecting "startExtractionButton" Button
+    t =    29.37s         Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    29.42s         Find: Descendants matching predicate identifier == "NotificationShortLookView" OR elementType == 7
+    t =    29.42s     Synthesize event
+    t =    29.72s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    30.75s Waiting 15.0s for "Keep both" Button to exist
+    t =    31.78s     Checking `Expect predicate `existsNoRetry == 1` for object "Keep both" Button`
+    t =    31.78s         Checking existence of `"Keep both" Button`
+    t =    31.79s             Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    31.88s             Find: Descendants matching type Button
+    t =    31.88s             Find: Elements matching predicate '"Keep both" IN identifiers'
+    t =    31.89s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =    31.89s     Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    32.08s Added attachment named 'conflict-choice'
+    t =    32.08s Tap "sheetDoneButton" Button
+    t =    32.08s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    32.08s     Find the "sheetDoneButton" Button
+    t =    32.08s         Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    32.15s         Find: Descendants matching type Button
+    t =    32.15s         Find: Elements matching predicate '"sheetDoneButton" IN identifiers'
+    t =    32.15s     Check for interrupting elements affecting "sheetDoneButton" Button
+    t =    32.16s         Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    32.21s         Find: Descendants matching predicate identifier == "NotificationShortLookView" OR elementType == 7
+    t =    32.21s     Synthesize event
+    t =    32.51s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    32.90s Tap "taskFilter-Failed" Button
+    t =    32.90s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    32.91s     Find the "taskFilter-Failed" Button
+    t =    32.92s         Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    32.97s         Find: Descendants matching type Button
+    t =    32.97s         Find: Elements matching predicate '"taskFilter-Failed" IN identifiers'
+    t =    32.97s     Check for interrupting elements affecting "taskFilter-Failed" Button
+    t =    33.00s         Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    33.04s         Find: Descendants matching predicate identifier == "NotificationShortLookView" OR elementType == 7
+    t =    33.04s     Synthesize event
+    t =    33.36s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    33.37s Waiting 10.0s for "retry-课程资料_2026" Button to exist
+    t =    34.40s     Checking `Expect predicate `existsNoRetry == 1` for object "retry-课程资料_2026" Button`
+    t =    34.40s         Checking existence of `"retry-课程资料_2026" Button`
+    t =    34.41s             Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    34.47s             Find: Descendants matching type Button
+    t =    34.47s             Find: Elements matching predicate '"retry-课程资料_2026" IN identifiers'
+    t =    34.48s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =    34.48s     Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    34.65s Added attachment named 'tasks-cancelled'
+    t =    34.65s Tap "retry-课程资料_2026" Button
+    t =    34.65s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    34.65s     Find the "retry-课程资料_2026" Button
+    t =    34.65s         Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    34.70s         Find: Descendants matching type Button
+    t =    34.70s         Find: Elements matching predicate '"retry-课程资料_2026" IN identifiers'
+    t =    34.70s     Check for interrupting elements affecting "retry-课程资料_2026" Button
+    t =    34.71s         Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    34.74s         Find: Descendants matching predicate identifier == "NotificationShortLookView" OR elementType == 7
+    t =    34.75s     Synthesize event
+    t =    35.04s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    35.45s Waiting 15.0s for "Keep both" Button to exist
+    t =    36.48s     Checking `Expect predicate `existsNoRetry == 1` for object "Keep both" Button`
+    t =    36.49s         Checking existence of `"Keep both" Button`
+    t =    36.49s             Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    36.58s             Find: Descendants matching type Button
+    t =    36.58s             Find: Elements matching predicate '"Keep both" IN identifiers'
+    t =    36.59s Tap "Apply to all conflicts in this task" Switch
+    t =    36.59s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    36.60s     Find the "Apply to all conflicts in this task" Switch
+    t =    36.60s         Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    36.66s         Find: Descendants matching type Switch
+    t =    36.66s         Find: Elements matching predicate '"Apply to all conflicts in this task" IN identifiers'
+    t =    36.67s     Check for interrupting elements affecting "Apply to all conflicts in this task" Switch
+    t =    36.69s         Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    36.74s         Find: Descendants matching predicate identifier == "NotificationShortLookView" OR elementType == 7
+    t =    36.75s     Synthesize event
+    t =    37.06s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    37.77s Tap "Keep both" Button
+    t =    37.77s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    37.78s     Find the "Keep both" Button
+    t =    37.79s         Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    37.86s         Find: Descendants matching type Button
+    t =    37.87s         Find: Elements matching predicate '"Keep both" IN identifiers'
+    t =    37.87s     Check for interrupting elements affecting "Keep both" Button
+    t =    37.91s         Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    37.98s         Find: Descendants matching predicate identifier == "NotificationShortLookView" OR elementType == 7
+    t =    37.99s     Synthesize event
+    t =    38.29s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    38.71s Waiting 20.0s for "resultDoneButton" Button to exist
+    t =    39.75s     Checking `Expect predicate `existsNoRetry == 1` for object "resultDoneButton" Button`
+    t =    39.75s         Checking existence of `"resultDoneButton" Button`
+    t =    39.76s             Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    39.85s             Find: Descendants matching type Button
+    t =    39.85s             Find: Elements matching predicate '"resultDoneButton" IN identifiers'
+    t =    39.86s         Capturing element debug description
+    t =    40.78s     Checking `Expect predicate `existsNoRetry == 1` for object "resultDoneButton" Button`
+    t =    40.79s         Checking existence of `"resultDoneButton" Button`
+    t =    40.80s             Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    40.88s             Find: Descendants matching type Button
+    t =    40.88s             Find: Elements matching predicate '"resultDoneButton" IN identifiers'
+    t =    40.89s         Capturing element debug description
+    t =    41.71s     Checking `Expect predicate `existsNoRetry == 1` for object "resultDoneButton" Button`
+    t =    41.72s         Checking existence of `"resultDoneButton" Button`
+    t =    41.72s             Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    41.81s             Find: Descendants matching type Button
+    t =    41.81s             Find: Elements matching predicate '"resultDoneButton" IN identifiers'
+    t =    41.82s         Capturing element debug description
+    t =    42.75s     Checking `Expect predicate `existsNoRetry == 1` for object "resultDoneButton" Button`
+    t =    42.75s         Checking existence of `"resultDoneButton" Button`
+    t =    42.77s             Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    42.85s             Find: Descendants matching type Button
+    t =    42.85s             Find: Elements matching predicate '"resultDoneButton" IN identifiers'
+    t =    42.86s         Capturing element debug description
+    t =    43.78s     Checking `Expect predicate `existsNoRetry == 1` for object "resultDoneButton" Button`
+    t =    43.78s         Checking existence of `"resultDoneButton" Button`
+    t =    43.79s             Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    43.88s             Find: Descendants matching type Button
+    t =    43.88s             Find: Elements matching predicate '"resultDoneButton" IN identifiers'
+    t =    43.88s         Capturing element debug description
+    t =    44.71s     Checking `Expect predicate `existsNoRetry == 1` for object "resultDoneButton" Button`
+    t =    44.72s         Checking existence of `"resultDoneButton" Button`
+    t =    44.73s             Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    44.81s             Find: Descendants matching type Button
+    t =    44.81s             Find: Elements matching predicate '"resultDoneButton" IN identifiers'
+    t =    44.82s         Capturing element debug description
+    t =    45.74s     Checking `Expect predicate `existsNoRetry == 1` for object "resultDoneButton" Button`
+    t =    45.74s         Checking existence of `"resultDoneButton" Button`
+    t =    45.75s             Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    45.83s             Find: Descendants matching type Button
+    t =    45.83s             Find: Elements matching predicate '"resultDoneButton" IN identifiers'
+    t =    45.84s         Capturing element debug description
+    t =    46.76s     Checking `Expect predicate `existsNoRetry == 1` for object "resultDoneButton" Button`
+    t =    46.77s         Checking existence of `"resultDoneButton" Button`
+    t =    46.78s             Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    46.86s             Find: Descendants matching type Button
+    t =    46.86s             Find: Elements matching predicate '"resultDoneButton" IN identifiers'
+    t =    46.87s         Capturing element debug description
+    t =    47.80s     Checking `Expect predicate `existsNoRetry == 1` for object "resultDoneButton" Button`
+    t =    47.80s         Checking existence of `"resultDoneButton" Button`
+    t =    47.81s             Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    47.90s             Find: Descendants matching type Button
+    t =    47.90s             Find: Elements matching predicate '"resultDoneButton" IN identifiers'
+    t =    47.91s         Capturing element debug description
+    t =    48.73s     Checking `Expect predicate `existsNoRetry == 1` for object "resultDoneButton" Button`
+    t =    48.73s         Checking existence of `"resultDoneButton" Button`
+    t =    48.74s             Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    48.82s             Find: Descendants matching type Button
+    t =    48.83s             Find: Elements matching predicate '"resultDoneButton" IN identifiers'
+    t =    48.83s         Capturing element debug description
+    t =    49.75s     Checking `Expect predicate `existsNoRetry == 1` for object "resultDoneButton" Button`
+    t =    49.75s         Checking existence of `"resultDoneButton" Button`
+    t =    49.76s             Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    49.85s             Find: Descendants matching type Button
+    t =    49.85s             Find: Elements matching predicate '"resultDoneButton" IN identifiers'
+    t =    49.86s         Capturing element debug description
+    t =    50.78s     Checking `Expect predicate `existsNoRetry == 1` for object "resultDoneButton" Button`
+    t =    50.78s         Checking existence of `"resultDoneButton" Button`
+    t =    50.79s             Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    50.88s             Find: Descendants matching type Button
+    t =    50.88s             Find: Elements matching predicate '"resultDoneButton" IN identifiers'
+    t =    50.89s         Capturing element debug description
+    t =    51.71s     Checking `Expect predicate `existsNoRetry == 1` for object "resultDoneButton" Button`
+    t =    51.72s         Checking existence of `"resultDoneButton" Button`
+    t =    51.72s             Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    51.81s             Find: Descendants matching type Button
+    t =    51.81s             Find: Elements matching predicate '"resultDoneButton" IN identifiers'
+    t =    51.81s         Capturing element debug description
+    t =    52.75s     Checking `Expect predicate `existsNoRetry == 1` for object "resultDoneButton" Button`
+    t =    52.75s         Checking existence of `"resultDoneButton" Button`
+    t =    52.76s             Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    52.85s             Find: Descendants matching type Button
+    t =    52.85s             Find: Elements matching predicate '"resultDoneButton" IN identifiers'
+    t =    52.86s         Capturing element debug description
+    t =    53.77s     Checking `Expect predicate `existsNoRetry == 1` for object "resultDoneButton" Button`
+    t =    53.77s         Checking existence of `"resultDoneButton" Button`
+    t =    53.78s             Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    53.87s             Find: Descendants matching type Button
+    t =    53.87s             Find: Elements matching predicate '"resultDoneButton" IN identifiers'
+    t =    53.88s         Capturing element debug description
+    t =    54.80s     Checking `Expect predicate `existsNoRetry == 1` for object "resultDoneButton" Button`
+    t =    54.81s         Checking existence of `"resultDoneButton" Button`
+    t =    54.82s             Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    54.90s             Find: Descendants matching type Button
+    t =    54.91s             Find: Elements matching predicate '"resultDoneButton" IN identifiers'
+    t =    54.91s         Capturing element debug description
+    t =    55.71s     Checking `Expect predicate `existsNoRetry == 1` for object "resultDoneButton" Button`
+    t =    55.72s         Checking existence of `"resultDoneButton" Button`
+    t =    55.73s             Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    55.81s             Find: Descendants matching type Button
+    t =    55.82s             Find: Elements matching predicate '"resultDoneButton" IN identifiers'
+    t =    55.82s         Capturing element debug description
+    t =    56.75s     Checking `Expect predicate `existsNoRetry == 1` for object "resultDoneButton" Button`
+    t =    56.75s         Checking existence of `"resultDoneButton" Button`
+    t =    56.76s             Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    56.85s             Find: Descendants matching type Button
+    t =    56.85s             Find: Elements matching predicate '"resultDoneButton" IN identifiers'
+    t =    56.86s         Capturing element debug description
+    t =    57.78s     Checking `Expect predicate `existsNoRetry == 1` for object "resultDoneButton" Button`
+    t =    57.79s         Checking existence of `"resultDoneButton" Button`
+    t =    57.80s             Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    57.88s             Find: Descendants matching type Button
+    t =    57.88s             Find: Elements matching predicate '"resultDoneButton" IN identifiers'
+    t =    57.89s         Capturing element debug description
+    t =    58.71s     Checking `Expect predicate `existsNoRetry == 1` for object "resultDoneButton" Button`
+    t =    58.71s         Checking existence of `"resultDoneButton" Button`
+    t =    58.72s             Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    58.81s             Find: Descendants matching type Button
+    t =    58.81s             Find: Elements matching predicate '"resultDoneButton" IN identifiers'
+    t =    58.82s         Capturing element debug description
+    t =    58.82s     Checking existence of `"resultDoneButton" Button`
+    t =    58.83s         Requesting snapshot of accessibility hierarchy for app with pid 14459
+    t =    58.89s         Find: Descendants matching type Button
+    t =    58.89s         Find: Elements matching predicate '"resultDoneButton" IN identifiers'
+    t =    58.89s Collecting debug information to assist test failure triage
+    t =    58.89s     Requesting snapshot of accessibility hierarchy for app with pid 14459
+/Users/USER/github_space/zip-app/ZipHarbor/ZipHarborUITests/ZipHarborUITests.swift:262: error: -[ZipHarborUITests.ZipHarborUITests testRepeatedExtractionConflictCancelRetryAndKeepBoth] : XCTAssertTrue failed
+    t =    59.05s Tear Down
+Test Case '-[ZipHarborUITests.ZipHarborUITests testRepeatedExtractionConflictCancelRetryAndKeepBoth]' failed (59.138 seconds).
+Test Suite 'ZipHarborUITests' failed at 2026-10-01 13:54:34.225.
+	 Executed 1 test, with 1 failure (0 unexpected) in 59.138 (59.142) seconds
+Test Suite 'ZipHarborUITests.xctest' failed at 2026-10-01 13:54:34.226.
+	 Executed 1 test, with 1 failure (0 unexpected) in 59.138 (59.143) seconds
+Test Suite 'Selected tests' failed at 2026-10-01 13:54:34.226.
+	 Executed 1 test, with 1 failure (0 unexpected) in 59.138 (59.145) seconds
+2026-10-01 13:54:35.128 xcodebuild[54469:2970007]  IDETestOperationsObserverDebug: Failure collecting diagnostics from devices: Process exited with error 1:
+ ERROR: The operation couldn?t be completed. (CoreDeviceCLISupport.DiagnoseError error 0.)
+This tool generates files that allow Apple to investigate issues with your
+computer and help improve Apple products. The files might contain personal
+information found on your device or associated with your Apple Account(s),
+including but not limited to your name, serial numbers of your device,
+your device name, your device's location over the last one to two days,
+your attached peripheral devices, your user name, your email address and
+email settings, file paths, file names, Siri suggestions, your computer's
+IP addresses, and network connection information.
+
+This information is used by Apple in accordance with its privacy policy
+(www.apple.com/privacy) and is not shared with any other company. By using
+this tool and sending the results to Apple, you consent to Apple using the
+contents of these files to improve Apple products.
+
+An error occurred while running devicectl diagnose. Will archive the diagnostics collected thus far.
+Wrote file to /tmp/ZipHarbor-Device-Conflict-Verified.xcresult/Staging/1_Test/Diagnostics/devicectl_diagnostics.zip
+Partial devicectl diagnose bundle located here: /tmp/ZipHarbor-Device-Conflict-Verified.xcresult/Staging/1_Test/Diagnostics/devicectl_diagnostics.zip
+
+2026-10-01 13:54:35.152 xcodebuild[54469:2969922] [MT] IDETestOperationsObserverDebug: 67.024 elapsed -- Testing started completed.
+2026-10-01 13:54:35.152 xcodebuild[54469:2969922] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-01 13:54:35.152 xcodebuild[54469:2969922] [MT] IDETestOperationsObserverDebug: 67.024 sec, +67.024 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/ZipHarbor-Device-Conflict-Verified.xcresult
+
+Failing tests:
+	ZipHarborUITests.testRepeatedExtractionConflictCancelRetryAndKeepBoth()
+
+** TEST FAILED **
+
+Testing started

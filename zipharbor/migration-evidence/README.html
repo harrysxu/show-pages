@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="新工程验收证据 · ZipHarbor"><title>新工程验收证据 · ZipHarbor</title>
+<link rel="icon" href="../app-icon/zipharbor-icon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/site.css"></head>
+<body><a class="skip" href="#main">跳转到正文</a>
+<header class="site-header"><a class="brand" href="../index.html"><img src="../app-icon/zipharbor-icon-1024.png" width="36" height="36" alt="">ZipHarbor</a><nav aria-label="网站导航"><a href="../index.html">首页</a><a href="../support.html">技术支持</a><a href="../privacy.html">隐私政策</a><a href="../docs.html">产品文档</a></nav></header>
+<main id="main" class="with-toc"><details class="toc-panel" open><summary>本页目录</summary><div class="toc">
+<ul>
+<li><a href="#_1">新工程验收证据</a></li>
+</ul>
+</div>
+</details><article><p class="kicker">产品文档 / 历史记录与验收范围以文中日期为准</p><p class="note">公开展示版提供截图、摘要与日志。完整 Xcode 测试结果包保留在开发工程，见 <a href="../test-artifacts.html">测试证据说明</a>。</p><h1 id="_1">新工程验收证据</h1>
+<p>所有证据产生于 2026-10-01 的迁移验证。最终状态见 <a href="../07-新工程最终验收报告.html">验收报告</a>。</p>
+<div aria-label="文档数据表" class="table-scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>位置</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>simulator/</code></td>
+<td>最终 iPhone 14 模拟器流程截图与附件 manifest</td>
+</tr>
+<tr>
+<td><code>device/</code></td>
+<td>iPhone 14 真机完整 UI suite 截图、附件 manifest 与命名映射</td>
+</tr>
+<tr>
+<td><code>device-conflict/</code></td>
+<td>真机重名冲突、取消、重试、应用到全部及保留两者输出截图</td>
+</tr>
+<tr>
+<td><code>ipad/</code></td>
+<td>iPad 两步创建、英文深色、输出位置截图</td>
+</tr>
+<tr>
+<td><code>prototype/</code></td>
+<td>Safari 中原始 HTML 原型截图与手机区域裁剪</td>
+</tr>
+<tr>
+<td><code>system/</code></td>
+<td>系统文件选择、分享、默认解压设置的专项截图</td>
+</tr>
+<tr>
+<td><code>media/</code></td>
+<td>合成照片/视频选择、导入、打包与大字体截图</td>
+</tr>
+<tr>
+<td><code>providers/</code></td>
+<td>系统 Files 中真实导入测试 ZIP 的专项截图</td>
+</tr>
+<tr>
+<td><code>results/</code></td>
+<td>持久保存的 XCTest 结果包；包括真实失败/阻塞事实</td>
+</tr>
+<tr>
+<td><code>*-summary.json</code>、<code>*-tests.json</code></td>
+<td>xcresulttool 导出的实际测试统计与列表</td>
+</tr>
+<tr>
+<td><code>source-sha256.json</code></td>
+<td>本次交付 Swift、工程、资源与依赖锁文件的哈希</td>
+</tr>
+<tr>
+<td><code>release-final-build.log</code>、<code>release-final-install.log</code>、<code>release-final-launch.log</code></td>
+<td>最新 Release 构建、安装与启动结果</td>
+</tr>
+<tr>
+<td><code>device-final-engine.log</code>、<code>device-final-ui.log</code>、<code>device-conflict.log</code></td>
+<td>最新真机引擎、完整界面 suite 与补充冲突回归日志</td>
+</tr>
+<tr>
+<td><code>device-ui-blocked.log</code>、<code>device-unlocked-auth-blocked.log</code></td>
+<td>Device Hub 建立屏幕连接前的历史初始化失败，后续已实际运行通过</td>
+</tr>
+<tr>
+<td><code>visual-test-summary.json</code>、<code>selection-test-summary.json</code></td>
+<td>全量通过后的局部调整复测：3 项视觉 UI、23 项引擎与密码/选中目录用例</td>
+</tr>
+</tbody>
+</table></div>
+<p>最新真机结果：<code>results/iPhone14-engine-final.xcresult</code> 为 21/21 通过，<code>iPhone14-ui-final.xcresult</code> 为 12 项通过、1 项媒体用例跳过、0 失败，<code>iPhone14-conflict-final.xcresult</code> 为补充冲突 UI 1/1 通过。补充冲突在模拟器的结果为 <code>conflict-simulator-final.xcresult</code>，1/1 通过。后续修改仅修正英文四项冲突文案及测试选择器；运行上述补充测试并重新构建 Release 后更新源码哈希。</p>
+<p><code>iPhone14-engine-passed.xcresult</code> 的 20 项通过和 <code>iPhone14-ui-blocked.xcresult</code> 的 runner 失败是历史记录。用户解锁后仍曾认证超时；退出 iPhone 镜像并通过 Apple Device Hub 建立屏幕会话后，完整 UI suite 正常运行。补充用例过程中还遇到一次 runner 安装/启动信任状态异常，重新安装同一有效签名 runner 后正常启动，未更改证书或安全设置。</p>
+<p>媒体是专用模拟器内生成的测试 PNG/MP4；分享未发送给第三方。界面中出现的文件大小和目录来自测试样本，不是设计稿的虚构内容。</p>
+<p>查看结果包可以用 Xcode 打开，或执行：</p>
+<pre><code class="language-sh">xcrun xcresulttool get test-results summary --path docs/migration-evidence/results/simulator-final.xcresult --format json
+</code></pre><p class="source-link"><a href="README.md" download>下载 Markdown 文档</a></p></article></main>
+<footer><span>ZipHarbor · 面向 iPhone 和 iPad 的本地压缩文件工具。</span><a href="../docs.html">产品、设计与验收文档</a></footer>
+</body></html>

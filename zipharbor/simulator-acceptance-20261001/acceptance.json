@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-01",
+  "environment": {
+    "architecture": "arm64",
+    "deviceId": "A875629A-52DA-43B2-9917-62B406AE0AB4",
+    "deviceName": "ZipHarbor Final iPhone 14 QA 20261001",
+    "modelName": "iPhone 14",
+    "osBuildNumber": "23F77",
+    "osVersion": "26.5",
+    "platform": "iOS Simulator"
+  },
+  "bundle_id": "com.xiaolongxu.zipharbor.app",
+  "result": "Passed",
+  "passed_tests": 35,
+  "failed_tests": 0,
+  "skipped_tests": 0,
+  "total_tests": 35,
+  "suites": [
+    {
+      "name": "ZipHarborTests",
+      "tests": 21,
+      "passed": 21,
+      "failed": 0
+    },
+    {
+      "name": "ZipHarborUITests",
+      "tests": 14,
+      "passed": 14,
+      "failed": 0
+    }
+  ],
+  "result_bundle": "results/iPhone14-full.xcresult",
+  "test_log": "iPhone14-full.log",
+  "app_icon": {
+    "standard": "../../docs/app-icon/zipharbor-icon-1024.png",
+    "dark": "../../docs/app-icon/zipharbor-icon-dark-1024.png",
+    "compiled_simulator_asset": "/tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarbor.app/AppIcon60x60@2x.png",
+    "actool_validation": "../../docs/app-icon/validation.json"
+  },
+  "scope": [
+    "ZIP/AES ZIP/7z creation and roundtrip",
+    "archive format reads and split ZIP",
+    "password missing/wrong/retry and automatic continuation",
+    "selected folder extraction and preview",
+    "conflict cancel/retry/apply-to-all/keep-both",
+    "pause/cancel/path safety and retention engine tests",
+    "Chinese/English/dark mode/large text",
+    "Files picker, real archive import, share presentation",
+    "synthetic photo/video import",
+    "settings and destination cancellation"
+  ],
+  "manual_boundaries": [
+    "Real iCloud or third-party provider download/write",
+    "Face ID identity flows",
+    "human VoiceOver",
+    "physical-device touch pause/resume"
+  ]
+}

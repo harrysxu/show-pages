@@ -1,0 +1,61 @@
+Exported 2 attachments for: ZipHarborUITests/testAccessibilityLargeTextLayout():
+File: 39F50893-4543-497D-85ED-B8884430BE26.png, suggested name: "settings-large-text_0_7F46EFCF-387C-4AE6-A7CD-3AF5C187C2FA.png"
+File: C7643337-022D-4294-929F-176DD23620B0.png, suggested name: "home-large-text_0_1D421F7E-518D-485B-B049-D93143A4AF1F.png"
+
+Exported 1 attachment for: ZipHarborUITests/testCancellingExternalFolderChoiceKeepsPreviousDestination():
+File: 7C0818F1-3CB6-4AEE-958B-4333732EB2DB.png, suggested name: "destination-cancel-keeps-selection_0_45462935-390C-4A6F-8EAE-45A0A37B397E.png"
+
+Exported 3 attachments for: ZipHarborUITests/testCreateTwoStepsAESRoundTripAndBackPreservesSelection():
+File: D4BCF60F-8300-4AC2-8C16-AEECFC6F08A6.png, suggested name: "extraction-destination_0_6E79BD01-9DDA-468E-9600-60550302AC13.png"
+File: 8A152C3C-56A6-467F-B261-9942D186FC76.png, suggested name: "create-settings_0_4F3741BE-0926-41E4-9786-EC99F9D0C71A.png"
+File: CC0C9E8A-C970-4176-9170-487683EF7417.png, suggested name: "create-select_0_EBF2C8E8-4E18-4D5E-A843-0E51E94DF85D.png"
+
+Exported 1 attachment for: ZipHarborUITests/testDefaultDestinationAndPreserveSettingsAffectExtraction():
+File: 01A96A26-BD39-4831-8EA2-C4A8C1A44FA5.png, suggested name: "extraction-default-settings_0_DEF896B2-0A1F-44DA-B5C9-AF74867A62C5.png"
+
+Exported 3 attachments for: ZipHarborUITests/testEnglishAndDarkAppearance():
+File: D7DACC08-6511-45AC-8DD6-975ED8D661AD.png, suggested name: "home-dark-en_0_9468AA57-8F0F-40BE-8835-ADF3C491C16A.png"
+File: 5FDEC8E2-87D2-4F94-84CA-E0D328C99520.png, suggested name: "settings-dark-en_0_0FA4E2E8-3CD2-4159-A649-F3FC26009524.png"
+File: F2C240E2-2314-46B0-B316-B8315886D777.png, suggested name: "home-en_0_3C12F261-9C52-4822-BB7E-C9369DB66A4F.png"
+
+Exported 2 attachments for: ZipHarborUITests/testFavoritesAndSelectedDirectoryExtraction():
+File: AD388DD9-903B-44C4-AAB2-6085ACF09A3F.png, suggested name: "favorites_0_9C597689-6B8A-48F2-B07C-DA7D07A941FB.png"
+File: 56F44307-0C0B-447B-8ED2-A93D7245E4A4.png, suggested name: "selected-directory-output_0_23B07AA8-75B8-4BA3-B90A-DBCCFB4D8603.png"
+
+Exported 4 attachments for: ZipHarborUITests/testPasswordAutomaticallyContinuesAndDoneDismisses():
+File: DD25C8B3-FFB4-4402-B6F5-D0E694670B3F.png, suggested name: "output-folder_0_7F48C21F-4D75-44FB-8489-6D5E09B8CC22.png"
+File: A6B5D9D2-F987-48C7-B0B7-0C9609DCEC96.png, suggested name: "extraction-result_0_B988DEEB-C51F-4B38-B1AB-7029BB7A52B8.png"
+File: 5CB654AE-5781-4370-9708-B7FBB1D020CD.png, suggested name: "extraction-destination_0_B6C428B8-3614-4AB9-806D-DAFF7AA32950.png"
+File: 6DB947AD-F37D-4D2C-B243-EADFE7A187FD.png, suggested name: "home-zh_0_277E8392-D34C-4334-9481-72E505FF5F1F.png"
+
+Exported 2 attachments for: ZipHarborUITests/testPasswordCancelAndClearHistoryKeepFiles():
+File: E3BCDCC2-9D9E-4FFD-9E52-FFC7F42E3902.png, suggested name: "settings-zh_0_BB9A135E-FF12-4B5B-A509-73583DBC351B.png"
+File: 10C0554F-DCD3-4510-94A0-87951A81D6FC.png, suggested name: "extraction-destination_0_A31F381E-2C97-4C95-A198-163AB7B2A7EB.png"
+
+Skipped export for ZipHarborUITests/testPhotosAndVideoImportThenCreateArchive(): no matching attachments
+
+Exported 7 attachments for: ZipHarborUITests/testRepeatedExtractionConflictCancelRetryAndKeepBoth():
+File: AE800D58-F0E6-4520-988C-A6DA4A6C290D.png, suggested name: "conflict-kept-both-output_0_DC57AF81-57A3-473D-8EF9-CB4B8AA018CE.png"
+File: 032D1F8F-8651-49A8-AC94-E975097B388A.png, suggested name: "conflict-apply-to-all_0_9916285B-3A71-4C4F-99C3-CE2046B2B219.png"
+File: 58470987-2DEE-4EEA-ADA8-857E4E54A8BE.png, suggested name: "tasks-cancelled_0_1F1495B0-EAA0-44DC-80B0-4A41F26A48BD.png"
+File: 9DFAB19E-7EDD-480E-95B7-708056EA9E99.png, suggested name: "conflict-choice_0_35223B19-1167-46A7-BB21-066F7F854571.png"
+File: 21CD9107-C796-4B54-A2E6-FAA318249B40.png, suggested name: "extraction-destination_0_5EE3412B-D80C-4A1B-8353-67D99F6B3E55.png"
+File: 90B813D8-993F-4405-9C39-A7C0D11329B2.png, suggested name: "tasks-completed_0_4E2EA843-2E04-4D9B-B2F7-4B5239D5F6B8.png"
+File: E3734889-9989-46D6-96F5-C4CD0D9F703A.png, suggested name: "extraction-destination_0_4FFD5124-84B2-4EE7-8735-F5E3317069BD.png"
+
+Exported 2 attachments for: ZipHarborUITests/testSelectedFolderExtractionAndPreview():
+File: 821B6B65-9538-482D-81F1-BD37183CA8A1.png, suggested name: "quick-look_0_6A194D66-863B-426E-99C8-098E608EDB8E.png"
+File: BC89ED63-C43D-43E1-BCAD-362D44A1B738.png, suggested name: "archive-detail_0_4FED8F94-07F9-4484-A74C-679D5ECA6BDF.png"
+
+Exported 1 attachment for: ZipHarborUITests/testSystemFilesImportsRealArchive():
+File: FC8C8C69-8F65-4F36-946F-A6A7871DFE9A.png, suggested name: "system-files-imported-archive_0_04C50CB3-B34B-4011-8028-27D848D76B47.png"
+
+Exported 2 attachments for: ZipHarborUITests/testSystemPickerAndSharePresentation():
+File: 64164BF9-00C6-4AEC-B566-F9B2928AB8F6.png, suggested name: "system-share_0_12C7ACBF-EE86-4217-9C5F-F1168FDBCEC6.png"
+File: BCD5B96D-6506-451D-97A0-F77336AC6B77.png, suggested name: "system-files-picker_0_74D72F8B-3924-4861-B447-ABF9038AB50A.png"
+
+Exported 2 attachments for: ZipHarborUITests/testWrongPasswordCanRetryWithoutRestartingExtraction():
+File: B377323F-493C-40F7-AAF9-3DFE001472CD.png, suggested name: "wrong-password_0_92AA0765-A5E2-4A4F-8661-07B5F169619D.png"
+File: D8D3BD7E-A50F-41A6-A1EC-CD01D7075E08.png, suggested name: "extraction-destination_0_09697B75-141D-40CF-8BC3-61A13CBCB108.png"
+
+Generated manifest file with attachment details: /Users/USER/github_space/zip-app/docs/iphone14-acceptance-20261001/screenshots/ui-final2-export/manifest.json

@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <title>ZipHarbor app icon</title>
+  <desc>A pale archive folder with an indigo zipper on a blue violet background.</desc>
+  <defs>
+    <linearGradient id="background" x1="70" y1="0" x2="940" y2="1024" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#343C69"/>
+      <stop offset=".48" stop-color="#252C53"/>
+      <stop offset="1" stop-color="#131A35"/>
+    </linearGradient>
+    <radialGradient id="light" cx="170" cy="80" r="860" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#939EE9" stop-opacity=".28"/>
+      <stop offset="1" stop-color="#939EE9" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="back" x1="300" y1="240" x2="600" y2="440" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A7B8F3"/>
+      <stop offset="1" stop-color="#7D91DE"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="320" y1="344" x2="760" y2="790" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F0F3FF"/>
+      <stop offset=".55" stop-color="#DCE4FD"/>
+      <stop offset="1" stop-color="#B4C5F1"/>
+    </linearGradient>
+    <linearGradient id="zipper" x1="476" y1="430" x2="550" y2="745" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7486F0"/>
+      <stop offset=".55" stop-color="#6376E1"/>
+      <stop offset="1" stop-color="#414FC0"/>
+    </linearGradient>
+    <filter id="folderShadow" x="-25%" y="-25%" width="150%" height="170%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="28" stdDeviation="23" flood-color="#040818" flood-opacity=".24"/>
+    </filter>
+    <filter id="pullShadow" x="-80%" y="-30%" width="260%" height="170%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#1C2F79" flood-opacity=".16"/>
+    </filter>
+  </defs>
+  <!-- Full bleed square: iOS supplies the outer mask. -->
+  <path fill="url(#background)" d="M0 0H1024V1024H0Z"/>
+  <path fill="url(#light)" d="M0 0H1024V1024H0Z"/>
+  <g filter="url(#folderShadow)">
+    <!-- Raised folder tab is part of the mark, rather than a separate badge. -->
+    <path fill="url(#back)" d="M230 392V295C230 263 256 237 288 237H390C412 237 429 245 443 263L472 300H736C768 300 794 326 794 358V434Z"/>
+    <path fill="none" stroke="#F0F3FF" stroke-opacity=".40" stroke-width="4" d="M233 315V295C233 264 258 240 288 240H390C411 240 427 248 441 266L470 303"/>
+    <path fill="url(#paper)" d="M196 406C196 372 224 344 258 344H766C800 344 828 372 828 406V720C828 762 800 790 758 790H266C224 790 196 762 196 720Z"/>
+    <path fill="none" stroke="#F0F3FF" stroke-opacity=".60" stroke-width="4" d="M200 414V406C200 374 226 348 258 348H766C798 348 824 374 824 406"/>
+    <!-- Open zipper leads into a single pull. Teeth remain deliberately large. -->
+    <path fill="none" stroke="#B3C2F2" stroke-width="20" stroke-linecap="butt" d="M463 346L492 415Q500 432 512 442Q524 432 532 415L561 346"/>
+    <path fill="none" stroke="#99ACE7" stroke-width="9" stroke-linecap="round" d="M512 545V741"/>
+    <g fill="url(#zipper)">
+      <rect x="480" y="572" width="33" height="18" rx="5"/>
+      <rect x="511" y="592" width="33" height="18" rx="5"/>
+      <rect x="480" y="612" width="33" height="18" rx="5"/>
+      <rect x="511" y="632" width="33" height="18" rx="5"/>
+      <rect x="480" y="652" width="33" height="18" rx="5"/>
+      <rect x="511" y="672" width="33" height="18" rx="5"/>
+      <rect x="480" y="692" width="33" height="18" rx="5"/>
+      <rect x="511" y="712" width="33" height="18" rx="5"/>
+    </g>
+    <g filter="url(#pullShadow)">
+      <rect x="493" y="427" width="38" height="38" rx="13" fill="#5266DB"/>
+      <path fill="url(#zipper)" fill-rule="evenodd" d="M504 440H520C538 440 552 454 552 472V533C552 552 538 566 520 566H504C486 566 472 552 472 533V472C472 454 486 440 504 440ZM508 473C501 473 496 478 496 485V524C496 531 501 536 508 536H516C523 536 528 531 528 524V485C528 478 523 473 516 473Z"/>
+      <path fill="none" stroke="#A5B5FF" stroke-width="4" stroke-linecap="round" d="M483 484V472C483 460 492 451 504 451H520"/>
+    </g>
+  </g>
+</svg>

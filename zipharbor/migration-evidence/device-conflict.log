@@ -1,0 +1,350 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project ZipHarbor/ZipHarbor.xcodeproj -scheme ZipHarbor -destination platform=iOS,id=IPHONE14_UDID -derivedDataPath /tmp/ZipHarbor-Device -allowProvisioningUpdates -resultBundlePath /tmp/ZipHarbor-Device-Conflict-Confirmed.xcresult -parallel-testing-enabled NO test-without-building "-only-testing:ZipHarborUITests/ZipHarborUITests/testRepeatedExtractionConflictCancelRetryAndKeepBoth"
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  ArchiveKit: https://github.com/Lakr233/libarchive.xcframework.git @ 1.0.0
+
+Writing result bundle at path:
+	/tmp/ZipHarbor-Device-Conflict-Confirmed.xcresult
+
+2026-10-01 13:59:42.479 xcodebuild[55871:2987931] [MT] Run Destination Preflight: The destination is not ready.
+Error Domain=com.apple.dt.deviceprep Code=-3 "Unlock iPhone 14 验收设备 to Continue" UserInfo={NSRecoveryAttempter=<_DVTErrorRecoveryAttempter: 0xb978fa710>, NSLocalizedRecoveryOptions=(
+    "Cancel Testing"
+), NSLocalizedRecoverySuggestion=Xcode cannot launch ZipHarborUITests on iPhone 14 验收设备 because the device is locked., DVTRecoveryBlockKey=<__NSMallocBlock__: 0xb953b64f0>, NSLocalizedDescription=Unlock iPhone 14 验收设备 to Continue}
+2026-10-01 13:59:42.480 xcodebuild[55871:2987931] [MT] Run Destination Preflight: Waiting for the destination to become ready.
+2026-10-01 13:59:54.500877+0800 ZipHarborUITests-Runner[14472:5917844] [Default] Running tests...
+2026-10-01 13:59:54.578185+0800 ZipHarborUITests-Runner[14472:5917844] [MC] Reading from public effective user settings.
+    t =      nans Interface orientation changed to Portrait
+Test Suite 'Selected tests' started at 2026-10-01 13:59:54.968.
+Test Suite 'ZipHarborUITests.xctest' started at 2026-10-01 13:59:54.969.
+Test Suite 'ZipHarborUITests' started at 2026-10-01 13:59:54.969.
+Test Case '-[ZipHarborUITests.ZipHarborUITests testRepeatedExtractionConflictCancelRetryAndKeepBoth]' started.
+    t =     0.01s Start Test at 2026-10-01 13:59:54.976
+    t =     0.02s Set Up
+    t =     0.03s Open com.xiaolongxu.zipharbor.app
+    t =     0.03s     Launch com.xiaolongxu.zipharbor.app
+2026-10-01 13:59:55.008 xcodebuild[55871:2987931] [MT] IDELaunchParametersSnapshot: debugger version lookup failed for path '<nil>': noURL
+2026-10-01 13:59:55.008 xcodebuild[55871:2987931] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =     5.59s         Setting up automation session
+    t =     5.82s         Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     7.00s Waiting 25.0s for "file-课程资料_2026.zip" Button to exist
+    t =     8.03s     Checking `Expect predicate `existsNoRetry == 1` for object "file-课程资料_2026.zip" Button`
+    t =     8.04s         Checking existence of `"file-课程资料_2026.zip" Button`
+    t =     8.05s             Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =     8.18s             Find: Descendants matching type Button
+    t =     8.18s             Find: Elements matching predicate '"file-课程资料_2026.zip" IN identifiers'
+    t =     8.19s Tap "file-课程资料_2026.zip" Button
+    t =     8.20s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     8.20s     Find the "file-课程资料_2026.zip" Button
+    t =     8.21s         Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =     8.27s         Find: Descendants matching type Button
+    t =     8.27s         Find: Elements matching predicate '"file-课程资料_2026.zip" IN identifiers'
+    t =     8.27s     Check for interrupting elements affecting "file-课程资料_2026.zip" Button
+    t =     8.30s         Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =     8.36s         Find: Descendants matching predicate identifier == "NotificationShortLookView" OR elementType == 7
+    t =     8.36s     Synthesize event
+    t =     8.66s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     9.08s Waiting 10.0s for "extractToButton" Button to exist
+    t =    10.10s     Checking `Expect predicate `existsNoRetry == 1` for object "extractToButton" Button`
+    t =    10.10s         Checking existence of `"extractToButton" Button`
+    t =    10.11s             Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    10.17s             Find: Descendants matching type Button
+    t =    10.18s             Find: Elements matching predicate '"extractToButton" IN identifiers'
+    t =    10.18s Tap "extractToButton" Button
+    t =    10.18s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    10.20s     Find the "extractToButton" Button
+    t =    10.20s         Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    10.25s         Find: Descendants matching type Button
+    t =    10.25s         Find: Elements matching predicate '"extractToButton" IN identifiers'
+    t =    10.25s     Check for interrupting elements affecting "extractToButton" Button
+    t =    10.27s         Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    10.31s         Find: Descendants matching predicate identifier == "NotificationShortLookView" OR elementType == 7
+    t =    10.31s     Synthesize event
+    t =    10.61s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    11.01s Waiting 5.0s for "startExtractionButton" Button to exist
+    t =    12.04s     Checking `Expect predicate `existsNoRetry == 1` for object "startExtractionButton" Button`
+    t =    12.04s         Checking existence of `"startExtractionButton" Button`
+    t =    12.05s             Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    12.19s             Find: Descendants matching type Button
+    t =    12.19s             Find: Elements matching predicate '"startExtractionButton" IN identifiers'
+    t =    12.20s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =    12.20s     Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    12.41s Added attachment named 'extraction-destination'
+    t =    12.41s Tap "startExtractionButton" Button
+    t =    12.41s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    12.41s     Find the "startExtractionButton" Button
+    t =    12.41s         Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    12.51s         Find: Descendants matching type Button
+    t =    12.51s         Find: Elements matching predicate '"startExtractionButton" IN identifiers'
+    t =    12.51s     Check for interrupting elements affecting "startExtractionButton" Button
+    t =    12.52s         Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    12.58s         Find: Descendants matching predicate identifier == "NotificationShortLookView" OR elementType == 7
+    t =    12.59s     Synthesize event
+    t =    12.90s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    13.93s Waiting 20.0s for "resultDoneButton" Button to exist
+    t =    14.95s     Checking `Expect predicate `existsNoRetry == 1` for object "resultDoneButton" Button`
+    t =    14.95s         Checking existence of `"resultDoneButton" Button`
+    t =    14.96s             Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    15.07s             Find: Descendants matching type Button
+    t =    15.07s             Find: Elements matching predicate '"resultDoneButton" IN identifiers'
+    t =    15.08s Tap "resultDoneButton" Button
+    t =    15.08s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    15.08s     Find the "resultDoneButton" Button
+    t =    15.09s         Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    15.15s         Find: Descendants matching type Button
+    t =    15.16s         Find: Elements matching predicate '"resultDoneButton" IN identifiers'
+    t =    15.16s     Check for interrupting elements affecting "resultDoneButton" Button
+    t =    15.18s         Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    15.24s         Find: Descendants matching predicate identifier == "NotificationShortLookView" OR elementType == 7
+    t =    15.25s     Synthesize event
+    t =    15.56s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    15.94s Tap "taskFilter-Completed" Button
+    t =    15.94s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    15.95s     Find the "taskFilter-Completed" Button
+    t =    15.96s         Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    16.02s         Find: Descendants matching type Button
+    t =    16.02s         Find: Elements matching predicate '"taskFilter-Completed" IN identifiers'
+    t =    16.03s     Check for interrupting elements affecting "taskFilter-Completed" Button
+    t =    16.06s         Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    16.11s         Find: Descendants matching predicate identifier == "NotificationShortLookView" OR elementType == 7
+    t =    16.11s     Synthesize event
+    t =    16.43s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    16.45s Waiting 5.0s for "result-课程资料_2026" Button to exist
+    t =    17.48s     Checking `Expect predicate `existsNoRetry == 1` for object "result-课程资料_2026" Button`
+    t =    17.49s         Checking existence of `"result-课程资料_2026" Button`
+    t =    17.50s             Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    17.58s             Find: Descendants matching type Button
+    t =    17.58s             Find: Elements matching predicate '"result-课程资料_2026" IN identifiers'
+    t =    17.58s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =    17.59s     Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    17.76s Added attachment named 'tasks-completed'
+    t =    17.76s Tap "tab-Files" Button
+    t =    17.76s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    17.76s     Find the "tab-Files" Button
+    t =    17.77s         Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    17.82s         Find: Descendants matching type Button
+    t =    17.82s         Find: Elements matching predicate '"tab-Files" IN identifiers'
+    t =    17.82s     Check for interrupting elements affecting "tab-Files" Button
+    t =    17.84s         Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    17.87s         Find: Descendants matching predicate identifier == "NotificationShortLookView" OR elementType == 7
+    t =    17.87s     Synthesize event
+    t =    18.16s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    18.18s Tap "file-课程资料_2026.zip" Button
+    t =    18.18s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    18.19s     Find the "file-课程资料_2026.zip" Button
+    t =    18.20s         Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    18.30s         Find: Descendants matching type Button
+    t =    18.30s         Find: Elements matching predicate '"file-课程资料_2026.zip" IN identifiers'
+    t =    18.31s     Check for interrupting elements affecting "file-课程资料_2026.zip" Button
+    t =    18.33s         Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    18.40s         Find: Descendants matching predicate identifier == "NotificationShortLookView" OR elementType == 7
+    t =    18.40s     Synthesize event
+    t =    18.71s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    19.09s Waiting 10.0s for "extractToButton" Button to exist
+    t =    20.13s     Checking `Expect predicate `existsNoRetry == 1` for object "extractToButton" Button`
+    t =    20.13s         Checking existence of `"extractToButton" Button`
+    t =    20.15s             Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    20.24s             Find: Descendants matching type Button
+    t =    20.25s             Find: Elements matching predicate '"extractToButton" IN identifiers'
+    t =    20.25s Tap "extractToButton" Button
+    t =    20.25s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    20.26s     Find the "extractToButton" Button
+    t =    20.26s         Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    20.32s         Find: Descendants matching type Button
+    t =    20.32s         Find: Elements matching predicate '"extractToButton" IN identifiers'
+    t =    20.33s     Check for interrupting elements affecting "extractToButton" Button
+    t =    20.35s         Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    20.40s         Find: Descendants matching predicate identifier == "NotificationShortLookView" OR elementType == 7
+    t =    20.41s     Synthesize event
+    t =    20.71s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    21.11s Waiting 5.0s for "startExtractionButton" Button to exist
+    t =    22.14s     Checking `Expect predicate `existsNoRetry == 1` for object "startExtractionButton" Button`
+    t =    22.14s         Checking existence of `"startExtractionButton" Button`
+    t =    22.15s             Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    22.28s             Find: Descendants matching type Button
+    t =    22.28s             Find: Elements matching predicate '"startExtractionButton" IN identifiers'
+    t =    22.29s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =    22.29s     Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    22.49s Added attachment named 'extraction-destination'
+    t =    22.49s Tap "startExtractionButton" Button
+    t =    22.49s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    22.49s     Find the "startExtractionButton" Button
+    t =    22.49s         Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    22.58s         Find: Descendants matching type Button
+    t =    22.58s         Find: Elements matching predicate '"startExtractionButton" IN identifiers'
+    t =    22.58s     Check for interrupting elements affecting "startExtractionButton" Button
+    t =    22.60s         Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    22.67s         Find: Descendants matching predicate identifier == "NotificationShortLookView" OR elementType == 7
+    t =    22.67s     Synthesize event
+    t =    22.98s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    24.00s Waiting 15.0s for "Keep both" Button to exist
+    t =    25.04s     Checking `Expect predicate `existsNoRetry == 1` for object "Keep both" Button`
+    t =    25.04s         Checking existence of `"Keep both" Button`
+    t =    25.05s             Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    25.16s             Find: Descendants matching type Button
+    t =    25.16s             Find: Elements matching predicate '"Keep both" IN identifiers'
+    t =    25.17s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =    25.17s     Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    25.36s Added attachment named 'conflict-choice'
+    t =    25.36s Tap "sheetDoneButton" Button
+    t =    25.36s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    25.36s     Find the "sheetDoneButton" Button
+    t =    25.36s         Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    25.43s         Find: Descendants matching type Button
+    t =    25.43s         Find: Elements matching predicate '"sheetDoneButton" IN identifiers'
+    t =    25.43s     Check for interrupting elements affecting "sheetDoneButton" Button
+    t =    25.45s         Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    25.50s         Find: Descendants matching predicate identifier == "NotificationShortLookView" OR elementType == 7
+    t =    25.50s     Synthesize event
+    t =    25.81s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    26.20s Tap "taskFilter-Failed" Button
+    t =    26.21s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    26.22s     Find the "taskFilter-Failed" Button
+    t =    26.23s         Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    26.29s         Find: Descendants matching type Button
+    t =    26.29s         Find: Elements matching predicate '"taskFilter-Failed" IN identifiers'
+    t =    26.30s     Check for interrupting elements affecting "taskFilter-Failed" Button
+    t =    26.32s         Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    26.37s         Find: Descendants matching predicate identifier == "NotificationShortLookView" OR elementType == 7
+    t =    26.38s     Synthesize event
+    t =    26.70s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    26.71s Waiting 10.0s for "retry-课程资料_2026" Button to exist
+    t =    27.75s     Checking `Expect predicate `existsNoRetry == 1` for object "retry-课程资料_2026" Button`
+    t =    27.75s         Checking existence of `"retry-课程资料_2026" Button`
+    t =    27.76s             Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    27.84s             Find: Descendants matching type Button
+    t =    27.85s             Find: Elements matching predicate '"retry-课程资料_2026" IN identifiers'
+    t =    27.85s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =    27.86s     Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    28.03s Added attachment named 'tasks-cancelled'
+    t =    28.03s Tap "retry-课程资料_2026" Button
+    t =    28.03s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    28.03s     Find the "retry-课程资料_2026" Button
+    t =    28.03s         Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    28.09s         Find: Descendants matching type Button
+    t =    28.09s         Find: Elements matching predicate '"retry-课程资料_2026" IN identifiers'
+    t =    28.10s     Check for interrupting elements affecting "retry-课程资料_2026" Button
+    t =    28.11s         Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    28.15s         Find: Descendants matching predicate identifier == "NotificationShortLookView" OR elementType == 7
+    t =    28.16s     Synthesize event
+    t =    28.46s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    28.87s Waiting 15.0s for "Keep both" Button to exist
+    t =    29.90s     Checking `Expect predicate `existsNoRetry == 1` for object "Keep both" Button`
+    t =    29.90s         Checking existence of `"Keep both" Button`
+    t =    29.91s             Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    30.01s             Find: Descendants matching type Button
+    t =    30.01s             Find: Elements matching predicate '"Keep both" IN identifiers'
+    t =    30.02s Tap "Apply to all conflicts in this task" Switch[0.93, 0.50]
+    t =    30.02s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    30.03s     Find the "Apply to all conflicts in this task" Switch
+    t =    30.03s         Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    30.09s         Find: Descendants matching type Switch
+    t =    30.10s         Find: Elements matching predicate '"Apply to all conflicts in this task" IN identifiers'
+    t =    30.10s     Check for interrupting elements affecting "Apply to all conflicts in this task" Switch
+    t =    30.12s         Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    30.17s         Find: Descendants matching predicate identifier == "NotificationShortLookView" OR elementType == 7
+    t =    30.18s     Synthesize event
+    t =    30.18s         Find the "Apply to all conflicts in this task" Switch
+    t =    30.19s             Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    30.24s             Find: Descendants matching type Switch
+    t =    30.25s             Find: Elements matching predicate '"Apply to all conflicts in this task" IN identifiers'
+    t =    30.26s         Find the "Apply to all conflicts in this task" Switch
+    t =    30.26s             Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    30.32s             Find: Descendants matching type Switch
+    t =    30.32s             Find: Elements matching predicate '"Apply to all conflicts in this task" IN identifiers'
+    t =    30.33s         Find the "Apply to all conflicts in this task" Switch
+    t =    30.33s             Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    30.39s             Find: Descendants matching type Switch
+    t =    30.39s             Find: Elements matching predicate '"Apply to all conflicts in this task" IN identifiers'
+    t =    30.69s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    31.77s Find the "Apply to all conflicts in this task" Switch
+    t =    31.78s     Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    31.87s     Find: Descendants matching type Switch
+    t =    31.88s     Find: Elements matching predicate '"Apply to all conflicts in this task" IN identifiers'
+    t =    31.88s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =    31.88s     Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    32.08s Added attachment named 'conflict-apply-to-all'
+    t =    32.08s Tap "Keep both" Button
+    t =    32.08s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    32.09s     Find the "Keep both" Button
+    t =    32.09s         Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    32.16s         Find: Descendants matching type Button
+    t =    32.16s         Find: Elements matching predicate '"Keep both" IN identifiers'
+    t =    32.16s     Check for interrupting elements affecting "Keep both" Button
+    t =    32.18s         Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    32.23s         Find: Descendants matching predicate identifier == "NotificationShortLookView" OR elementType == 7
+    t =    32.23s     Synthesize event
+    t =    32.53s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    32.95s Waiting 20.0s for "resultDoneButton" Button to exist
+    t =    33.99s     Checking `Expect predicate `existsNoRetry == 1` for object "resultDoneButton" Button`
+    t =    33.99s         Checking existence of `"resultDoneButton" Button`
+    t =    34.01s             Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    34.11s             Find: Descendants matching type Button
+    t =    34.12s             Find: Elements matching predicate '"resultDoneButton" IN identifiers'
+    t =    34.12s Tap "openOutputButton" Button
+    t =    34.12s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    34.13s     Find the "openOutputButton" Button
+    t =    34.13s         Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    34.20s         Find: Descendants matching type Button
+    t =    34.20s         Find: Elements matching predicate '"openOutputButton" IN identifiers'
+    t =    34.21s     Check for interrupting elements affecting "openOutputButton" Button
+    t =    34.23s         Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    34.29s         Find: Descendants matching predicate identifier == "NotificationShortLookView" OR elementType == 7
+    t =    34.29s     Synthesize event
+    t =    34.61s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    35.04s Waiting 5.0s for "课堂笔记.txt" StaticText to exist
+    t =    36.08s     Checking `Expect predicate `existsNoRetry == 1` for object "课堂笔记.txt" StaticText`
+    t =    36.08s         Checking existence of `"课堂笔记.txt" StaticText`
+    t =    36.09s             Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    36.21s             Find: Descendants matching type StaticText
+    t =    36.21s             Find: Elements matching predicate '"课堂笔记.txt" IN identifiers'
+    t =    36.22s Checking existence of `"课堂笔记 (2).txt" StaticText`
+    t =    36.22s     Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    36.29s     Find: Descendants matching type StaticText
+    t =    36.29s     Find: Elements matching predicate '"课堂笔记 (2).txt" IN identifiers'
+    t =    36.30s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =    36.30s     Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    36.48s Added attachment named 'conflict-kept-both-output'
+    t =    36.48s Tap "folderDoneButton" Button
+    t =    36.48s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    36.48s     Find the "folderDoneButton" Button
+    t =    36.48s         Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    36.55s         Find: Descendants matching type Button
+    t =    36.55s         Find: Elements matching predicate '"folderDoneButton" IN identifiers'
+    t =    36.55s     Check for interrupting elements affecting "folderDoneButton" Button
+    t =    36.56s         Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    36.60s         Find: Descendants matching predicate identifier == "NotificationShortLookView" OR elementType == 7
+    t =    36.60s     Synthesize event
+    t =    36.92s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    37.27s Tap "resultDoneButton" Button
+    t =    37.27s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    37.29s     Find the "resultDoneButton" Button
+    t =    37.30s         Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    37.39s         Find: Descendants matching type Button
+    t =    37.40s         Find: Elements matching predicate '"resultDoneButton" IN identifiers'
+    t =    37.40s     Check for interrupting elements affecting "resultDoneButton" Button
+    t =    37.43s         Requesting snapshot of accessibility hierarchy for app with pid 14478
+    t =    37.50s         Find: Descendants matching predicate identifier == "NotificationShortLookView" OR elementType == 7
+    t =    37.51s     Synthesize event
+    t =    37.83s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    38.20s Tear Down
+Test Case '-[ZipHarborUITests.ZipHarborUITests testRepeatedExtractionConflictCancelRetryAndKeepBoth]' passed (38.215 seconds).
+Test Suite 'ZipHarborUITests' passed at 2026-10-01 14:00:33.192.
+	 Executed 1 test, with 0 failures (0 unexpected) in 38.215 (38.223) seconds
+Test Suite 'ZipHarborUITests.xctest' passed at 2026-10-01 14:00:33.193.
+	 Executed 1 test, with 0 failures (0 unexpected) in 38.215 (38.224) seconds
+Test Suite 'Selected tests' passed at 2026-10-01 14:00:33.193.
+	 Executed 1 test, with 0 failures (0 unexpected) in 38.215 (38.225) seconds
+2026-10-01 14:00:33.384 xcodebuild[55871:2987931] [MT] IDETestOperationsObserverDebug: 60.096 elapsed -- Testing started completed.
+2026-10-01 14:00:33.384 xcodebuild[55871:2987931] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-01 14:00:33.384 xcodebuild[55871:2987931] [MT] IDETestOperationsObserverDebug: 60.096 sec, +60.096 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/ZipHarbor-Device-Conflict-Confirmed.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

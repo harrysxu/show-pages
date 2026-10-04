@@ -89,6 +89,9 @@ Markora Pro
 • 月度和年度自动续期方案
 
 Markora 不提供账号、云端协作或开发者托管的文档数据库。文档、草稿和导出文件由你在设备或文件提供商中管理。价格、税费和可用优惠以 App Store 页面显示为准。
+
+使用条款（Apple 标准 EULA）：https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
+Markora 用户协议：https://harrysxu.github.io/show-pages/markora/terms/
 ```
 
 ### English (U.S.) (`en-US`)
@@ -152,6 +155,9 @@ Markora Pro
 • Monthly and yearly auto-renewable plans
 
 Markora has no account system, cloud collaboration, or developer-hosted document database. You manage documents, drafts, and exported files on your device or with your chosen file provider. Price, taxes, and available offers are shown on the App Store purchase screen.
+
+Terms of Use (Apple standard EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
+Markora Terms: https://harrysxu.github.io/show-pages/markora/terms-en/
 ```
 
 ### 繁體中文（`zh-Hant`）
@@ -198,6 +204,9 @@ Markora 是一款為專注寫作而設計的本機優先 Markdown 編輯器。�
 • 掃描影像和辨識文字不會上傳到 Markora 伺服器
 
 Markora Pro 解鎖掃描轉 Markdown、Mermaid 圖表、LaTeX 公式，以及 HTML/PDF 匯出。價格、稅費和可用優惠以 App Store 購買頁面為準。
+
+使用條款（Apple 標準 EULA）：https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
+Markora 使用條款：https://harrysxu.github.io/show-pages/markora/terms-en/
 ```
 
 ### 日本語 (`ja`)
@@ -243,6 +252,9 @@ Markoraは、集中して書くためのローカル優先Markdownエディタ�
 • 結果と信頼度の低い文字を確認してから文書を作成または挿入
 
 Markora Proでは、スキャンしてMarkdownに変換、Mermaid図、LaTeX数式、HTML/PDF書き出しを利用できます。価格、税金、オファーはApp Storeの購入画面に表示されます。
+
+利用規約（Apple標準EULA）：https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
+Markora利用規約：https://harrysxu.github.io/show-pages/markora/terms-en/
 ```
 
 ### Deutsch (`de`)
@@ -288,6 +300,9 @@ Papier in Markdown verwandeln
 • Ergebnisse und Text mit niedriger Erkennungswahrscheinlichkeit prüfen
 
 Markora Pro schaltet Scan to Markdown, Mermaid-Diagramme, LaTeX-Formeln sowie HTML- und PDF-Export frei. Preise, Steuern und Angebote werden beim Kauf im App Store angezeigt.
+
+Nutzungsbedingungen (Apple Standard-EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
+Markora Nutzungsbedingungen: https://harrysxu.github.io/show-pages/markora/terms-en/
 ```
 
 ### Français (`fr`)
@@ -333,6 +348,9 @@ Du papier au Markdown
 • Vérifiez le résultat et les textes peu fiables avant de créer ou d’insérer un document
 
 Markora Pro déverrouille la conversion Scan to Markdown, les diagrammes Mermaid, les formules LaTeX et l’export HTML/PDF. Les prix, taxes et offres sont affichés sur la page d’achat de l’App Store.
+
+Conditions d’utilisation (EULA standard d’Apple) : https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
+Conditions Markora : https://harrysxu.github.io/show-pages/markora/terms-en/
 ```
 
 ### Español (`es`)
@@ -378,6 +396,9 @@ Del papel a Markdown
 • Revisa el resultado y el texto de baja confianza antes de crear o insertar el documento
 
 Markora Pro desbloquea Scan to Markdown, diagramas Mermaid, fórmulas LaTeX y exportación HTML/PDF. Los precios, impuestos y ofertas aparecen en la pantalla de compra del App Store.
+
+Términos de uso (EULA estándar de Apple): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
+Términos de Markora: https://harrysxu.github.io/show-pages/markora/terms-en/
 ```
 
 ## 二、版本信息（Version 1.0）
@@ -610,6 +631,7 @@ Does this app track users? No.
 - [ ] 月度和年度订阅已创建在同一订阅组
 - [ ] 订阅价格、地区、税务和可售状态已确认
 - [ ] 订阅审核截图展示实际 paywall，而不是 StoreKit 配置文件截图
+- [ ] 每个上架语言的 App Description 都包含完整 EULA URL：`https://www.apple.com/legal/internet-services/itunes/dev/stdeula/`
 - [ ] 版本号与上传包一致：`1.0 (1)`
 - [ ] 隐私营养标签、年龄分级、出口合规和内容版权问卷已完成
 - [ ] 真机验证相机权限、图片/PDF 导入、OCR 审核、Pro 购买/恢复、HTML/PDF 导出

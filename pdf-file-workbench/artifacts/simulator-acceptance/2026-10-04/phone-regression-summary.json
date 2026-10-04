@@ -1,0 +1,52 @@
+{
+  "devicesAndConfigurations" : [
+    {
+      "device" : {
+        "architecture" : "arm64",
+        "deviceId" : "1BF66C24-9E03-4608-84E2-33FB67417F35",
+        "deviceName" : "PaperFlow Full Acceptance iPhone14 20261004",
+        "modelName" : "iPhone 14",
+        "osBuildNumber" : "23F77",
+        "osVersion" : "26.5",
+        "platform" : "iOS Simulator"
+      },
+      "expectedFailures" : 0,
+      "failedTests" : 0,
+      "passedTests" : 41,
+      "skippedTests" : 0,
+      "testPlanConfiguration" : {
+        "configurationId" : "1",
+        "configurationName" : "Test Scheme Action"
+      }
+    }
+  ],
+  "environmentDescription" : "PaperFlow · Built with macOS 26.6.2",
+  "expectedFailures" : 0,
+  "failedTests" : 0,
+  "finishTime" : 1791109972.917,
+  "passedTests" : 37,
+  "result" : "Passed",
+  "runtimeWarnings" : [
+
+  ],
+  "skippedTests" : 0,
+  "startTime" : 1791109551.591,
+  "statistics" : [
+    {
+      "subtitle" : "6 test runs",
+      "title" : "2 tests ran with dynamic parameters"
+    }
+  ],
+  "testFailures" : [
+
+  ],
+  "title" : "Test - PaperFlow",
+  "topInsights" : [
+    {
+      "category" : "Longest Test Runs",
+      "impact" : "35% of duration",
+      "text" : "1 longest test run with outlier durations exceeding 113.63s (three standard deviations)"
+    }
+  ],
+  "totalTestCount" : 37
+}

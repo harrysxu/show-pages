@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="ZipHarbor UI/UX 原型对照验收 · ZipHarbor"><title>ZipHarbor UI/UX 原型对照验收 · ZipHarbor</title>
+<link rel="icon" href="app-icon/zipharbor-icon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/site.css"></head>
+<body><a class="skip" href="#main">跳转到正文</a>
+<header class="site-header"><a class="brand" href="index.html"><img src="app-icon/zipharbor-icon-1024.png" width="36" height="36" alt="">ZipHarbor</a><nav aria-label="网站导航"><a href="index.html">首页</a><a href="support.html">技术支持</a><a href="privacy.html">隐私政策</a><a href="docs.html">产品文档</a></nav></header>
+<main id="main" class="with-toc"><details class="toc-panel" open><summary>本页目录</summary><div class="toc">
+<ul>
+<li><a href="#zipharbor-uiux">ZipHarbor UI/UX 原型对照验收</a><ul>
+<li><a href="#_1">验收方法与结论</a></li>
+<li><a href="#_2">页面与交互对照</a></li>
+<li><a href="#_3">视觉规格</a></li>
+<li><a href="#_4">可用性与国际化</a></li>
+<li><a href="#_5">尚未完成的验收</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</details><article><p class="kicker">产品文档 / 历史记录与验收范围以文中日期为准</p><h1 id="zipharbor-uiux">ZipHarbor UI/UX 原型对照验收</h1>
+<p>日期：2026-10-01。设计基准：<code>app-prototype.html</code>。实现入口：<code>ZipHarbor/ZipHarbor.xcodeproj</code>。原型内的 ZipKit 是设计稿旧名，新工程品牌为 ZipHarbor。</p>
+<h2 id="_1">验收方法与结论</h2>
+<p>实际打开 Safari 中的交互原型，逐页检查首页、归档详情、两步创建、任务、设置和底部弹层；通过 XCTest 在 iPhone 14 模拟器及 iPhone 14 / iOS 27.0 真机运行真实流程并保存截图，另在 iPad mini 模拟器验证创建往返和英文深色外观。并排证据见 <a href="migration-comparison.html">原型与实现对照</a>，可切换真机与模拟器。</p>
+<p>新界面已使用原型的信息层级、颜色、卡片、按钮、筛选和任务结构。归档详情和创建页按原型隐藏底部导航，主页/任务/设置显示三个固定入口。完整真机 UI suite 为 12 项通过、1 项合成媒体用例跳过、0 失败，另有 1 项补充冲突 UI 通过；真机截图已逐页检查，密码自动解压、结果关闭、目录选择取消、两步创建、英文深色、最大字号与系统 Files 导入均取得实际证据。</p>
+<p>这不是逐像素一致性断言。字体由 SwiftUI 原生排版，图标采用 SF Symbols；状态栏、安全区、系统文件/照片选择、分享面板和 sheet 外框由 iOS 绘制。真机截图左上方的屏幕会话指示来自系统。真实文件名、大小、时间、项目数与原型演示值不同。原型固定窗口尺寸，原生界面随设备和 Dynamic Type 调整；长归档标题时动作移到下一行，最大字号时布局纵向扩展。这些差异在对照页可直接查看。</p>
+<h2 id="_2">页面与交互对照</h2>
+<div aria-label="文档数据表" class="table-scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>页面</th>
+<th>原型结构</th>
+<th>新工程与验收重点</th>
+<th>证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>首页</td>
+<td>标题、蓝紫渐变卡、两个快捷操作、最近文件、四个位置入口</td>
+<td>同结构；真实导入后显示最近文件；空库有明确入口；位置使用系统授权</td>
+<td><code>simulator/home-zh.png</code>、<code>prototype/home-phone.png</code></td>
+</tr>
+<tr>
+<td>归档详情</td>
+<td>摘要卡、三项统计、解压/选择、搜索、五类筛选、归档目录</td>
+<td>同结构；收藏与选择独立；目录点击进入、文件点击预览；选中后出现底部解压按钮</td>
+<td><code>simulator/archive-detail.png</code>、<code>prototype/archive-phone.png</code></td>
+</tr>
+<tr>
+<td>创建第一步</td>
+<td>返回、已选数量、文件列表、继续设置</td>
+<td>多选；新增真实 Files/照片入口；返回此步保持选择；未选内容时禁用继续</td>
+<td><code>simulator/create-select.png</code>、<code>media/photos-video-imported.png</code></td>
+</tr>
+<tr>
+<td>创建第二步</td>
+<td>名称、位置、格式、级别、密码、目录结构、创建按钮</td>
+<td>使用自定义分段控件和小开关复现原型；ZIP 可用 AES；7z 不显示不支持的密码能力；保留原有分卷选项</td>
+<td><code>simulator/create-settings.png</code>、<code>prototype/create-settings-phone.png</code></td>
+</tr>
+<tr>
+<td>解压位置</td>
+<td>四个位置、目录结构、冲突策略、开始按钮</td>
+<td>实际读取设置；取消系统目录选择保留原位置，避免界面显示 iCloud 而实际仍写到本机</td>
+<td><code>system/extraction-default-settings.png</code></td>
+</tr>
+<tr>
+<td>密码</td>
+<td>明确提示、输入与继续</td>
+<td>缺少/错误密码分别提示；输入后原任务自动继续；不重复创建记录、不再要求点解压</td>
+<td><code>simulator/wrong-password.png</code></td>
+</tr>
+<tr>
+<td>结果</td>
+<td>成功、位置、打开、分享、完成</td>
+<td>“完成”明确关闭；打开实际输出目录；分享完整分卷；外部授权保持至分享结束</td>
+<td><code>simulator/extraction-result.png</code>、<code>simulator/output-folder.png</code></td>
+</tr>
+<tr>
+<td>任务</td>
+<td>进行中/已完成/失败/全部、卡片、进度、暂停/取消/重试</td>
+<td>使用真实状态和进度；引擎验证暂停、取消和冲突控制；已完成可重新打开结果</td>
+<td>XCTest 日志与引擎测试；<code>device-conflict/tasks-completed.png</code>、<code>tasks-cancelled.png</code>、<code>conflict-apply-to-all.png</code></td>
+</tr>
+<tr>
+<td>设置</td>
+<td>文件处理、隐私与安全、外观、版本说明</td>
+<td>三组结构对应原型；默认位置、目录选项、深色、清记录实际生效；增加开源许可入口</td>
+<td><code>simulator/settings-zh.png</code>、<code>prototype/settings-phone.png</code></td>
+</tr>
+<tr>
+<td>收藏与部分提取</td>
+<td>收藏入口、目录/文件勾选</td>
+<td>只提取选中目录及后代，不包含未选根文件；收藏可从首页位置进入</td>
+<td><code>providers/</code> 与最终模拟器附件</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="_3">视觉规格</h2>
+<p>浅色背景 <code>#f3f5fa</code>、纸面 <code>#ffffff</code>、主文字 <code>#171c2e</code>、次文字 <code>#8990a3</code>、分隔线 <code>#edf0f5</code>、主色 <code>#5669ee</code>、浅蓝 <code>#eef0ff</code>、成功绿 <code>#19896b</code>。渐变颜色为 <code>#596cf1 → #737ef4 → #8a90f4</code>。内容水平边距 20 pt，普通卡片圆角 16–20 pt，首页渐变卡片 22 pt，主按钮 14 pt。颜色由统一 DesignSystem 管理。</p>
+<p>自定义分段选择和开关避免新版 iOS 默认玻璃胶囊改变原型观感。图标保留原型线性风格与文件类型配色，使用系统可用符号，不引入外部图片授权依赖。</p>
+<h2 id="_4">可用性与国际化</h2>
+<ul>
+<li>中文和英文界面均测试，用户文件名不翻译。日期、字节单位按系统格式显示。</li>
+<li>英文冲突选项修正为 Ask each time、Keep both、Skip、Replace，避免显示内部枚举键；补充 UI 回归验证按钮与实际重名行为。</li>
+<li>字体随 Dynamic Type 缩放。大字时页头操作移到下一行，快捷操作与位置入口改为单列；设置标题和说明可换行。</li>
+<li>主要交互提供 accessibility label/value 和稳定测试 ID；密码使用 SecureField，展示错误后可重试。</li>
+<li>点击图标与开关留出 44 pt 容器。常规字体下维持原型的视觉尺寸；归档筛选、密集文件列表和最大字号仍需后续真人 VoiceOver/触控复核，自动测试不等同于无障碍全面认证。</li>
+<li>用户选中照片或视频后才读取文件，不要求相册全量权限。原型的模拟导入弹层在产品中替换成原生系统选择器。</li>
+<li>iPad 内容宽度限制为 700 pt 并居中，不放大字号；两步创建和深色外观流程通过。</li>
+</ul>
+<h2 id="_5">尚未完成的验收</h2>
+<p>Face ID 本人验证与失败回退、真实 iCloud/第三方提供者下载写入、真人 VoiceOver，以及长任务暂停/恢复触控仍未取得完整真机证据。合成照片/视频只在专用模拟器验收。完整结果与真机认证连接方法见 <a href="07-新工程最终验收报告.html">最终验收报告</a>。</p><p class="source-link"><a href="08-UI-UX原型对照验收.md" download>下载 Markdown 文档</a></p></article></main>
+<footer><span>ZipHarbor · 面向 iPhone 和 iPad 的本地压缩文件工具。</span><a href="docs.html">产品、设计与验收文档</a></footer>
+</body></html>

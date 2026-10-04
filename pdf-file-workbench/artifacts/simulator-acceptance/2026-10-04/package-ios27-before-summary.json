@@ -1,0 +1,64 @@
+{
+  "devicesAndConfigurations" : [
+    {
+      "device" : {
+        "architecture" : "arm64",
+        "deviceId" : "7883BC8C-72E5-4918-9692-1D195486FBFD",
+        "deviceName" : "PaperFlow Acceptance iPhone 14 iOS 27",
+        "modelName" : "iPhone 14",
+        "osBuildNumber" : "24A434",
+        "osVersion" : "27.0",
+        "platform" : "iOS Simulator"
+      },
+      "expectedFailures" : 0,
+      "failedTests" : 2,
+      "passedTests" : 36,
+      "skippedTests" : 0,
+      "testPlanConfiguration" : {
+        "configurationId" : "1",
+        "configurationName" : "Test Scheme Action"
+      }
+    }
+  ],
+  "environmentDescription" : "PaperFlowKit-Package · Built with macOS 26.6.2",
+  "expectedFailures" : 0,
+  "failedTests" : 2,
+  "finishTime" : 1791112225.65,
+  "passedTests" : 36,
+  "result" : "Failed",
+  "runtimeWarnings" : [
+
+  ],
+  "skippedTests" : 0,
+  "startTime" : 1791112177.009,
+  "statistics" : [
+
+  ],
+  "testFailures" : [
+    {
+      "failureText" : "Expectation failed: field.choices == [\"Agreed\"]\nfield.choices → []",
+      "targetName" : "PaperFlowIntegrationTests",
+      "testIdentifier" : 14,
+      "testIdentifierString" : "ProcessingTests/checkboxKindAndOnOffValuesSurviveEditableExport()",
+      "testIdentifierURL" : "test://com.apple.xcode/PaperFlowKit/PaperFlowIntegrationTests/ProcessingTests/checkboxKindAndOnOffValuesSurviveEditableExport()",
+      "testName" : "checkboxKindAndOnOffValuesSurviveEditableExport()"
+    },
+    {
+      "failureText" : "Expectation failed: fields.first(where: { $0.name == \"Decision\" })?.choices == [\"OptionA\", \"OptionB\"]\nfields.first(where: { $0.name == \"Decision\" })?.choices → [\"Yes\", \"Yes\"]",
+      "targetName" : "PaperFlowIntegrationTests",
+      "testIdentifier" : 6,
+      "testIdentifierString" : "ProcessingTests/radioButtonsRemainExclusiveAndChoiceUsesExportValue()",
+      "testIdentifierURL" : "test://com.apple.xcode/PaperFlowKit/PaperFlowIntegrationTests/ProcessingTests/radioButtonsRemainExclusiveAndChoiceUsesExportValue()",
+      "testName" : "radioButtonsRemainExclusiveAndChoiceUsesExportValue()"
+    }
+  ],
+  "title" : "Test - PaperFlowKit-Package",
+  "topInsights" : [
+    {
+      "category" : "Longest Test Runs",
+      "impact" : "46% of duration",
+      "text" : "1 longest test run with outlier durations exceeding 6.75s (three standard deviations)"
+    }
+  ],
+  "totalTestCount" : 38
+}

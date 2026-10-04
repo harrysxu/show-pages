@@ -1,0 +1,186 @@
+{
+  "devices" : [
+    {
+      "architecture" : "arm64",
+      "deviceId" : "IPHONE14_UDID",
+      "deviceName" : "iPhone 14 验收设备",
+      "modelName" : "iPhone 14",
+      "osBuildNumber" : "24A437",
+      "osVersion" : "27.0",
+      "platform" : "iOS"
+    }
+  ],
+  "testNodes" : [
+    {
+      "children" : [
+        {
+          "children" : [
+            {
+              "children" : [
+                {
+                  "duration" : "7秒",
+                  "durationInSeconds" : 7.467617034912109,
+                  "name" : "testAccessibilityLargeTextLayout()",
+                  "nodeIdentifier" : "ZipHarborUITests/testAccessibilityLargeTextLayout()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testAccessibilityLargeTextLayout",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "11秒",
+                  "durationInSeconds" : 11.671324968338013,
+                  "name" : "testCancellingExternalFolderChoiceKeepsPreviousDestination()",
+                  "nodeIdentifier" : "ZipHarborUITests/testCancellingExternalFolderChoiceKeepsPreviousDestination()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testCancellingExternalFolderChoiceKeepsPreviousDestination",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "30秒",
+                  "durationInSeconds" : 30.417343974113464,
+                  "name" : "testCreateTwoStepsAESRoundTripAndBackPreservesSelection()",
+                  "nodeIdentifier" : "ZipHarborUITests/testCreateTwoStepsAESRoundTripAndBackPreservesSelection()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testCreateTwoStepsAESRoundTripAndBackPreservesSelection",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "16秒",
+                  "durationInSeconds" : 16.643996000289917,
+                  "name" : "testDefaultDestinationAndPreserveSettingsAffectExtraction()",
+                  "nodeIdentifier" : "ZipHarborUITests/testDefaultDestinationAndPreserveSettingsAffectExtraction()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testDefaultDestinationAndPreserveSettingsAffectExtraction",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "6秒",
+                  "durationInSeconds" : 6.256433010101318,
+                  "name" : "testEnglishAndDarkAppearance()",
+                  "nodeIdentifier" : "ZipHarborUITests/testEnglishAndDarkAppearance()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testEnglishAndDarkAppearance",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "18秒",
+                  "durationInSeconds" : 18.497854948043823,
+                  "name" : "testFavoritesAndSelectedDirectoryExtraction()",
+                  "nodeIdentifier" : "ZipHarborUITests/testFavoritesAndSelectedDirectoryExtraction()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testFavoritesAndSelectedDirectoryExtraction",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "21秒",
+                  "durationInSeconds" : 21.045629024505615,
+                  "name" : "testPasswordAutomaticallyContinuesAndDoneDismisses()",
+                  "nodeIdentifier" : "ZipHarborUITests/testPasswordAutomaticallyContinuesAndDoneDismisses()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testPasswordAutomaticallyContinuesAndDoneDismisses",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "15秒",
+                  "durationInSeconds" : 15.967640995979309,
+                  "name" : "testPasswordCancelAndClearHistoryKeepFiles()",
+                  "nodeIdentifier" : "ZipHarborUITests/testPasswordCancelAndClearHistoryKeepFiles()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testPasswordCancelAndClearHistoryKeepFiles",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "children" : [
+                    {
+                      "name" : "Test skipped - This test uses only synthetic media seeded in the dedicated simulator.",
+                      "nodeType" : "Skip Message"
+                    }
+                  ],
+                  "duration" : "0.043s",
+                  "durationInSeconds" : 0.043115973472595215,
+                  "name" : "testPhotosAndVideoImportThenCreateArchive()",
+                  "nodeIdentifier" : "ZipHarborUITests/testPhotosAndVideoImportThenCreateArchive()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testPhotosAndVideoImportThenCreateArchive",
+                  "nodeType" : "Test Case",
+                  "result" : "Skipped"
+                },
+                {
+                  "duration" : "33秒",
+                  "durationInSeconds" : 33.36745500564575,
+                  "name" : "testRepeatedExtractionConflictCancelRetryAndKeepBoth()",
+                  "nodeIdentifier" : "ZipHarborUITests/testRepeatedExtractionConflictCancelRetryAndKeepBoth()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testRepeatedExtractionConflictCancelRetryAndKeepBoth",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "19秒",
+                  "durationInSeconds" : 19.055115938186646,
+                  "name" : "testSelectedFolderExtractionAndPreview()",
+                  "nodeIdentifier" : "ZipHarborUITests/testSelectedFolderExtractionAndPreview()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testSelectedFolderExtractionAndPreview",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "children" : [
+                    {
+                      "name" : "XCTAssertTrue failed - Attributes: Application, 0x10e9f4b40, pid: 15182, label: 'ZipHarbor'\nElement subtree:\n →Application, 0x10e9f4b40, pid: 15182, label: 'ZipHarbor'\n    Window (Main), 0x10e9f4140, {{0.0, 0.0}, {390.0, 844.0}}\n      Other, 0x10e9f4280, {{0.0, 0.0}, {390.0, 844.0}}\n        Other, 0x10e9f43c0, {{0.0, 0.0}, {390.0, 844.0}}\n          Other, 0x10e9f48c0, {{-390.0, -844.0}, {1170.0, 2532.0}}\n          Other, 0x10e9f4a00, {{0.0, 0.0}, {390.0, 844.0}}\n            Other, 0x10e9f4500, {{0.0, 0.0}, {390.0, 844.0}}\n              Other, 0x10e9f4640, {{0.0, 0.0}, {390.0, 844.0}}\n                Other, 0x10e9f4780, {{0.0, 0.0}, {390.0, 844.0}}\n                  Other, 0x10e9f4000, {{0.0, 0.0}, {390.0, 844.0}}\n                    Other, 0x10eae8c80, {{0.0, 0.0}, {390.0, 844.0}}\n                      Other, 0x10eae8dc0, {{0.0, 0.0}, {390.0, 844.0}}\n                        ScrollView, 0x10eae8f00, {{0.0, 0.0}, {390.0, 751.0}}\n                          Other, 0x10eae9040, {{0.0, 0.0}, {390.0, 751.0}}\n                            Other, 0x10eae9400, {{0.0, 0.0}, {390.0, 87.0}}\n                          Other, 0x10eae9540, {{0.0, 0.0}, {390.0, 751.0}}\n                          Other, 0x10eae9680, {{0.0, 47.0}, {390.0, 879.3}}\n                            StaticText, 0x10eae97c0, {{20.0, 56.0}, {54.3, 30.0}}, label: 'Files'\n                            StaticText, 0x10eae9a40, {{20.0, 89.0}, {74.3, 14.3}}, label: '4 recent files'\n                            Button, 0x10eae9b80, {{280.2, 59.5}, {40.0, 40.3}}, identifier: 'homeSearch', label: 'Search'\n                            Button, 0x10eaea080, {{328.2, 59.5}, {40.0, 40.3}}, label: 'More actions'\n                            StaticText, 0x10eaebc00, {{50.0, 136.3}, {152.0, 13.3}}, label: 'Local processing · No upload'\n                            StaticText, 0x10eaebe80, {{37.0, 160.7}, {270.3, 24.0}}, label: 'File handling feels effortless.'\n                            StaticText, 0x10eaebd40, {{37.0, 188.7}, {235.7, 31.7}}, label: 'Open archives, extract what you need, or pack files to share.'\n                            StaticText, 0x10eaebac0, {{38.3, 246.7}, {101.0, 12.0}}, label: 'Private by design'\n                            Button, 0x10eaeb980, {{255.3, 235.3}, {97.7, 35.0}}, identifier: 'openArchiveButton', label: 'Open archive'\n                            StaticText, 0x10eaeb480, {{20.0, 304.8}, {94.0, 17.0}}, label: 'Quick actions'\n                            Button, 0x10eaeb700, {{277.7, 306.3}, {92.3, 14.0}}, label: 'Recent settings'\n                            Button, 0x10eaeb0c0, {{19.5, 334.8}, {171.0, 73.0}}, identifier: 'extractFilesButton', label: 'Extract files, ZIP · RAR · 7z and more'\n                              Image, 0x10eaeae40, {{40.3, 360.0}, {23.3, 22.7}}, identifier: 'tray.and.arrow.down', label: 'Inbox'\n                              StaticText, 0x10eaead00, {{82.0, 356.7}, {77.7, 15.7}}, label: 'Extract files'\n                              StaticText, 0x10eaeabc0, {{82.0, 376.3}, {77.7, 9.7}}, label: 'ZIP · RAR · 7z and more'\n                            Button, 0x10eaea1c0, {{199.5, 334.8}, {171.0, 73.0}}, identifier: 'createArchiveButton', label: 'Create archive, Select files to pack'\n                              StaticText, 0x10eae9180, {{262.0, 348.3}, {47.3, 31.3}}, label: 'Create archive'\n                              Image, 0x10eae9cc0, {{222.3, 362.3}, {19.7, 18.0}}, identifier: 'archivebox', label: 'Archive'\n                              StaticText, 0x10eae9e00, {{262.0, 383.7}, {82.3, 10.7}}, label: 'Select files to pack'\n                            StaticText, 0x10eae9f40, {{20.0, 424.8}, {81.3, 17.0}}, label: 'Recent files'\n                            Button, 0x10eaea300, {{324.3, 426.3}, {45.7, 14.3}}, label: 'View all'\n                            Button, 0x10eaea580, {{20.0, 455.3}, {350.0, 67.0}}, identifier: 'file-课程资料_2026.zip', label: '课程资料_2026.zip, ZIP · Today 11:05 PM, On device'\n                              Image, 0x10eaea440, {{44.3, 478.3}, {15.7, 21.3}}, identifier: 'doc.zipper', label: 'Zipped Document Archive'\n                              StaticText, 0x10eaea940, {{83.0, 473.2}, {107.3, 14.3}}, label: '课程资料_2026.zip'\n                              StaticText, 0x10eaea6c0, {{293.7, 483.3}, {44.3, 11.0}}, label: 'On device'\n                              Image, 0x10eaea800, {{351.3, 483.7}, {6.0, 10.3}}, identifier: 'chevron.right', label: 'Forward'\n                              StaticText, 0x10eaeaa80, {{83.0, 492.5}, {99.0, 12.0}}, label: 'ZIP · Today 11:05 PM'\n                            Button, 0x10eaeb5c0, {{20.0, 522.7}, {350.0, 67.0}}, identifier: 'file-0903.zip', label: '0903.zip, ZIP · Today 11:05 PM, On device'\n                              Image, 0x10eaeb200, {{44.3, 545.7}, {15.7, 21.3}}, identifier: 'doc.zipper', label: 'Zipped Document Archive'\n                              StaticText, 0x10eaeb340, {{83.0, 540.5}, {53.0, 14.3}}, label: '0903.zip'\n                              StaticText, 0x10eaeaf80, {{293.7, 550.7}, {44.3, 11.0}}, label: 'On device'\n                              Image, 0x10eaeb840, {{351.3, 551.0}, {6.0, 10.3}}, identifier: 'chevron.right', label: 'Forward'\n                              StaticText, 0x10eae9900, {{83.0, 559.8}, {99.0, 12.0}}, label: 'ZIP · Today 11:05 PM'\n                            Button, 0x10eae92c0, {{20.0, 590.0}, {350.0, 67.0}}, identifier: 'file-课程资料', label: '课程资料, Folder · Today 11:05 PM, On device'\n                              Image, 0x10eab0780, {{41.7, 615.0}, {21.0, 17.0}}, identifier: 'folder', label: 'Move'\n                              StaticText, 0x10eab1180, {{83.0, 607.8}, {48.0, 14.3}}, label: '课程资料'\n                              StaticText, 0x10eab1540, {{293.7, 618.0}, {44.3, 11.0}}, label: 'On device'\n                              Image, 0x10eab1400, {{351.3, 618.3}, {6.0, 10.3}}, identifier: 'chevron.right', label: 'Forward'\n                              StaticText, 0x10eab12c0, {{83.0, 627.2}, {113.3, 12.0}}, label: 'Folder · Today 11:05 PM'\n                            Button, 0x10eab1040, {{20.0, 657.3}, {350.0, 67.0}}, identifier: 'file-课堂笔记.txt', label: '课堂笔记.txt, TXT · Today 11:05 PM, On device'\n                              Image, 0x10eab0f00, {{44.3, 681.0}, {15.7, 20.0}}, identifier: 'doc.text', label: 'Plain Text Document'\n                              StaticText, 0x10eab1900, {{83.0, 675.2}, {67.7, 14.3}}, label: '课堂笔记.txt'\n                              StaticText, 0x10eab17c0, {{293.7, 685.3}, {44.3, 11.0}}, label: 'On device'\n                              Image, 0x10eab1680, {{351.3, 685.7}, {6.0, 10.3}}, identifier: 'chevron.right', label: 'Forward'\n                              StaticText, 0x10eab0500, {{83.0, 694.5}, {102.7, 12.0}}, label: 'TXT · Today 11:05 PM'\n                            StaticText, 0x10eab08c0, {{20.0, 741.8}, {117.7, 17.0}}, label: 'Browse locations'\n                            Button, 0x10eab0dc0, {{297.7, 743.3}, {72.3, 14.3}}, label: 'All locations'\n                            Other, 0x10eab0b40, {{0.0, 0.0}, {0.0, 0.0}}\n                          Other, 0x10eab0c80, {{357.0, 47.3}, {30.0, 703.7}}, label: 'Vertical scroll bar, 2 pages', value: 0%\n                            Other, 0x10eab03c0, {{384.0, 50.3}, {3.0, 637.7}}\n                          Other, 0x10eab0000, {{357.0, 47.3}, {30.0, 703.7}}, label: 'Vertical scroll bar, 2 pages', value: 0%\n                            Other, 0x10eab0640, {{384.0, 50.3}, {3.0, 637.7}}\n                        Button, 0x10eab0280, {{63.0, 760.0}, {39.0, 41.0}}, identifier: 'tab-Files', label: 'Files'\n                          Image, 0x10eab0140, {{72.3, 765.3}, {20.0, 16.3}}, identifier: 'folder', label: 'Move'\n                          StaticText, 0x10eab0a00, {{71.5, 790.0}, {21.7, 11.0}}, label: 'Files'\n                        Button, 0x10b3ba440, {{182.0, 764.7}, {26.0, 36.3}}, identifier: 'tab-Tasks', label: 'Tasks'\n                          Image, 0x10b3bb200, {{185.0, 764.7}, {20.0, 18.0}}, identifier: 'checklist', label: 'Checklist With Checkmarks'\n                          StaticText, 0x10b3bb700, {{182.0, 790.0}, {26.0, 11.0}}, label: 'Tasks'\n                        Button, 0x10b3babc0, {{288.5, 764.0}, {38.3, 37.0}}, identifier: 'tab-Settings', label: 'Settings'\n                          Image, 0x10b3b9cc0, {{298.3, 764.0}, {19.0, 19.0}}, identifier: 'gearshape', label: 'Gear Shape'\n                          StaticText, 0x10b3baf80, {{288.5, 790.0}, {38.3, 11.0}}, label: 'Settings'\n                Toolbar, 0x10b3bb340, {{0.0, 0.0}, {390.0, 844.0}}, identifier: 'Toolbar', label: 'Toolbar'\n                  Other, 0x10b3bad00, {{0.0, 0.0}, {390.0, 844.0}}\n      Other, 0x10b3ba800, {{0.0, 0.0}, {390.0, 844.0}}\n        Other, 0x10b3baa80, {{-390.0, -844.0}, {1170.0, 2532.0}}\n        Other, 0x10b3b8000, {{0.0, 0.0}, {390.0, 844.0}}\n          Other, 0x10b3bb480, {{0.0, 0.0}, {390.0, 844.0}}\n            Other, 0x10b3ba940, {{0.0, 0.0}, {390.0, 844.0}}\n              Other, 0x10b3bb840, {{0.0, 0.0}, {390.0, 844.0}}\n                Other, 0x10b3bb5c0, {{0.0, 0.0}, {390.0, 844.0}}\n                  Other, 0x10b3b97c0, {{21.8, 69.7}, {30.6, 30.6}}, label: 'Cancel'\n                Other, 0x10b3b9b80, {{0.0, 0.0}, {390.0, 844.0}}\n                  Other, 0x10b3bb980, {{0.0, 0.0}, {390.0, 844.0}}\n                    Other, 0x10b3ba580, {{0.0, 0.0}, {390.0, 844.0}}\n                      Other, 0x10eaac000, {{0.0, 0.0}, {780.0, 1688.0}}\n                        Other, 0x10eaac3c0, {{0.0, 0.0}, {390.0, 844.0}}\n                          Other, 0x10eaac780, {{0.0, 0.0}, {390.0, 844.0}}\n                            Other, 0x10eaac640, {{0.0, 47.0}, {390.0, 797.0}}\n                              Image, 0x10eaac500, {{-150.0, -103.0}, {690.0, 1097.0}}\n                              Other, 0x10eaaca00, {{0.0, 47.0}, {390.0, 797.0}}\n                                Other, 0x10eaac8c0, {{0.0, 47.0}, {390.0, 797.0}}\n                                  Other, 0x10eaac280, {{0.0, 47.0}, {390.0, 797.0}}\n                                    Other, 0x10eaac140, {{0.0, 47.0}, {390.0, 797.0}}\n                                      Other, 0x10eaacb40, {{0.0, 47.0}, {390.0, 797.0}}\n                                      Other, 0x10e9e4c80, {{0.0, 47.0}, {390.0, 797.0}}\n                                        Other, 0x10e9e4dc0, {{0.0, 47.0}, {390.0, 797.0}}\n                                          Other, 0x10e9e4f00, {{0.0, 47.0}, {390.0, 797.0}}\n                                            Other, 0x10e9e5040, {{0.0, 47.0}, {390.0, 797.0}}\n                                              Other, 0x10e9e52c0, {{0.0, 47.0}, {390.0, 797.0}}, identifier: 'Browse View (Picker)'\n                                                Other, 0x10e9e5400, {{0.0, 47.0}, {390.0, 797.0}}\n                                                  Other, 0x10e9e5540, {{0.0, 47.0}, {390.0, 797.0}}\n                                                    Other, 0x10e9e5680, {{0.0, 47.0}, {390.0, 797.0}}\n                                                      Other, 0x10e9e57c0, {{0.0, 47.0}, {390.0, 797.0}}\n                                                        Other, 0x10e9e5900, {{0.0, 47.0}, {390.0, 797.0}}\n                                                        Other, 0x10e9e5a40, {{0.0, 47.0}, {390.0, 797.0}}, identifier: 'DOC.browsingRoot Source: com.apple.CloudDocs.iCloudDriveFileProvider/11957428-1A60-46AF-8524-B680B7BEAB63, Title: iCloud云盘'\n                                                          NavigationBar, 0x10e9e5b80, {{0.0, 63.0}, {390.0, 108.0}}, identifier: 'FullDocumentManagerViewControllerNavigationBar'\n                                                            Button, 0x10e9e6080, {{20.0, 67.0}, {36.0, 36.0}}, identifier: 'DOC.navBarButton.backInHistory', label: 'Back'\n                                                            Button, 0x10e9e7c00, {{72.0, 67.0}, {36.0, 36.0}}, identifier: 'DOC.navBarButton.forwardInHistory', label: 'Forward', Disabled\n                                                            Button, 0x10e9e7e80, {{124.0, 74.7}, {79.0, 20.7}}, label: 'Downloads, Actions Menu'\n                                                            Button, 0x10e9e7d40, {{245.0, 67.0}, {38.0, 36.0}}, identifier: 'OverflowBarButtonItem', label: 'More'\n                                                            Button, 0x10e9e7ac0, {{303.0, 67.0}, {67.0, 36.0}}, label: 'Open'\n                                                            SearchField, 0x10e9e7980, {{16.0, 117.0}, {358.0, 44.0}}, label: 'Search', placeholderValue: 'Search'\n                                                              Button, 0x10e9e7480, {{340.7, 128.0}, {17.3, 22.0}}, identifier: 'Dictate', label: 'Dictate'\n                                                              Image, 0x10e9e7840, {{28.0, 129.0}, {20.7, 19.3}}, identifier: 'magnifyingglass', label: 'Search'\n                                                              Button, 0x10e9e7700, {{340.7, 128.0}, {17.3, 22.0}}, identifier: 'Dictate', label: 'Dictate'\n                                                          Other, 0x10e9e75c0, {{0.0, 47.0}, {390.0, 797.0}}\n                                                            Other, 0x10e9e6f80, {{0.0, 47.0}, {390.0, 797.0}}\n                                                              Other, 0x10e9e7340, {{0.0, 47.0}, {390.0, 797.0}}\n                                                                Other, 0x10e9e7200, {{0.0, 47.0}, {390.0, 797.0}}\n                                                                  ScrollView, 0x10e9e70c0, {{0.0, 47.0}, {390.0, 797.0}}\n                                                                    Other, 0x10e9e6e40, {{0.0, 47.0}, {390.0, 797.0}}\n                                                                      Other, 0x10e9e6d00, {{0.0, 47.0}, {390.0, 110.0}}\n                                                                      Other, 0x10e9e6bc0, {{0.0, 711.0}, {390.0, 133.0}}\n                                                                    Other, 0x10e9e6a80, {{0.0, 47.0}, {390.0, 797.0}}\n                                                                      Other, 0x10e9e6940, {{0.0, 711.0}, {390.0, 133.0}}\n                                                                    CollectionView, 0x10e9e6800, {{0.0, 47.0}, {390.0, 797.0}}, identifier: 'File View', value: Icon Mode\n                                                                      Other, 0x10e9e66c0, {{0.0, 47.0}, {390.0, 797.0}}\n                                                                        Other, 0x10e9e6580, {{0.0, 47.0}, {390.0, 110.0}}\n                                                                        Other, 0x10e9e6440, {{0.0, 711.0}, {390.0, 133.0}}\n                                                                      Other, 0x10e9e6300, {{0.0, 47.0}, {390.0, 797.0}}\n                                                                      Cell, 0x10e9e61c0, {{10.0, 181.0}, {118.0, 189.7}}, identifier: '0930.zip, zip', label: '0930.zip, zip, 昨天, 59 KB'\n                                                                        Other, 0x10e9e5f40, {{10.0, 181.0}, {118.0, 189.7}}\n                                                                        Other, 0x10e9e5cc0, {{10.0, 181.0}, {118.0, 189.7}}\n                                                                          Other, 0x10e9e5e00, {{27.0, 185.0}, {84.0, 84.0}}\n                                                                            Image, 0x10e9e5180, {{27.0, 185.0}, {84.0, 84.0}}\n                                                                          Image, 0x1168aed00, {{54.0, 229.2}, {30.0, 30.0}}\n                                                                          Image, 0x1168aee40, {{55.0, 230.7}, {28.0, 28.0}}, identifier: 'circle', label: 'Circle'\n                                                                          Other, 0x1168aef80, {{13.0, 274.0}, {112.0, 55.7}}\n                                                                            StaticText, 0x1168af0c0, {{13.0, 274.0}, {112.0, 20.0}}, label: '0930.zip'\n                                                                            StaticText, 0x1168af340, {{13.0, 297.0}, {112.0, 14.3}}, label: '昨天'\n                                                                            StaticText, 0x1168af480, {{13.0, 315.3}, {112.0, 14.3}}, label: '59 KB'\n                                                                      Cell, 0x1168af5c0, {{136.0, 181.0}, {118.0, 189.7}}, identifier: 'ternal020929, md', label: 'ternal020929, md, 前天, 18 bytes'\n                                                                        Other, 0x1168af700, {{136.0, 181.0}, {118.0, 189.7}}\n                                                                        Other, 0x1168af840, {{136.0, 181.0}, {118.0, 189.7}}\n                                                                          Other, 0x1168af980, {{153.0, 185.0}, {84.0, 84.0}}\n                                                                            Image, 0x1168afac0, {{163.7, 185.0}, {63.0, 84.0}}\n                                                                            Other, 0x1168afc00, {{163.7, 185.0}, {63.0, 84.0}}\n                                                                          Image, 0x1168afd40, {{180.0, 229.2}, {30.0, 30.0}}\n                                                                          Image, 0x1168afe80, {{181.0, 230.7}, {28.0, 28.0}}, identifier: 'circle', label: 'Circle'\n                                                                          Other, 0x1168af200, {{139.0, 274.0}, {112.0, 55.7}}\n                                                                            StaticText, 0x10e9e8000, {{139.0, 274.0}, {112.0, 20.0}}, label: 'ternal020929'\n                                                                            StaticText, 0x10e9e8140, {{139.0, 297.0}, {112.0, 14.3}}, label: '前天'\n                                                                            StaticText, 0x10e9e8280, {{139.0, 315.3}, {112.0, 14.3}}, label: '18 bytes'\n                                                                      Other, 0x10e9e83c0, {{0.0, 700.3}, {390.0, 60.7}}\n                                                                        Other, 0x10e9e8500, {{0.0, 700.3}, {390.0, 60.7}}, identifier: 'DOCItemCollectionViewFooterViewIdentifier'\n                                                                          StaticText, 0x10e9e8640, {{168.0, 700.3}, {54.0, 18.0}}, label: '2 items'\n                                                                          Other, 0x10e9e8780, {{137.0, 725.3}, {116.3, 15.7}}\n                                                                            Other, 0x10e9e88c0, {{137.0, 725.3}, {116.3, 15.7}}\n                                                                              Other, 0x10e9e8a00, {{137.0, 725.3}, {116.3, 15.7}}\n                                                                                StaticText, 0x10e9e8b40, {{137.0, 725.3}, {116.3, 15.7}}, label: 'Synced with iCloud'\n                                                                      Other, 0x10e9e8c80, {{357.0, 117.0}, {30.0, 644.0}}, label: 'Vertical scroll bar, 1 pages', value: 0%\n                                                                        Other, 0x10e9e8dc0, {{384.0, 500.3}, {3.0, 257.7}}\n                                                                      Other, 0x10e9e8f00, {{357.0, 117.0}, {30.0, 644.0}}, label: 'Vertical scroll bar, 1 pages', value: 0%\n                                                                        Other, 0x10e9e9040, {{384.0, 500.3}, {3.0, 257.7}}\n                                                                    Other, 0x10e9e9180, {{357.0, 171.0}, {30.0, 590.0}}, label: 'Vertical scroll bar, 1 pages', value: 0%\n                                                                      Other, 0x10e9e92c0, {{384.0, 751.0}, {3.0, 7.0}}\n                                                                    Other, 0x10e9e9400, {{47.3, 728.0}, {295.3, 30.0}}, label: 'Horizontal scroll bar, 1 pages', value: 0%\n                                                                      Other, 0x10e9e9540, {{337.3, 755.0}, {7.0, 3.0}}\n                                                                    Other, 0x10e9e9680, {{357.0, 171.0}, {30.0, 590.0}}, label: 'Vertical scroll bar, 1 pages', value: 0%\n                                                                      Other, 0x10e9e97c0, {{384.0, 751.0}, {3.0, 7.0}}\n                                                                    Other, 0x10e9e9900, {{47.3, 728.0}, {295.3, 30.0}}, label: 'Horizontal scroll bar, 1 pages', value: 0%\n                                                                      Other, 0x10e9e9a40, {{337.3, 755.0}, {7.0, 3.0}}\n                                                          Toolbar, 0x10e9e9b80, {{0.0, 47.0}, {390.0, 797.0}}, identifier: 'Toolbar', label: 'Toolbar'\n                                                            Other, 0x10e9e9cc0, {{0.0, 47.0}, {390.0, 797.0}}\n                                                    Toolbar, 0x10e9e9e00, {{0.0, 47.0}, {390.0, 797.0}}, identifier: 'Toolbar', label: 'Toolbar'\n                                                      Other, 0x10e9e9f40, {{0.0, 47.0}, {390.0, 797.0}}\n                                                Other, 0x10e9ea080, {{0.0, 47.0}, {390.0, 797.0}}\n                                                  Other, 0x10e9ea1c0, {{0.0, 47.0}, {390.0, 797.0}}\n                                        Other, 0x10e9ea300, {{0.0, 47.0}, {390.0, 797.0}}\n                                          Other, 0x10e9ea440, {{0.0, 761.0}, {390.0, 83.0}}\n                                            Other, 0x10e9ea580, {{0.0, 47.0}, {390.0, 797.0}}\n                                              TabBar, 0x10e9ea6c0, {{0.0, 761.0}, {390.0, 83.0}}, identifier: 'DOC.browsingModeTabBar', label: 'Tab Bar'\n                                                Other, 0x10e9ea800, {{58.0, 761.0}, {274.0, 62.0}}\n                                                  Other, 0x10e9ea940, {{58.0, 761.0}, {94.0, 54.0}}\n                                                  Other, 0x10e9eaa80, {{58.0, 761.0}, {274.0, 62.0}}\n                                                    Button, 0x10e9eabc0, {{62.0, 765.0}, {94.0, 54.0}}, label: 'Recents'\n                                                      Image, 0x10e9ead00, {{95.3, 771.3}, {27.3, 27.3}}, identifier: 'clock.fill', label: 'clock'\n                                                    Button, 0x10e9eae40, {{148.0, 765.0}, {94.0, 54.0}}, label: 'Shared'\n                                                      Image, 0x10e9eaf80, {{176.7, 772.7}, {37.0, 26.0}}, identifier: 'person.2.fill', label: 'Two people, filled'\n                                                    Button, 0x10e9eb0c0, {{234.0, 765.0}, {94.0, 54.0}}, label: 'Browse', Selected\n                                                      Image, 0x10e9eb200, {{265.0, 772.3}, {32.0, 25.0}}, identifier: 'folder.fill', label: 'move'\n                                                  Other, 0x10e9eb340, {{58.0, 761.0}, {274.0, 62.0}}\n                                                  Other, 0x10e9eb480, {{234.0, 765.0}, {94.0, 54.0}}\n                                                    Other, 0x10e9eb5c0, {{234.0, 765.0}, {94.0, 54.0}}\n                                                      Other, 0x10e9eb700, {{234.0, 765.0}, {94.0, 54.0}}\n                                                      Other, 0x10e9eb840, {{234.0, 765.0}, {94.0, 54.0}}\n                                                        Other, 0x10e9eb980, {{234.0, 765.0}, {94.0, 54.0}}\n                                                          Other, 0x10e9ebac0, {{234.0, 765.0}, {94.0, 54.0}}\n                                                            Other, 0x10e9ebc00, {{234.0, 765.0}, {94.0, 54.0}}\n                                                          Other, 0x10e9ebd40, {{234.0, 765.0}, {94.0, 54.0}}\n                                                        Other, 0x10e9ebe80, {{234.0, 765.0}, {94.0, 54.0}}\n                                            Other, 0x10eaf8000, {{0.0, 761.0}, {390.0, 83.0}}\n                                              Other, 0x10eaf8140, {{0.0, 761.0}, {390.0, 83.0}}\n                                                Other, 0x10eaf8280, {{0.0, 761.0}, {390.0, 83.0}}\n                                                  Other, 0x10eaf83c0, {{0.0, 761.0}, {390.0, 83.0}}\n                                                    Other, 0x10eaf8500, {{0.0, 761.0}, {390.0, 83.0}}\n                                                      Other, 0x10eaf8640, {{0.0, 761.0}, {390.0, 83.0}}\n                                                  Other, 0x10eaf8780, {{0.0, 761.0}, {390.0, 83.0}}\n                                                    Other, 0x10eaf88c0, {{0.0, 761.0}, {390.0, 83.0}}\n                          Other, 0x10eaf8a00, {{0.0, 0.0}, {390.0, 844.0}}\nPath to element:\n →Application, 0x10e9f4b40, pid: 15182, label: 'ZipHarbor'\nQuery chain:\n →Find: Target Application 'com.xiaolongxu.zipharbor.app'\n  Output: {\n    Application, 0x10eaf8b40, pid: 15182, label: 'ZipHarbor'\n  }\n",
+                      "nodeType" : "Failure Message",
+                      "sourceLocation" : {
+                        "filePath" : "/Users/USER/github_space/zip-app/ZipHarbor/ZipHarborUITests/ZipHarborUITests.swift",
+                        "lineNumber" : 196
+                      }
+                    }
+                  ],
+                  "duration" : "22秒",
+                  "durationInSeconds" : 22.73696196079254,
+                  "name" : "testSystemFilesImportsRealArchive()",
+                  "nodeIdentifier" : "ZipHarborUITests/testSystemFilesImportsRealArchive()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testSystemFilesImportsRealArchive",
+                  "nodeType" : "Test Case",
+                  "result" : "Failed"
+                },
+                {
+                  "duration" : "13秒",
+                  "durationInSeconds" : 13.851006984710693,
+                  "name" : "testSystemPickerAndSharePresentation()",
+                  "nodeIdentifier" : "ZipHarborUITests/testSystemPickerAndSharePresentation()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testSystemPickerAndSharePresentation",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "20秒",
+                  "durationInSeconds" : 20.858807921409607,
+                  "name" : "testWrongPasswordCanRetryWithoutRestartingExtraction()",
+                  "nodeIdentifier" : "ZipHarborUITests/testWrongPasswordCanRetryWithoutRestartingExtraction()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testWrongPasswordCanRetryWithoutRestartingExtraction",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                }
+              ],
+              "name" : "ZipHarborUITests",
+              "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests",
+              "nodeType" : "Test Suite",
+              "result" : "Failed"
+            }
+          ],
+          "name" : "ZipHarborUITests",
+          "nodeIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests",
+          "nodeType" : "UI test bundle",
+          "result" : "Failed"
+        }
+      ],
+      "name" : "ZipHarbor",
+      "nodeType" : "Test Plan",
+      "result" : "Failed"
+    }
+  ],
+  "testPlanConfigurations" : [
+    {
+      "configurationId" : "1",
+      "configurationName" : "Test Scheme Action"
+    }
+  ]
+}

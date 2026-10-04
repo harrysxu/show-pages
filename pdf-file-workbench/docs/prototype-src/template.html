@@ -1,0 +1,3629 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta name="color-scheme" content="light" />
+    <title>纸间 · iPhone / iPad App 交互原型</title>
+    <style>
+      :root {
+        --accent: #147d68;
+        --accent-soft: #e5f3ed;
+        --ink: #243430;
+        --muted: #81908a;
+        --line: #e7ece9;
+        --bg: #f7f9f7;
+        --paper: #fff;
+        --danger: #c6514d;
+        --blue: #457eac;
+        --amber: #ba8441;
+        --radius: 8px;
+        font-family:
+          -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei",
+          sans-serif;
+        color: var(--ink);
+        font-synthesis: none;
+        letter-spacing: 0;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: #e9eeec;
+      }
+      button,
+      input,
+      select,
+      textarea {
+        font: inherit;
+      }
+      button {
+        cursor: pointer;
+        border: 0;
+        color: inherit;
+        background: none;
+        touch-action: manipulation;
+      }
+      button:disabled {
+        cursor: not-allowed;
+        opacity: 0.36;
+      }
+      button:focus-visible,
+      input:focus-visible,
+      select:focus-visible,
+      textarea:focus-visible {
+        outline: 3px solid #76bba9;
+        outline-offset: 2px;
+      }
+      button svg {
+        pointer-events: none;
+      }
+      svg {
+        width: 20px;
+        height: 20px;
+        stroke-width: 1.75;
+        flex-shrink: 0;
+      }
+      input,
+      select,
+      textarea {
+        min-width: 0;
+        color: var(--ink);
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        outline: none;
+      }
+      input[type="text"],
+      input[type="password"],
+      input[type="number"],
+      select {
+        padding: 10px 11px;
+        height: 42px;
+        width: 100%;
+        font-size: 13px;
+      }
+      input[type="range"] {
+        accent-color: var(--accent);
+        width: 100%;
+        height: 22px;
+        border: 0;
+        padding: 0;
+      }
+      input[type="checkbox"] {
+        accent-color: var(--accent);
+        width: 17px;
+        height: 17px;
+      }
+      textarea {
+        width: 100%;
+        padding: 12px;
+        line-height: 1.8;
+        resize: vertical;
+        font-size: 13px;
+      }
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+      h1 {
+        font-size: 25px;
+        font-weight: 680;
+        line-height: 1.35;
+      }
+      h2 {
+        font-size: 16px;
+        font-weight: 650;
+      }
+      h3 {
+        font-size: 14px;
+        font-weight: 650;
+      }
+      p {
+        font-size: 13px;
+        line-height: 1.7;
+      }
+      small {
+        font-size: 11px;
+        color: var(--muted);
+      }
+      a {
+        color: var(--accent);
+      }
+      .hide {
+        display: none !important;
+      }
+      .muted {
+        color: var(--muted);
+      }
+      .accent {
+        color: var(--accent);
+      }
+      .danger {
+        color: var(--danger);
+      }
+      .nowrap {
+        white-space: nowrap;
+      }
+      .row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 0;
+      }
+      .between {
+        justify-content: space-between;
+      }
+      .col {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        min-width: 0;
+      }
+      .grow {
+        flex: 1;
+        min-width: 0;
+      }
+      .truncate {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .icon-btn {
+        width: 44px;
+        height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        flex-shrink: 0;
+      }
+      .icon-btn:hover {
+        background: var(--accent-soft);
+      }
+      .icon-btn.active {
+        color: var(--accent);
+        background: var(--accent-soft);
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 44px;
+        padding: 10px 16px;
+        font-size: 13px;
+        font-weight: 600;
+        border-radius: 8px;
+        white-space: normal;
+        line-height: 1.5;
+      }
+      .btn svg {
+        width: 17px;
+        height: 17px;
+      }
+      .btn.primary {
+        background: var(--accent);
+        color: #fff;
+      }
+      .btn.secondary {
+        background: var(--accent-soft);
+        color: var(--accent);
+      }
+      .btn.outline {
+        border: 1px solid var(--line);
+        background: var(--paper);
+      }
+      .btn.destructive {
+        background: var(--danger);
+        color: white;
+      }
+      .btn.full {
+        width: 100%;
+      }
+      .btn.small {
+        min-height: 32px;
+        padding: 6px 10px;
+        font-size: 11px;
+      }
+      .text-btn {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--accent);
+        padding: 6px 0;
+        display: inline-flex;
+        gap: 5px;
+        align-items: center;
+      }
+      .text-btn svg {
+        width: 13px;
+        height: 13px;
+      }
+      .tag {
+        font-size: 10px;
+        font-weight: 600;
+        padding: 4px 7px;
+        border-radius: 4px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        white-space: nowrap;
+      }
+      .tag.amber {
+        background: #fcf1de;
+        color: var(--amber);
+      }
+      .tag.gray {
+        background: #eff2ef;
+        color: var(--muted);
+      }
+      .divider {
+        height: 1px;
+        background: var(--line);
+        margin: 14px 0;
+      }
+      .note {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        color: var(--muted);
+        font-size: 11px;
+        line-height: 1.6;
+      }
+      .note svg {
+        width: 14px;
+        height: 14px;
+        color: var(--accent);
+      }
+      .section-label {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 24px 0 13px;
+      }
+      .section-label small {
+        font-size: 11px;
+      }
+      .field {
+        margin: 15px 0;
+      }
+      .field label {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 12px;
+        font-weight: 600;
+        margin-bottom: 9px;
+      }
+      .field label output {
+        font-size: 11px;
+        font-weight: 500;
+        color: var(--accent);
+      }
+      .check-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 13px 0;
+        font-size: 13px;
+        border-bottom: 1px solid var(--line);
+      }
+      .check-row:last-child {
+        border-bottom: 0;
+      }
+      .switch {
+        position: relative;
+        width: 39px;
+        height: 24px;
+        display: inline-block;
+        flex-shrink: 0;
+      }
+      .switch input {
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        inset: 0;
+        margin: 0;
+        cursor: pointer;
+        z-index: 2;
+      }
+      .switch span {
+        position: absolute;
+        inset: 0;
+        background: #dfe7e2;
+        border-radius: 20px;
+        transition: 0.2s;
+      }
+      .switch span:after {
+        content: "";
+        position: absolute;
+        left: 3px;
+        top: 3px;
+        width: 18px;
+        height: 18px;
+        background: #fff;
+        border-radius: 50%;
+        box-shadow: 0 1px 3px #0002;
+        transition: 0.2s;
+      }
+      .switch input:checked + span {
+        background: var(--accent);
+      }
+      .switch input:checked + span:after {
+        transform: translateX(15px);
+      }
+      .switch input:focus-visible + span {
+        outline: 3px solid #76bba9;
+        outline-offset: 3px;
+      }
+      .segmented {
+        display: flex;
+        background: #eef2ef;
+        padding: 3px;
+        border-radius: 8px;
+        gap: 3px;
+      }
+      .segmented button {
+        flex: 1;
+        font-size: 12px;
+        font-weight: 600;
+        border-radius: 6px;
+        min-height: 33px;
+        padding: 5px 8px;
+        white-space: nowrap;
+      }
+      .segmented button.selected {
+        background: var(--paper);
+        box-shadow: 0 1px 4px #25383012;
+        color: var(--accent);
+      }
+      .previewbar {
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 32px;
+        border-bottom: 1px solid #dbe2dd;
+        background: #f5f7f5;
+        gap: 16px;
+      }
+      .preview-brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+        font-weight: 650;
+      }
+      .preview-brand .mark {
+        background: var(--accent);
+        color: #fff;
+        width: 30px;
+        height: 30px;
+        border-radius: 7px;
+        display: grid;
+        place-items: center;
+      }
+      .preview-brand svg {
+        width: 17px;
+      }
+      .preview-brand small {
+        padding-left: 10px;
+        border-left: 1px solid #dbe2dd;
+        font-weight: 400;
+      }
+      .preview-controls {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+      }
+      .preview-controls .segmented button {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        min-width: 90px;
+        justify-content: center;
+        font-size: 11px;
+      }
+      .preview-controls .segmented svg {
+        width: 15px;
+        height: 15px;
+      }
+      .preview-info {
+        display: flex;
+        gap: 7px;
+        align-items: center;
+        font-size: 11px;
+        color: var(--muted);
+      }
+      .preview-info .dot {
+        width: 6px;
+        height: 6px;
+        background: var(--accent);
+        border-radius: 50%;
+      }
+      .stage {
+        min-height: calc(100dvh - 64px);
+        padding: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        background-image: radial-gradient(#acbdb233 0.7px, transparent 0.7px);
+        background-size: 15px 15px;
+      }
+      .device {
+        position: relative;
+        width: 410px;
+        height: 844px;
+        max-height: calc(100dvh - 110px);
+        min-height: 640px;
+        background: var(--paper);
+        border: 7px solid #28332f;
+        border-radius: 44px;
+        box-shadow:
+          0 26px 55px #25373024,
+          0 3px 6px #25373016;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        isolation: isolate;
+      }
+      .device:before {
+        content: "";
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 112px;
+        height: 26px;
+        background: #17221d;
+        border-radius: 30px;
+        z-index: 10;
+      }
+      .statusbar {
+        height: 48px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 25px 0;
+        font-size: 11px;
+        font-weight: 650;
+        background: var(--paper);
+      }
+      .statusbar .row {
+        gap: 4px;
+      }
+      .statusbar svg {
+        width: 13px;
+        height: 13px;
+        stroke-width: 2;
+      }
+      .app-layout {
+        display: flex;
+        flex: 1;
+        min-height: 0;
+      }
+      .sidebar {
+        display: none;
+        width: 215px;
+        background: #f6f8f6;
+        flex-shrink: 0;
+        border-right: 1px solid var(--line);
+        padding: 22px 14px;
+        overflow: auto;
+      }
+      .side-brand {
+        font-size: 24px;
+        font-weight: 700;
+        display: flex;
+        gap: 9px;
+        align-items: center;
+        padding: 4px 9px 20px;
+      }
+      .side-brand svg {
+        color: var(--accent);
+        width: 26px;
+        height: 26px;
+      }
+      .side-group {
+        font-size: 10px;
+        color: var(--muted);
+        padding: 17px 12px 7px;
+      }
+      .side-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        padding: 10px 12px;
+        margin: 2px 0;
+        border-radius: 7px;
+        font-size: 12px;
+        text-align: left;
+      }
+      .side-item svg {
+        width: 17px;
+        height: 17px;
+        color: #788980;
+      }
+      .side-item.active {
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-weight: 600;
+      }
+      .side-item.active svg {
+        color: var(--accent);
+      }
+      .sidebar .privacy-foot {
+        margin-top: 22px;
+        padding: 12px;
+        font-size: 10px;
+        line-height: 1.7;
+        color: var(--muted);
+        border-top: 1px solid var(--line);
+      }
+      .app-main {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 0;
+        min-height: 0;
+        background: var(--paper);
+      }
+      .app-header {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 18px;
+        flex-shrink: 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .app-header .title {
+        font-size: 16px;
+        font-weight: 650;
+      }
+      .app-header .sub {
+        font-size: 10px;
+        color: var(--muted);
+        margin-top: 3px;
+      }
+      .app-header .avatar {
+        height: 29px;
+        width: 29px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: #e9ede9;
+        font-size: 11px;
+        font-weight: 600;
+      }
+      .content {
+        overflow: auto;
+        overscroll-behavior: contain;
+        flex: 1;
+        min-height: 0;
+        scrollbar-width: thin;
+        scrollbar-color: #cad8ce transparent;
+      }
+      .page {
+        padding: 22px 20px 25px;
+        min-height: 100%;
+      }
+      .eyebrow {
+        font-size: 10px;
+        color: var(--muted);
+        margin-bottom: 7px;
+        font-weight: 500;
+      }
+      .page-intro {
+        margin-bottom: 20px;
+      }
+      .page-intro h1 {
+        font-size: 23px;
+      }
+      .page-intro p {
+        font-size: 11px;
+        color: var(--muted);
+        margin-top: 6px;
+      }
+      .tabbar {
+        display: flex;
+        height: 67px;
+        padding: 7px 12px 15px;
+        background: var(--paper);
+        border-top: 1px solid var(--line);
+        flex-shrink: 0;
+      }
+      .tabbar button {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 5px;
+        color: #95a299;
+        font-size: 9px;
+        font-weight: 500;
+      }
+      .tabbar svg {
+        width: 21px;
+        height: 21px;
+      }
+      .tabbar button.active {
+        color: var(--accent);
+      }
+      .home-indicator {
+        position: absolute;
+        width: 118px;
+        height: 4px;
+        background: #17221d;
+        border-radius: 5px;
+        bottom: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 15;
+      }
+      .tablet.device {
+        width: 1120px;
+        height: 810px;
+        max-height: calc(100dvh - 110px);
+        min-height: 630px;
+        border-radius: 25px;
+        border-width: 8px;
+      }
+      .tablet.device:before {
+        width: 6px;
+        height: 6px;
+        top: 6px;
+        border-radius: 50%;
+        background: #0c1511;
+      }
+      .tablet .statusbar {
+        height: 27px;
+        padding: 5px 23px 0;
+        font-size: 10px;
+      }
+      .tablet .sidebar {
+        display: block;
+      }
+      .tablet .tabbar {
+        display: none;
+      }
+      .tablet .app-header {
+        height: 62px;
+        padding: 12px 27px;
+      }
+      .tablet .page {
+        padding: 26px 30px;
+      }
+      .tablet .home-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 28px;
+      }
+      .tablet .editor-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 250px;
+        gap: 24px;
+        align-items: start;
+      }
+      .tablet .editor-layout .inspector {
+        margin-top: 0;
+      }
+      .tablet .page-intro h1 {
+        font-size: 25px;
+      }
+      .tablet .home-indicator {
+        width: 150px;
+      }
+      .tablet .tool-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      .tablet .file-item {
+        padding: 15px 0;
+      }
+      .tablet .page-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+      .tablet .form-list {
+        max-width: 550px;
+      }
+      .tablet .sheet {
+        max-width: 450px;
+        margin: 0 auto;
+        border-radius: 14px;
+      }
+      .tablet .overlay {
+        padding: 35px;
+        align-items: center;
+      }
+      .tablet .ocr-columns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+      }
+      .workspace-welcome {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 15px;
+        margin-bottom: 22px;
+      }
+      .workspace-welcome h1 {
+        font-size: 26px;
+      }
+      .workspace-welcome .date {
+        font-size: 10px;
+        color: var(--muted);
+        margin-bottom: 6px;
+      }
+      .welcome-icon {
+        width: 44px;
+        height: 48px;
+        background: #f7eded;
+        color: var(--danger);
+        border: 1px solid #f0dfdc;
+        border-radius: 7px;
+        display: grid;
+        place-items: center;
+      }
+      .welcome-icon svg {
+        width: 25px;
+        height: 25px;
+      }
+      .import-strip {
+        background: #e9f4ed;
+        padding: 16px;
+        border-radius: 8px;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 13px;
+      }
+      .import-strip .import-icon {
+        width: 39px;
+        height: 39px;
+        border: 1px solid #caddcf;
+        border-radius: 8px;
+        color: var(--accent);
+        display: grid;
+        place-items: center;
+        background: #f5faf6;
+      }
+      .import-strip h2 {
+        font-size: 14px;
+      }
+      .import-strip p {
+        font-size: 10px;
+        color: #739183;
+        margin-top: 3px;
+      }
+      .import-strip > .icon-btn {
+        background: var(--accent);
+        color: white;
+        width: 33px;
+        height: 33px;
+      }
+      .task-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .task-card {
+        min-height: 99px;
+        border: 1px solid var(--line);
+        padding: 14px;
+        border-radius: 8px;
+        text-align: left;
+        background: var(--paper);
+      }
+      .task-card .tool-icon {
+        width: 30px;
+        height: 30px;
+        border-radius: 7px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        display: grid;
+        place-items: center;
+        margin-bottom: 10px;
+      }
+      .task-card .tool-icon svg {
+        width: 18px;
+        height: 18px;
+      }
+      .task-card:nth-child(2) .tool-icon {
+        background: #eaf0f8;
+        color: var(--blue);
+      }
+      .task-card:nth-child(3) .tool-icon {
+        background: #fcf1de;
+        color: var(--amber);
+      }
+      .task-card:nth-child(4) .tool-icon {
+        background: #f8eae8;
+        color: var(--danger);
+      }
+      .task-card strong {
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .task-card small {
+        font-size: 10px;
+        display: block;
+        margin-top: 4px;
+      }
+      .file-item {
+        display: flex;
+        gap: 11px;
+        align-items: center;
+        min-height: 66px;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--line);
+        width: 100%;
+        text-align: left;
+        background: transparent;
+      }
+      .file-item:last-child {
+        border-bottom: 0;
+      }
+      .file-cover {
+        width: 34px;
+        height: 42px;
+        flex-shrink: 0;
+        object-fit: cover;
+        border-radius: 3px;
+        border: 1px solid #e4e8e5;
+        box-shadow: 1px 2px 3px #263c2c0b;
+        background: white;
+      }
+      .file-item .filename {
+        font-size: 12px;
+        font-weight: 550;
+        line-height: 1.5;
+      }
+      .file-item .file-meta {
+        font-size: 10px;
+        color: var(--muted);
+        margin-top: 4px;
+      }
+      .file-item > .icon-btn {
+        width: 27px;
+        height: 29px;
+      }
+      .file-item > .icon-btn svg {
+        width: 17px;
+        height: 17px;
+      }
+      .file-item .file-status {
+        font-size: 9px;
+        color: var(--accent);
+      }
+      .file-item .selection {
+        color: var(--accent);
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+      }
+      .continue-band {
+        background: #f4f6f3;
+        border-left: 2px solid #a8bfac;
+        padding: 12px 13px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin-top: 22px;
+      }
+      .continue-band svg {
+        width: 18px;
+        height: 18px;
+        color: var(--accent);
+      }
+      .continue-band strong {
+        font-size: 11px;
+      }
+      .continue-band p {
+        font-size: 10px;
+        color: var(--muted);
+        margin-top: 4px;
+      }
+      .searchbar {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        border: 1px solid var(--line);
+        background: var(--bg);
+        padding: 0 10px;
+        border-radius: 8px;
+        margin-bottom: 14px;
+      }
+      .searchbar svg {
+        width: 15px;
+        height: 15px;
+        color: var(--muted);
+      }
+      .searchbar input {
+        border: 0;
+        background: transparent;
+        height: 39px;
+        padding: 8px 0;
+        flex: 1;
+        font-size: 12px;
+      }
+      .filter-row {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        margin: 13px 0 6px;
+      }
+      .filter-row button {
+        font-size: 11px;
+        color: var(--muted);
+        padding: 7px 12px;
+        border-radius: 6px;
+      }
+      .filter-row button.active {
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-weight: 600;
+      }
+      .tool-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 18px;
+      }
+      .tool-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-align: left;
+        padding: 15px 0;
+        border-bottom: 1px solid var(--line);
+        min-height: 65px;
+      }
+      .tool-item .tool-symbol {
+        width: 34px;
+        height: 34px;
+        border-radius: 7px;
+        display: grid;
+        place-items: center;
+        background: #eff5f1;
+        color: var(--accent);
+        flex-shrink: 0;
+      }
+      .tool-item .tool-symbol.blue {
+        background: #edf3f8;
+        color: var(--blue);
+      }
+      .tool-item .tool-symbol.amber {
+        background: #fcf1de;
+        color: var(--amber);
+      }
+      .tool-item .tool-symbol.red {
+        background: #f9eeee;
+        color: var(--danger);
+      }
+      .tool-item svg {
+        width: 18px;
+        height: 18px;
+      }
+      .tool-item strong {
+        font-size: 12px;
+      }
+      .tool-item small {
+        font-size: 9px;
+        display: block;
+        margin-top: 4px;
+      }
+      .file-banner {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--bg);
+        padding: 10px 12px;
+        border-radius: 8px;
+        margin-bottom: 18px;
+      }
+      .file-banner strong {
+        font-size: 11px;
+      }
+      .file-banner small {
+        font-size: 10px;
+        margin-top: 4px;
+        display: block;
+      }
+      .file-banner .file-cover {
+        height: 36px;
+        width: 28px;
+      }
+      .file-banner .icon-btn {
+        width: 27px;
+      }
+      .page-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 13px 10px;
+      }
+      .page-tile {
+        position: relative;
+        min-width: 0;
+        text-align: center;
+        border: 1.5px solid var(--line);
+        border-radius: 7px;
+        padding: 6px;
+        background: var(--bg);
+        cursor: pointer;
+        user-select: none;
+      }
+      .page-tile.active {
+        border-color: var(--accent);
+        background: var(--accent-soft);
+      }
+      .page-tile.drag-over {
+        outline: 3px solid #83bd9e;
+      }
+      .page-tile img {
+        width: 100%;
+        aspect-ratio: 595/842;
+        object-fit: contain;
+        display: block;
+        background: #fff;
+        pointer-events: none;
+      }
+      .page-tile .page-label {
+        font-size: 10px;
+        color: var(--muted);
+        padding: 7px 0 2px;
+        display: block;
+      }
+      .page-tile .page-check {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        width: 18px;
+        height: 18px;
+        background: #fff;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        color: #a7b4ac;
+        box-shadow: 0 1px 3px #24383020;
+      }
+      .page-check svg {
+        width: 17px;
+        height: 17px;
+      }
+      .active .page-check {
+        color: var(--accent);
+      }
+      .page-tile .page-tools {
+        display: flex;
+        justify-content: center;
+        gap: 1px;
+        margin-top: 4px;
+      }
+      .page-tools button {
+        height: 22px;
+        width: 26px;
+        padding: 4px;
+        border-radius: 4px;
+        color: var(--muted);
+      }
+      .page-tools button:hover {
+        background: #fff;
+      }
+      .page-tools svg {
+        width: 13px;
+        height: 13px;
+      }
+      .editor-actions {
+        display: flex;
+        gap: 7px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 6px;
+        margin: 16px 0;
+      }
+      .editor-actions button {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 5px;
+        font-size: 10px;
+        padding: 6px 2px;
+        color: var(--muted);
+        border-radius: 5px;
+      }
+      .editor-actions svg {
+        width: 17px;
+        height: 17px;
+      }
+      .editor-actions button:hover {
+        background: var(--accent-soft);
+        color: var(--accent);
+      }
+      .page-toolbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+        margin: 13px 0;
+      }
+      .page-toolbar .text-btn {
+        font-size: 10px;
+      }
+      .footer-actions {
+        margin-top: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .paper-stage {
+        background: #edf0ec;
+        border-radius: 8px;
+        position: relative;
+        overflow: hidden;
+        padding: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 270px;
+      }
+      .paper-wrap {
+        position: relative;
+        width: 100%;
+        max-width: 460px;
+        aspect-ratio: 595/842;
+        box-shadow: 0 4px 12px #243c2c1c;
+        background: #fff;
+        overflow: hidden;
+        touch-action: none;
+      }
+      .paper-wrap > img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        user-select: none;
+        pointer-events: none;
+      }
+      .document-overlay {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        overflow: hidden;
+      }
+      .reader-stage {
+        padding: 14px 20px 18px;
+        background: #edf0ec;
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+      }
+      .reader-stage .paper-wrap {
+        max-width: 580px;
+        flex-shrink: 0;
+      }
+      .reader-controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        border-top: 1px solid var(--line);
+        padding: 9px 18px;
+        height: 54px;
+        background: var(--paper);
+        flex-shrink: 0;
+      }
+      .reader-controls input {
+        width: 38px;
+        height: 28px;
+        padding: 4px;
+        text-align: center;
+        font-size: 11px;
+      }
+      .reader-controls .page-total {
+        font-size: 11px;
+        color: var(--muted);
+      }
+      .reader-controls .icon-btn {
+        height: 28px;
+        width: 28px;
+      }
+      .reader-controls .icon-btn svg {
+        width: 17px;
+        height: 17px;
+      }
+      .editor-tools {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 7px 10px;
+        border-top: 1px solid var(--line);
+        background: var(--paper);
+        min-height: 49px;
+        flex-wrap: wrap;
+      }
+      .editor-tools .icon-btn {
+        width: 32px;
+        height: 32px;
+      }
+      .editor-tools svg {
+        width: 18px;
+        height: 18px;
+      }
+      .editor-tools .tool-separator {
+        width: 1px;
+        height: 23px;
+        background: var(--line);
+        margin: 0 3px;
+      }
+      .swatch {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        border: 3px solid var(--paper);
+        box-shadow: 0 0 0 1px #d9e1db;
+        cursor: pointer;
+      }
+      .swatch.selected {
+        box-shadow: 0 0 0 2px var(--accent);
+      }
+      .placeable {
+        position: absolute;
+        border: 1px dashed var(--accent);
+        cursor: move;
+        pointer-events: auto;
+        touch-action: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+        padding: 2px;
+        user-select: none;
+        min-width: 20px;
+        min-height: 15px;
+      }
+      .placeable img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        pointer-events: none;
+      }
+      .placeable.note-annotation {
+        background: #fff4be;
+        color: #665e35;
+        padding: 5px;
+      }
+      .placeable.redaction {
+        background: #1b201d;
+        border-color: #1b201d;
+      }
+      .placeable.rectangle {
+        background: transparent;
+      }
+      .placeable.highlight {
+        background: #f4d65b77;
+        border-color: #dbc447;
+      }
+      .stamp-layer {
+        position: absolute;
+        pointer-events: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        inset: 0;
+        overflow: hidden;
+      }
+      .stamp-layer span {
+        white-space: nowrap;
+        font-weight: 700;
+        font-size: 25px;
+      }
+      .pagenum-layer {
+        position: absolute;
+        font-size: 11px;
+        pointer-events: none;
+        left: 18px;
+        right: 18px;
+        display: flex;
+        justify-content: flex-end;
+        bottom: 12px;
+      }
+      .scan-stage {
+        background: #d6ded5;
+        border-radius: 8px;
+        padding: 32px 40px;
+        position: relative;
+        height: 305px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+      .scan-stage img {
+        height: 247px;
+        width: 174px;
+        object-fit: cover;
+        box-shadow: 3px 5px 18px #2c382740;
+        transform: rotate(-4deg);
+        transition: 0.2s;
+      }
+      .scan-bracket {
+        position: absolute;
+        left: calc(50% - 102px);
+        top: 22px;
+        width: 204px;
+        height: 265px;
+        border: 1.5px solid #69a989;
+        border-radius: 4px;
+        transform: rotate(-4deg);
+      }
+      .scan-status {
+        position: absolute;
+        left: 50%;
+        bottom: 12px;
+        transform: translateX(-50%);
+        background: #203c2de0;
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-size: 9px;
+        white-space: nowrap;
+      }
+      .shutter-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 17px 29px;
+      }
+      .shutter {
+        width: 54px;
+        height: 54px;
+        background: var(--accent);
+        border: 5px solid #fff;
+        outline: 1px solid #bcd4c6;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        color: white;
+      }
+      .shutter svg {
+        width: 23px;
+        height: 23px;
+      }
+      .scan-count {
+        width: 34px;
+        height: 43px;
+        position: relative;
+      }
+      .scan-count img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        border: 1px solid #d3ddd5;
+        border-radius: 3px;
+      }
+      .scan-count b {
+        position: absolute;
+        bottom: -4px;
+        right: -5px;
+        font-size: 9px;
+        background: var(--accent);
+        color: white;
+        border-radius: 5px;
+        padding: 2px 4px;
+      }
+      .scan-options {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+      }
+      .scan-options button {
+        font-size: 10px;
+        color: var(--muted);
+        padding: 6px 1px;
+        border-bottom: 2px solid transparent;
+      }
+      .scan-options .selected {
+        color: var(--accent);
+        border-bottom-color: var(--accent);
+        font-weight: 600;
+      }
+      .scan-thumbs {
+        display: flex;
+        gap: 8px;
+        overflow: auto;
+        padding: 4px 1px;
+        margin: 14px 0;
+      }
+      .scan-thumb {
+        position: relative;
+        flex-shrink: 0;
+        width: 54px;
+      }
+      .scan-thumb img {
+        width: 54px;
+        height: 77px;
+        object-fit: contain;
+        background: #fff;
+        border: 1px solid #dae5db;
+        border-radius: 3px;
+      }
+      .scan-thumb > span {
+        display: block;
+        text-align: center;
+        font-size: 9px;
+        margin-top: 4px;
+        color: var(--muted);
+      }
+      .scan-thumb button {
+        position: absolute;
+        top: -3px;
+        right: -4px;
+        background: #5a6b61;
+        color: white;
+        border-radius: 50%;
+        padding: 0;
+        width: 17px;
+        height: 17px;
+        display: grid;
+        place-items: center;
+      }
+      .scan-thumb button svg {
+        width: 11px;
+        height: 11px;
+      }
+      .scan-flash {
+        animation: flash 0.4s;
+      }
+      .estimate {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 18px 0;
+        margin: 5px 0 12px;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+      .estimate strong {
+        font-size: 21px;
+        font-weight: 600;
+        display: block;
+        margin-top: 5px;
+      }
+      .estimate > svg {
+        color: #a2b2a7;
+        width: 18px;
+      }
+      .preset-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        margin: 12px 0 20px;
+      }
+      .preset {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 13px 5px;
+        text-align: center;
+        background: var(--paper);
+      }
+      .preset strong {
+        font-size: 12px;
+        display: block;
+      }
+      .preset small {
+        font-size: 9px;
+        display: block;
+        margin-top: 6px;
+      }
+      .preset.selected {
+        border-color: var(--accent);
+        background: var(--accent-soft);
+      }
+      .preset.selected strong {
+        color: var(--accent);
+      }
+      .signature-saved {
+        width: 100%;
+        height: 74px;
+        object-fit: contain;
+        border: 1px dashed #c9d8cd;
+        border-radius: 8px;
+        background: #fff;
+      }
+      .signature-canvas {
+        width: 100%;
+        height: 170px;
+        background: #fff;
+        border: 1px dashed #aebeb3;
+        border-radius: 8px;
+        touch-action: none;
+        cursor: crosshair;
+      }
+      .inspector {
+        margin-top: 17px;
+      }
+      .inspector h3 {
+        padding: 9px 0;
+      }
+      .inspector .field:first-child {
+        margin-top: 6px;
+      }
+      .annot-list {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        font-size: 11px;
+        padding: 11px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .annot-list svg {
+        width: 15px;
+        height: 15px;
+        color: var(--accent);
+      }
+      .metric-row {
+        display: flex;
+        gap: 13px;
+        padding: 18px 0;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        margin: 16px 0;
+      }
+      .metric-row > div {
+        flex: 1;
+      }
+      .metric-row strong {
+        font-size: 17px;
+        display: block;
+        margin-bottom: 5px;
+      }
+      .metric-row small {
+        font-size: 10px;
+      }
+      .metric-row .good {
+        color: var(--accent);
+      }
+      .metric-row .warn {
+        color: var(--amber);
+      }
+      .warning {
+        background: #fbf0e7;
+        border-left: 2px solid #d4a57a;
+        padding: 11px 13px;
+        margin: 14px 0;
+        display: flex;
+        gap: 9px;
+        font-size: 11px;
+        line-height: 1.6;
+        color: #976538;
+      }
+      .warning.red {
+        background: #faf0ef;
+        border-left-color: #d99891;
+        color: #af514b;
+      }
+      .warning svg {
+        width: 16px;
+        height: 16px;
+        margin-top: 1px;
+      }
+      .queue-item {
+        padding: 12px 0;
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        gap: 9px;
+        align-items: center;
+      }
+      .queue-item strong {
+        font-size: 11px;
+        font-weight: 500;
+      }
+      .queue-item small {
+        font-size: 9px;
+        display: block;
+        margin-top: 4px;
+      }
+      .queue-item .state-icon {
+        width: 22px;
+        color: var(--accent);
+      }
+      .queue-item.error .state-icon {
+        color: var(--danger);
+      }
+      .mini-progress {
+        height: 3px;
+        background: var(--line);
+        border-radius: 3px;
+        margin-top: 7px;
+        overflow: hidden;
+      }
+      .mini-progress span {
+        display: block;
+        height: 100%;
+        background: var(--accent);
+        transition: width 0.2s;
+      }
+      .template-item {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 16px;
+        margin-bottom: 11px;
+        text-align: left;
+        width: 100%;
+        position: relative;
+      }
+      .template-item.active {
+        border-color: var(--accent);
+        background: #f8fbf8;
+      }
+      .template-item h3 {
+        font-size: 13px;
+      }
+      .template-item p {
+        font-size: 10px;
+        color: var(--muted);
+        margin: 6px 0 11px;
+      }
+      .template-item .template-icon {
+        width: 35px;
+        height: 39px;
+        display: grid;
+        place-items: center;
+        background: #eaf2ec;
+        color: var(--accent);
+        border-radius: 5px;
+      }
+      .template-item .row {
+        align-items: flex-start;
+      }
+      .template-item .tag {
+        display: inline-block;
+      }
+      .plan {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 17px;
+        margin: 15px 0;
+        background: var(--paper);
+        display: flex;
+        gap: 12px;
+        text-align: left;
+        width: 100%;
+      }
+      .plan.active {
+        border-color: var(--accent);
+        background: #f3f9f5;
+      }
+      .plan strong {
+        font-size: 24px;
+        font-weight: 650;
+      }
+      .plan small {
+        font-size: 10px;
+        display: block;
+        margin-top: 5px;
+      }
+      .plan .plan-radio {
+        color: var(--accent);
+      }
+      .pro-heading {
+        text-align: center;
+        padding: 18px 0 20px;
+      }
+      .pro-heading .pro-logo {
+        width: 52px;
+        height: 52px;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        background: #ecf2e3;
+        color: #829449;
+        margin: 0 auto 15px;
+      }
+      .pro-heading .pro-logo svg {
+        width: 28px;
+        height: 28px;
+      }
+      .pro-heading h1 {
+        font-size: 27px;
+      }
+      .pro-heading p {
+        color: var(--muted);
+        font-size: 11px;
+        margin-top: 7px;
+      }
+      .benefit {
+        display: flex;
+        gap: 11px;
+        padding: 13px 0;
+        border-bottom: 1px solid var(--line);
+        align-items: center;
+      }
+      .benefit svg {
+        width: 19px;
+        color: var(--accent);
+      }
+      .benefit strong {
+        font-size: 12px;
+        font-weight: 550;
+      }
+      .benefit p {
+        font-size: 10px;
+        color: var(--muted);
+        margin-top: 3px;
+      }
+      .benefit > svg:last-child {
+        width: 15px;
+      }
+      .settings-group {
+        border-top: 1px solid var(--line);
+        margin: 22px 0;
+      }
+      .settings-row {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        min-height: 51px;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--line);
+        text-align: left;
+      }
+      .settings-row > svg {
+        width: 17px;
+        color: var(--muted);
+      }
+      .settings-row strong {
+        font-size: 12px;
+        font-weight: 500;
+      }
+      .settings-row small {
+        font-size: 10px;
+        display: block;
+        margin-top: 4px;
+      }
+      .settings-row select {
+        width: 110px;
+        height: 31px;
+        padding: 4px 8px;
+        font-size: 10px;
+      }
+      .empty {
+        text-align: center;
+        padding: 40px 18px;
+        color: var(--muted);
+      }
+      .empty > svg {
+        width: 36px;
+        height: 36px;
+        margin-bottom: 10px;
+        color: #a8b8ac;
+      }
+      .empty h3 {
+        font-size: 13px;
+        margin-bottom: 6px;
+        color: var(--ink);
+      }
+      .empty p {
+        font-size: 11px;
+      }
+      .empty .btn {
+        margin-top: 17px;
+      }
+      .shortcut-flow {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 20px 0;
+      }
+      .shortcut-step {
+        flex: 1;
+        min-width: 0;
+        border-bottom: 2px solid #bfd2c4;
+        padding: 12px 7px;
+        background: var(--bg);
+      }
+      .shortcut-step small {
+        font-size: 9px;
+      }
+      .shortcut-step strong {
+        font-size: 11px;
+        display: block;
+        margin: 7px 0;
+      }
+      .shortcut-flow > svg {
+        width: 14px;
+        color: var(--muted);
+      }
+      .shortcut-step svg {
+        width: 17px;
+        height: 17px;
+        color: var(--accent);
+      }
+      .overlay {
+        position: absolute;
+        inset: 0;
+        background: #14281e66;
+        z-index: 40;
+        display: flex;
+        align-items: flex-end;
+        padding-top: 50px;
+        backdrop-filter: blur(2px);
+      }
+      .sheet {
+        width: 100%;
+        max-height: 92%;
+        overflow: auto;
+        background: var(--paper);
+        border-radius: 17px 17px 0 0;
+        padding: 9px 22px 28px;
+        box-shadow: 0 -5px 30px #0001;
+        animation: sheet-in 0.22s ease-out;
+      }
+      .sheet-grabber {
+        height: 4px;
+        width: 32px;
+        border-radius: 4px;
+        background: #d1dad4;
+        margin: 1px auto 17px;
+      }
+      .sheet-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 18px;
+        gap: 10px;
+      }
+      .sheet-head h2 {
+        font-size: 18px;
+      }
+      .sheet-head .icon-btn {
+        background: var(--bg);
+        width: 27px;
+        height: 27px;
+      }
+      .sheet-head svg {
+        width: 15px;
+        height: 15px;
+      }
+      .sheet .file-item {
+        padding: 11px 0;
+      }
+      .import-option {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 15px 0;
+        text-align: left;
+        width: 100%;
+        border-bottom: 1px solid var(--line);
+      }
+      .import-option > svg {
+        width: 21px;
+        height: 21px;
+        color: var(--accent);
+      }
+      .import-option strong {
+        font-size: 13px;
+        font-weight: 550;
+      }
+      .import-option small {
+        font-size: 10px;
+        display: block;
+        margin-top: 5px;
+      }
+      .import-option .chevron {
+        color: var(--muted);
+        width: 15px;
+        height: 15px;
+      }
+      .dropzone {
+        margin-top: 18px;
+        border: 1px dashed #b8cdbd;
+        border-radius: 8px;
+        padding: 17px;
+        text-align: center;
+        background: #f6faf7;
+      }
+      .dropzone svg {
+        width: 24px;
+        height: 24px;
+        color: var(--accent);
+      }
+      .dropzone p {
+        font-size: 11px;
+        color: var(--muted);
+        margin-top: 6px;
+      }
+      .result-check {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background: var(--accent-soft);
+        color: var(--accent);
+        display: grid;
+        place-items: center;
+        margin: 4px auto 15px;
+      }
+      .result-check svg {
+        width: 25px;
+        height: 25px;
+      }
+      .result-title {
+        text-align: center;
+        font-size: 20px;
+        margin-bottom: 7px;
+      }
+      .result-sub {
+        text-align: center;
+        color: var(--muted);
+        font-size: 11px;
+      }
+      .result-detail {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        padding: 17px 0;
+        margin: 20px 0;
+      }
+      .result-detail .file-cover {
+        width: 48px;
+        height: 65px;
+      }
+      .result-detail strong {
+        font-size: 12px;
+      }
+      .result-detail p {
+        font-size: 10px;
+        color: var(--muted);
+        margin-top: 6px;
+      }
+      .toast {
+        position: absolute;
+        top: 100px;
+        left: 18px;
+        right: 18px;
+        z-index: 70;
+        background: #243a30;
+        color: white;
+        box-shadow: 0 4px 16px #0002;
+        border-radius: 8px;
+        padding: 13px 14px;
+        display: flex;
+        gap: 9px;
+        align-items: center;
+        font-size: 11px;
+        animation: toast-in 0.15s;
+      }
+      .toast svg {
+        width: 17px;
+        height: 17px;
+        flex-shrink: 0;
+      }
+      .progress-overlay {
+        position: absolute;
+        inset: 0;
+        z-index: 55;
+        background: #14281e77;
+        display: grid;
+        place-items: center;
+        padding: 22px;
+        backdrop-filter: blur(3px);
+      }
+      .progress-box {
+        background: var(--paper);
+        width: 100%;
+        max-width: 330px;
+        padding: 26px 24px;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 12px 40px #0002;
+      }
+      .progress-box h2 {
+        font-size: 17px;
+        margin: 15px 0 8px;
+      }
+      .progress-box p {
+        font-size: 11px;
+        color: var(--muted);
+        margin-bottom: 17px;
+      }
+      .spinner {
+        width: 33px;
+        height: 33px;
+        border-radius: 50%;
+        border: 3px solid var(--accent-soft);
+        border-top-color: var(--accent);
+        animation: spin 1s linear infinite;
+        margin: auto;
+      }
+      .progress-track {
+        height: 5px;
+        border-radius: 5px;
+        background: var(--line);
+        overflow: hidden;
+        margin: 13px 0;
+      }
+      .progress-track span {
+        height: 100%;
+        width: 0;
+        display: block;
+        background: var(--accent);
+        transition: width 0.2s;
+      }
+      .progress-caption {
+        display: flex;
+        justify-content: space-between;
+        font-size: 10px;
+        color: var(--muted);
+      }
+      .toast ~ .progress-overlay {
+        z-index: 75;
+      }
+      .dragging-files:after {
+        content: "释放文件以导入纸间";
+        position: absolute;
+        inset: 8px;
+        border: 2px dashed var(--accent);
+        background: #e5f3edee;
+        display: grid;
+        place-items: center;
+        font-size: 16px;
+        font-weight: 600;
+        z-index: 80;
+        border-radius: 30px;
+        pointer-events: none;
+      }
+      .paper-wrap.selection-tool {
+        cursor: crosshair;
+      }
+      .rect-draft {
+        position: absolute;
+        border: 1px solid #305d47;
+        background: #96b39b44;
+        pointer-events: none;
+      }
+      .all-pages {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        width: 100%;
+        align-items: center;
+      }
+      .zoom-label {
+        font-size: 10px;
+        color: var(--muted);
+        min-width: 34px;
+        text-align: center;
+      }
+      .body-dark {
+        --paper: #252b28;
+        --bg: #202622;
+        --ink: #e6efe8;
+        --muted: #95ab9b;
+        --line: #3a4a3d;
+        --accent: #8fcbb1;
+        --accent-soft: #334c3d;
+        color: var(--ink);
+      }
+      .body-dark .statusbar {
+        color: var(--ink);
+      }
+      .body-dark .btn.primary {
+        color: #213027;
+        background: #8fcbb1;
+      }
+      .body-dark .sidebar {
+        background: var(--bg);
+      }
+      .body-dark .paper-stage,
+      .body-dark .reader-stage {
+        background: #191e1b;
+      }
+      .body-dark .home-indicator {
+        background: white;
+      }
+      .body-dark .import-strip {
+        background: #334c3d;
+      }
+      .body-dark .import-strip h2 {
+        color: #e6efe8;
+      }
+      .body-dark .import-strip p {
+        color: #b6cbba;
+      }
+      .body-dark .continue-band {
+        background: #303934;
+      }
+      .body-dark .segmented {
+        background: #18281e;
+      }
+      .body-dark .icon-btn:hover {
+        background: #334c3d;
+      }
+      .body-dark .page-tile {
+        background: #213027;
+      }
+      .body-dark .page-tile.active {
+        background: #334c3d;
+      }
+      .body-dark .template-item.active,
+      .body-dark .plan.active {
+        background: #334237;
+      }
+      .body-dark .sheet {
+        background: var(--paper);
+      }
+      .body-dark .avatar,
+      .body-dark .tag.gray {
+        background: #38433d;
+      }
+      .body-dark .import-icon {
+        background: #26352d;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes sheet-in {
+        from {
+          transform: translateY(25px);
+          opacity: 0.6;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      @keyframes toast-in {
+        from {
+          transform: translateY(-8px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      @keyframes flash {
+        50% {
+          filter: brightness(1.7);
+        }
+      }
+      @media (max-width: 750px) {
+        .previewbar {
+          height: 47px;
+          padding: 0 13px;
+          gap: 5px;
+        }
+        .preview-brand {
+          font-size: 12px;
+          gap: 7px;
+        }
+        .preview-brand .mark {
+          width: 24px;
+          height: 24px;
+          border-radius: 5px;
+        }
+        .preview-brand small {
+          display: none;
+        }
+        .preview-info {
+          display: none;
+        }
+        .preview-controls {
+          gap: 6px;
+        }
+        .preview-controls .segmented button {
+          min-width: auto;
+          min-height: 26px;
+          padding: 4px 8px;
+          font-size: 9px;
+        }
+        .preview-controls .segmented button svg {
+          width: 12px;
+          height: 12px;
+        }
+        .preview-controls > .icon-btn {
+          width: 28px;
+          height: 28px;
+        }
+        .preview-controls > .icon-btn svg {
+          width: 15px;
+          height: 15px;
+        }
+        .stage {
+          padding: 0;
+          display: block;
+          min-height: 0;
+          background: var(--paper);
+        }
+        .device,
+        .tablet.device {
+          width: 100%;
+          height: calc(100dvh - 47px);
+          max-height: none;
+          min-height: 0;
+          border: 0;
+          border-radius: 0;
+          box-shadow: none;
+        }
+        .device:before,
+        .tablet.device:before {
+          display: none;
+        }
+        .statusbar,
+        .tablet .statusbar {
+          height: 31px;
+          padding: 8px 23px 0;
+        }
+        .app-header,
+        .tablet .app-header {
+          height: 57px;
+          padding: 10px 18px;
+        }
+        .tablet .sidebar {
+          display: none;
+        }
+        .tablet .tabbar {
+          display: flex;
+        }
+        .tablet .page {
+          padding: 21px 20px 25px;
+        }
+        .tablet .home-grid,
+        .tablet .editor-layout,
+        .tablet .ocr-columns {
+          display: block;
+        }
+        .tablet .tool-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .tablet .page-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+        .tablet .overlay {
+          align-items: flex-end;
+          padding: 45px 0 0;
+        }
+        .tablet .sheet {
+          max-width: none;
+          border-radius: 17px 17px 0 0;
+        }
+        .home-indicator {
+          bottom: 4px;
+        }
+        .page-intro h1,
+        .tablet .page-intro h1 {
+          font-size: 23px;
+        }
+        .tablet .editor-layout .inspector {
+          margin-top: 17px;
+        }
+      }
+      @media (min-width: 751px) and (max-height: 800px) {
+        .device {
+          height: 700px;
+          max-height: calc(100dvh - 98px);
+          min-height: 510px;
+        }
+        .stage {
+          padding: 17px;
+        }
+        .tablet.device {
+          min-height: 510px;
+        }
+        .statusbar {
+          height: 43px;
+        }
+        .app-header {
+          height: 55px;
+        }
+        .page {
+          padding-top: 18px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation: none !important;
+          transition: none !important;
+          scroll-behavior: auto !important;
+        }
+      }
+      .editor-route .tabbar {
+        display: none;
+      }
+      .editor-route .reader-controls {
+        height: 59px;
+        padding-bottom: 16px;
+      }
+      .toast {
+        top: auto;
+        bottom: 81px;
+      }
+      .editor-route .toast {
+        bottom: 125px;
+      }
+      .tablet .toast {
+        left: 235px;
+        bottom: 26px;
+      }
+      .tablet.editor-route .toast {
+        bottom: 70px;
+      }
+      .placeable .resize-handle {
+        position: absolute;
+        right: -4px;
+        bottom: -4px;
+        width: 9px;
+        height: 9px;
+        background: var(--accent);
+        border: 1px solid white;
+        cursor: nwse-resize;
+        pointer-events: auto;
+        border-radius: 2px;
+      }
+      .reader-stage .placeable {
+        pointer-events: none;
+        border-color: transparent;
+      }
+      .reader-stage .resize-handle {
+        display: none;
+      }
+      .compact-home .workspace-welcome {
+        margin-bottom: 16px;
+      }
+      .compact-home .workspace-welcome h1 {
+        font-size: 24px;
+      }
+      .compact-home .import-strip {
+        padding: 10px 14px;
+        min-height: 64px;
+      }
+      .compact-home .section-label {
+        margin-top: 20px;
+        margin-bottom: 10px;
+      }
+      .compact-home .task-card {
+        min-height: 74px;
+        padding: 12px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-align: left;
+      }
+      .compact-home .task-card .tool-icon {
+        margin: 0;
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+      }
+      .compact-home .task-card strong {
+        font-size: 13px;
+      }
+      .compact-home .task-card small {
+        display: block;
+        margin-top: 3px;
+      }
+      .compact-home .file-item {
+        min-height: 66px;
+        padding: 10px 0;
+      }
+      .home-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .home-actions .btn {
+        padding: 10px 8px;
+      }
+      .workflow-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-height: 68px;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .workflow-row strong {
+        display: block;
+        font-size: 13px;
+      }
+      .workflow-row small {
+        display: block;
+        margin-top: 4px;
+        line-height: 1.5;
+      }
+      .workflow-launch {
+        text-align: left;
+        padding: 0;
+        width: 100%;
+      }
+      .workflow-symbol {
+        display: grid;
+        place-items: center;
+        width: 36px;
+        height: 36px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        border-radius: 7px;
+        flex-shrink: 0;
+      }
+      .draft-band {
+        border-left: 3px solid var(--accent);
+        background: var(--bg);
+        padding: 12px;
+        margin-top: 14px;
+      }
+      .draft-band strong {
+        font-size: 13px;
+        display: block;
+      }
+      .draft-band small {
+        display: block;
+        margin-top: 4px;
+      }
+      .workflow-progress {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        padding: 10px 18px;
+        background: var(--accent-soft);
+        border-bottom: 1px solid var(--line);
+        flex-shrink: 0;
+      }
+      .workflow-progress strong {
+        font-size: 12px;
+        display: block;
+      }
+      .workflow-progress small {
+        display: block;
+        margin-top: 3px;
+      }
+      .workflow-progress .btn {
+        width: auto;
+        min-height: 38px;
+        padding: 7px 11px;
+      }
+      .workflow-steps {
+        list-style: none;
+        padding: 0;
+        margin: 16px 0;
+      }
+      .workflow-steps li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-height: 46px;
+        border-bottom: 1px solid var(--line);
+        font-size: 13px;
+      }
+      .step-index {
+        display: grid;
+        place-items: center;
+        width: 25px;
+        height: 25px;
+        font-size: 11px;
+        color: var(--accent);
+        background: var(--accent-soft);
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+      .task-footer {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 20px 18px;
+        background: var(--paper);
+        border-top: 1px solid var(--line);
+      }
+      .task-footer .btn {
+        flex: 1;
+      }
+      .task-footer .grow {
+        flex: 1;
+      }
+      .task-footer strong {
+        font-size: 13px;
+        display: block;
+      }
+      .task-footer small {
+        display: block;
+        margin-top: 4px;
+      }
+      .advanced {
+        border-top: 1px solid var(--line);
+        margin-top: 15px;
+        padding-top: 12px;
+      }
+      .advanced summary {
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 600;
+        padding: 4px 0 14px;
+      }
+      .result-metrics {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 16px 0;
+        margin: 12px 0;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        gap: 10px;
+      }
+      .result-metrics strong {
+        display: block;
+        font-size: 20px;
+        margin-top: 5px;
+      }
+      .result-summary {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        font-size: 13px;
+        line-height: 1.6;
+        margin: 12px 0;
+      }
+      .result-summary svg {
+        color: var(--accent);
+        margin-top: 2px;
+      }
+      .result-next {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-top: 9px;
+      }
+      .result-next .btn {
+        font-size: 12px;
+        padding: 9px;
+      }
+      .compare-pages {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-top: 16px;
+      }
+      .compare-pages img {
+        width: 100%;
+        display: block;
+        border: 1px solid var(--line);
+        margin-top: 8px;
+      }
+      .signature-library {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+      .signature-item {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 12px;
+      }
+      .signature-item img {
+        display: block;
+        width: 100%;
+        height: 64px;
+        object-fit: contain;
+        background: #fff;
+      }
+      .signature-item .row {
+        margin-top: 8px;
+      }
+      .signature-item strong {
+        font-size: 12px;
+        overflow-wrap: anywhere;
+      }
+      .quota-row {
+        padding: 12px 0;
+        border-bottom: 1px solid var(--line);
+        font-size: 13px;
+      }
+      .tablet-only {
+        display: none;
+      }
+      .tablet .tablet-only {
+        display: inline-flex;
+      }
+      .sidebar-collapsed .sidebar {
+        display: none;
+      }
+      .compact-home .home-grid {
+        gap: 24px;
+      }
+      @media (min-width: 751px) {
+        .tablet.editor-route .page:has(.editor-layout) {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+          min-height: 0;
+        }
+        .tablet.editor-route .editor-layout {
+          flex: 1;
+          min-height: 0;
+          overflow: hidden;
+        }
+        .tablet.editor-route .editor-layout > div {
+          overflow: auto;
+          min-height: 0;
+        }
+        .tablet.editor-route .editor-layout .paper-stage {
+          align-items: flex-start;
+        }
+        .tablet.editor-route .editor-layout .inspector {
+          padding-right: 4px;
+        }
+      }
+      @media (max-width: 750px) {
+        .tablet .tablet-only {
+          display: none;
+        }
+        .tablet.editor-route .editor-layout {
+          display: block;
+          overflow: visible;
+        }
+        .workflow-progress {
+          padding: 8px 14px;
+        }
+        .workflow-progress .btn {
+          padding: 7px 8px;
+          font-size: 11px;
+        }
+        .workflow-progress small {
+          font-size: 10px;
+        }
+        .task-footer {
+          padding: 10px 16px 18px;
+        }
+        .reader-controls {
+          gap: 3px;
+          padding-left: 12px;
+          padding-right: 12px;
+        }
+        .reader-controls .icon-btn {
+          width: 44px;
+          height: 44px;
+        }
+        .editor-tools {
+          gap: 4px;
+        }
+      }
+      @media (max-width: 750px) {
+        .tablet .toast {
+          left: 18px;
+          bottom: 81px;
+        }
+        .tablet.editor-route .toast {
+          bottom: 125px;
+        }
+        .tablet.editor-route .tabbar {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="previewbar">
+      <div class="preview-brand">
+        <span class="mark"><i data-lucide="files"></i></span>纸间<small
+          >iOS / iPadOS 交互原型</small
+        >
+      </div>
+      <div class="preview-controls">
+        <div class="preview-info">
+          <span class="dot"></span>本地 HTML · 不会上传文件
+        </div>
+        <div class="segmented" aria-label="预览设备">
+          <button data-device="phone" class="selected">
+            <i data-lucide="smartphone"></i>iPhone</button
+          ><button data-device="tablet">
+            <i data-lucide="tablet"></i>iPad
+          </button>
+        </div>
+        <button
+          class="icon-btn"
+          data-action="reset-prototype"
+          title="重置原型数据"
+          aria-label="重置原型数据"
+        >
+          <i data-lucide="rotate-ccw"></i>
+        </button>
+      </div>
+    </header>
+    <div class="stage">
+      <div id="device" class="device">
+        <div class="statusbar">
+          <span>9:41</span>
+          <div class="row">
+            <i data-lucide="signal"></i><i data-lucide="wifi"></i
+            ><i data-lucide="battery-full"></i>
+          </div>
+        </div>
+        <div class="app-layout">
+          <aside class="sidebar" id="sidebar"></aside>
+          <section class="app-main">
+            <header class="app-header" id="app-header"></header>
+            <main class="content" id="content"></main>
+            <div id="context-tools"></div>
+            <nav class="tabbar" id="tabbar" aria-label="底部导航"></nav>
+          </section>
+        </div>
+        <div class="home-indicator"></div>
+        <div id="overlays"></div>
+        <div id="toast-root"></div>
+      </div>
+    </div>
+    <input
+      id="file-input"
+      type="file"
+      accept="application/pdf,image/jpeg,image/png,image/heic,image/tiff"
+      multiple
+      hidden
+    />
+    <input id="image-input" type="file" accept="image/*" multiple hidden />
+    <script>
+      /*__LUCIDE__*/
+    </script>
+    <script>
+      /*__PDFLIB__*/
+    </script>
+    <script>
+      /*__PDFJS__*/
+    </script>
+    <script id="pdf-worker-code" type="text/plain">
+      /*__PDFWORKER__*/
+    </script>
+    <script>
+      "use strict";
+      const $ = (s, root = document) => root.querySelector(s);
+      const $$ = (s, root = document) => [...root.querySelectorAll(s)];
+      const esc = (value) =>
+        String(value ?? "").replace(
+          /[&<>"']/g,
+          (c) =>
+            ({
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#39;",
+            })[c],
+        );
+      const icon = (name) => `<i data-lucide="${name}"></i>`;
+      const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+      const uid = () => "d" + Math.random().toString(36).slice(2, 11);
+      const sizeString = (n) =>
+        n >= 1048576
+          ? (n / 1048576).toFixed(1) + " MB"
+          : Math.max(1, Math.round(n / 1024)) + " KB";
+      const basename = (name) => name.replace(/\.[^.]+$/, "");
+      const fmtDate = () =>
+        new Date().toLocaleDateString("zh-CN", {
+          month: "long",
+          day: "numeric",
+          weekday: "long",
+        });
+      const routes = {
+        home: ["文件工作台", "house"],
+        files: ["最近文件", "folder-open"],
+        scan: ["扫描文档", "scan-line"],
+        tools: ["全部工具", "layout-grid"],
+        reader: ["文档预览", "book-open"],
+        organize: ["页面整理", "layers-2"],
+        compress: ["压缩 PDF", "minimize-2"],
+        sign: ["签名与表单", "signature"],
+        ocr: ["文字识别", "scan-text"],
+        redact: ["永久打码", "scan-eye"],
+        batch: ["批量处理", "list-checks"],
+        protect: ["密码与安全", "shield-check"],
+        numbers: ["添加页码", "list-ordered"],
+        watermark: ["添加水印", "stamp"],
+        templates: ["常用流程", "workflow"],
+        shortcuts: ["快捷指令", "workflow"],
+        pro: ["纸间 Pro", "crown"],
+        settings: ["设置", "settings"],
+        personal: ["常用资料", "contact-round"],
+      };
+      const groups = [
+        ["工作台", ["home", "files"]],
+        ["文档处理", ["scan", "organize", "compress", "sign", "ocr", "redact"]],
+        [
+          "更多工具",
+          [
+            "batch",
+            "protect",
+            "numbers",
+            "watermark",
+            "templates",
+            "shortcuts",
+          ],
+        ],
+        ["纸间", ["personal", "pro", "settings"]],
+      ];
+      const baseSettings = {
+        dark: false,
+        keepLocal: true,
+        autoOCR: true,
+        compression: "balanced",
+        language: "zh-en",
+        retention: "永久",
+        flatten: true,
+        haptic: true,
+        saveDrafts: true,
+      };
+      const state = {
+        route: "home",
+        history: [],
+        device: "phone",
+        files: [],
+        current: null,
+        filter: "all",
+        query: "",
+        pageIndex: 0,
+        selected: new Set(),
+        undo: [],
+        redo: [],
+        scanPages: [],
+        scanFilter: "auto",
+        scanOCR: true,
+        tool: "select",
+        color: "#147d68",
+        annotations: [],
+        signMode: "signature",
+        signature: null,
+        signatureStrokes: [],
+        form: { name: "林晓", phone: "", company: "", agree: false },
+        compress: {
+          preset: "balanced",
+          quality: 65,
+          dpi: 144,
+          target: 1.5,
+          gray: false,
+          metadata: true,
+          preserve: true,
+        },
+        ocrText: "",
+        ocrLanguage: "zh-en",
+        ocrReady: false,
+        ocrQuery: "",
+        numbers: {
+          start: 1,
+          prefix: "",
+          suffix: "",
+          position: "bottom-center",
+          size: 11,
+          skip: false,
+          oddEven: false,
+          from: 1,
+          to: 8,
+        },
+        watermark: {
+          type: "text",
+          text: "仅供评审",
+          opacity: 22,
+          angle: -30,
+          size: 30,
+          color: "#147d68",
+          tile: false,
+          foreground: true,
+          range: "all",
+          image: null,
+        },
+        protect: {
+          mode: "add",
+          password: "",
+          confirm: "",
+          print: true,
+          copy: false,
+          edit: false,
+          metadata: true,
+          hidden: true,
+          attachments: true,
+        },
+        batch: { ids: new Set(), op: "compress", prefix: "文件", queue: [] },
+        templates: [
+          {
+            id: "contract",
+            name: "合同归档",
+            detail: "页码 · 保密水印 · 移除元数据",
+            type: "contract",
+            watermark: "内部文件",
+            position: "bottom-center",
+            compress: "light",
+          },
+          {
+            id: "receipt",
+            name: "报销凭证",
+            detail: "黑白页面 · 序号命名 · 平衡压缩",
+            type: "receipt",
+            watermark: "",
+            position: "bottom-right",
+            compress: "balanced",
+          },
+          {
+            id: "project",
+            name: "项目交付",
+            detail: "交付水印 · 封面跳号 · 高质量",
+            type: "report",
+            watermark: "项目交付",
+            position: "bottom-center",
+            compress: "light",
+          },
+        ],
+        settings: { ...baseSettings },
+        chosenTemplate: "contract",
+        shortcut: "compress",
+        shortcutSteps: ["import", "compress", "export"],
+        pro: false,
+        modal: null,
+        job: null,
+        result: null,
+        zoom: 100,
+        readerMode: "single",
+        readerQuery: "",
+        redactMode: "area",
+        redactText: "",
+        redactBoxes: [],
+        redactColor: "#161c18",
+        annotationSize: 18,
+        hasUsed: false,
+        draft: null,
+        bookmarks: {},
+        activeWorkflow: null,
+        pendingRoute: null,
+        pendingWorkflow: null,
+        sidebarCollapsed: false,
+        workspaceSavedAt: null,
+        storageAvailable: true,
+        signatures: [],
+        profile: { name: "", phone: "", company: "" },
+        usage: {
+          month: new Date().toISOString().slice(0, 7),
+          scan: 0,
+          ocr: 0,
+          compress: 0,
+        },
+      };
+      let modalReturnFocus = null,
+        toastTimer,
+        previewRendering = 0,
+        importDestination = "file",
+        lastResultURL = null;
+      const cancelledError = () => new Error("TASK_CANCELLED");
+      function loadLocal() {
+        try {
+          const saved = JSON.parse(
+            localStorage.getItem("paperflow-prototype-v1") || "null",
+          );
+          if (saved) {
+            state.settings = { ...baseSettings, ...saved.settings };
+            state.signature = saved.signature || null;
+            state.templates = saved.templates || state.templates;
+            state.pro = !!saved.pro;
+            state.signatures =
+              saved.signatures ||
+              (state.signature
+                ? [{ id: uid(), name: "常用签名", image: state.signature }]
+                : []);
+            state.profile = saved.profile || state.profile;
+            state.hasUsed = !!saved.hasUsed;
+            if (saved.usage?.month === state.usage.month)
+              state.usage = saved.usage;
+          }
+        } catch {}
+      }
+      function persist() {
+        try {
+          localStorage.setItem(
+            "paperflow-prototype-v1",
+            JSON.stringify({
+              settings: state.settings,
+              signature: state.signature,
+              templates: state.templates,
+              pro: state.pro,
+              signatures: state.signatures,
+              profile: state.profile,
+              hasUsed: state.hasUsed,
+              usage: state.usage,
+            }),
+          );
+        } catch {
+          toast("浏览器存储不可用，本次更改仍可继续使用");
+        }
+      }
+      function refreshIcons(root = document) {
+        lucide.createIcons({ root, attrs: { "aria-hidden": "true" } });
+      }
+      function toast(message, error = false) {
+        clearTimeout(toastTimer);
+        $("#toast-root").innerHTML =
+          `<div class="toast" role="status">${icon(error ? "circle-alert" : "circle-check")}<span>${esc(message)}</span></div>`;
+        refreshIcons();
+        toastTimer = setTimeout(() => ($("#toast-root").innerHTML = ""), 3200);
+      }
+      function current() {
+        return (
+          state.files.find((f) => f.id === state.current) || state.files[0]
+        );
+      }
+      function currentPage() {
+        return current()?.pages[
+          Math.min(state.pageIndex, current().pages.length - 1)
+        ];
+      }
+      function navigate(route, { back = false } = {}) {
+        if (state.job) return;
+        closeModal();
+        clearTimeout(toastTimer);
+        $("#toast-root").innerHTML = "";
+        if (!back && route !== state.route) state.history.push(state.route);
+        rememberBookmark();
+        if (state.resumeAction && route !== "pro") state.resumeAction = null;
+        if (["home", "tools"].includes(route)) state.pendingRoute = null;
+        state.route = route;
+        if (route === "organize") {
+          if (state.pagesUndoFile !== current()?.id) {
+            state.selected = new Set();
+            state.undo = [];
+            state.redo = [];
+            state.pagesUndoFile = current()?.id;
+          }
+        }
+        if (route === "sign") {
+          state.tool = "select";
+          state.annotations = current()?.annotations || [];
+        }
+        if (route === "redact") {
+          state.tool = "redact";
+          if (state.redactFileId !== current()?.id) {
+            state.redactBoxes = [];
+            state.redactFileId = current()?.id;
+          }
+        }
+        if (route === "batch" && !state.batch.ids.size && current())
+          state.batch.ids.add(current().id);
+        state.readerQuery = "";
+        render();
+        $("#content").scrollTop = 0;
+      }
+      function back() {
+        navigate(state.history.pop() || "home", { back: true });
+      }
+      function selectFile(id, route = "reader") {
+        rememberBookmark();
+        state.current = id;
+        state.pageIndex = state.bookmarks[id] || 0;
+        state.selected = new Set();
+        state.annotations = current()?.annotations || [];
+        state.ocrReady = !!current()?.ocrText;
+        state.ocrText = current()?.ocrText || "";
+        state.hasUsed = true;
+        if (current()) current().lastOpenedAt = Date.now();
+        persist();
+        navigate(route);
+      }
+      function header() {
+        const route = state.route,
+          isRoot = ["home", "files", "scan", "tools"].includes(route);
+        return `<div class="row">${!isRoot ? `<button class="icon-btn" data-action="back" title="返回" aria-label="返回">${icon("chevron-left")}</button>` : ""}<div><div class="title">${route === "home" ? `纸间 <span class="tag gray" style="margin-left:5px;font-size:8px">${state.pro ? "PRO" : "本地"}</span>` : esc(routes[route][0])}</div>${route === "home" ? '<div class="sub">你的文件，就在你手中</div>' : ""}</div></div><div class="row">${["reader", "sign", "redact"].includes(route) ? `<button class="icon-btn" data-action="reader-search" title="搜索文档" aria-label="搜索文档">${icon("search")}</button><button class="icon-btn" data-action="export" title="导出文件" aria-label="导出文件">${icon("share")}</button>` : `<button class="icon-btn" data-action="import" title="导入文件" aria-label="导入文件">${icon("plus")}</button><button class="avatar" data-route="settings" title="设置" aria-label="设置">${state.pro ? "Pro" : "间"}</button>`}</div>`;
+      }
+      function sidebar() {
+        return `<div class="side-brand">${icon("files")}纸间</div>${groups.map(([title, items]) => `<div class="side-group">${title}</div>${items.map((r) => `<button class="side-item ${state.route === r ? "active" : ""}" data-route="${r}">${icon(routes[r][1])}${routes[r][0]}</button>`).join("")}`).join("")}<div class="privacy-foot">${icon("shield-check")} 所有文件在本地处理<br>iOS / iPadOS</div>`;
+      }
+      function tabbar() {
+        return [
+          ["home", "house", "工作台"],
+          ["files", "folder-open", "文件"],
+          ["scan", "scan-line", "扫描"],
+          ["tools", "layout-grid", "工具"],
+        ]
+          .map(
+            ([route, symbol, title]) =>
+              `<button class="${state.route === route ? "active" : ""}" data-route="${route}" aria-label="${title}">${icon(symbol)}${title}</button>`,
+          )
+          .join("");
+      }
+      function render() {
+        const documentRoutes = [
+          "reader",
+          "sign",
+          "organize",
+          "compress",
+          "ocr",
+          "redact",
+          "numbers",
+          "watermark",
+          "protect",
+        ];
+        if (documentRoutes.includes(state.route) && !current()) {
+          state.pendingRoute = state.route;
+          state.route = "files";
+          toast("先导入或扫描一份文件");
+        }
+        $("#device").classList.toggle("body-dark", state.settings.dark);
+        $("#device").classList.toggle(
+          "sidebar-collapsed",
+          state.sidebarCollapsed,
+        );
+        $("#device").classList.toggle(
+          "editor-route",
+          [
+            "reader",
+            "sign",
+            "redact",
+            "numbers",
+            "watermark",
+            "compress",
+          ].includes(state.route),
+        );
+        $("#sidebar").innerHTML = sidebar();
+        $("#app-header").innerHTML = header();
+        $("#tabbar").innerHTML = tabbar();
+        $("#context-tools").innerHTML = "";
+        $("#content").innerHTML = renderers[state.route]();
+        renderWorkflowProgress();
+        renderContext();
+        refreshIcons();
+        afterRender();
+        scheduleWorkspaceSave();
+      }
+      function intro(title, sub = "", eyebrow = "") {
+        return `<div class="page-intro">${eyebrow ? `<div class="eyebrow">${eyebrow}</div>` : ""}<h1>${title}</h1>${sub ? `<p>${sub}</p>` : ""}</div>`;
+      }
+      function section(title, trailing = "") {
+        return `<div class="section-label"><h2>${title}</h2>${trailing}</div>`;
+      }
+      function button(
+        title,
+        action,
+        symbol = "arrow-right",
+        kind = "primary",
+        extra = "",
+      ) {
+        return `<button class="btn ${kind} full" data-action="${action}" ${extra}>${icon(symbol)}${title}</button>`;
+      }
+      function switchRow(title, key, value, sub = "") {
+        return `<label class="check-row"><span>${title}${sub ? `<small style="display:block;margin-top:5px">${sub}</small>` : ""}</span><span class="switch"><input type="checkbox" data-bind="${key}" ${value ? "checked" : ""}><span></span></span></label>`;
+      }
+      function field(label, content) {
+        return `<div class="field"><label>${label}</label>${content}</div>`;
+      }
+      function empty(title, sub = "", action = "import") {
+        return `<div class="empty">${icon("folder-open")}<h3>${title}</h3><p>${sub}</p>${button("导入文件", action, "plus", "secondary")}</div>`;
+      }
+      function fileBanner() {
+        const f = current();
+        if (!f)
+          return button("选择输入文件", "import", "folder-open", "secondary");
+        return `<div class="file-banner"><img class="file-cover" src="${f.pages[0].image}" alt="文档封面"><div class="grow"><strong class="truncate" style="display:block">${esc(f.name)}</strong><small>${f.pages.length} 页 · ${sizeString(f.size)} · ${f.status}</small></div><button class="icon-btn" data-action="choose-file" title="更换文件" aria-label="更换文件">${icon("arrow-left-right")}</button></div>`;
+      }
+      function fileRow(f, { select = false, compact = false } = {}) {
+        return `<div class="file-item"><button data-open-file="${f.id}" class="row grow" style="padding:0;text-align:left"><img src="${f.pages[0]?.image || ""}" class="file-cover" alt="文档封面"><div class="grow"><div class="filename truncate">${esc(f.name)}</div><div class="file-meta">${f.pages.length} 页 · ${sizeString(f.size)} · ${esc(f.date || "今天")}</div></div></button>${select ? `<button class="icon-btn" data-action="batch-select" data-id="${f.id}" title="${state.batch.ids.has(f.id) ? "取消选择" : "选择文件"}">${icon(state.batch.ids.has(f.id) ? "circle-check" : "circle")}</button>` : compact ? `<span class="file-status">${f.status}</span>` : `<button class="icon-btn" data-action="file-menu" data-id="${f.id}" title="文件操作" aria-label="文件操作">${icon("ellipsis")}</button>`}</div>`;
+      }
+      function homeView() {
+        return workspaceHomeView();
+      }
+      function filesView() {
+        const files = state.files.filter(
+          (f) =>
+            (state.filter === "all" ||
+              (state.filter === "pdf" ? !f.isImage : f.isImage)) &&
+            f.name.toLowerCase().includes(state.query.toLowerCase()),
+        );
+        return `<div class="page">${intro("最近文件", `${state.files.length} 份文件 · 保留原始文件`)}<div class="searchbar">${icon("search")}<input aria-label="搜索文件" type="text" placeholder="搜索文件名" id="file-search" value="${esc(state.query)}">${state.query ? `<button class="icon-btn" data-action="clear-query" title="清除搜索">${icon("x")}</button>` : ""}</div><div class="filter-row">${[
+          ["all", "全部"],
+          ["pdf", "PDF"],
+          ["image", "图片"],
+        ]
+          .map(
+            ([id, label]) =>
+              `<button data-filter="${id}" class="${state.filter === id ? "active" : ""}">${label}</button>`,
+          )
+          .join(
+            "",
+          )}<span class="grow"></span><button class="icon-btn" data-action="sort-files" title="按名称排序" aria-label="按名称排序">${icon("arrow-down-a-z")}</button></div><div id="file-results">${files.length ? files.map((f) => fileRow(f)).join("") : empty(state.query ? "没有匹配的文件" : "还没有文件", state.query ? "尝试其他文件名" : "从 Files、照片或扫描开始")}</div></div>`;
+      }
+      const toolGroups = [
+        [
+          "阅读与编辑",
+          [
+            ["reader", "PDF 阅读", "blue"],
+            ["organize", "合并与拆分", "amber"],
+            ["sign", "签名与表单", "blue"],
+            ["ocr", "提取文字", ""],
+            ["compress", "文件压缩", ""],
+            ["redact", "永久打码", "red"],
+          ],
+        ],
+        [
+          "批量与导出",
+          [
+            ["batch", "批量处理", "blue"],
+            ["protect", "密码与安全", ""],
+            ["numbers", "添加页码", "amber"],
+            ["watermark", "添加水印", ""],
+            ["templates", "文档模板", "amber"],
+            ["shortcuts", "快捷指令", "blue"],
+          ],
+        ],
+      ];
+      function toolsView() {
+        return `<div class="page">${intro("全部工具", "", "文档任务，一处完成")}${toolGroups.map(([title, tools]) => `${section(title)}<div class="tool-grid">${tools.map(([r, sub, color]) => `<button class="tool-item" data-route="${r}"><span class="tool-symbol ${color}">${icon(routes[r][1])}</span><span class="grow"><strong>${routes[r][0]}</strong><small>${sub}</small></span></button>`).join("")}</div>`).join("")}<div style="margin-top:25px"><button class="settings-row" data-route="pro">${icon("crown")}<span class="grow"><strong>纸间 Pro</strong><small>${state.pro ? "已解锁 · 一次购买" : "买断 · 家庭共享 · 无水印"}</small></span>${icon("chevron-right")}</button><button class="settings-row" data-route="settings">${icon("settings")}<span class="grow"><strong>设置与隐私</strong></span>${icon("chevron-right")}</button></div></div>`;
+      }
+      function scanView() {
+        const sample = samplePages.contract[0];
+        return `<div class="page">${intro("扫描文档", `${state.scanPages.length ? `已扫描 ${state.scanPages.length} 页` : "A4 自动边缘识别"} · 中文 / English`)}<div class="scan-options">${[
+          ["auto", "自动增强"],
+          ["color", "原色"],
+          ["gray", "灰度"],
+          ["bw", "黑白"],
+        ]
+          .map(
+            ([id, label]) =>
+              `<button class="${state.scanFilter === id ? "selected" : ""}" data-scan-filter="${id}">${label}</button>`,
+          )
+          .join(
+            "",
+          )}</div><div class="scan-stage" id="scan-stage"><img src="${sample.image}" id="scan-preview" style="filter:${scanCSSFilter()}" alt="合作协议扫描预览"><span class="scan-bracket"></span><span class="scan-status">${state.scanPages.length ? "页面已拍摄，可以继续添加" : "已检测到文档 · 边缘稳定"}</span></div><div class="shutter-row"><button class="scan-count" data-action="scan-review" title="查看扫描页面">${state.scanPages.length ? `<img src="${state.scanPages[0].image}" alt="扫描缩略图"><b>${state.scanPages.length}</b>` : icon("images")}</button><button class="shutter" data-action="capture" aria-label="拍摄一页" title="拍摄一页">${icon("camera")}</button><button class="icon-btn" data-action="scan-import" title="从照片添加" aria-label="从照片添加">${icon("image-plus")}</button></div>${state.scanPages.length ? `<div class="scan-thumbs">${state.scanPages.map((p, i) => `<div class="scan-thumb"><img src="${p.image}" alt="第 ${i + 1} 页"><button data-action="scan-remove" data-index="${i}" title="移除第 ${i + 1} 页">${icon("x")}</button><span>${i + 1}</span></div>`).join("")}</div>` : ""}${switchRow("生成可搜索 PDF", "scanOCR", state.scanOCR, "简体中文 + English")}<div class="footer-actions">${button(`完成扫描${state.scanPages.length ? " · " + state.scanPages.length + " 页" : ""}`, "scan-finish", "check", "primary", state.scanPages.length ? "" : "disabled")}<div class="row between"><span class="note">${icon("shield-check")}本地处理</span><span class="tag gray">相机流程演示</span></div></div></div>`;
+      }
+      function scanCSSFilter() {
+        return state.scanFilter === "gray"
+          ? "grayscale(1)"
+          : state.scanFilter === "bw"
+            ? "grayscale(1) contrast(1.9)"
+            : state.scanFilter === "auto"
+              ? "contrast(1.06) brightness(1.02)"
+              : "none";
+      }
+      function pageTile(p, i) {
+        const selected = state.selected.has(p.id);
+        return `<div class="page-tile ${selected ? "active" : ""}" data-page-id="${p.id}" data-index="${i}" draggable="true" role="button" tabindex="0" aria-label="${selected ? "取消选择" : "选择"}第 ${i + 1} 页" aria-pressed="${selected}"><img src="${p.image}" style="transform:rotate(${p.rotation || 0}deg)" alt="第 ${i + 1} 页"><span class="page-check">${icon(selected ? "circle-check" : "circle")}</span><span class="page-label">第 ${i + 1} 页</span><div class="page-tools"><button data-action="move-page" data-id="${p.id}" data-direction="-1" title="向前移动" ${i === 0 ? "disabled" : ""}>${icon("arrow-left")}</button><button data-action="rotate-page" data-id="${p.id}" title="旋转 90 度">${icon("rotate-cw")}</button><button data-action="move-page" data-id="${p.id}" data-direction="1" title="向后移动" ${i === current().pages.length - 1 ? "disabled" : ""}>${icon("arrow-right")}</button></div></div>`;
+      }
+      function organizeView() {
+        return `<div class="page">${intro("页面整理", `${current().pages.length} 页 · 已选择 ${state.selected.size} 页`)}${fileBanner()}<div class="row" style="margin-bottom:8px">${button("合并 PDF", "merge-picker", "combine", "outline")}${button("插入页面", "insert-picker", "file-plus-2", "outline")}</div><div class="page-toolbar"><div class="row"><button class="text-btn" data-action="select-all">全选</button><button class="text-btn" data-action="invert-pages">反选</button><button class="text-btn" data-action="reverse-pages">倒序</button></div><div class="row"><button class="icon-btn" data-action="undo-pages" title="撤销" ${state.undo.length ? "" : "disabled"}>${icon("undo-2")}</button><button class="icon-btn" data-action="redo-pages" title="重做" ${state.redo.length ? "" : "disabled"}>${icon("redo-2")}</button></div></div><div class="page-grid">${current().pages.map(pageTile).join("")}</div><div class="editor-actions">${[
+          ["rotate-selected", "rotate-cw", "旋转"],
+          ["duplicate-pages", "copy-plus", "复制"],
+          ["extract-pages", "files", "提取"],
+          ["split-pages", "scissors", "拆分"],
+          ["delete-pages", "trash-2", "删除"],
+        ]
+          .map(
+            ([a, s, t]) =>
+              `<button data-action="${a}" ${!state.selected.size && a !== "split-pages" ? "disabled" : ""} title="${t}">${icon(s)}${t}</button>`,
+          )
+          .join(
+            "",
+          )}</div><div class="footer-actions">${button("导出整理后的 PDF", "organize-export", "share")}<span class="note">${icon("copy-check")}操作保留于工作副本，原件不覆盖</span></div></div>`;
+      }
+      function pageDimensions(p) {
+        const width = p.width || 595,
+          height = p.height || 842;
+        return (p.rotation || 0) % 180
+          ? { width: height, height: width }
+          : { width, height };
+      }
+      function pageImageHTML(p, index) {
+        const dims = pageDimensions(p);
+        return `<img src="${p.image}" alt="第 ${index + 1} 页" style="width:${(100 * (p.width || 595)) / dims.width}%;height:${(100 * (p.height || 842)) / dims.height}%;transform:translate(-50%,-50%) rotate(${p.rotation || 0}deg)">`;
+      }
+      function paperImage() {
+        const p = currentPage(),
+          dims = pageDimensions(p);
+        return `<div class="paper-wrap ${state.tool === "redact" || state.tool === "rectangle" || state.tool === "highlight" ? "selection-tool" : ""}" id="paper-wrap" style="aspect-ratio:${dims.width}/${dims.height}">${pageImageHTML(p, state.pageIndex)}<div class="document-overlay" id="document-overlay">${overlayHTML()}</div></div>`;
+      }
+      function readerView() {
+        const f = current();
+        return `${state.readerQuery !== null && state.readerQuery !== "" ? `<div class="searchbar" style="margin:10px 18px 0"><input type="text" id="reader-search" value="${esc(state.readerQuery)}" placeholder="搜索文字">${icon("search")}</div>` : ""}<div class="reader-stage"><div class="row between" style="width:100%;max-width:580px"><div class="grow"><strong class="truncate" style="display:block;font-size:11px">${esc(f.name)}</strong><small>${f.pages.length} 页 · ${sizeString(f.size)}</small></div><button class="icon-btn" data-action="doc-info" title="文档信息">${icon("info")}</button></div><div class="all-pages" style="transform-origin:top center;width:${state.zoom}%">${
+          state.readerMode === "continuous"
+            ? f.pages
+                .map((p, i) => {
+                  const d = pageDimensions(p);
+                  return `<div class="paper-wrap" style="aspect-ratio:${d.width}/${d.height}">${pageImageHTML(p, i)}</div>`;
+                })
+                .join("")
+            : paperImage()
+        }</div></div>`;
+      }
+      function overlayHTML() {
+        const p = currentPage();
+        if (!p) return "";
+        const scale = ($("#paper-wrap")?.clientWidth || 310) / 310;
+        let output = "";
+        if (state.route === "sign" || state.route === "reader") {
+          output += (current().annotations || [])
+            .filter((a) => a.pageId === p.id)
+            .map(annotationHTML)
+            .join("");
+        }
+        if (state.route === "redact") {
+          output += state.redactBoxes
+            .filter((a) => a.pageId === p.id)
+            .map(
+              (a) =>
+                `<div class="placeable redaction" style="left:${a.x * 100}%;top:${a.y * 100}%;width:${a.w * 100}%;height:${a.h * 100}%;background:${state.redactColor}" data-box-id="${a.id}"></div>`,
+            )
+            .join("");
+        }
+        if (state.route === "watermark") {
+          const w = state.watermark;
+          const opacity = (w.opacity / 100) * (w.foreground ? 1 : 0.66);
+          output += `<div class="stamp-layer" style="opacity:${opacity};color:${w.color};transform:rotate(${w.angle}deg)">${w.type === "image" && w.image ? `<img src="${w.image}" style="width:${w.size}%;max-width:70%">` : `<span style="font-size:${w.size * scale}px">${esc(w.text)}</span>`}</div>`;
+          if (w.tile) {
+            output += `<div class="stamp-layer" style="opacity:${opacity};color:${w.color};transform:translateY(-27%) rotate(${w.angle}deg)"><span style="font-size:${w.size * scale}px">${esc(w.text)}</span></div><div class="stamp-layer" style="opacity:${opacity};color:${w.color};transform:translateY(27%) rotate(${w.angle}deg)"><span style="font-size:${w.size * scale}px">${esc(w.text)}</span></div>`;
+          }
+        }
+        if (state.route === "numbers") {
+          const n = state.numbers;
+          let position = n.position;
+          if (n.oddEven && (state.pageIndex + 1) % 2 === 0)
+            position = position.endsWith("left")
+              ? position.replace("left", "right")
+              : position.endsWith("right")
+                ? position.replace("right", "left")
+                : position;
+          const isTop = position.startsWith("top"),
+            align = position.endsWith("center")
+              ? "center"
+              : position.endsWith("left")
+                ? "flex-start"
+                : "flex-end";
+          if (
+            !(n.skip && state.pageIndex === 0) &&
+            state.pageIndex + 1 >= n.from &&
+            state.pageIndex + 1 <= n.to
+          )
+            output += `<div class="pagenum-layer" style="${isTop ? "top:12px;bottom:auto;" : ""}justify-content:${align};font-size:${n.size * scale}px;color:#34443b">${esc(n.prefix)}${+n.start + state.pageIndex}${esc(n.suffix)}</div>`;
+        }
+        return output;
+      }
+      function annotationHTML(a) {
+        return `<div class="placeable ${a.type === "highlight" ? "highlight" : a.type === "rectangle" ? "rectangle" : a.type === "note" ? "note-annotation" : ""}" data-annotation-id="${a.id}" style="left:${a.x * 100}%;top:${a.y * 100}%;width:${a.w * 100}%;height:${a.h * 100}%;color:${a.color || state.color};font-size:${(a.size || 16) * (($("#paper-wrap")?.clientWidth || 310) / 310)}px;${a.type === "rectangle" ? "border:2px solid " + (a.color || state.color) + ";" : ""}${a.type === "underline" ? "border:0;border-bottom:2px solid " + (a.color || state.color) + ";" : ""}">${a.type === "signature" ? `<img src="${a.image}" alt="手写签名">` : a.type === "check" ? "✓" : a.type === "highlight" || a.type === "rectangle" || a.type === "underline" ? "" : esc(a.text || "")}<span class="resize-handle" data-resize-annotation="${a.id}" title="调整大小"></span></div>`;
+      }
+      function renderContext() {
+        renderTaskContext();
+      }
+      function renderPageControls() {
+        if (
+          ["reader", "sign", "redact", "numbers", "watermark"].includes(
+            state.route,
+          )
+        ) {
+          $("#context-tools").innerHTML = `${
+            state.route === "sign"
+              ? `<div class="editor-tools">${[
+                  ["select", "mouse-pointer-2", "选择/移动"],
+                  ["signature", "signature", "放置签名"],
+                  ["text", "type", "文本框"],
+                  ["highlight", "highlighter", "高亮"],
+                ]
+                  .map(
+                    ([a, s, t]) =>
+                      `<button class="icon-btn ${state.tool === a ? "active" : ""}" data-tool="${a}" title="${t}" aria-label="${t}">${icon(s)}</button>`,
+                  )
+                  .join(
+                    "",
+                  )}<button class="icon-btn" data-action="more-annotation-tools" title="更多标注工具" aria-label="更多标注工具">${icon("ellipsis")}</button><span class="tool-separator"></span><button class="icon-btn" data-action="undo-annotation" title="撤销标注">${icon("undo-2")}</button></div>`
+              : ""
+          }<div class="reader-controls"><button class="icon-btn" data-action="prev-page" title="上一页" ${state.pageIndex === 0 ? "disabled" : ""}>${icon("chevron-left")}</button><input aria-label="跳转页码" id="jump-page" type="number" value="${state.pageIndex + 1}" min="1" max="${current().pages.length}"><span class="page-total">/ ${current().pages.length}</span><button class="icon-btn" data-action="next-page" title="下一页" ${state.pageIndex >= current().pages.length - 1 ? "disabled" : ""}>${icon("chevron-right")}</button><span class="grow"></span><button class="icon-btn" data-action="page-picker" title="页面缩略图">${icon("grid-2x2")}</button>${state.route === "reader" ? `<button class="icon-btn" data-action="reader-options" title="阅读选项" aria-label="阅读选项">${icon("sliders-horizontal")}</button>` : ""}</div>`;
+        }
+      }
+      function compressView() {
+        const c = state.compress,
+          f = current(),
+          estimate =
+            f.size *
+            (c.preserve && !f.isRaster
+              ? 0.93
+              : Math.min(0.95, 0.12 + c.quality / 140));
+        return `<div class="page">${fileBanner()}<div class="editor-layout"><div><div class="preset-grid">${[
+          ["light", "轻度", "画质优先"],
+          ["balanced", "平衡", "日常办公"],
+          ["strong", "强力", "体积优先"],
+        ]
+          .map(
+            ([id, t, s]) =>
+              `<button class="preset ${c.preset === id ? "selected" : ""}" data-compress-preset="${id}"><strong>${t}</strong><small>${s}</small></button>`,
+          )
+          .join(
+            "",
+          )}</div><div class="paper-stage" style="max-height:230px;min-height:200px">${paperImage()}</div><div class="estimate"><div class="grow"><small>压缩前</small><strong>${sizeString(f.size)}</strong></div>${icon("arrow-right")}<div class="grow"><small>预计压缩后</small><strong class="accent" id="compression-estimate">${sizeString(estimate)}</strong></div><span class="tag" id="compression-saving">−${Math.round((1 - estimate / f.size) * 100)}%</span></div></div><div class="inspector">${field("文件大小限制（MB）", `<input type="number" min="0.1" step="0.1" data-bind="compress.target" value="${c.target}">`)}<details class="advanced"><summary>高级输出参数</summary><div class="field"><label>图像质量 <output id="quality-value">${c.quality}%</output></label><input type="range" data-bind="compress.quality" min="15" max="95" value="${c.quality}"></div>${field("目标分辨率", `<select data-bind="compress.dpi"><option value="96" ${c.dpi == 96 ? "selected" : ""}>96 DPI · 电子传阅</option><option value="144" ${c.dpi == 144 ? "selected" : ""}>144 DPI · 日常办公</option><option value="200" ${c.dpi == 200 ? "selected" : ""}>200 DPI · 高清打印</option><option value="300" ${c.dpi == 300 ? "selected" : ""}>300 DPI · 原始细节</option></select>`)}${switchRow("保留原生文字", "compress.preserve", c.preserve)}${switchRow("转为灰度", "compress.gray", c.gray)}${switchRow("移除元数据", "compress.metadata", c.metadata)}</details><div class="note" style="margin-top:12px">${icon("info")}实际大小以处理结果为准</div>${f.sourceBytes && !c.preserve ? '<div class="warning">' + icon("info") + "图像压缩将页面栅格化，原生文字不再可搜索。</div>" : ""}</div></div></div>`;
+      }
+      function signView() {
+        return `<div class="page">${fileBanner()}<div class="segmented" style="margin-bottom:17px">${[
+          ["signature", "签名"],
+          ["form", "表单填写"],
+          ["annotate", "标注"],
+        ]
+          .map(
+            ([id, t]) =>
+              `<button data-sign-mode="${id}" class="${state.signMode === id ? "selected" : ""}">${t}</button>`,
+          )
+          .join(
+            "",
+          )}</div><div class="editor-layout"><div><div class="paper-stage">${paperImage(true)}</div></div><div class="inspector">${state.signMode === "signature" ? `<div class="row between"><h3>我的签名</h3><button class="text-btn" data-action="signature-pad">${icon("plus")}新建</button></div>${state.signature ? `<button data-action="place-signature" style="width:100%;padding:0"><img src="${state.signature}" class="signature-saved" alt="已保存的手写签名"></button><div class="row between" style="margin-top:8px"><button class="text-btn" data-action="place-signature">放置到当前页</button><button class="text-btn muted" data-action="delete-signature">删除签名</button></div>` : button("创建手写签名", "signature-pad", "signature", "secondary")}<div class="row" style="margin-top:15px"><button class="text-btn" data-action="signature-image">${icon("image-plus")}图片签名</button></div>` : state.signMode === "form" ? `${field("姓名", `<input type="text" data-bind="form.name" value="${esc(state.form.name)}" placeholder="签署人姓名">`)}${field("联系电话", `<input type="text" data-bind="form.phone" value="${esc(state.form.phone)}" placeholder="联系电话">`)}${field("公司 / 单位", `<input type="text" data-bind="form.company" value="${esc(state.form.company)}" placeholder="公司名称">`)}${switchRow("同意协议条款", "form.agree", state.form.agree)}${button("将字段放置到页面", "place-form", "text-cursor-input", "secondary")}` : `<h3>标注属性</h3><div class="row" style="margin:12px 0">${["#147d68", "#427aaf", "#ce5b55", "#dea93d", "#303934"].map((c) => `<button class="swatch ${state.color === c ? "selected" : ""}" style="background:${c}" data-color="${c}" title="${c}" aria-label="颜色 ${c}"></button>`).join("")}</div><div class="field"><label>字号 <output>${state.annotationSize} pt</output></label><input type="range" data-bind="annotationSize" min="10" max="32" step="1" value="${state.annotationSize}"></div>`}${(current().annotations || []).length ? section("已放置内容", `<small>${current().annotations.length} 项</small>`) + (current().annotations || []).map((a) => `<div class="annot-list">${icon(a.type === "signature" ? "signature" : "type")}<span class="grow">${a.type === "signature" ? "手写签名" : a.type === "highlight" ? "高亮" : a.type === "rectangle" ? "矩形" : a.type === "check" ? "勾选" : esc(a.text || a.type)} · 第 ${current().pages.findIndex((p) => p.id === a.pageId) + 1} 页</span><button class="icon-btn" data-action="delete-annotation" data-id="${a.id}" title="删除标注">${icon("x")}</button></div>`).join("") : ""}<div class="footer-actions">${switchRow("导出时固定签名与字段", "settings.flatten", state.settings.flatten)}${button("导出签署副本", "sign-export", "share")}</div></div></div></div>`;
+      }
+      function ocrView() {
+        const pages = current().pages;
+        const nativePages = pages.filter(
+          (page) =>
+            page.text.trim() &&
+            (page.textSource
+              ? page.textSource === "native"
+              : !current().isSample),
+        ).length;
+        return `<div class="page">${intro("文字识别", `${pages.length} 页 · 中文 / English`)}${fileBanner()}<div class="ocr-columns"><div>${field("识别语言", `<select data-bind="ocrLanguage"><option value="zh-en" ${state.ocrLanguage === "zh-en" ? "selected" : ""}>简体中文 + English</option><option value="tw-en" ${state.ocrLanguage === "tw-en" ? "selected" : ""}>繁體中文 + English</option><option value="en" ${state.ocrLanguage === "en" ? "selected" : ""}>English</option></select>`)}${button(state.ocrReady ? "重新识别" : "开始识别", "ocr-run", "scan-text")}<div class="metric-row"><div><strong class="good">${state.ocrReady ? nativePages : "—"}</strong><small>原生文字页</small></div><div><strong class="warn">${state.ocrReady ? pages.length - nativePages : "—"}</strong><small>示例识别页</small></div><div><strong>${state.ocrReady ? pages.length : "—"}</strong><small>处理页数</small></div></div><div class="paper-stage" style="max-height:245px">${paperImage()}</div><div class="note" style="margin-top:10px">${icon("info")}扫描 OCR 为演示；PDF 原生文字可实际提取</div></div><div>${section("识别文字", `<button class="text-btn" data-action="copy-ocr">${icon("copy")}复制</button>`)}<textarea id="ocr-text" rows="13" placeholder="识别结果将显示在这里，可直接修改">${esc(state.ocrText)}</textarea><div class="searchbar" style="margin-top:12px">${icon("search")}<input type="text" id="ocr-search" value="${esc(state.ocrQuery)}" placeholder="在识别结果中搜索"></div><div id="ocr-search-result" class="note"></div><div class="footer-actions">${button("保存识别结果", "ocr-save", "check", "primary", state.ocrReady ? "" : "disabled")}<div class="row">${button("导出 TXT", "ocr-txt", "file-text", "outline", state.ocrReady ? "" : "disabled")}${button("导出 Markdown", "ocr-md", "file-code-2", "outline", state.ocrReady ? "" : "disabled")}</div></div></div></div></div>`;
+      }
+      function redactView() {
+        return `<div class="page">${intro("永久打码", `${state.redactBoxes.length} 处标记 · ${new Set(state.redactBoxes.map((b) => b.pageId)).size} 页`)}${fileBanner()}<div class="editor-layout"><div><div class="segmented" style="margin-bottom:14px">${[
+          ["area", "区域标记"],
+          ["text", "文字匹配"],
+        ]
+          .map(
+            ([id, t]) =>
+              `<button data-redact-mode="${id}" class="${state.redactMode === id ? "selected" : ""}">${t}</button>`,
+          )
+          .join(
+            "",
+          )}</div><div class="paper-stage">${paperImage(true)}</div></div><div class="inspector">${state.redactMode === "text" ? `${field("查找敏感文字", `<input type="text" data-bind="redactText" value="${esc(state.redactText)}" placeholder="如身份证号、电话号码">`)}${button("查找并标记", "redact-match", "search", "secondary")}` : `<h3>区域标记</h3><div class="row" style="margin:12px 0"><button class="btn secondary" data-action="redact-sample">${icon("plus")}标记示例敏感信息</button></div>`}<div class="field"><label>遮挡颜色</label><div class="row">${["#161c18", "#ffffff", "#919a94"].map((c) => `<button class="swatch ${state.redactColor === c ? "selected" : ""}" style="background:${c}" data-redact-color="${c}" title="${c === "#ffffff" ? "白色" : c === "#161c18" ? "黑色" : "灰色"}"></button>`).join("")}</div></div>${state.redactBoxes.map((b, i) => `<div class="annot-list">${icon("scan-eye")}<span class="grow">区域 ${i + 1} · 第 ${current().pages.findIndex((p) => p.id === b.pageId) + 1} 页</span><button class="icon-btn" data-action="remove-redact" data-id="${b.id}" title="移除打码标记">${icon("x")}</button></div>`).join("")}<div class="warning red">${icon("shield-alert")}应用后不能恢复。输出副本将栅格化已标记页面，原文件保留。</div><div class="footer-actions">${button("应用打码并导出", "redact-confirm", "shield-check", "destructive", state.redactBoxes.length ? "" : "disabled")}</div></div></div></div>`;
+      }
+      function batchView() {
+        const b = state.batch;
+        return `<div class="page">${intro("批量处理", `已选 ${b.ids.size} 个文件`)}<div class="editor-layout"><div>${section("选择文件", `<button class="text-btn" data-action="batch-all">${b.ids.size === state.files.length ? "取消全选" : "全选"}</button>`)}${state.files.map((f) => fileRow(f, { select: true })).join("")}<button class="text-btn" data-action="import" style="margin-top:12px">${icon("plus")}添加文件</button></div><div class="inspector">${field(
+          "处理操作",
+          `<select data-bind="batch.op">${[
+            ["compress", "批量压缩"],
+            ["merge", "合并为一个 PDF"],
+            ["split", "拆分为单页"],
+            ["rename", "批量重命名"],
+            ["numbers", "批量添加页码"],
+            ["watermark", "批量添加水印"],
+          ]
+            .map(
+              ([id, t]) =>
+                `<option value="${id}" ${b.op === id ? "selected" : ""}>${t}</option>`,
+            )
+            .join("")}</select>`,
+        )}${b.op === "rename" ? field("命名格式", `<input type="text" data-bind="batch.prefix" value="${esc(b.prefix)}" placeholder="文件名称">`) : b.op === "compress" ? `<div class="note">${icon("sliders-horizontal")}使用“${{ light: "轻度", balanced: "平衡", strong: "强力" }[state.compress.preset]}”压缩预设</div>` : b.op === "watermark" ? `<div class="note">${icon("stamp")}水印：${esc(state.watermark.text)}</div>` : ""}${section("任务队列", `<small>${b.queue.length} 个任务</small>`)}<div id="batch-queue">${b.queue.length ? queueHTML() : `<div class="note">${icon("clock")}等待开始处理</div>`}</div><div class="footer-actions">${button(`开始处理 · ${b.ids.size} 个文件`, "batch-run", "play", "primary", b.ids.size ? "" : "disabled")}${b.queue.some((q) => q.status === "error") ? button("重试失败项目", "batch-retry", "rotate-cw", "outline") : ""}</div></div></div></div>`;
+      }
+      function queueHTML() {
+        return state.batch.queue
+          .map(
+            (q) =>
+              `<div class="queue-item ${q.status === "error" ? "error" : ""}"><span class="state-icon">${icon(q.status === "done" ? "circle-check" : q.status === "error" ? "circle-alert" : q.status === "running" ? "loader" : "clock")}</span><div class="grow"><strong class="truncate" style="display:block">${esc(q.name)}</strong><small>${{ pending: "等待处理", running: "处理中", done: "已完成", error: q.error || "处理失败" }[q.status]}</small><div class="mini-progress"><span style="width:${q.progress || 0}%"></span></div></div>${q.status === "error" ? `<button class="icon-btn" data-action="retry-item" data-id="${q.id}" title="重试文件">${icon("rotate-cw")}</button>` : q.status === "done" ? `<button class="icon-btn" data-action="download-queue" data-id="${q.id}" title="下载结果">${icon("download")}</button>` : ""}</div>`,
+          )
+          .join("");
+      }
+      function protectView() {
+        const p = state.protect;
+        return `<div class="page">${intro("密码与安全", "", "加密设置 · 权限 · 元数据")}${fileBanner()}<div class="segmented"><button data-protect-mode="add" class="${p.mode === "add" ? "selected" : ""}">添加密码</button><button data-protect-mode="remove" class="${p.mode === "remove" ? "selected" : ""}">移除密码</button></div><div class="editor-layout"><div>${field(p.mode === "add" ? "打开密码" : "当前密码", `<input type="password" data-bind="protect.password" value="${esc(p.password)}" autocomplete="off" placeholder="${p.mode === "add" ? "至少 6 位密码" : "输入文档打开密码"}">`)}${p.mode === "add" ? `${field("再次输入密码", `<input type="password" data-bind="protect.confirm" value="${esc(p.confirm)}" autocomplete="off" placeholder="再次确认密码">`)}<div id="password-status" class="note"></div>${section("文档权限")}${switchRow("允许打印", "protect.print", p.print)}${switchRow("允许复制文字", "protect.copy", p.copy)}${switchRow("允许编辑与批注", "protect.edit", p.edit)}` : ""}</div><div class="inspector">${section("隐私清理")}${switchRow("移除作者与标题等元数据", "protect.metadata", p.metadata)}${switchRow("移除隐藏批注", "protect.hidden", p.hidden)}${switchRow("移除嵌入附件", "protect.attachments", p.attachments)}<div class="footer-actions">${button(p.mode === "add" ? "预览密码保护设置" : "验证密码并预览", "protect-run", "shield-check")}<div class="note">${icon("info")}密码保护为流程演示，PDF 副本不会实际加密</div></div></div></div></div>`;
+      }
+      function numbersView() {
+        const n = state.numbers;
+        return `<div class="page">${fileBanner()}<div class="editor-layout"><div><div class="paper-stage">${paperImage()}</div></div><div class="inspector"><h3>编号样式</h3>${field("起始编号", `<input type="number" min="1" max="999" data-bind="numbers.start" value="${n.start}">`)}<div class="row">${field("前缀", `<input type="text" data-bind="numbers.prefix" value="${esc(n.prefix)}" placeholder="第 ">`)}${field("后缀", `<input type="text" data-bind="numbers.suffix" value="${esc(n.suffix)}" placeholder=" 页">`)}</div>${field(
+          "位置",
+          `<select data-bind="numbers.position">${[
+            ["bottom-left", "左下"],
+            ["bottom-center", "下方居中"],
+            ["bottom-right", "右下"],
+            ["top-left", "左上"],
+            ["top-center", "上方居中"],
+            ["top-right", "右上"],
+          ]
+            .map(
+              ([id, t]) =>
+                `<option value="${id}" ${n.position === id ? "selected" : ""}>${t}</option>`,
+            )
+            .join("")}</select>`,
+        )}<div class="field"><label>字号 <output id="number-size">${n.size} pt</output></label><input type="range" min="8" max="20" data-bind="numbers.size" value="${n.size}"></div>${switchRow("跳过封面", "numbers.skip", n.skip)}${switchRow("奇偶页镜像排列", "numbers.oddEven", n.oddEven)}<div class="row">${field("从第几页", `<input type="number" min="1" max="${current().pages.length}" data-bind="numbers.from" value="${n.from}">`)}${field("到第几页", `<input type="number" min="1" max="${current().pages.length}" data-bind="numbers.to" value="${Math.min(n.to, current().pages.length)}">`)}</div><div class="footer-actions">${button("导出带页码的 PDF", "numbers-export", "share")}${button("保存为模板", "save-template", "copy-check", "outline")}</div></div></div></div>`;
+      }
+      function watermarkView() {
+        const w = state.watermark;
+        return `<div class="page">${fileBanner()}<div class="editor-layout"><div><div class="paper-stage">${paperImage()}</div></div><div class="inspector"><div class="segmented"><button data-watermark-type="text" class="${w.type === "text" ? "selected" : ""}">文字</button><button data-watermark-type="image" class="${w.type === "image" ? "selected" : ""}">图片</button></div>${w.type === "text" ? field("水印内容", `<input type="text" data-bind="watermark.text" value="${esc(w.text)}" placeholder="输入文字">`) : `<div class="field">${button("选择水印图片", "watermark-image", "image-plus", "secondary")}</div>`}<div class="field"><label>透明度 <output id="watermark-opacity">${w.opacity}%</output></label><input type="range" min="5" max="80" value="${w.opacity}" data-bind="watermark.opacity"></div><div class="field"><label>旋转角度 <output id="watermark-angle">${w.angle}°</output></label><input type="range" min="-75" max="75" value="${w.angle}" data-bind="watermark.angle"></div><div class="field"><label>字号 / 尺寸 <output id="watermark-size">${w.size} pt</output></label><input type="range" min="12" max="55" value="${w.size}" data-bind="watermark.size"></div><div class="field"><label>颜色</label><div class="row">${["#147d68", "#457eac", "#c6514d", "#535e57"].map((c) => `<button class="swatch ${w.color === c ? "selected" : ""}" style="background:${c}" data-watermark-color="${c}" title="颜色 ${c}"></button>`).join("")}</div></div>${switchRow("重复平铺", "watermark.tile", w.tile)}${switchRow("水印覆盖在页面上方", "watermark.foreground", w.foreground)}${field("应用范围", `<select data-bind="watermark.range"><option value="all" ${w.range === "all" ? "selected" : ""}>全部页面</option><option value="current" ${w.range === "current" ? "selected" : ""}>当前页面</option></select>`)}<div class="footer-actions">${button("导出带水印的 PDF", "watermark-export", "share")}${button("保存为模板", "save-template", "copy-check", "outline")}</div></div></div></div>`;
+      }
+      function templatesView() {
+        return `<div class="page">${intro("文档模板", `${state.templates.length} 个模板 · 仅保存处理参数`)}${state.templates.map((t) => `<div class="template-item ${state.chosenTemplate === t.id ? "active" : ""}"><button class="row" data-template="${t.id}" style="width:100%;padding:0;text-align:left"><span class="template-icon">${icon(t.type === "receipt" ? "receipt-text" : t.type === "report" ? "notebook-tabs" : "file-check-2")}</span><span class="grow"><h3>${esc(t.name)}</h3><p>${esc(t.detail)}</p></span>${icon(state.chosenTemplate === t.id ? "circle-check" : "circle")}</button><div class="row between"><span class="tag gray">A4 · ${t.compress === "light" ? "高清" : "平衡"}输出</span><div class="row"><button class="text-btn" data-action="edit-template" data-id="${t.id}">编辑</button><button class="icon-btn" data-action="delete-template" data-id="${t.id}" title="删除模板">${icon("trash-2")}</button></div></div></div>`).join("")}<div class="footer-actions">${button("应用到当前文件", "apply-template", "check")}${button("保存当前参数为模板", "save-template", "plus", "outline")}<span class="note">${icon("shield-check")}模板不保存文件、签名或 OCR 内容</span></div></div>`;
+      }
+      function shortcutsView() {
+        return `<div class="page">${intro("快捷指令", "", "文件任务自动化")}${section("选择动作")}<div class="tool-grid">${[
+          ["compress", "压缩 PDF", "minimize-2"],
+          ["merge", "合并文件", "combine"],
+          ["ocr", "识别并提取文字", "scan-text"],
+          ["rename", "重命名文件", "text-cursor-input"],
+        ]
+          .map(
+            ([id, title, symbol]) =>
+              `<button class="tool-item" data-shortcut="${id}"><span class="tool-symbol">${icon(symbol)}</span><span class="grow"><strong>${title}</strong></span>${state.shortcut === id ? icon("circle-check") : ""}</button>`,
+          )
+          .join(
+            "",
+          )}</div>${section("工作流")}<div class="shortcut-flow"><div class="shortcut-step">${icon("file-input")}<strong>接收文件</strong><small>Files / 分享菜单</small></div>${icon("arrow-right")}<div class="shortcut-step">${icon("workflow")}<strong>${{ compress: "压缩 PDF", merge: "合并文件", ocr: "文字识别", rename: "重命名文件" }[state.shortcut]}</strong><small>在本机处理</small></div>${icon("arrow-right")}<div class="shortcut-step">${icon("file-output")}<strong>保存副本</strong><small>选择导出位置</small></div></div>${fileBanner()}${switchRow("运行前确认文件", "settings.confirmInput", state.settings.confirmInput !== false)}${switchRow("完成后选择保存位置", "settings.confirmOutput", state.settings.confirmOutput !== false)}<div class="footer-actions">${button("试运行工作流", "shortcut-run", "play")}${button("添加到快捷指令", "shortcut-add", "plus", "outline")}<span class="tag gray" style="align-self:flex-start">快捷指令与分享扩展为流程演示</span></div></div>`;
+      }
+      function proView() {
+        return `<div class="page"><div class="pro-heading"><div class="pro-logo">${icon("crown")}</div><h1>纸间 Pro</h1><p>${state.pro ? "你的完整工作台，已经就绪" : "一次买断，文件工作更从容"}</p></div>${[
+          ["scan-text", "无限扫描与 OCR", "中文与英文 · 设备端处理"],
+          ["list-checks", "批处理与快捷指令", "重复工作，一次完成"],
+          ["signature", "高级签名与安全打码", "完整签署 · 敏感信息移除"],
+          ["shield-check", "密码、模板与水印", "保护文件 · 固定处理格式"],
+          ["download", "无水印导出 · 家庭共享", "清晰的文件 · 清晰的权益"],
+        ]
+          .map(
+            ([s, t, p]) =>
+              `<div class="benefit">${icon(s)}<div class="grow"><strong>${t}</strong><p>${p}</p></div>${icon("check")}</div>`,
+          )
+          .join(
+            "",
+          )}<div class="plan active"><span class="plan-radio">${icon("circle-check")}</span><div class="grow"><h3>永久买断 <span class="tag">推荐</span></h3><small>一次付款，无自动续订</small></div><strong>¥68</strong></div>${button(state.pro ? "已解锁 Pro" : "解锁纸间 Pro", "buy-pro", "crown", "primary", state.pro ? "disabled" : "")}<button class="text-btn" data-action="restore-pro" style="display:flex;justify-content:center;width:100%;padding:15px">恢复购买</button><div class="note" style="justify-content:center">${icon("info")}App Store 购买为演示，不会产生费用</div><div class="row between" style="margin-top:25px"><button class="text-btn muted" data-action="privacy">隐私政策</button><button class="text-btn muted" data-action="terms">使用条款</button></div></div>`;
+      }
+      function settingsView() {
+        const s = state.settings;
+        return `<div class="page">${intro("设置", "", "文件、隐私与使用偏好")}<div class="settings-group">${switchRow("深色外观", "settings.dark", s.dark)}${switchRow("优先保存到本机", "settings.keepLocal", s.keepLocal)}${switchRow("扫描后自动 OCR", "settings.autoOCR", s.autoOCR)}<div class="settings-row">${icon("minimize-2")}<span class="grow"><strong>默认压缩级别</strong></span><select data-bind="settings.compression">${[
+          ["light", "轻度"],
+          ["balanced", "平衡"],
+          ["strong", "强力"],
+        ]
+          .map(
+            ([id, t]) =>
+              `<option value="${id}" ${s.compression === id ? "selected" : ""}>${t}</option>`,
+          )
+          .join(
+            "",
+          )}</select></div><div class="settings-row">${icon("languages")}<span class="grow"><strong>默认 OCR 语言</strong></span><select data-bind="settings.language">${[
+          ["zh-en", "中文 + English"],
+          ["tw-en", "繁中 + English"],
+          ["en", "English"],
+        ]
+          .map(
+            ([id, t]) =>
+              `<option value="${id}" ${s.language === id ? "selected" : ""}>${t}</option>`,
+          )
+          .join(
+            "",
+          )}</select></div><div class="settings-row">${icon("history")}<span class="grow"><strong>最近记录保留</strong></span><select data-bind="settings.retention">${["30 天", "90 天", "永久"].map((t) => `<option ${t === s.retention ? "selected" : ""}>${t}</option>`).join("")}</select></div></div>${section("本地数据")}<button class="settings-row" data-action="clear-cache">${icon("hard-drive")}<span class="grow"><strong>清理缓存</strong><small>保留最近文件与签名</small></span>${icon("chevron-right")}</button><button class="settings-row" data-action="clear-history">${icon("trash-2")}<span class="grow"><strong>清除最近记录</strong><small>不删除系统文件中的原件</small></span>${icon("chevron-right")}</button><button class="settings-row" data-action="privacy">${icon("shield-check")}<span class="grow"><strong>隐私与权限</strong></span>${icon("chevron-right")}</button><button class="settings-row" data-action="about">${icon("info")}<span class="grow"><strong>关于纸间</strong><small>1.0 · App 原型</small></span>${icon("chevron-right")}</button><div class="note" style="justify-content:center;margin-top:28px">${icon("leaf")}无需账号，文件不上传</div></div>`;
+      }
+      const renderers = {
+        home: homeView,
+        files: filesView,
+        tools: toolsView,
+        scan: scanView,
+        reader: readerView,
+        organize: organizeView,
+        compress: compressView,
+        sign: signView,
+        ocr: ocrView,
+        redact: redactView,
+        batch: batchView,
+        protect: protectView,
+        numbers: numbersView,
+        watermark: watermarkView,
+        templates: templatesView,
+        shortcuts: shortcutsView,
+        pro: proView,
+        settings: settingsView,
+        personal: personalView,
+      };
+      /* Document assets, operations, and interaction controllers are below. */
+      //__CONTROLLERS__
+    </script>
+  </body>
+</html>

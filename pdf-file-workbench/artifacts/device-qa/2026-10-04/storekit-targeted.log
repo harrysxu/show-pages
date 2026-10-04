@@ -1,0 +1,38 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project PaperFlow/PaperFlow.xcodeproj -scheme PaperFlow -destination platform=iOS,id=00008110-000A2D043C8A401E -derivedDataPath .native-build/DeviceQA -parallel-testing-enabled NO -collect-test-diagnostics never "-only-testing:PaperFlowTests/PaperFlowTests/localStoreKitPurchaseRestoreAndRevocationUpdateVerifiedEntitlement()" -resultBundlePath artifacts/device-qa/2026-10-04/storekit-scheme-targeted.xcresult test-without-building
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  PaperFlowKit: /Users/long/github_space/good_ideas/pdf-file-workbench/PaperFlow/Packages/PaperFlowKit @ local
+
+Writing result bundle at path:
+	/Users/long/github_space/good_ideas/pdf-file-workbench/artifacts/device-qa/2026-10-04/storekit-scheme-targeted.xcresult
+
+2026-10-04 14:55:28.772234+0800 PaperFlow[16376:6863197] [MC] Reading from public effective user settings.
+2026-10-04 14:55:28.870860+0800 PaperFlow[16376:6863197] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+Test Suite 'Selected tests' started at 2026-10-04 14:55:28.988.
+Test Suite 'PaperFlowTests.xctest' started at 2026-10-04 14:55:28.989.
+Test Suite 'PaperFlowTests.xctest' passed at 2026-10-04 14:55:28.989.
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.000) seconds
+Test Suite 'Selected tests' passed at 2026-10-04 14:55:28.989.
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.001) seconds
+◇ Test run started.
+↳ Testing Library Version: 2084
+↳ Target Platform: arm64e-apple-ios17.0
+◇ Suite PaperFlowTests started.
+◇ Test localStoreKitPurchaseRestoreAndRevocationUpdateVerifiedEntitlement() started.
+✔ Test localStoreKitPurchaseRestoreAndRevocationUpdateVerifiedEntitlement() passed after 0.268 seconds.
+✔ Suite PaperFlowTests passed after 0.268 seconds.
+✔ Test run with 1 test in 1 suite passed after 0.268 seconds.
+2026-10-04 14:55:29.517 xcodebuild[10770:5740067] [MT] IDETestOperationsObserverDebug: 3.851 elapsed -- Testing started completed.
+2026-10-04 14:55:29.517 xcodebuild[10770:5740067] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-04 14:55:29.517 xcodebuild[10770:5740067] [MT] IDETestOperationsObserverDebug: 3.851 sec, +3.851 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/long/github_space/good_ideas/pdf-file-workbench/artifacts/device-qa/2026-10-04/storekit-scheme-targeted.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

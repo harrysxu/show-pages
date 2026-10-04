@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="ZipHarbor iPhone 14 真机验收报告 · ZipHarbor"><title>ZipHarbor iPhone 14 真机验收报告 · ZipHarbor</title>
+<link rel="icon" href="app-icon/zipharbor-icon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/site.css"></head>
+<body><a class="skip" href="#main">跳转到正文</a>
+<header class="site-header"><a class="brand" href="index.html"><img src="app-icon/zipharbor-icon-1024.png" width="36" height="36" alt="">ZipHarbor</a><nav aria-label="网站导航"><a href="index.html">首页</a><a href="support.html">技术支持</a><a href="privacy.html">隐私政策</a><a href="docs.html">产品文档</a></nav></header>
+<main id="main" class="with-toc"><details class="toc-panel" open><summary>本页目录</summary><div class="toc">
+<ul>
+<li><a href="#zipharbor-iphone-14">ZipHarbor iPhone 14 真机验收报告</a><ul>
+<li><a href="#_1">验收结论</a></li>
+<li><a href="#_2">测试环境</a></li>
+<li><a href="#_3">结果统计</a></li>
+<li><a href="#_4">核心功能覆盖</a></li>
+<li><a href="#ui">真机 UI 用例</a></li>
+<li><a href="#files">系统 Files 路径问题与复测</a></li>
+<li><a href="#_5">视觉与交互抽查</a></li>
+<li><a href="#_6">已确认的边界</a></li>
+<li><a href="#_7">证据目录</a></li>
+<li><a href="#_8">复现命令</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</details><article><p class="kicker">产品文档 / 历史记录与验收范围以文中日期为准</p><h1 id="zipharbor-iphone-14">ZipHarbor iPhone 14 真机验收报告</h1>
+<p>日期：2026-10-01。工程：<code>ZipHarbor/ZipHarbor.xcodeproj</code>，scheme：<code>ZipHarbor</code>，Bundle ID：<code>com.xiaolongxu.zipharbor.app</code>。</p>
+<h2 id="_1">验收结论</h2>
+<p>本轮在 iPhone 14 真机上完成了新 App Icon 构建后的核心功能和用户界面验收。核心引擎、任务、格式、安全与性能测试 <strong>21/21 通过</strong>；完整真机 UI suite <strong>14 项中 13 项通过、1 项按设计跳过、0 项失败</strong>；系统 Files 导入又以独立用例 <strong>1/1 通过</strong>。本轮没有发现需要修改产品代码的真机回归问题。</p>
+<p>照片/视频导入用例只在专用模拟器中使用合成 PNG 和 2 秒 MP4 完成验证，真机用例明确跳过，避免读取用户私人媒体。因此不能把真机结果表述为照片/视频 14/14 全部通过。Face ID、真人 VoiceOver、真实 iCloud/第三方云盘端到端行为，以及 Release 构建前台 UI 截图仍属于人工验收边界。</p>
+<h2 id="_2">测试环境</h2>
+<div aria-label="文档数据表" class="table-scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>设备</td>
+<td>iPhone 14</td>
+</tr>
+<tr>
+<td>iOS</td>
+<td>27.0，Build 24A437</td>
+</tr>
+<tr>
+<td>UDID</td>
+<td><code>IPHONE14_UDID</code></td>
+</tr>
+<tr>
+<td>架构</td>
+<td>arm64</td>
+</tr>
+<tr>
+<td>Bundle ID</td>
+<td><code>com.xiaolongxu.zipharbor.app</code></td>
+</tr>
+<tr>
+<td>自动化构建</td>
+<td>Debug，Xcode XCTest，Swift 6</td>
+</tr>
+<tr>
+<td>新图标</td>
+<td>已包含在本轮真机 Debug 构建并随应用安装</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="_3">结果统计</h2>
+<div aria-label="文档数据表" class="table-scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>类别</th>
+<th>结果</th>
+<th>证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>核心引擎、单元、集成、性能</td>
+<td>21/21 通过，0 失败，0 跳过</td>
+<td><a href="test-artifacts.html#local-results" title="原始 Xcode 结果包保留在开发工程；查看公开测试证据说明"><code>results/engine.xcresult</code></a>、<a href="iphone14-acceptance-20261001/engine.log"><code>engine.log</code></a></td>
+</tr>
+<tr>
+<td>真机 UI suite</td>
+<td>13 通过、1 跳过、0 失败</td>
+<td><a href="iphone14-acceptance-20261001/ui-final2-summary.json"><code>ui-final2-summary.json</code></a>、<a href="iphone14-acceptance-20261001/ui-final2-tests.json"><code>ui-final2-tests.json</code></a></td>
+</tr>
+<tr>
+<td>系统 Files 导入独立复测</td>
+<td>1/1 通过</td>
+<td><a href="test-artifacts.html#local-results" title="原始 Xcode 结果包保留在开发工程；查看公开测试证据说明"><code>results/files-import-back.xcresult</code></a>、<a href="iphone14-acceptance-20261001/files-import-back.log"><code>files-import-back.log</code></a></td>
+</tr>
+<tr>
+<td>真机关键界面截图</td>
+<td>已导出</td>
+<td><a href="iphone14-acceptance-20261001/screenshots/final-named/"><code>screenshots/final-named/</code></a></td>
+</tr>
+<tr>
+<td>源码与验收构建一致性</td>
+<td>当前源码哈希无不匹配</td>
+<td><a href="migration-evidence/source-sha256.json"><code>source-sha256.json</code></a></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="_4">核心功能覆盖</h2>
+<p>真机核心测试覆盖以下范围：</p>
+<ul>
+<li>ZIP、ZIP AES、7z 的创建/往返解压，以及 TAR、tar.gz、tar.bz2、gzip、bzip2、RAR5 的读取。</li>
+<li>中文文件名、空目录、目录层级、选中目录及后代解压、同名去重。</li>
+<li>缺少密码、错误密码、正确密码后继续原任务，且不会重复创建历史记录。</li>
+<li>混合普通/加密 ZIP：密码错误时不发布任何输出，密码正确后普通条目与加密条目均可继续解压。</li>
+<li>分卷 ZIP 重组、缺卷错误、路径穿越拦截、已有符号链接逃逸拦截。</li>
+<li>冲突询问、取消、重试、跳过、替换、保留两者及“应用到全部”。</li>
+<li>任务暂停/恢复、启动前取消、写入中取消、临时文件清理、任务重启状态。</li>
+<li>清理记录、30 天保留策略、收藏与文件不被错误删除。</li>
+<li>性能和内存采样：1 GiB ZIP 往返约 4.69 秒，2,000 个小文件约 3.22 秒；物理内存基线约 72 MiB，采样峰值约 90 MiB。</li>
+</ul>
+<p>性能样本为本轮 iPhone 14 Debug XCTest 的重复模式高可压缩数据，不代表视频、随机数据或远程云盘的速度。内存值来自任务进度中的 <code>phys_footprint</code> 采样，包含测试宿主开销，不等同于 Instruments 连续追踪峰值。</p>
+<h2 id="ui">真机 UI 用例</h2>
+<div aria-label="文档数据表" class="table-scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>用例</th>
+<th>结果</th>
+<th>验证内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>testAccessibilityLargeTextLayout</code></td>
+<td>通过</td>
+<td>最大 Dynamic Type 下首页与设置页不截断，快捷入口可操作</td>
+</tr>
+<tr>
+<td><code>testCancellingExternalFolderChoiceKeepsPreviousDestination</code></td>
+<td>通过</td>
+<td>取消外部目录选择后仍保留原目标</td>
+</tr>
+<tr>
+<td><code>testCreateTwoStepsAESRoundTripAndBackPreservesSelection</code></td>
+<td>通过</td>
+<td>两步 AES 创建、返回保留选择、再打开并解压</td>
+</tr>
+<tr>
+<td><code>testDefaultDestinationAndPreserveSettingsAffectExtraction</code></td>
+<td>通过</td>
+<td>默认目标和保留设置实际影响解压行为</td>
+</tr>
+<tr>
+<td><code>testEnglishAndDarkAppearance</code></td>
+<td>通过</td>
+<td>英文国际化与深色模式</td>
+</tr>
+<tr>
+<td><code>testFavoritesAndSelectedDirectoryExtraction</code></td>
+<td>通过</td>
+<td>收藏与选中目录解压</td>
+</tr>
+<tr>
+<td><code>testPasswordAutomaticallyContinuesAndDoneDismisses</code></td>
+<td>通过</td>
+<td>输入密码后自动继续，结果弹窗“完成”可关闭</td>
+</tr>
+<tr>
+<td><code>testPasswordCancelAndClearHistoryKeepFiles</code></td>
+<td>通过</td>
+<td>密码取消、清记录不误删文件</td>
+</tr>
+<tr>
+<td><code>testPhotosAndVideoImportThenCreateArchive</code></td>
+<td>按设计跳过</td>
+<td>仅在专用模拟器使用合成媒体；真机不读取私人媒体</td>
+</tr>
+<tr>
+<td><code>testRepeatedExtractionConflictCancelRetryAndKeepBoth</code></td>
+<td>通过</td>
+<td>重名询问、取消、失败筛选重试、应用到全部、保留两者</td>
+</tr>
+<tr>
+<td><code>testSelectedFolderExtractionAndPreview</code></td>
+<td>通过</td>
+<td>目录选择、解压目标与 Quick Look 预览</td>
+</tr>
+<tr>
+<td><code>testSystemFilesImportsRealArchive</code></td>
+<td>通过</td>
+<td>从系统 Files 选择真实归档并进入归档详情</td>
+</tr>
+<tr>
+<td><code>testSystemPickerAndSharePresentation</code></td>
+<td>通过</td>
+<td>系统文件选择器与分享面板呈现</td>
+</tr>
+<tr>
+<td><code>testWrongPasswordCanRetryWithoutRestartingExtraction</code></td>
+<td>通过</td>
+<td>错误密码后无需重启任务即可重试</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="files">系统 Files 路径问题与复测</h2>
+<p>首次真机 UI 运行时，系统 Files 的 <code>Downloads</code> 默认指向 iCloud Drive，而 QA 文件实际位于应用本地容器 <code>Documents/Downloads/Provider QA.zip</code>。这造成测试找不到文件，属于测试导航假设错误，不是归档读取或产品导入逻辑错误。</p>
+<p>复测时，测试在 Files 顶部返回后进入 <code>在我的 iPhone → ZipHarbor → Downloads</code>，找到 <code>Provider QA.zip</code> 并成功返回 ZipHarbor 归档详情页。最终完整 UI suite 和独立 Files 用例均通过；诊断期间产生的失败截图与日志保留在 <a href="iphone14-acceptance-20261001/screenshots/files-import-diagnostic/"><code>files-import-diagnostic/</code></a> 供追溯。</p>
+<h2 id="_5">视觉与交互抽查</h2>
+<p>已查看以下真机截图，确认页面可读、主要控件可操作、弹层状态与原型交互一致：</p>
+<ul>
+<li>中文首页、英文深色首页。</li>
+<li>密码解压结果页，以及“完成”关闭结果弹窗。</li>
+<li>系统 Files 导入后的归档详情页。</li>
+<li>重名冲突处理中的“应用到全部”与保留两者输出。</li>
+<li>设置页大字体布局。</li>
+</ul>
+<p>最终截图索引见 <a href="iphone14-acceptance-20261001/final-named-screenshots.json"><code>final-named-screenshots.json</code></a>。本轮使用 Debug XCTest 截图完成真机 UI 验收；Release 构建已签名、安装并启动验证，但没有取得可用的 Release 前台截图，不将其作为 Release 视觉验收证据。</p>
+<h2 id="_6">已确认的边界</h2>
+<ul>
+<li>真机照片/视频选择未执行，合成媒体流程已在专用模拟器完成。</li>
+<li>系统分享只验证系统面板呈现，不向联系人、邮件或第三方服务实际发送文件。</li>
+<li>真实 iCloud 或第三方文件提供者的联网下载、延迟和写入由系统提供者负责，本轮没有真实云盘端到端证据。</li>
+<li>Face ID 的成功、失败、取消及设备密码回退未由本人进行人工验收。</li>
+<li>真人 VoiceOver 逐屏朗读和长任务暂停/恢复的真机触控仍需人工验收。</li>
+<li>密码不持久化；应用被系统终止后任务从头重试，不提供跨进程 checkpoint。</li>
+</ul>
+<h2 id="_7">证据目录</h2>
+<ul>
+<li>核心测试结果：<a href="test-artifacts.html#local-results" title="原始 Xcode 结果包保留在开发工程；查看公开测试证据说明"><code>results/engine.xcresult</code></a></li>
+<li>核心测试日志：<a href="iphone14-acceptance-20261001/engine.log"><code>engine.log</code></a></li>
+<li>最终 UI 结果：<a href="test-artifacts.html#local-results" title="原始 Xcode 结果包保留在开发工程；查看公开测试证据说明"><code>results/ui-final2.xcresult</code></a></li>
+<li>UI 摘要与测试列表：<a href="iphone14-acceptance-20261001/ui-final2-summary.json"><code>ui-final2-summary.json</code></a>、<a href="iphone14-acceptance-20261001/ui-final2-tests.json"><code>ui-final2-tests.json</code></a></li>
+<li>Files 独立通过结果：<a href="test-artifacts.html#local-results" title="原始 Xcode 结果包保留在开发工程；查看公开测试证据说明"><code>results/files-import-back.xcresult</code></a></li>
+<li>真机关键截图：<a href="iphone14-acceptance-20261001/screenshots/final-named/"><code>screenshots/final-named/</code></a></li>
+<li>真机测试归档副本：<a href="iphone14-acceptance-20261001/device-copy/Provider-QA.zip"><code>device-copy/Provider-QA.zip</code></a></li>
+</ul>
+<h2 id="_8">复现命令</h2>
+<p>从工程根目录执行：</p>
+<pre><code class="language-sh">xcodebuild -project ZipHarbor/ZipHarbor.xcodeproj -scheme ZipHarbor \
+  -destination 'platform=iOS,id=IPHONE14_UDID' \
+  -derivedDataPath /tmp/ZipHarbor-Device -allowProvisioningUpdates \
+  -parallel-testing-enabled NO test -only-testing:ZipHarborTests
+
+xcodebuild -project ZipHarbor/ZipHarbor.xcodeproj -scheme ZipHarbor \
+  -destination 'platform=iOS,id=IPHONE14_UDID' \
+  -derivedDataPath /tmp/ZipHarbor-Device -allowProvisioningUpdates \
+  -parallel-testing-enabled NO test -only-testing:ZipHarborUITests
+</code></pre>
+<p>UI 测试使用 Debug QA fixture 初始化入口；在包含真实资料的设备上运行前，应使用专门验收设备或清晰隔离的测试资料。</p><p class="source-link"><a href="10-iPhone14真机验收-20261001.md" download>下载 Markdown 文档</a></p></article></main>
+<footer><span>ZipHarbor · 面向 iPhone 和 iPad 的本地压缩文件工具。</span><a href="docs.html">产品、设计与验收文档</a></footer>
+</body></html>

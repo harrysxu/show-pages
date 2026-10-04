@@ -1,0 +1,304 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project ZipHarbor/ZipHarbor.xcodeproj -scheme ZipHarbor -destination "platform=iOS Simulator,id=1AD6D2D0-A263-4965-9686-A1D292533A48" -derivedDataPath /tmp/ZipHarbor-Migration -resultBundlePath /tmp/ZipHarbor-Conflict-Sim-Acceptance.xcresult -parallel-testing-enabled NO test "-only-testing:ZipHarborUITests/ZipHarborUITests/testRepeatedExtractionConflictCancelRetryAndKeepBoth"
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  ArchiveKit: https://github.com/Lakr233/libarchive.xcframework.git @ 1.0.0
+
+Writing result bundle at path:
+	/tmp/ZipHarbor-Conflict-Sim-Acceptance.xcresult
+
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (5 targets)
+    Target 'ZipHarborUITests' in project 'ZipHarbor'
+        ➜ Explicit dependency on target 'ZipHarbor' in project 'ZipHarbor'
+    Target 'ZipHarborTests' in project 'ZipHarbor'
+        ➜ Explicit dependency on target 'ZipHarbor' in project 'ZipHarbor'
+    Target 'ZipHarbor' in project 'ZipHarbor'
+        ➜ Explicit dependency on target 'ArchiveKit-product' in project 'ArchiveKit'
+    Target 'ArchiveKit-product' in project 'ArchiveKit'
+        ➜ Explicit dependency on target 'ArchiveKit' in project 'ArchiveKit'
+    Target 'ArchiveKit' in project 'ArchiveKit' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ClangStatCache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk /tmp/ZipHarbor-Migration/SDKStatCaches.noindex/iphonesimulator27.0-24A430-8dc58220667be655e1bcc261a7455254.sdkstatcache
+    cd /Users/USER/github_space/zip-app/ZipHarbor/ZipHarbor.xcodeproj
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk -o /tmp/ZipHarbor-Migration/SDKStatCaches.noindex/iphonesimulator27.0-24A430-8dc58220667be655e1bcc261a7455254.sdkstatcache
+
+SwiftDriver ZipHarborUITests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name ZipHarborUITests -Onone @/tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.SwiftFileList -DDEBUG -module-alias Testing\=_Testing_Unavailable -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /tmp/ZipHarbor-Migration/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/ZipHarbor-Migration/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk/Developer/Library/Frameworks -parse-as-library -c -j15 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/ZipHarbor-Migration/SDKStatCaches.noindex/iphonesimulator27.0-24A430-8dc58220667be655e1bcc261a7455254.sdkstatcache -output-file-map /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/ZipHarbor-Migration/ModuleCache.noindex -sdk-module-cache-path /tmp/ZipHarbor-Migration/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/ZipHarbor-Migration/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/ZipHarborUITests-generated-files.hmap -Xcc -I/tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/ZipHarborUITests-own-target-headers.hmap -Xcc -I/tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/ZipHarborUITests-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarbor-576ff8f1de8c1a2cbc0351e2756fa15b-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/ZipHarborUITests-project-headers.hmap -Xcc -I/tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/DerivedSources-normal/arm64 -Xcc -I/tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/DerivedSources/arm64 -Xcc -I/tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests-Swift.h -working-directory /Users/USER/github_space/zip-app/ZipHarbor -experimental-emit-module-separately -disable-cmo
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ ZipHarborUITests (in target 'ZipHarborUITests' from project 'ZipHarbor')
+
+SwiftCompile normal arm64 (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    
+
+SwiftCompile normal arm64 Compiling\ ZipHarborUITests.swift /Users/USER/github_space/zip-app/ZipHarbor/ZipHarborUITests/ZipHarborUITests.swift (in target 'ZipHarborUITests' from project 'ZipHarbor')
+
+SwiftCompile normal arm64 /Users/USER/github_space/zip-app/ZipHarbor/ZipHarborUITests/ZipHarborUITests.swift (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    builtin-SwiftPerFileCompile ZipHarborUITests.swift
+
+SwiftDriverJobDiscovery normal arm64 Emitting module for ZipHarborUITests (in target 'ZipHarborUITests' from project 'ZipHarbor')
+
+SwiftDriver\ Compilation\ Requirements ZipHarborUITests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name ZipHarborUITests -Onone @/tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.SwiftFileList -DDEBUG -module-alias Testing\=_Testing_Unavailable -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /tmp/ZipHarbor-Migration/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/ZipHarbor-Migration/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk/Developer/Library/Frameworks -parse-as-library -c -j15 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/ZipHarbor-Migration/SDKStatCaches.noindex/iphonesimulator27.0-24A430-8dc58220667be655e1bcc261a7455254.sdkstatcache -output-file-map /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/ZipHarbor-Migration/ModuleCache.noindex -sdk-module-cache-path /tmp/ZipHarbor-Migration/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/ZipHarbor-Migration/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/ZipHarborUITests-generated-files.hmap -Xcc -I/tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/ZipHarborUITests-own-target-headers.hmap -Xcc -I/tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/ZipHarborUITests-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarbor-576ff8f1de8c1a2cbc0351e2756fa15b-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/ZipHarborUITests-project-headers.hmap -Xcc -I/tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/DerivedSources-normal/arm64 -Xcc -I/tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/DerivedSources/arm64 -Xcc -I/tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests-Swift.h -working-directory /Users/USER/github_space/zip-app/ZipHarbor -experimental-emit-module-separately -disable-cmo
+
+Copy /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarborUITests.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.swiftsourceinfo (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.swiftsourceinfo /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarborUITests.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo
+
+Copy /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarborUITests.swiftmodule/arm64-apple-ios-simulator.abi.json /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.abi.json (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.abi.json /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarborUITests.swiftmodule/arm64-apple-ios-simulator.abi.json
+
+SwiftDriverJobDiscovery normal arm64 Compiling ZipHarborUITests.swift (in target 'ZipHarborUITests' from project 'ZipHarbor')
+
+SwiftDriver\ Compilation ZipHarborUITests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    builtin-Swift-Compilation -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name ZipHarborUITests -Onone @/tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.SwiftFileList -DDEBUG -module-alias Testing\=_Testing_Unavailable -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /tmp/ZipHarbor-Migration/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/ZipHarbor-Migration/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk/Developer/Library/Frameworks -parse-as-library -c -j15 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/ZipHarbor-Migration/SDKStatCaches.noindex/iphonesimulator27.0-24A430-8dc58220667be655e1bcc261a7455254.sdkstatcache -output-file-map /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/ZipHarbor-Migration/ModuleCache.noindex -sdk-module-cache-path /tmp/ZipHarbor-Migration/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/ZipHarbor-Migration/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/ZipHarborUITests-generated-files.hmap -Xcc -I/tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/ZipHarborUITests-own-target-headers.hmap -Xcc -I/tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/ZipHarborUITests-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarbor-576ff8f1de8c1a2cbc0351e2756fa15b-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/ZipHarborUITests-project-headers.hmap -Xcc -I/tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/DerivedSources-normal/arm64 -Xcc -I/tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/DerivedSources/arm64 -Xcc -I/tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests-Swift.h -working-directory /Users/USER/github_space/zip-app/ZipHarbor -experimental-emit-module-separately -disable-cmo
+
+Ld /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest/ZipHarborUITests normal (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios17.0-simulator -bundle -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk -O0 -Xlinker -no_warn_duplicate_libraries -L/tmp/ZipHarbor-Migration/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -L/tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator -L/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F/tmp/ZipHarbor-Migration/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -F/tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk/Developer/Library/Frameworks -filelist /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.LinkFileList -Xlinker -rpath -Xlinker /usr/lib/swift -Xlinker -rpath -Xlinker @loader_path/Frameworks -Xlinker -dead_strip -Xlinker -object_path_lto -Xlinker /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.swiftmodule -Xlinker -needed_framework -Xlinker XCTest -framework XCTest -Xlinker -needed-lXCTestSwiftSupport -lXCTestSwiftSupport -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __entitlements -Xlinker /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/ZipHarborUITests.xctest-Simulated.xcent -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __ents_der -Xlinker /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/ZipHarborUITests.xctest-Simulated.xcent.der -Xlinker -no_adhoc_codesign -o /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest/ZipHarborUITests
+
+ExtractAppIntentsMetadata (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name ZipHarborUITests --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk --xcode-version 27A266a --platform-family iOS --deployment-target 17.0 --bundle-identifier com.xiaolongxu.zipharbor.app.uitests --output /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest --target-triple arm64-apple-ios17.0-simulator --binary-file /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest/ZipHarborUITests --dependency-file /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests_dependency_info.dat --stringsdata-file /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.SwiftFileList --metadata-file-list /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/ZipHarborUITests.DependencyMetadataFileList --static-metadata-file-list /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/ZipHarborUITests.DependencyStaticMetadataFileList --swift-const-vals-list /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/Objects-normal/arm64/ZipHarborUITests.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --no-app-shortcuts-localization
+2026-10-01 13:56:47.232 appintentsmetadataprocessor[55322:2980629] Starting appintentsmetadataprocessor export
+2026-10-01 13:56:47.236 appintentsmetadataprocessor[55322:2980629] warning: Metadata extraction skipped, no AppIntents.framework dependency found
+
+CopySwiftLibs /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    builtin-swiftStdLibTool --copy --verbose --sign - --scan-executable /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest/ZipHarborUITests --scan-folder /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest/Frameworks --scan-folder /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest/PlugIns --scan-folder /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest/SystemExtensions --scan-folder /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest/Extensions --platform iphonesimulator --toolchain /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest/Frameworks --strip-bitcode --scan-executable /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libXCTestSwiftSupport.dylib --strip-bitcode-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ZipHarbor.build/Debug-iphonesimulator/ZipHarborUITests.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os
+
+CodeSign /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarborUITests-Runner.app/PlugIns/ZipHarborUITests.xctest
+
+CodeSign /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarborUITests-Runner.app (in target 'ZipHarborUITests' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarborUITests-Runner.app
+/tmp/ZipHarbor-Migration/Build/Products/Debug-iphonesimulator/ZipHarborUITests-Runner.app: replacing existing signature
+
+PruneExplicitPrecompiledModules /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+
+PruneExplicitPrecompiledModules /tmp/ZipHarbor-Migration/SDKExplicitPrecompiledModules
+
+PruneExplicitPrecompiledModules /tmp/ZipHarbor-Migration/Build/Intermediates.noindex/ExplicitPrecompiledModules
+
+2026-10-01 13:56:48.656549+0800 ZipHarborUITests-Runner[55329:2980903] [Default] Running tests...
+    t =      nans Interface orientation changed to Portrait
+Test Suite 'Selected tests' started at 2026-10-01 13:56:49.400.
+Test Suite 'ZipHarborUITests.xctest' started at 2026-10-01 13:56:49.401.
+Test Suite 'ZipHarborUITests' started at 2026-10-01 13:56:49.401.
+Test Case '-[ZipHarborUITests.ZipHarborUITests testRepeatedExtractionConflictCancelRetryAndKeepBoth]' started.
+    t =     0.00s Start Test at 2026-10-01 13:56:49.401
+    t =     0.05s Set Up
+    t =     0.05s Open com.xiaolongxu.zipharbor.app
+    t =     0.05s     Launch com.xiaolongxu.zipharbor.app
+2026-10-01 13:56:49.643 xcodebuild[55281:2980026] [MT] IDELaunchParametersSnapshot: debugger version lookup failed for path '<nil>': noURL
+2026-10-01 13:56:49.643 xcodebuild[55281:2980026] [MT] IDELaunchParametersSnapshot: no debugger version
+objc[55329]: Class UIAccessibilityLoaderWebShared is implemented in both /Library/Developer/CoreSimulator/Volumes/iOS_23F77/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 26.5.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebCore.axbundle/WebCore (0x10a970310) and /Library/Developer/CoreSimulator/Volumes/iOS_23F77/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 26.5.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebKit.axbundle/WebKit (0x1099dc398). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+    t =     0.73s         Setting up automation session
+    t =     1.49s         Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     3.04s Waiting 25.0s for "file-课程资料_2026.zip" Button to exist
+    t =     4.08s     Checking `Expect predicate `existsNoRetry == 1` for object "file-课程资料_2026.zip" Button`
+    t =     4.08s         Checking existence of `"file-课程资料_2026.zip" Button`
+    t =     4.15s Tap "file-课程资料_2026.zip" Button
+    t =     4.15s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     4.15s     Find the "file-课程资料_2026.zip" Button
+    t =     4.17s     Check for interrupting elements affecting "file-课程资料_2026.zip" Button
+    t =     4.20s     Synthesize event
+    t =     4.50s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     4.95s Waiting 10.0s for "extractToButton" Button to exist
+    t =     5.99s     Checking `Expect predicate `existsNoRetry == 1` for object "extractToButton" Button`
+    t =     5.99s         Checking existence of `"extractToButton" Button`
+    t =     6.03s Tap "extractToButton" Button
+    t =     6.03s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     6.03s     Find the "extractToButton" Button
+    t =     6.05s     Check for interrupting elements affecting "extractToButton" Button
+    t =     6.06s     Synthesize event
+    t =     6.35s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     6.75s Waiting 5.0s for "startExtractionButton" Button to exist
+    t =     7.79s     Checking `Expect predicate `existsNoRetry == 1` for object "startExtractionButton" Button`
+    t =     7.79s         Checking existence of `"startExtractionButton" Button`
+    t =     7.82s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =     7.90s Added attachment named 'extraction-destination'
+    t =     7.90s Tap "startExtractionButton" Button
+    t =     7.90s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     7.91s     Find the "startExtractionButton" Button
+    t =     7.93s     Check for interrupting elements affecting "startExtractionButton" Button
+    t =     7.95s     Synthesize event
+    t =     8.24s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     9.23s Waiting 20.0s for "resultDoneButton" Button to exist
+    t =    10.28s     Checking `Expect predicate `existsNoRetry == 1` for object "resultDoneButton" Button`
+    t =    10.28s         Checking existence of `"resultDoneButton" Button`
+    t =    10.30s Tap "resultDoneButton" Button
+    t =    10.30s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    10.30s     Find the "resultDoneButton" Button
+    t =    10.32s     Check for interrupting elements affecting "resultDoneButton" Button
+    t =    10.34s     Synthesize event
+    t =    10.63s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    10.98s Tap "taskFilter-Completed" Button
+    t =    10.98s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    10.98s     Find the "taskFilter-Completed" Button
+    t =    11.00s     Check for interrupting elements affecting "taskFilter-Completed" Button
+    t =    11.01s     Synthesize event
+    t =    11.30s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    11.31s Waiting 5.0s for "result-课程资料_2026" Button to exist
+    t =    12.34s     Checking `Expect predicate `existsNoRetry == 1` for object "result-课程资料_2026" Button`
+    t =    12.34s         Checking existence of `"result-课程资料_2026" Button`
+    t =    12.36s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =    12.42s Added attachment named 'tasks-completed'
+    t =    12.42s Tap "tab-Files" Button
+    t =    12.42s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    12.42s     Find the "tab-Files" Button
+    t =    12.43s     Check for interrupting elements affecting "tab-Files" Button
+    t =    12.45s     Synthesize event
+    t =    12.74s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    12.74s Tap "file-课程资料_2026.zip" Button
+    t =    12.74s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    12.74s     Find the "file-课程资料_2026.zip" Button
+    t =    12.76s     Check for interrupting elements affecting "file-课程资料_2026.zip" Button
+    t =    12.78s     Synthesize event
+    t =    13.07s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    13.40s Waiting 10.0s for "extractToButton" Button to exist
+    t =    14.44s     Checking `Expect predicate `existsNoRetry == 1` for object "extractToButton" Button`
+    t =    14.44s         Checking existence of `"extractToButton" Button`
+    t =    14.46s Tap "extractToButton" Button
+    t =    14.46s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    14.46s     Find the "extractToButton" Button
+    t =    14.48s     Check for interrupting elements affecting "extractToButton" Button
+    t =    14.49s     Synthesize event
+    t =    14.78s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    15.11s Waiting 5.0s for "startExtractionButton" Button to exist
+    t =    16.15s     Checking `Expect predicate `existsNoRetry == 1` for object "startExtractionButton" Button`
+    t =    16.15s         Checking existence of `"startExtractionButton" Button`
+    t =    16.18s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =    16.26s Added attachment named 'extraction-destination'
+    t =    16.26s Tap "startExtractionButton" Button
+    t =    16.26s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    16.26s     Find the "startExtractionButton" Button
+    t =    16.28s     Check for interrupting elements affecting "startExtractionButton" Button
+    t =    16.31s     Synthesize event
+    t =    16.60s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    17.53s Waiting 15.0s for "Keep both" Button to exist
+    t =    18.58s     Checking `Expect predicate `existsNoRetry == 1` for object "Keep both" Button`
+    t =    18.58s         Checking existence of `"Keep both" Button`
+    t =    18.60s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =    18.67s Added attachment named 'conflict-choice'
+    t =    18.67s Tap "sheetDoneButton" Button
+    t =    18.67s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    18.67s     Find the "sheetDoneButton" Button
+    t =    18.68s     Check for interrupting elements affecting "sheetDoneButton" Button
+    t =    18.70s     Synthesize event
+    t =    18.99s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    19.36s Tap "taskFilter-Failed" Button
+    t =    19.36s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    19.37s     Find the "taskFilter-Failed" Button
+    t =    19.38s     Check for interrupting elements affecting "taskFilter-Failed" Button
+    t =    19.39s     Synthesize event
+    t =    19.68s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    19.68s Waiting 10.0s for "retry-课程资料_2026" Button to exist
+    t =    20.72s     Checking `Expect predicate `existsNoRetry == 1` for object "retry-课程资料_2026" Button`
+    t =    20.72s         Checking existence of `"retry-课程资料_2026" Button`
+    t =    20.74s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =    20.80s Added attachment named 'tasks-cancelled'
+    t =    20.80s Tap "retry-课程资料_2026" Button
+    t =    20.80s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    20.80s     Find the "retry-课程资料_2026" Button
+    t =    20.82s     Check for interrupting elements affecting "retry-课程资料_2026" Button
+    t =    20.83s     Synthesize event
+    t =    21.12s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    21.48s Waiting 15.0s for "Keep both" Button to exist
+    t =    22.52s     Checking `Expect predicate `existsNoRetry == 1` for object "Keep both" Button`
+    t =    22.52s         Checking existence of `"Keep both" Button`
+    t =    22.54s Tap "Apply to all conflicts in this task" Switch[0.93, 0.50]
+    t =    22.54s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    22.55s     Find the "Apply to all conflicts in this task" Switch
+    t =    22.56s     Check for interrupting elements affecting "Apply to all conflicts in this task" Switch
+    t =    22.58s     Synthesize event
+    t =    22.58s         Find the "Apply to all conflicts in this task" Switch
+    t =    22.59s         Find the "Apply to all conflicts in this task" Switch
+    t =    22.61s         Find the "Apply to all conflicts in this task" Switch
+    t =    22.91s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    24.14s Find the "Apply to all conflicts in this task" Switch
+    t =    24.15s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =    24.22s Added attachment named 'conflict-apply-to-all'
+    t =    24.22s Tap "Keep both" Button
+    t =    24.22s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    24.22s     Find the "Keep both" Button
+    t =    24.24s     Check for interrupting elements affecting "Keep both" Button
+    t =    24.25s     Synthesize event
+    t =    24.54s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    24.91s Waiting 20.0s for "resultDoneButton" Button to exist
+    t =    25.96s     Checking `Expect predicate `existsNoRetry == 1` for object "resultDoneButton" Button`
+    t =    25.96s         Checking existence of `"resultDoneButton" Button`
+    t =    25.98s Tap "openOutputButton" Button
+    t =    25.98s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    25.98s     Find the "openOutputButton" Button
+    t =    26.00s     Check for interrupting elements affecting "openOutputButton" Button
+    t =    26.01s     Synthesize event
+    t =    26.30s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    26.71s Waiting 5.0s for "课堂笔记.txt" StaticText to exist
+    t =    27.75s     Checking `Expect predicate `existsNoRetry == 1` for object "课堂笔记.txt" StaticText`
+    t =    27.75s         Checking existence of `"课堂笔记.txt" StaticText`
+    t =    27.78s Checking existence of `"课堂笔记 (2).txt" StaticText`
+    t =    27.79s Find the Target Application 'com.xiaolongxu.zipharbor.app'
+    t =    27.86s Added attachment named 'conflict-kept-both-output'
+    t =    27.86s Tap "folderDoneButton" Button
+    t =    27.86s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    27.86s     Find the "folderDoneButton" Button
+    t =    27.88s     Check for interrupting elements affecting "folderDoneButton" Button
+    t =    27.90s     Synthesize event
+    t =    28.19s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    28.54s Tap "resultDoneButton" Button
+    t =    28.54s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    28.54s     Find the "resultDoneButton" Button
+    t =    28.56s     Check for interrupting elements affecting "resultDoneButton" Button
+    t =    28.57s     Synthesize event
+    t =    28.86s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    29.21s Tear Down
+Test Case '-[ZipHarborUITests.ZipHarborUITests testRepeatedExtractionConflictCancelRetryAndKeepBoth]' passed (29.501 seconds).
+Test Suite 'ZipHarborUITests' passed at 2026-10-01 13:57:18.903.
+	 Executed 1 test, with 0 failures (0 unexpected) in 29.501 (29.502) seconds
+Test Suite 'ZipHarborUITests.xctest' passed at 2026-10-01 13:57:18.903.
+	 Executed 1 test, with 0 failures (0 unexpected) in 29.501 (29.503) seconds
+Test Suite 'Selected tests' passed at 2026-10-01 13:57:18.904.
+	 Executed 1 test, with 0 failures (0 unexpected) in 29.501 (29.505) seconds
+2026-10-01 13:57:19.199 xcodebuild[55281:2980026] [MT] IDETestOperationsObserverDebug: 31.927 elapsed -- Testing started completed.
+2026-10-01 13:57:19.199 xcodebuild[55281:2980026] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-01 13:57:19.199 xcodebuild[55281:2980026] [MT] IDETestOperationsObserverDebug: 31.927 sec, +31.927 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/ZipHarbor-Conflict-Sim-Acceptance.xcresult
+
+** TEST SUCCEEDED **
+
+Testing started

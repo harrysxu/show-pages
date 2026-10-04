@@ -1,0 +1,63 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project ZipHarbor/ZipHarbor.xcodeproj -scheme ZipHarbor -configuration Release -destination generic/platform=iOS -derivedDataPath /tmp/ZipHarbor-Release -allowProvisioningUpdates build
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  ArchiveKit: https://github.com/Lakr233/libarchive.xcframework.git @ 1.0.0
+
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (3 targets)
+    Target 'ZipHarbor' in project 'ZipHarbor'
+        ➜ Explicit dependency on target 'ArchiveKit-product' in project 'ArchiveKit'
+    Target 'ArchiveKit-product' in project 'ArchiveKit'
+        ➜ Explicit dependency on target 'ArchiveKit' in project 'ArchiveKit'
+    Target 'ArchiveKit' in project 'ArchiveKit' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ClangStatCache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.0.sdk /tmp/ZipHarbor-Release/SDKStatCaches.noindex/iphoneos27.0-24A430-6c78b3cbc238196c85e1bf6c792c5915.sdkstatcache
+    cd /Users/USER/github_space/zip-app/ZipHarbor/ZipHarbor.xcodeproj
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.0.sdk -o /tmp/ZipHarbor-Release/SDKStatCaches.noindex/iphoneos27.0-24A430-6c78b3cbc238196c85e1bf6c792c5915.sdkstatcache
+
+CopyStringsFile /tmp/ZipHarbor-Release/Build/Products/Release-iphoneos/ZipHarbor.app/en.lproj/Localizable.strings /Users/USER/github_space/zip-app/ZipHarbor/ZipHarbor/Resources/en.lproj/Localizable.strings (in target 'ZipHarbor' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    builtin-copyStrings --validate --outputencoding binary --outfilename Localizable.strings --outdir /tmp/ZipHarbor-Release/Build/Products/Release-iphoneos/ZipHarbor.app/en.lproj -- /Users/USER/github_space/zip-app/ZipHarbor/ZipHarbor/Resources/en.lproj/Localizable.strings
+/Users/USER/github_space/zip-app/ZipHarbor/ZipHarbor/Resources/en.lproj/Localizable.strings:1:1: note: detected encoding of input file as Unicode (UTF-8) (in target 'ZipHarbor' from project 'ZipHarbor')
+
+CodeSign /tmp/ZipHarbor-Release/Build/Products/Release-iphoneos/ZipHarbor.app (in target 'ZipHarbor' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    
+    Signing Identity:     "Apple Development: xiaolong xu (HY7V43DS7R)"
+    Provisioning Profile: "iOS Team Provisioning Profile: *"
+                          (63dd1084-944d-4fc2-ba15-f1a3f72c90a3)
+    
+    /usr/bin/codesign --force --sign FFD2AF526670F8DE3BED6017FCAE181F2157970F --entitlements /tmp/ZipHarbor-Release/Build/Intermediates.noindex/ZipHarbor.build/Release-iphoneos/ZipHarbor.build/ZipHarbor.app.xcent --timestamp\=none --generate-entitlement-der /tmp/ZipHarbor-Release/Build/Products/Release-iphoneos/ZipHarbor.app
+/tmp/ZipHarbor-Release/Build/Products/Release-iphoneos/ZipHarbor.app: replacing existing signature
+
+Validate /tmp/ZipHarbor-Release/Build/Products/Release-iphoneos/ZipHarbor.app (in target 'ZipHarbor' from project 'ZipHarbor')
+    cd /Users/USER/github_space/zip-app/ZipHarbor
+    builtin-validationUtility /tmp/ZipHarbor-Release/Build/Products/Release-iphoneos/ZipHarbor.app -shallow-bundle -infoplist-subpath Info.plist
+
+PruneExplicitPrecompiledModules /tmp/ZipHarbor-Release/Build/Intermediates.noindex/ExplicitPrecompiledModules
+
+PruneExplicitPrecompiledModules /tmp/ZipHarbor-Release/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+
+PruneExplicitPrecompiledModules /tmp/ZipHarbor-Release/SDKExplicitPrecompiledModules
+
+** BUILD SUCCEEDED **
+

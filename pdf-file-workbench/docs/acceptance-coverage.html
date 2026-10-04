@@ -1,0 +1,127 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>输出、数据与 UI 验收覆盖 · PaperFlow</title><link rel="stylesheet" href="../assets/site.css"></head><body><header><a class="brand" href="../index.html">PaperFlow / 纸间</a><nav class="header-links" aria-label="主导航"><a href="../docs/simulator-testing.html">模拟器验收</a><a href="../screenshots.html">截图浏览</a><a href="../prototype.html">交互原型</a></nav></header><div class="layout"><aside aria-label="项目文档"><a href="../docs/acceptance-coverage.html" aria-current="page">输出、数据与 UI 验收覆盖</a><a href="../docs/internationalization.html">PaperFlow 国际化实现与验收</a><a href="../docs/simulator-testing.html">PaperFlow 模拟器功能与国际化验收</a><a href="../docs/competitive-analysis.html">PDF 与文件工作台竞品分析</a><a href="../docs/device-testing.html">PaperFlow 真机验收记录</a><a href="../docs/interaction-implementation.html">PaperFlow 交互简化实施记录</a><a href="../docs/interaction-ux.html">PaperFlow 全流程交互简化评审</a><a href="../docs/native-implementation.html">纸间（PaperFlow）原生实现记录</a><a href="../docs/prototype-guide.html">纸间 HTML App 交互原型</a><a href="../docs/requirements.html">PDF 与文件工作台需求文档</a><a href="../docs/scan-ux.html">扫描交互修订</a><a href="../docs/technical-design.html">PDF 与文件工作台技术方案</a></aside><main><article class="article"><p class="meta">项目文档 · <a href="acceptance-coverage.md">Markdown 原文</a></p><div class="toc">
+<ul>
+<li><a href="#_1">最新模拟器验收</a></li>
+<li><a href="#_2">本轮补查与修正</a></li>
+<li><a href="#_3">生成文件的正确性</a></li>
+<li><a href="#_4">数据正确性</a></li>
+<li><a href="#ui_1">UI 与交互</a></li>
+</ul>
+</div>
+<h1 id="ui">输出、数据与 UI 验收覆盖</h1>
+<p>日期：2026-10-04。结论：已有实际输出内容回读、数据持久化和 UI 可操作性验证；整体发布验收尚未完成。用例通过只证明下表中的样例与断言，不能推导为所有文件、参数组合和界面状态都正确。</p>
+<h2 id="_1">最新模拟器验收</h2>
+<p>后续模拟器验收已完成 38 / 38 处理与领域方法、27 / 27 App 模型方法（31 次参数化执行）、iPhone / iPad 各 14 / 14 三语页面矩阵及小屏 20 / 20 功能 / 大字号回归。全部 19 路由、35 弹层、14 组原生菜单已有三语检查；系统独立语言和真实分享扩展导入在 iOS 26.4、27.0 通过，本地 StoreKit 在 iOS 27.0 通过。修正了 PDF 复选框识别 / 导出、价格加载失败、大字号操作裁切、相机提示 / 流程名称挤断，以及启动 / 场景激活并发导入造成成功后错误提示；三类设备的扫描取消 / 返回和流程预览 / 编辑已定向复测。最新 arm64 Release 构建、901 条三语资源及调试入口隔离审计通过。详细批次、截图、历史失败和边界见 <a href="simulator-testing.html">模拟器验收报告</a>。</p>
+<p>下文保留之前的真机输出审计证据，不把旧批次数量与后续复测相加。</p>
+<h2 id="_2">本轮补查与修正</h2>
+<ol>
+<li><strong>OCR 文本顺序与页码</strong>：原先 TXT / Markdown 导出枚举 OCR 记录，而页面整理只改变 PDF 页序，导致重排后文字顺序与页码错误。新增真机用例用中英文已知文本，组合重排、复制和部分页面已识别的场景，分别回读实际 <code>.txt</code> / <code>.md</code> 文件并对照完整预期内容，也核对复制文字的数据源。修正前该用例出现 3 项断言失败；修正后通过。现在按当前文档页序输出，并使用实际页码，未识别页不会导致后续页码提前。</li>
+<li><strong>批量拆分内容</strong>：原先主要核对输出数量、文件存在及检查点恢复。本轮补充逐个打开拆分 PDF，确认每个只有一页，逐页文字与来源相应页面相同。</li>
+<li><strong>UI 图标资源缺失</strong>：人工复核原有 54 张真机截图，发现 Pro 顶部和家庭共享图标为空。检查界面引用后补齐 14 个缺失图标，沿用 HTML 原型的 Lucide 资源。静态核查 83 个可对应 Lucide 的名称，均已在资源中；最终 App 包也包含全部新增图标。普通启动的真机画面确认 Pro 图标已显示。图标资源补齐没有调整布局、色值或字号。</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>本轮证据</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../artifacts/device-qa/2026-10-04/output-audit-before-summary.json">修正前结果</a></td>
+<td>OCR 文本导出用例 1 项失败，3 个断言问题；保留失败证据。</td>
+</tr>
+<tr>
+<td><a href="../artifacts/device-qa/2026-10-04/output-audit-after-summary.json">修正后真机结果</a></td>
+<td>21/21：20 项原生模型测试与 1 项 OCR UI 测试；包含本地 StoreKit。</td>
+</tr>
+<tr>
+<td><a href="../artifacts/device-qa/2026-10-04/ui-icons-after-summary.json">图标补齐后的 UI 巡检</a></td>
+<td>1/1，该用例遍历 19 路由。它不是 19 个独立用例，也不自动验证每一个图标像素。</td>
+</tr>
+<tr>
+<td><a href="../artifacts/device-qa/2026-10-04/icon-resource-audit.json">资源核查</a></td>
+<td>83 个已知图标名称核查；最终 App 含全部 14 个补充资源。</td>
+</tr>
+<tr>
+<td><a href="../artifacts/device-qa/2026-10-04/pro-icons-final-normal-launch.png">最终普通启动 Pro 页</a></td>
+<td>顶部和家庭共享图标可见，未执行真实购买。</td>
+</tr>
+</tbody>
+</table>
+<p>图标巡检在补齐最初 12 个资源后运行；随后补齐删除线与斜向箭头两个标注图标，最终构建成功并重新安装。最终资源核查包含这两个图标，不把它们描述成已逐个操作验收。原先 35 个不同真机用例，加上新增 OCR 文本导出用例，累计 36 个不同用例有通过记录；多批次复测不相加计算独立用例。</p>
+<h2 id="_3">生成文件的正确性</h2>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>已有实际验证</th>
+<th>验收边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>页面整理 / 合并</td>
+<td>回读 PDF 页数、文字标记、选定顺序、旋转状态；撤销数据；来源原件字节不变。</td>
+<td>未逐项覆盖所有提取 / 插入 / 范围拆分组合与不同来源 PDF。</td>
+</tr>
+<tr>
+<td>批量拆分</td>
+<td>每个 PDF 一页、文字对应来源页；全部输出留存；持久化后检查点和 URL 恢复。</td>
+<td>不是全部批处理类型的内容验收。</td>
+</tr>
+<tr>
+<td>压缩</td>
+<td>真实文件体积下降、原生文字保留、图形内容未整体栅格化；无目标大小及无效目标拒绝；不可达目标有警告。</td>
+<td>未量化所有清晰度 / 色彩档位，未逐页进行像素或印刷质量验收。</td>
+</tr>
+<tr>
+<td>页码 / 水印 / 纸张</td>
+<td>页码起点与跳过封面规则；输出含水印文字；A4 竖横尺寸正确并保留文字 / 矢量。</td>
+<td>全部位置、透明度、图片水印与范围组合的输出渲染仍待补齐。</td>
+</tr>
+<tr>
+<td>OCR 可搜索 PDF</td>
+<td>真实 Vision 对已知中英文测试图识别；文字层可提取与搜索；修正后新文字替代旧文字。</td>
+<td>样例通过不代表真实拍摄文字准确率达标；倾斜、模糊、多栏等材料仍需验收。</td>
+</tr>
+<tr>
+<td>OCR TXT / Markdown</td>
+<td>本轮回读 UTF-8 文件与完整预期文本；重排、复制、部分识别的实际页码正确。</td>
+<td>不等于完整 OCR 识别精度或所有特殊字符 / 长文档验收。</td>
+</tr>
+<tr>
+<td>签名 / 表单 / 标注</td>
+<td>签名图像进入预览；去背景像素验证；坐标 / 旋转恢复；文字表单、单选互斥与下拉导出值；编辑后分享含编辑内容。</td>
+<td>所有标注类型、字号、签名位置与表单固定后的外部阅读器视觉一致性仍待验收。</td>
+</tr>
+<tr>
+<td>永久打码</td>
+<td>输出结构白名单验证；文字层不可提取 / 搜索；批注、表单、元数据移除；未确认时不能分享。</td>
+<td>结论对应测试样例与安全检查，不宣称已覆盖所有第三方 PDF 结构。</td>
+</tr>
+<tr>
+<td>密码与权限 / 清理</td>
+<td>错密码失败、正确密码解锁；打印 / 复制权限；编辑分享保留来源加密；附件默认保留、显式清理后不存在。</td>
+<td>尚未全面操作不同外部阅读器；PDF 权限是否被遵守取决于阅读器。</td>
+</tr>
+<tr>
+<td>Files / 分享扩展</td>
+<td>系统保存、重新导入、重名副本可读；真实扩展导入后主 App 正确打开；再次重启无重复消费。</td>
+<td>本机目录通过；iCloud 与其他提供方生命周期待验收。</td>
+</tr>
+</tbody>
+</table>
+<p>处理引擎导出时也会检查 PDF 可读取、页数、预期加密状态、原件哈希；打码时增加图像结构和不可提取文字检查。因此结果页“输出已验证”表示这些程序检查通过，不表示 OCR 文字完全准确或视觉设计已经签收。</p>
+<p>此前处理层证据为既有 19 项处理集成与 9 项领域测试：<a href="../artifacts/native-ui/interaction-optimized/package-tests.log">Package 日志</a>。它们运行于 macOS；原生模型的实际输出与恢复逻辑另有 iPhone 真机证据，不能混称所有处理用例都在真机执行。</p>
+<h2 id="_4">数据正确性</h2>
+<p>已经断言：页 ID 与复制后新 ID、标注 / OCR / 表单绑定、四次旋转恢复坐标、撤销重做、草稿恢复、多窗口独立撤销栈、批处理检查点、旧数据解码、参数隔离、加密多文件导入顺序、流程暂停恢复、额度仅成功计次且重复提交只扣一次、取消不扣次数，以及买断 / 恢复 / 撤销的本地权益同步。</p>
+<p>尚未完整验收：真实系统分屏 / 多窗口生命周期、存储不足 / 系统终止等故障恢复、长时间保留期与孤立资源清理、所有后台中断场景、iCloud 文件变化，以及 Apple 线上沙盒与家庭共享。现有数据测试不是完整故障与迁移矩阵。</p>
+<h2 id="ui_1">UI 与交互</h2>
+<ul>
+<li><strong>功能与布局已有覆盖</strong>：真机 UI 16 个独立方法通过；19 路由、返回与取消、主命令可操作、键盘输入、横屏、大字号、草稿恢复、结果继续处理、批处理与流程暂停恢复。iPad 和小屏模拟器另有记录。</li>
+<li><strong>本轮视觉复核</strong>：已查看原有 54 张真机截图的六张合图，<a href="../artifacts/device-qa/2026-10-04/screenshots/coverage-review/index.json">索引</a>；图标缺失已修正。新增 19 路由截图与 <a href="../artifacts/device-qa/2026-10-04/ui-icons-after-screenshots/manifest.json">索引</a> 保留修正后证据，普通启动最终 App 的 Pro 页另有截图。合图中横屏截图保持设备原始方向，不是应用旋转异常。</li>
+<li><strong>视觉一致性尚未签收</strong>：HTML 原型未同步用户后续批准的扫描与全流程交互简化；尚未完成所有页面 / 弹层 / 状态的颜色、间距、字体、图标和布局逐项对照，也未完整检查深色模式、对比度与 VoiceOver。界面元素存在和可点击不能证明视觉一致。</li>
+<li><strong>用户体验尚未完整验收</strong>：尚未执行首次使用者的任务观察；真实 iPad 分屏 / Pencil 和纸张实拍仍缺证据。Pro 页购买 / 恢复入口的所有屏幕尺寸与字号组合也不在此次完整验证范围。</li>
+<li><strong>国际化已接入三语，发布签收仍有边界</strong>：主 App、分享扩展、公共包、权限说明、快捷指令和输出标签已支持简体中文、繁体中文、英文。三语资源和编译产物审计、三语 TXT / Markdown / 报告实际回读、iPad 三语各 19 路由、真机英文巡检及切换语言后的文件 / 自定义流程保留已有通过证据；逗号小数输入已修正。最终大字号布局在小屏和 iPad 模拟器交互复测通过，真机最新复测被系统“无法验证 App，需要互联网连接以验证开发者”弹窗阻塞。系统真实语言切换及扩展三语成功导入后来已在模拟器通过；快捷指令宿主、完整 VoiceOver 与全部界面状态仍待补齐；详细结果及截图复核修正见 <a href="internationalization.html">国际化实现与验收</a>。</li>
+</ul>
+<p>详细真机操作见 <a href="device-testing.html">真机验收记录</a>，之前的交互布局验证见 <a href="interaction-implementation.html">交互简化实施记录</a>。最终签收还需要补齐上面的输出渲染、完整 UI 对照与设备条件项目。</p></article></main></div><footer>2026-10-04 · 页面呈现实际记录。历史文档与最新验收范围请以模拟器验收报告为准。完整 .xcresult 保留在开发工作区。</footer></body></html>

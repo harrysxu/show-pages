@@ -1,0 +1,40 @@
+{
+  "dimensions": "1024x1024",
+  "checks": [
+    {
+      "asset": "ZipHarbor/ZipHarbor/Assets.xcassets/AppIcon.appiconset/AppIcon-ZipHarbor.png",
+      "mode": "RGB",
+      "alpha": false,
+      "size": [
+        1024,
+        1024
+      ],
+      "matches_design_export": true,
+      "sha256": "67f93825900a3c68355962e08910046c66c72a30385e778562230808766fecb8"
+    },
+    {
+      "asset": "ZipHarbor/ZipHarbor/Assets.xcassets/AppIcon.appiconset/AppIcon-ZipHarbor-Dark.png",
+      "mode": "RGB",
+      "alpha": false,
+      "size": [
+        1024,
+        1024
+      ],
+      "matches_design_export": true,
+      "sha256": "4b49cc7c97126f01ae9f6887e494fa99292df844b0c7b577dd62d7f8831213c8"
+    }
+  ],
+  "asset_catalog": {
+    "compiler": "xcrun actool",
+    "platform": "iphonesimulator",
+    "minimum_deployment_target": "17.0",
+    "target_devices": [
+      "iphone",
+      "ipad"
+    ],
+    "exit_code": 0,
+    "warnings": 0,
+    "errors": 0,
+    "log": "asset-catalog-validation.log"
+  }
+}

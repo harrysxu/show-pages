@@ -1,0 +1,68 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "1AD6D2D0-A263-4965-9686-A1D292533A48",
+        "deviceName" : "ZipHarbor iPhone 14 QA",
+        "exportedFileName" : "6046612D-8A74-457E-ACFC-36BDB51BADFE.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "favorites_0_7E15FD86-99F9-45A0-9C8C-EE7DDE0DBB78.png",
+        "timestamp" : 1790832305.591
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "1AD6D2D0-A263-4965-9686-A1D292533A48",
+        "deviceName" : "ZipHarbor iPhone 14 QA",
+        "exportedFileName" : "9DE5A96A-3B1E-430D-952C-202DF0036EBB.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "selected-directory-output_0_E10F89B5-2D45-4E65-BFF3-F256EE806F4A.png",
+        "timestamp" : 1790832301.179
+      }
+    ],
+    "testIdentifier" : "ZipHarborUITests/testFavoritesAndSelectedDirectoryExtraction()",
+    "testIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testFavoritesAndSelectedDirectoryExtraction"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "1AD6D2D0-A263-4965-9686-A1D292533A48",
+        "deviceName" : "ZipHarbor iPhone 14 QA",
+        "exportedFileName" : "BEF645C1-AA9C-4CF3-8976-DC892B497780.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "output-folder_0_44FC9378-572D-4187-B2B7-53B4D067CC2B.png",
+        "timestamp" : 1790832320.894
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "1AD6D2D0-A263-4965-9686-A1D292533A48",
+        "deviceName" : "ZipHarbor iPhone 14 QA",
+        "exportedFileName" : "45F9FAC5-B352-4467-B4BC-43B81D739DC7.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "extraction-result_0_09658370-93F3-40EB-936F-48BD0149079B.png",
+        "timestamp" : 1790832319.036
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "1AD6D2D0-A263-4965-9686-A1D292533A48",
+        "deviceName" : "ZipHarbor iPhone 14 QA",
+        "exportedFileName" : "09F23CE4-67DF-4A99-BE20-A63D99A5C901.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "extraction-destination_0_600AB806-08C8-4E68-9B77-871580B21914.png",
+        "timestamp" : 1790832313.756
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "1AD6D2D0-A263-4965-9686-A1D292533A48",
+        "deviceName" : "ZipHarbor iPhone 14 QA",
+        "exportedFileName" : "E33D4D56-9D1D-463D-A22B-EACFAE86CF89.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "home-zh_0_CFF46F62-DCBF-41DA-94C2-3FF961D2677D.png",
+        "timestamp" : 1790832310.08
+      }
+    ],
+    "testIdentifier" : "ZipHarborUITests/testPasswordAutomaticallyContinuesAndDoneDismisses()",
+    "testIdentifierURL" : "test://com.apple.xcode/ZipHarbor/ZipHarborUITests/ZipHarborUITests/testPasswordAutomaticallyContinuesAndDoneDismisses"
+  }
+]

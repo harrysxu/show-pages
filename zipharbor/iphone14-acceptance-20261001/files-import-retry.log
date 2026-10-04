@@ -1,0 +1,485 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project ZipHarbor/ZipHarbor.xcodeproj -scheme ZipHarbor -destination platform=iOS,id=IPHONE14_UDID -derivedDataPath /tmp/ZipHarbor-Device-AppIcon-20261001 -allowProvisioningUpdates -parallel-testing-enabled NO -resultBundlePath docs/iphone14-acceptance-20261001/results/files-import-retry.xcresult "-only-testing:ZipHarborUITests/ZipHarborUITests/testSystemFilesImportsRealArchive" test
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  ArchiveKit: https://github.com/Lakr233/libarchive.xcframework.git @ 1.0.0
+
+Writing result bundle at path:
+	/Users/USER/github_space/zip-app/docs/iphone14-acceptance-20261001/results/files-import-retry.xcresult
+
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (5 targets)
+    Target 'ZipHarborUITests' in project 'ZipHarbor'
+        ➜ Explicit dependency on target 'ZipHarbor' in project 'ZipHarbor'
+    Target 'ZipHarborTests' in project 'ZipHarbor'
+        ➜ Explicit dependency on target 'ZipHarbor' in project 'ZipHarbor'
+    Target 'ZipHarbor' in project 'ZipHarbor'
+        ➜ Explicit dependency on target 'ArchiveKit-product' in project 'ArchiveKit'
+    Target 'ArchiveKit-product' in project 'ArchiveKit'
+        ➜ Explicit dependency on target 'ArchiveKit' in project 'ArchiveKit'
+    Target 'ArchiveKit' in project 'ArchiveKit' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ClangStatCache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.0.sdk /tmp/ZipHarbor-Device-AppIcon-20261001/SDKStatCaches.noindex/iphoneos27.0-24A430-6c78b3cbc238196c85e1bf6c792c5915.sdkstatcache
+    cd /Users/USER/github_space/zip-app/ZipHarbor/ZipHarbor.xcodeproj
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.0.sdk -o /tmp/ZipHarbor-Device-AppIcon-20261001/SDKStatCaches.noindex/iphoneos27.0-24A430-6c78b3cbc238196c85e1bf6c792c5915.sdkstatcache
+
+PruneExplicitPrecompiledModules /tmp/ZipHarbor-Device-AppIcon-20261001/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+
+PruneExplicitPrecompiledModules /tmp/ZipHarbor-Device-AppIcon-20261001/SDKExplicitPrecompiledModules
+
+PruneExplicitPrecompiledModules /tmp/ZipHarbor-Device-AppIcon-20261001/Build/Intermediates.noindex/ExplicitPrecompiledModules
+
+2026-10-01 23:08:51.454776+0800 ZipHarborUITests-Runner[15188:6271120] [Default] Running tests...
+2026-10-01 23:08:51.545605+0800 ZipHarborUITests-Runner[15188:6271120] [MC] Reading from public effective user settings.
+    t =      nans Interface orientation changed to Portrait
+Test Suite 'Selected tests' started at 2026-10-01 23:08:51.968.
+Test Suite 'ZipHarborUITests.xctest' started at 2026-10-01 23:08:51.969.
+Test Suite 'ZipHarborUITests' started at 2026-10-01 23:08:51.970.
+Test Case '-[ZipHarborUITests.ZipHarborUITests testSystemFilesImportsRealArchive]' started.
+    t =     0.00s Start Test at 2026-10-01 23:08:51.972
+    t =     0.02s Set Up
+    t =     0.02s Open com.xiaolongxu.zipharbor.app
+2026-10-01 23:08:50.040 xcodebuild[67252:4157759] [MT] IDELaunchParametersSnapshot: debugger version lookup failed for path '<nil>': noURL
+2026-10-01 23:08:50.040 xcodebuild[67252:4157759] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =     0.03s     Launch com.xiaolongxu.zipharbor.app
+    t =     2.50s         Setting up automation session
+    t =     2.82s         Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     4.01s Waiting 25.0s for "file-课程资料_2026.zip" Button to exist
+    t =     5.04s     Checking `Expect predicate `existsNoRetry == 1` for object "file-课程资料_2026.zip" Button`
+    t =     5.04s         Checking existence of `"file-课程资料_2026.zip" Button`
+    t =     5.05s             Requesting snapshot of accessibility hierarchy for app with pid 15189
+    t =     5.18s             Find: Descendants matching type Button
+    t =     5.18s             Find: Elements matching predicate '"file-课程资料_2026.zip" IN identifiers'
+    t =     5.19s Tap "openArchiveButton" Button
+    t =     5.19s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     5.19s     Find the "openArchiveButton" Button
+    t =     5.20s         Requesting snapshot of accessibility hierarchy for app with pid 15189
+    t =     5.25s         Find: Descendants matching type Button
+    t =     5.25s         Find: Elements matching predicate '"openArchiveButton" IN identifiers'
+    t =     5.26s     Check for interrupting elements affecting "openArchiveButton" Button
+    t =     5.28s         Requesting snapshot of accessibility hierarchy for app with pid 15189
+    t =     5.32s         Find: Descendants matching predicate identifier == "NotificationShortLookView" OR elementType == 7
+    t =     5.33s     Synthesize event
+    t =     5.63s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     5.64s Waiting 30.0s for "Browse" Button to exist
+    t =     6.67s     Checking `Expect predicate `existsNoRetry == 1` for object "Browse" Button`
+    t =     6.67s         Checking existence of `"Browse" Button`
+    t =     6.68s             Requesting snapshot of accessibility hierarchy for app with pid 15189
+    t =     6.81s             Find: Descendants matching type Button
+    t =     6.81s             Find: Elements matching predicate '"Browse" IN identifiers'
+    t =     6.82s Tap "Browse" Button
+    t =     6.82s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     6.82s     Find the "Browse" Button
+    t =     6.82s         Requesting snapshot of accessibility hierarchy for app with pid 15189
+    t =     6.92s         Find: Descendants matching type Button
+    t =     6.92s         Find: Elements matching predicate '"Browse" IN identifiers'
+    t =     6.92s     Check for interrupting elements affecting "Browse" Button
+    t =     6.94s         Requesting snapshot of accessibility hierarchy for app with pid 15189
+    t =     7.01s         Find: Descendants matching predicate identifier == "NotificationShortLookView" OR elementType == 7
+    t =     7.02s     Synthesize event
+    t =     7.31s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =     7.32s Waiting 3.0s for "Provider QA.zip" StaticText to exist
+    t =     8.35s     Checking `Expect predicate `existsNoRetry == 1` for object "Provider QA.zip" StaticText`
+    t =     8.35s         Checking existence of `"Provider QA.zip" StaticText`
+    t =     8.35s             Requesting snapshot of accessibility hierarchy for app with pid 15189
+    t =     8.48s             Find: Descendants matching type StaticText
+    t =     8.48s             Find: Elements matching predicate '"Provider QA.zip" IN identifiers'
+    t =     8.49s         Capturing element debug description
+    t =     9.41s     Checking `Expect predicate `existsNoRetry == 1` for object "Provider QA.zip" StaticText`
+    t =     9.41s         Checking existence of `"Provider QA.zip" StaticText`
+    t =     9.42s             Requesting snapshot of accessibility hierarchy for app with pid 15189
+    t =     9.61s             Find: Descendants matching type StaticText
+    t =     9.61s             Find: Elements matching predicate '"Provider QA.zip" IN identifiers'
+    t =     9.62s         Capturing element debug description
+    t =    10.32s     Checking `Expect predicate `existsNoRetry == 1` for object "Provider QA.zip" StaticText`
+    t =    10.32s         Checking existence of `"Provider QA.zip" StaticText`
+    t =    10.33s             Requesting snapshot of accessibility hierarchy for app with pid 15189
+    t =    10.51s             Find: Descendants matching type StaticText
+    t =    10.52s             Find: Elements matching predicate '"Provider QA.zip" IN identifiers'
+    t =    10.52s         Capturing element debug description
+    t =    10.52s     Checking existence of `"Provider QA.zip" StaticText`
+    t =    10.53s         Requesting snapshot of accessibility hierarchy for app with pid 15189
+    t =    10.65s         Find: Descendants matching type StaticText
+    t =    10.65s         Find: Elements matching predicate '"Provider QA.zip" IN identifiers'
+    t =    10.66s Collecting debug information to assist test failure triage
+    t =    10.66s     Requesting snapshot of accessibility hierarchy for app with pid 15189
+    t =    10.83s Checking existence of `"Downloads" StaticText`
+    t =    10.83s     Requesting snapshot of accessibility hierarchy for app with pid 15189
+    t =    10.93s     Find: Descendants matching type StaticText
+    t =    10.93s     Find: Elements matching predicate '"Downloads" IN identifiers'
+    t =    10.94s Waiting 10.0s for "Downloads" StaticText to exist
+    t =    11.96s     Checking `Expect predicate `existsNoRetry == 1` for object "Downloads" StaticText`
+    t =    11.96s         Checking existence of `"Downloads" StaticText`
+    t =    11.97s             Requesting snapshot of accessibility hierarchy for app with pid 15189
+    t =    12.15s             Find: Descendants matching type StaticText
+    t =    12.15s             Find: Elements matching predicate '"Downloads" IN identifiers'
+    t =    12.16s Tap "Downloads" StaticText
+    t =    12.16s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    12.16s     Find the "Downloads" StaticText
+    t =    12.16s         Requesting snapshot of accessibility hierarchy for app with pid 15189
+    t =    12.28s         Find: Descendants matching type StaticText
+    t =    12.29s         Find: Elements matching predicate '"Downloads" IN identifiers'
+    t =    12.29s     Check for interrupting elements affecting "Downloads" StaticText
+    t =    12.31s         Requesting snapshot of accessibility hierarchy for app with pid 15189
+    t =    12.39s         Find: Descendants matching predicate identifier == "NotificationShortLookView" OR elementType == 7
+    t =    12.40s     Synthesize event
+    t =    12.72s     Wait for com.xiaolongxu.zipharbor.app to idle
+    t =    12.73s Waiting 10.0s for "Provider QA.zip" StaticText to exist
+    t =    13.76s     Checking `Expect predicate `existsNoRetry == 1` for object "Provider QA.zip" StaticText`
+    t =    13.76s         Checking existence of `"Provider QA.zip" StaticText`
+    t =    13.77s             Requesting snapshot of accessibility hierarchy for app with pid 15189
+    t =    13.94s             Find: Descendants matching type StaticText
+    t =    13.95s             Find: Elements matching predicate '"Provider QA.zip" IN identifiers'
+    t =    13.95s         Capturing element debug description
+    t =    14.77s     Checking `Expect predicate `existsNoRetry == 1` for object "Provider QA.zip" StaticText`
+    t =    14.77s         Checking existence of `"Provider QA.zip" StaticText`
+    t =    14.78s             Requesting snapshot of accessibility hierarchy for app with pid 15189
+    t =    14.94s             Find: Descendants matching type StaticText
+    t =    14.95s             Find: Elements matching predicate '"Provider QA.zip" IN identifiers'
+    t =    14.95s         Capturing element debug description
+    t =    15.74s     Checking `Expect predicate `existsNoRetry == 1` for object "Provider QA.zip" StaticText`
+    t =    15.74s         Checking existence of `"Provider QA.zip" StaticText`
+    t =    15.75s             Requesting snapshot of accessibility hierarchy for app with pid 15189
+    t =    15.92s             Find: Descendants matching type StaticText
+    t =    15.92s             Find: Elements matching predicate '"Provider QA.zip" IN identifiers'
+    t =    15.92s         Capturing element debug description
+    t =    16.75s     Checking `Expect predicate `existsNoRetry == 1` for object "Provider QA.zip" StaticText`
+    t =    16.75s         Checking existence of `"Provider QA.zip" StaticText`
+    t =    16.76s             Requesting snapshot of accessibility hierarchy for app with pid 15189
+    t =    16.93s             Find: Descendants matching type StaticText
+    t =    16.93s             Find: Elements matching predicate '"Provider QA.zip" IN identifiers'
+    t =    16.93s         Capturing element debug description
+    t =    17.74s     Checking `Expect predicate `existsNoRetry == 1` for object "Provider QA.zip" StaticText`
+    t =    17.74s         Checking existence of `"Provider QA.zip" StaticText`
+    t =    17.75s             Requesting snapshot of accessibility hierarchy for app with pid 15189
+    t =    17.92s             Find: Descendants matching type StaticText
+    t =    17.92s             Find: Elements matching predicate '"Provider QA.zip" IN identifiers'
+    t =    17.92s         Capturing element debug description
+    t =    18.74s     Checking `Expect predicate `existsNoRetry == 1` for object "Provider QA.zip" StaticText`
+    t =    18.74s         Checking existence of `"Provider QA.zip" StaticText`
+    t =    18.75s             Requesting snapshot of accessibility hierarchy for app with pid 15189
+    t =    18.92s             Find: Descendants matching type StaticText
+    t =    18.92s             Find: Elements matching predicate '"Provider QA.zip" IN identifiers'
+    t =    18.93s         Capturing element debug description
+    t =    19.74s     Checking `Expect predicate `existsNoRetry == 1` for object "Provider QA.zip" StaticText`
+    t =    19.74s         Checking existence of `"Provider QA.zip" StaticText`
+    t =    19.75s             Requesting snapshot of accessibility hierarchy for app with pid 15189
+    t =    19.92s             Find: Descendants matching type StaticText
+    t =    19.92s             Find: Elements matching predicate '"Provider QA.zip" IN identifiers'
+    t =    19.93s         Capturing element debug description
+    t =    20.76s     Checking `Expect predicate `existsNoRetry == 1` for object "Provider QA.zip" StaticText`
+    t =    20.76s         Checking existence of `"Provider QA.zip" StaticText`
+    t =    20.77s             Requesting snapshot of accessibility hierarchy for app with pid 15189
+    t =    20.93s             Find: Descendants matching type StaticText
+    t =    20.93s             Find: Elements matching predicate '"Provider QA.zip" IN identifiers'
+    t =    20.94s         Capturing element debug description
+    t =    21.74s     Checking `Expect predicate `existsNoRetry == 1` for object "Provider QA.zip" StaticText`
+    t =    21.74s         Checking existence of `"Provider QA.zip" StaticText`
+    t =    21.75s             Requesting snapshot of accessibility hierarchy for app with pid 15189
+    t =    21.92s             Find: Descendants matching type StaticText
+    t =    21.93s             Find: Elements matching predicate '"Provider QA.zip" IN identifiers'
+    t =    21.93s         Capturing element debug description
+    t =    22.74s     Checking `Expect predicate `existsNoRetry == 1` for object "Provider QA.zip" StaticText`
+    t =    22.74s         Checking existence of `"Provider QA.zip" StaticText`
+    t =    22.75s             Requesting snapshot of accessibility hierarchy for app with pid 15189
+    t =    22.91s             Find: Descendants matching type StaticText
+    t =    22.92s             Find: Elements matching predicate '"Provider QA.zip" IN identifiers'
+    t =    22.92s         Capturing element debug description
+    t =    22.92s     Checking existence of `"Provider QA.zip" StaticText`
+    t =    22.93s         Requesting snapshot of accessibility hierarchy for app with pid 15189
+    t =    23.04s         Find: Descendants matching type StaticText
+    t =    23.04s         Find: Elements matching predicate '"Provider QA.zip" IN identifiers'
+    t =    23.04s Collecting debug information to assist test failure triage
+    t =    23.04s     Requesting snapshot of accessibility hierarchy for app with pid 15189
+    t =    23.23s Requesting snapshot of accessibility hierarchy for app with pid 15189
+    t =    23.60s Requesting snapshot of accessibility hierarchy for app with pid 15189
+/Users/USER/github_space/zip-app/ZipHarbor/ZipHarborUITests/ZipHarborUITests.swift:196: error: -[ZipHarborUITests.ZipHarborUITests testSystemFilesImportsRealArchive] : XCTAssertTrue failed - Attributes: Application, 0x1097f5900, pid: 15189, label: 'ZipHarbor'
+Element subtree:
+ →Application, 0x1097f5900, pid: 15189, label: 'ZipHarbor'
+    Window (Main), 0x1097f5a40, {{0.0, 0.0}, {390.0, 844.0}}
+      Other, 0x1097f5b80, {{0.0, 0.0}, {390.0, 844.0}}
+        Other, 0x1097f5cc0, {{0.0, 0.0}, {390.0, 844.0}}
+          Other, 0x1097f5e00, {{-390.0, -844.0}, {1170.0, 2532.0}}
+          Other, 0x1097f5f40, {{0.0, 0.0}, {390.0, 844.0}}
+            Other, 0x1097f6080, {{0.0, 0.0}, {390.0, 844.0}}
+              Other, 0x1097f61c0, {{0.0, 0.0}, {390.0, 844.0}}
+                Other, 0x1097f6300, {{0.0, 0.0}, {390.0, 844.0}}
+                  Other, 0x1097f6440, {{0.0, 0.0}, {390.0, 844.0}}
+                    Other, 0x1097f6580, {{0.0, 0.0}, {390.0, 844.0}}
+                      Other, 0x1097f66c0, {{0.0, 0.0}, {390.0, 844.0}}
+                        ScrollView, 0x1097f6800, {{0.0, 0.0}, {390.0, 751.0}}
+                          Other, 0x1097f6940, {{0.0, 0.0}, {390.0, 751.0}}
+                            Other, 0x1097f6a80, {{0.0, 0.0}, {390.0, 87.0}}
+                          Other, 0x1097f6bc0, {{0.0, 0.0}, {390.0, 751.0}}
+                          Other, 0x1097f6d00, {{0.0, 47.0}, {390.0, 879.3}}
+                            StaticText, 0x1097f6e40, {{20.0, 56.0}, {54.3, 30.0}}, label: 'Files'
+                            StaticText, 0x1097f6f80, {{20.0, 89.0}, {74.3, 14.3}}, label: '4 recent files'
+                            Button, 0x1097f70c0, {{280.2, 59.5}, {40.0, 40.3}}, identifier: 'homeSearch', label: 'Search'
+                            Button, 0x1097f7200, {{328.2, 59.5}, {40.0, 40.3}}, label: 'More actions'
+                            StaticText, 0x1097f7340, {{50.0, 136.3}, {152.0, 13.3}}, label: 'Local processing · No upload'
+                            StaticText, 0x1097f7480, {{37.0, 160.7}, {270.3, 24.0}}, label: 'File handling feels effortless.'
+                            StaticText, 0x1097f75c0, {{37.0, 188.7}, {235.7, 31.7}}, label: 'Open archives, extract what you need, or pack files to share.'
+                            StaticText, 0x1097f7700, {{38.3, 246.7}, {101.0, 12.0}}, label: 'Private by design'
+                            Button, 0x1097f7840, {{255.3, 235.3}, {97.7, 35.0}}, identifier: 'openArchiveButton', label: 'Open archive'
+                            StaticText, 0x1097f7980, {{20.0, 304.8}, {94.0, 17.0}}, label: 'Quick actions'
+                            Button, 0x1097f7ac0, {{277.7, 306.3}, {92.3, 14.0}}, label: 'Recent settings'
+                            Button, 0x1097f7c00, {{19.5, 334.8}, {171.0, 73.0}}, identifier: 'extractFilesButton', label: 'Extract files, ZIP · RAR · 7z and more'
+                              Image, 0x1097f7d40, {{40.3, 360.0}, {23.3, 22.7}}, identifier: 'tray.and.arrow.down', label: 'Inbox'
+                              StaticText, 0x1097f7e80, {{82.0, 356.7}, {77.7, 15.7}}, label: 'Extract files'
+                              StaticText, 0x111436d00, {{82.0, 376.3}, {77.7, 9.7}}, label: 'ZIP · RAR · 7z and more'
+                            Button, 0x111436e40, {{199.5, 334.8}, {171.0, 73.0}}, identifier: 'createArchiveButton', label: 'Create archive, Select files to pack'
+                              StaticText, 0x111436f80, {{262.0, 348.3}, {47.3, 31.3}}, label: 'Create archive'
+                              Image, 0x111436bc0, {{222.3, 362.3}, {19.7, 18.0}}, identifier: 'archivebox', label: 'Archive'
+                              StaticText, 0x111434500, {{262.0, 383.7}, {82.3, 10.7}}, label: 'Select files to pack'
+                            StaticText, 0x111434640, {{20.0, 424.8}, {81.3, 17.0}}, label: 'Recent files'
+                            Button, 0x1114361c0, {{324.3, 426.3}, {45.7, 14.3}}, label: 'View all'
+                            Button, 0x111436300, {{20.0, 455.3}, {350.0, 67.0}}, identifier: 'file-课程资料_2026.zip', label: '课程资料_2026.zip, ZIP · Today 11:08 PM, On device'
+                              Image, 0x111436440, {{44.3, 478.3}, {15.7, 21.3}}, identifier: 'doc.zipper', label: 'Zipped Document Archive'
+                              StaticText, 0x111436940, {{83.0, 473.2}, {107.3, 14.3}}, label: '课程资料_2026.zip'
+                              StaticText, 0x111436a80, {{293.7, 483.3}, {44.3, 11.0}}, label: 'On device'
+                              Image, 0x111436580, {{351.3, 483.7}, {6.0, 10.3}}, identifier: 'chevron.right', label: 'Forward'
+                              StaticText, 0x1114366c0, {{83.0, 492.5}, {99.0, 12.0}}, label: 'ZIP · Today 11:08 PM'
+                            Button, 0x111436800, {{20.0, 522.7}, {350.0, 67.0}}, identifier: 'file-0903.zip', label: '0903.zip, ZIP · Today 11:08 PM, On device'
+                              Image, 0x111434780, {{44.3, 545.7}, {15.7, 21.3}}, identifier: 'doc.zipper', label: 'Zipped Document Archive'
+                              StaticText, 0x1114348c0, {{83.0, 540.5}, {53.0, 14.3}}, label: '0903.zip'
+                              StaticText, 0x111434a00, {{293.7, 550.7}, {44.3, 11.0}}, label: 'On device'
+                              Image, 0x111435680, {{351.3, 551.0}, {6.0, 10.3}}, identifier: 'chevron.right', label: 'Forward'
+                              StaticText, 0x1114357c0, {{83.0, 559.8}, {99.0, 12.0}}, label: 'ZIP · Today 11:08 PM'
+                            Button, 0x111435a40, {{20.0, 590.0}, {350.0, 67.0}}, identifier: 'file-课程资料', label: '课程资料, Folder · Today 11:08 PM, On device'
+                              Image, 0x111436080, {{41.7, 615.0}, {21.0, 17.0}}, identifier: 'folder', label: 'Move'
+                              StaticText, 0x111435b80, {{83.0, 607.8}, {48.0, 14.3}}, label: '课程资料'
+                              StaticText, 0x111435f40, {{293.7, 618.0}, {44.3, 11.0}}, label: 'On device'
+                              Image, 0x111435cc0, {{351.3, 618.3}, {6.0, 10.3}}, identifier: 'chevron.right', label: 'Forward'
+                              StaticText, 0x111435e00, {{83.0, 627.2}, {113.7, 12.0}}, label: 'Folder · Today 11:08 PM'
+                            Button, 0x111435900, {{20.0, 657.3}, {350.0, 67.0}}, identifier: 'file-课堂笔记.txt', label: '课堂笔记.txt, TXT · Today 11:08 PM, On device'
+                              Image, 0x111435540, {{44.3, 681.0}, {15.7, 20.0}}, identifier: 'doc.text', label: 'Plain Text Document'
+                              StaticText, 0x111434c80, {{83.0, 675.2}, {67.7, 14.3}}, label: '课堂笔记.txt'
+                              StaticText, 0x1114352c0, {{293.7, 685.3}, {44.3, 11.0}}, label: 'On device'
+                              Image, 0x111435400, {{351.3, 685.7}, {6.0, 10.3}}, identifier: 'chevron.right', label: 'Forward'
+                              StaticText, 0x111435040, {{83.0, 694.5}, {103.0, 12.0}}, label: 'TXT · Today 11:08 PM'
+                            StaticText, 0x111435180, {{20.0, 741.8}, {117.7, 17.0}}, label: 'Browse locations'
+                            Button, 0x111434dc0, {{297.7, 743.3}, {72.3, 14.3}}, label: 'All locations'
+                            Other, 0x111434f00, {{0.0, 0.0}, {0.0, 0.0}}
+                          Other, 0x111434b40, {{357.0, 47.3}, {30.0, 703.7}}, label: 'Vertical scroll bar, 2 pages', value: 0%
+                            Other, 0x111434280, {{384.0, 50.3}, {3.0, 637.7}}
+                          Other, 0x1114343c0, {{357.0, 47.3}, {30.0, 703.7}}, label: 'Vertical scroll bar, 2 pages', value: 0%
+                            Other, 0x111434000, {{384.0, 50.3}, {3.0, 637.7}}
+                        Button, 0x111434140, {{63.0, 760.0}, {39.0, 41.0}}, identifier: 'tab-Files', label: 'Files'
+                          Image, 0x11147bac0, {{72.3, 765.3}, {20.0, 16.3}}, identifier: 'folder', label: 'Move'
+                          StaticText, 0x11147be80, {{71.5, 790.0}, {21.7, 11.0}}, label: 'Files'
+                        Button, 0x11147b5c0, {{182.0, 764.7}, {26.0, 36.3}}, identifier: 'tab-Tasks', label: 'Tasks'
+                          Image, 0x11147bc00, {{185.0, 764.7}, {20.0, 18.0}}, identifier: 'checklist', label: 'Checklist With Checkmarks'
+                          StaticText, 0x11147bd40, {{182.0, 790.0}, {26.0, 11.0}}, label: 'Tasks'
+                        Button, 0x11147b840, {{288.5, 764.0}, {38.3, 37.0}}, identifier: 'tab-Settings', label: 'Settings'
+                          Image, 0x11147b980, {{298.3, 764.0}, {19.0, 19.0}}, identifier: 'gearshape', label: 'Gear Shape'
+                          StaticText, 0x11147b480, {{288.5, 790.0}, {38.3, 11.0}}, label: 'Settings'
+                Toolbar, 0x11147b700, {{0.0, 0.0}, {390.0, 844.0}}, identifier: 'Toolbar', label: 'Toolbar'
+                  Other, 0x11147b200, {{0.0, 0.0}, {390.0, 844.0}}
+      Other, 0x11147b340, {{0.0, 0.0}, {390.0, 844.0}}
+        Other, 0x11147b0c0, {{-390.0, -844.0}, {1170.0, 2532.0}}
+        Other, 0x10979b700, {{0.0, 0.0}, {390.0, 844.0}}
+          Other, 0x109798f00, {{0.0, 0.0}, {390.0, 844.0}}
+            Other, 0x109798140, {{0.0, 0.0}, {390.0, 844.0}}
+              Other, 0x109798000, {{0.0, 0.0}, {390.0, 844.0}}
+                Other, 0x109798b40, {{0.0, 0.0}, {390.0, 844.0}}
+                  Other, 0x109798280, {{34.5, 81.4}, {7.1, 7.1}}, label: 'Cancel'
+                Other, 0x109798640, {{0.0, 0.0}, {390.0, 844.0}}
+                  Other, 0x109798500, {{0.0, 0.0}, {390.0, 844.0}}
+                    Other, 0x1097988c0, {{0.0, 0.0}, {390.0, 844.0}}
+                      Other, 0x109798780, {{0.0, 0.0}, {780.0, 1688.0}}
+                        Other, 0x1097997c0, {{0.0, 0.0}, {390.0, 844.0}}
+                          Other, 0x109798dc0, {{0.0, 0.0}, {390.0, 844.0}}
+                            Other, 0x109799b80, {{0.0, 47.0}, {390.0, 797.0}}
+                              Image, 0x109799a40, {{-150.0, -103.0}, {690.0, 1097.0}}
+                              Other, 0x109799e00, {{0.0, 47.0}, {390.0, 797.0}}
+                                Other, 0x109799cc0, {{0.0, 47.0}, {390.0, 797.0}}
+                                  Other, 0x10979b980, {{0.0, 47.0}, {390.0, 797.0}}
+                                    Other, 0x10979b840, {{0.0, 47.0}, {390.0, 797.0}}
+                                      Other, 0x10979af80, {{0.0, 47.0}, {390.0, 797.0}}
+                                      Other, 0x109799040, {{0.0, 47.0}, {390.0, 797.0}}
+                                        Other, 0x10979b5c0, {{0.0, 47.0}, {390.0, 797.0}}
+                                          Other, 0x10979ae40, {{0.0, 47.0}, {390.0, 797.0}}
+                                            Other, 0x10979abc0, {{0.0, 47.0}, {390.0, 797.0}}
+                                              Other, 0x10979ad00, {{0.0, 47.0}, {390.0, 797.0}}, identifier: 'Browse View (Picker)'
+                                                Other, 0x10979b480, {{0.0, 47.0}, {390.0, 797.0}}
+                                                  Other, 0x10979b340, {{0.0, 47.0}, {390.0, 797.0}}
+
+                                                    Other, 0x109799400, {{0.0, 47.0}, {390.0, 797.0}}
+                                                      Other, 0x10979b200, {{0.0, 47.0}, {390.0, 797.0}}
+                                                        Other, 0x10979b0c0, {{0.0, 47.0}, {390.0, 797.0}}
+                                                        Other, 0x1097992c0, {{0.0, 47.0}, {390.0, 797.0}}, identifier: 'DOC.browsingRoot Source: com.apple.CloudDocs.iCloudDriveFileProvider/11957428-1A60-46AF-8524-B680B7BEAB63, Title: iCloud云盘'
+                                                          NavigationBar, 0x109799180, {{0.0, 63.0}, {390.0, 108.0}}, identifier: 'FullDocumentManagerViewControllerNavigationBar'
+                                                            Button, 0x10979a1c0, {{20.0, 67.0}, {36.0, 36.0}}, identifier: 'DOC.navBarButton.backInHistory', label: 'Back'
+                                                            Button, 0x10979a080, {{72.0, 67.0}, {36.0, 36.0}}, identifier: 'DOC.navBarButton.forwardInHistory', label: 'Forward', Disabled
+                                                            Button, 0x10979a440, {{124.0, 74.7}, {79.0, 20.7}}, label: 'Downloads, Actions Menu'
+                                                            Button, 0x10979a580, {{245.0, 67.0}, {38.0, 36.0}}, identifier: 'OverflowBarButtonItem', label: 'More'
+                                                            Button, 0x10979a6c0, {{303.0, 67.0}, {67.0, 36.0}}, label: 'Open'
+                                                            SearchField, 0x10979a940, {{16.0, 117.0}, {358.0, 44.0}}, label: 'Search', placeholderValue: 'Search'
+                                                              Button, 0x10979a300, {{340.7, 128.0}, {17.3, 22.0}}, identifier: 'Dictate', label: 'Dictate'
+                                                              Image, 0x10979aa80, {{28.0, 129.0}, {20.7, 19.3}}, identifier: 'magnifyingglass', label: 'Search'
+                                                              Button, 0x10979a800, {{340.7, 128.0}, {17.3, 22.0}}, identifier: 'Dictate', label: 'Dictate'
+                                                          Other, 0x109799680, {{0.0, 47.0}, {390.0, 797.0}}
+                                                            Other, 0x109798c80, {{0.0, 47.0}, {390.0, 797.0}}
+                                                              Other, 0x109799f40, {{0.0, 47.0}, {390.0, 797.0}}
+                                                                Other, 0x109799900, {{0.0, 47.0}, {390.0, 797.0}}
+                                                                  ScrollView, 0x109799540, {{0.0, 47.0}, {390.0, 797.0}}
+                                                                    Other, 0x109798a00, {{0.0, 47.0}, {390.0, 797.0}}
+                                                                      Other, 0x1097983c0, {{0.0, 47.0}, {390.0, 110.0}}
+                                                                      Other, 0x1067b2440, {{0.0, 711.0}, {390.0, 133.0}}
+                                                                    Other, 0x1067b30c0, {{0.0, 47.0}, {390.0, 797.0}}
+                                                                      Other, 0x1067b2080, {{0.0, 711.0}, {390.0, 133.0}}
+                                                                    CollectionView, 0x1067b21c0, {{0.0, 47.0}, {390.0, 797.0}}, identifier: 'File View', value: Icon Mode
+                                                                      Other, 0x1067b2a80, {{0.0, 47.0}, {390.0, 797.0}}
+                                                                        Other, 0x1067b2f80, {{0.0, 47.0}, {390.0, 110.0}}
+                                                                        Other, 0x1067b2d00, {{0.0, 711.0}, {390.0, 133.0}}
+                                                                      Other, 0x1067b3340, {{0.0, 47.0}, {390.0, 797.0}}
+                                                                      Cell, 0x1067b2800, {{10.0, 181.0}, {118.0, 189.7}}, identifier: '0930.zip, zip', label: '0930.zip, zip, 昨天, 59 KB'
+                                                                        Other, 0x1067b0000, {{10.0, 181.0}, {118.0, 189.7}}
+                                                                        Other, 0x1067b3480, {{10.0, 181.0}, {118.0, 189.7}}
+                                                                          Other, 0x1067b3700, {{27.0, 185.0}, {84.0, 84.0}}
+                                                                            Image, 0x1067b2300, {{27.0, 185.0}, {84.0, 84.0}}
+                                                                          Image, 0x1067b0b40, {{54.0, 229.2}, {30.0, 30.0}}
+                                                                          Image, 0x1067b3e80, {{55.0, 230.7}, {28.0, 28.0}}, identifier: 'circle', label: 'Circle'
+                                                                          Other, 0x1067b26c0, {{13.0, 274.0}, {112.0, 55.7}}
+                                                                            StaticText, 0x1067b2940, {{13.0, 274.0}, {112.0, 20.0}}, label: '0930.zip'
+                                                                            StaticText, 0x1067b2bc0, {{13.0, 297.0}, {112.0, 14.3}}, label: '昨天'
+                                                                            StaticText, 0x1067b1b80, {{13.0, 315.3}, {112.0, 14.3}}, label: '59 KB'
+                                                                      Cell, 0x1067b2580, {{136.0, 181.0}, {118.0, 189.7}}, identifier: 'ternal020929, md', label: 'ternal020929, md, 前天, 18 bytes'
+                                                                        Other, 0x1067b3200, {{136.0, 181.0}, {118.0, 189.7}}
+                                                                        Other, 0x1067b1cc0, {{136.0, 181.0}, {118.0, 189.7}}
+                                                                          Other, 0x1067b17c0, {{153.0, 185.0}, {84.0, 84.0}}
+                                                                            Image, 0x1067b12c0, {{163.7, 185.0}, {63.0, 84.0}}
+                                                                            Other, 0x1067b0dc0, {{163.7, 185.0}, {63.0, 84.0}}
+                                                                          Image, 0x1067b0280, {{180.0, 229.2}, {30.0, 30.0}}
+                                                                          Image, 0x1067b35c0, {{181.0, 230.7}, {28.0, 28.0}}, identifier: 'circle', label: 'Circle'
+                                                                          Other, 0x1067b1180, {{139.0, 274.0}, {112.0, 55.7}}
+                                                                            StaticText, 0x1067b3d40, {{139.0, 274.0}, {112.0, 20.0}}, label: 'ternal020929'
+                                                                            StaticText, 0x1067b3ac0, {{139.0, 297.0}, {112.0, 14.3}}, label: '前天'
+                                                                            StaticText, 0x1067b3980, {{139.0, 315.3}, {112.0, 14.3}}, label: '18 bytes'
+                                                                      Other, 0x1067b1540, {{0.0, 700.3}, {390.0, 60.7}}
+                                                                        Other, 0x1067b3840, {{0.0, 700.3}, {390.0, 60.7}}, identifier: 'DOCItemCollectionViewFooterViewIdentifier'
+                                                                          StaticText, 0x1067b1680, {{168.0, 700.3}, {54.0, 18.0}}, label: '2 items'
+                                                                          Other, 0x1067b0f00, {{137.0, 725.3}, {116.3, 15.7}}
+                                                                            Other, 0x1067b1900, {{137.0, 725.3}, {116.3, 15.7}}
+                                                                              Other, 0x1067b1a40, {{137.0, 725.3}, {116.3, 15.7}}
+                                                                                StaticText, 0x1065e3340, {{137.0, 725.3}, {116.3, 15.7}}, label: 'Synced with iCloud'
+                                                                      Other, 0x1065e3d40, {{357.0, 117.0}, {30.0, 644.0}}, label: 'Vertical scroll bar, 1 pages', value: 0%
+                                                                        Other, 0x1065e3e80, {{384.0, 500.3}, {3.0, 257.7}}
+                                                                      Other, 0x1065e35c0, {{357.0, 117.0}, {30.0, 644.0}}, label: 'Vertical scroll bar, 1 pages', value: 0%
+                                                                        Other, 0x1065e3980, {{384.0, 500.3}, {3.0, 257.7}}
+                                                                    Other, 0x1065e3ac0, {{357.0, 171.0}, {30.0, 590.0}}, label: 'Vertical scroll bar, 1 pages', value: 0%
+                                                                      Other, 0x1065e3840, {{384.0, 751.0}, {3.0, 7.0}}
+                                                                    Other, 0x1065e1b80, {{47.3, 728.0}, {295.3, 30.0}}, label: 'Horizontal scroll bar, 1 pages', value: 0%
+                                                                      Other, 0x1065e3700, {{337.3, 755.0}, {7.0, 3.0}}
+                                                                    Other, 0x1065e1a40, {{357.0, 171.0}, {30.0, 590.0}}, label: 'Vertical scroll bar, 1 pages', value: 0%
+                                                                      Other, 0x11143ad00, {{384.0, 751.0}, {3.0, 7.0}}
+                                                                    Other, 0x111438500, {{47.3, 728.0}, {295.3, 30.0}}, label: 'Horizontal scroll bar, 1 pages', value: 0%
+                                                                      Other, 0x111438140, {{337.3, 755.0}, {7.0, 3.0}}
+                                                          Toolbar, 0x111438dc0, {{0.0, 47.0}, {390.0, 797.0}}, identifier: 'Toolbar', label: 'Toolbar'
+                                                            Other, 0x111438000, {{0.0, 47.0}, {390.0, 797.0}}
+                                                    Toolbar, 0x1114383c0, {{0.0, 47.0}, {390.0, 797.0}}, identifier: 'Toolbar', label: 'Toolbar'
+                                                      Other, 0x111438280, {{0.0, 47.0}, {390.0, 797.0}}
+                                                Other, 0x111438b40, {{0.0, 47.0}, {390.0, 797.0}}
+                                                  Other, 0x111438f00, {{0.0, 47.0}, {390.0, 797.0}}
+                                        Other, 0x111439540, {{0.0, 47.0}, {390.0, 797.0}}
+                                          Other, 0x111439180, {{0.0, 761.0}, {390.0, 83.0}}
+                                            Other, 0x111439040, {{0.0, 47.0}, {390.0, 797.0}}
+                                              TabBar, 0x111439400, {{0.0, 761.0}, {390.0, 83.0}}, identifier: 'DOC.browsingModeTabBar', label: 'Tab Bar'
+                                                Other, 0x1114392c0, {{58.0, 761.0}, {274.0, 62.0}}
+                                                  Other, 0x111438c80, {{58.0, 761.0}, {94.0, 54.0}}
+                                                  Other, 0x111439900, {{58.0, 761.0}, {274.0, 62.0}}
+                                                    Button, 0x111439e00, {{62.0, 765.0}, {94.0, 54.0}}, label: 'Recents'
+                                                      Image, 0x11143a080, {{95.3, 771.3}, {27.3, 27.3}}, identifier: 'clock.fill', label: 'clock'
+                                                    Button, 0x111439cc0, {{148.0, 765.0}, {94.0, 54.0}}, label: 'Shared'
+                                                      Image, 0x111439f40, {{176.7, 772.7}, {37.0, 26.0}}, identifier: 'person.2.fill', label: 'Two people, filled'
+                                                    Button, 0x111439b80, {{234.0, 765.0}, {94.0, 54.0}}, label: 'Browse', Selected
+                                                      Image, 0x111438a00, {{265.0, 772.3}, {32.0, 25.0}}, identifier: 'folder.fill', label: 'move'
+                                                  Other, 0x111439a40, {{58.0, 761.0}, {274.0, 62.0}}
+                                                  Other, 0x1114397c0, {{234.0, 765.0}, {94.0, 54.0}}
+                                                    Other, 0x111439680, {{234.0, 765.0}, {94.0, 54.0}}
+                                                      Other, 0x1114388c0, {{234.0, 765.0}, {94.0, 54.0}}
+                                                      Other, 0x111438780, {{234.0, 765.0}, {94.0, 54.0}}
+                                                        Other, 0x11143a800, {{234.0, 765.0}, {94.0, 54.0}}
+                                                          Other, 0x11143a6c0, {{234.0, 765.0}, {94.0, 54.0}}
+                                                            Other, 0x11143a580, {{234.0, 765.0}, {94.0, 54.0}}
+                                                          Other, 0x11143aa80, {{234.0, 765.0}, {94.0, 54.0}}
+                                                        Other, 0x11143a940, {{234.0, 765.0}, {94.0, 54.0}}
+                                            Other, 0x11143a440, {{0.0, 761.0}, {390.0, 83.0}}
+                                              Other, 0x11143a300, {{0.0, 761.0}, {390.0, 83.0}}
+                                                Other, 0x11143a1c0, {{0.0, 761.0}, {390.0, 83.0}}
+                                                  Other, 0x111438640, {{0.0, 761.0}, {390.0, 83.0}}
+                                                    Other, 0x11143abc0, {{0.0, 761.0}, {390.0, 83.0}}
+                                                      Other, 0x11143ae40, {{0.0, 761.0}, {390.0, 83.0}}
+                                                  Other, 0x11143af80, {{0.0, 761.0}, {390.0, 83.0}}
+                                                    Other, 0x1114770c0, {{0.0, 761.0}, {390.0, 83.0}}
+                          Other, 0x111477200, {{0.0, 0.0}, {390.0, 844.0}}
+    Window, 0x111477340, {{0.0, 0.0}, {390.0, 844.0}}
+      Other, 0x111477480, {{0.0, 0.0}, {390.0, 844.0}}
+        Other, 0x111477700, {{0.0, 0.0}, {390.0, 844.0}}
+Path to element:
+ →Application, 0x1097f5900, pid: 15189, label: 'ZipHarbor'
+Query chain:
+ →Find: Target Application 'com.xiaolongxu.zipharbor.app'
+  Output: {
+    Application, 0x111475cc0, pid: 15189, label: 'ZipHarbor'
+  }
+
+    t =    23.85s Tear Down
+Test Case '-[ZipHarborUITests.ZipHarborUITests testSystemFilesImportsRealArchive]' failed (23.868 seconds).
+Test Suite 'ZipHarborUITests' failed at 2026-10-01 23:09:15.840.
+	 Executed 1 test, with 1 failure (0 unexpected) in 23.868 (23.871) seconds
+Test Suite 'ZipHarborUITests.xctest' failed at 2026-10-01 23:09:15.841.
+	 Executed 1 test, with 1 failure (0 unexpected) in 23.868 (23.871) seconds
+Test Suite 'Selected tests' failed at 2026-10-01 23:09:15.841.
+	 Executed 1 test, with 1 failure (0 unexpected) in 23.868 (23.873) seconds
+2026-10-01 23:09:14.144 xcodebuild[67252:4157815]  IDETestOperationsObserverDebug: Failure collecting diagnostics from devices: Process exited with error 1:
+ ERROR: The operation couldn?t be completed. (CoreDeviceCLISupport.DiagnoseError error 0.)
+This tool generates files that allow Apple to investigate issues with your
+computer and help improve Apple products. The files might contain personal
+information found on your device or associated with your Apple Account(s),
+including but not limited to your name, serial numbers of your device,
+your device name, your device's location over the last one to two days,
+your attached peripheral devices, your user name, your email address and
+email settings, file paths, file names, Siri suggestions, your computer's
+IP addresses, and network connection information.
+
+This information is used by Apple in accordance with its privacy policy
+(www.apple.com/privacy) and is not shared with any other company. By using
+this tool and sending the results to Apple, you consent to Apple using the
+contents of these files to improve Apple products.
+
+An error occurred while running devicectl diagnose. Will archive the diagnostics collected thus far.
+Wrote file to /Users/USER/github_space/zip-app/docs/iphone14-acceptance-20261001/results/files-import-retry.xcresult/Staging/1_Test/Diagnostics/devicectl_diagnostics.zip
+Partial devicectl diagnose bundle located here: /Users/USER/github_space/zip-app/docs/iphone14-acceptance-20261001/results/files-import-retry.xcresult/Staging/1_Test/Diagnostics/devicectl_diagnostics.zip
+
+2026-10-01 23:09:14.174 xcodebuild[67252:4157759] [MT] IDETestOperationsObserverDebug: 27.457 elapsed -- Testing started completed.
+2026-10-01 23:09:14.174 xcodebuild[67252:4157759] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-01 23:09:14.174 xcodebuild[67252:4157759] [MT] IDETestOperationsObserverDebug: 27.457 sec, +27.457 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/USER/github_space/zip-app/docs/iphone14-acceptance-20261001/results/files-import-retry.xcresult
+
+Failing tests:
+	ZipHarborUITests.testSystemFilesImportsRealArchive()
+
+** TEST FAILED **
+
+Testing started

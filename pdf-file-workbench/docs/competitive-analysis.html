@@ -1,0 +1,465 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PDF 与文件工作台竞品分析 · PaperFlow</title><link rel="stylesheet" href="../assets/site.css"></head><body><header><a class="brand" href="../index.html">PaperFlow / 纸间</a><nav class="header-links" aria-label="主导航"><a href="../docs/simulator-testing.html">模拟器验收</a><a href="../screenshots.html">截图浏览</a><a href="../prototype.html">交互原型</a></nav></header><div class="layout"><aside aria-label="项目文档"><a href="../docs/acceptance-coverage.html">输出、数据与 UI 验收覆盖</a><a href="../docs/internationalization.html">PaperFlow 国际化实现与验收</a><a href="../docs/simulator-testing.html">PaperFlow 模拟器功能与国际化验收</a><a href="../docs/competitive-analysis.html" aria-current="page">PDF 与文件工作台竞品分析</a><a href="../docs/device-testing.html">PaperFlow 真机验收记录</a><a href="../docs/interaction-implementation.html">PaperFlow 交互简化实施记录</a><a href="../docs/interaction-ux.html">PaperFlow 全流程交互简化评审</a><a href="../docs/native-implementation.html">纸间（PaperFlow）原生实现记录</a><a href="../docs/prototype-guide.html">纸间 HTML App 交互原型</a><a href="../docs/requirements.html">PDF 与文件工作台需求文档</a><a href="../docs/scan-ux.html">扫描交互修订</a><a href="../docs/technical-design.html">PDF 与文件工作台技术方案</a></aside><main><article class="article"><p class="meta">项目文档 · <a href="competitive-analysis.md">Markdown 原文</a></p><div class="toc">
+<ul>
+<li><a href="#1">1. 结论先行</a></li>
+<li><a href="#2">2. 公开市场信号</a></li>
+<li><a href="#3">3. 竞品拆解</a><ul>
+<li><a href="#31-pdf-expert">3.1 PDF Expert</a></li>
+<li><a href="#32-adobe-acrobat-reader">3.2 Adobe Acrobat Reader</a></li>
+<li><a href="#33-scanner-pro">3.3 Scanner Pro</a></li>
+<li><a href="#34-pdfgear">3.4 PDFgear</a></li>
+<li><a href="#35-ilovepdf">3.5 iLovePDF</a></li>
+</ul>
+</li>
+<li><a href="#4">4. 功能取舍</a><ul>
+<li><a href="#p0">P0：必须支持</a></li>
+<li><a href="#p1">P1：验证后支持</a></li>
+<li><a href="#p2">P2：暂缓</a></li>
+</ul>
+</li>
+<li><a href="#5">5. 我们如何实现和超过竞品</a><ul>
+<li><a href="#51">5.1 产品策略</a></li>
+<li><a href="#52">5.2 技术实现</a></li>
+<li><a href="#53">5.3 能超过什么，不能超过什么</a></li>
+</ul>
+</li>
+<li><a href="#6">6. 收费建议</a><ul>
+<li><a href="#_1">免费版</a></li>
+<li><a href="#pro">Pro 买断或订阅</a></li>
+</ul>
+</li>
+<li><a href="#7">7. 验证方案</a></li>
+<li><a href="#8">8. 资料来源</a></li>
+</ul>
+</div>
+<h1 id="pdf">PDF 与文件工作台竞品分析</h1>
+<p>分析时间：2026-09-30。价格和商店数据会随地区、促销、系统版本和账号状态变化，本文把公开商店资料和官方价格页面作为方向判断依据，不把它们当作最终定价依据。</p>
+<h2 id="1">1. 结论先行</h2>
+<p>用户愿意为 PDF 工具付费，但付费购买的是“尽快、可靠地完成一个文件任务”，不是一个功能数量更多的 PDF 阅读器。</p>
+<p>市场已经证明了三种付费需求：</p>
+<ul>
+<li>专业办公用户愿意为编辑、OCR、转换、压缩和跨设备使用付费。</li>
+<li>高频扫描用户愿意为更好的扫描、OCR、同步和导出付费。</li>
+<li>企业和 Adobe 用户愿意为跨平台、云服务、协作和 AI 付费。</li>
+</ul>
+<p>同时，公开评价反复出现四类不满：订阅和升级提示过多、基本功能被锁定、界面变复杂、更新后稳定性或已有购买权益受到影响。</p>
+<p>因此，我们不能靠“再做一个全功能 PDF App”取胜。可行的切入点是：</p>
+<blockquote>
+<p><strong>一个本地优先、中文办公流程优先、把单个 PDF 任务快速做完、定价透明的 Apple 原生工具。</strong></p>
+</blockquote>
+<p>我们有机会在这个窄定位上超过竞品的任务体验和信任感，但短期不可能在品牌、Office 转换、企业协作、AI 规模或功能广度上超过 Adobe。</p>
+<h2 id="2">2. 公开市场信号</h2>
+<p>以下数据来自 Apple App Store Search/Lookup API（美国和中国区）以及官方价格页面。商店中的 <code>Free</code> 是下载价格，不代表没有内购。</p>
+<table>
+<thead>
+<tr>
+<th>产品</th>
+<th style="text-align: right;">美国评分/评价数</th>
+<th style="text-align: right;">中国评分/评价数</th>
+<th>商店定位</th>
+<th>公开收费信号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PDF Expert</td>
+<td style="text-align: right;">4.67 / 216,016</td>
+<td style="text-align: right;">4.74 / 109,060</td>
+<td>高级 PDF 阅读、编辑和 Apple 设备工作流</td>
+<td>官方页面显示周付 ¥800、年付 ¥9,100、买断 ¥22,000；价格需按地区复核</td>
+</tr>
+<tr>
+<td>Adobe Acrobat Reader</td>
+<td style="text-align: right;">4.65 / 656,456</td>
+<td style="text-align: right;">4.74 / 50,565</td>
+<td>大众 PDF 阅读、编辑、转换、云和 AI</td>
+<td>7 天试用；编辑、OCR、转换、压缩、密码保护、AI 等属于付费能力</td>
+</tr>
+<tr>
+<td>Scanner Pro</td>
+<td style="text-align: right;">4.87 / 336,057</td>
+<td style="text-align: right;">4.77 / 18,318</td>
+<td>文档扫描、OCR、签名和导出</td>
+<td>下载免费，扫描、OCR、同步和导出形成长期付费价值</td>
+</tr>
+<tr>
+<td>PDFgear</td>
+<td style="text-align: right;">4.73 / 8,696</td>
+<td style="text-align: right;">4.86 / 3,765</td>
+<td>移动端 PDF 查看、标注和页面管理</td>
+<td>商店文案明确主张全部功能免费、无试用水印和页数限制</td>
+</tr>
+<tr>
+<td>iLovePDF</td>
+<td style="text-align: right;">4.76 / 51,668</td>
+<td style="text-align: right;">4.90 / 18,018</td>
+<td>扫描、转换、合并、拆分、压缩和保护</td>
+<td>商店文案明确提供月付和年付 Premium</td>
+</tr>
+</tbody>
+</table>
+<p>这些数据能证明品类需求和付费模型已经被验证，不能直接推出某个产品的购买转化率。Apple 不公开完整的 App Store 收入和转化数据，所以正式开发前仍需用 TestFlight 验证我们的价格。</p>
+<h2 id="3">3. 竞品拆解</h2>
+<h3 id="31-pdf-expert">3.1 PDF Expert</h3>
+<p><strong>强项</strong></p>
+<ul>
+<li>读 PDF、搜索、夜间模式、标注、表单、签名。</li>
+<li>编辑文字和图片、链接、目录。</li>
+<li>合并、拆分、页面重排、压缩。</li>
+<li>OCR、Office/PDF/图片格式转换。</li>
+<li>密码保护和永久打码。</li>
+<li>iPhone、iPad、Mac 和 Vision Pro 的统一产品线。</li>
+<li>Apple Pencil、演示模式和工程图测量等高级能力。</li>
+</ul>
+<p><strong>收费方式</strong></p>
+<ul>
+<li>官方价格页同时展示周付、年付和一次性买断。</li>
+<li>页面展示的中国区示例为周付 ¥800、年付 ¥9,100、买断 ¥22,000；上线时必须用 App Store Connect 的实际地区价格重新确认。</li>
+</ul>
+<p><strong>用户愿意付费的原因</strong></p>
+<ul>
+<li>复杂合同或学习资料可以在一套工具中完成。</li>
+<li>多设备使用和高级编辑节省了桌面软件切换。</li>
+<li>专业用户对稳定的标注、签名和页面操作有明确价值判断。</li>
+</ul>
+<p><strong>公开评价中的问题</strong></p>
+<ul>
+<li>近期评价反复提到界面改版、工具变难找、Apple Pencil 操作异常和崩溃。</li>
+<li>有用户抱怨 OCR 能力没有和 Scanner Pro 统一。</li>
+<li>订阅升级提示、旧买断权益变化和价格被认为不透明。</li>
+</ul>
+<p><strong>对我们的启示</strong></p>
+<ul>
+<li>可以学习它的页面缩略图、标注和跨设备信息架构。</li>
+<li>不要在第一版复制它的全文本编辑、工程测量、AI 和 Office 转换。</li>
+<li>用“任务入口 + 清晰进度 + 原文件不变 + 一键导出”减少它被评价为复杂的部分。</li>
+</ul>
+<h3 id="32-adobe-acrobat-reader">3.2 Adobe Acrobat Reader</h3>
+<p><strong>强项</strong></p>
+<ul>
+<li>品牌、格式兼容性和企业生态最强。</li>
+<li>查看、搜索、标注、评论和免费 Fill &amp; Sign。</li>
+<li>付费编辑、OCR、合并、拆分、转换、压缩、密码保护。</li>
+<li>连接 Adobe 云、Google Drive、Dropbox、OneDrive 等。</li>
+<li>订阅覆盖桌面、Web 和移动端，增加 AI Assistant、PDF Spaces 和摘要能力。</li>
+</ul>
+<p><strong>收费方式</strong></p>
+<ul>
+<li>免费阅读、基础标注和填写/签名。</li>
+<li>7 天试用后订阅高级功能。</li>
+<li>官方资料明确把 Acrobat Standard、Pro、Studio 和 AI 作为不同订阅层级。</li>
+</ul>
+<p><strong>用户愿意付费的原因</strong></p>
+<ul>
+<li>企业已有 Adobe 工作流，兼容性和云协作价值很高。</li>
+<li>转换、OCR、批量处理和跨平台访问是高频办公需求。</li>
+</ul>
+<p><strong>公开评价中的问题</strong></p>
+<ul>
+<li>用户认为编辑、压缩等基本任务被付费墙挡住。</li>
+<li>评价反复提到 AI 和订阅提示干扰任务。</li>
+<li>有用户认为发送时得到云链接，而不是直接得到文件附件。</li>
+<li>移动端加载、文件打开和表单编辑偶尔不稳定。</li>
+</ul>
+<p><strong>对我们的启示</strong></p>
+<ul>
+<li>我们不可能在企业生态和格式兼容性上超过 Adobe。</li>
+<li>可以在无账号、无云上传、直接导出本地附件、中文任务流程和价格透明上形成差异。</li>
+<li>对普通个人用户，先解决“扫描/签名/压缩/分享”比提供 AI 对话更有价值。</li>
+</ul>
+<h3 id="33-scanner-pro">3.3 Scanner Pro</h3>
+<p><strong>强项</strong></p>
+<ul>
+<li>自动识别边缘、透视校正、去阴影和多页扫描。</li>
+<li>扫描生成可搜索 PDF，并支持 OCR 和全文搜索。</li>
+<li>填写、签名、批注和多种格式导出。</li>
+<li>iCloud 同步，并连接 Dropbox、Google Drive、Box、OneDrive、WebDAV 等。</li>
+<li>支持 25+ 语言，包含简体和繁体中文。</li>
+</ul>
+<p><strong>收费方式</strong></p>
+<ul>
+<li>免费下载，把扫描质量、OCR、同步、导出和高级工作流作为长期价值。</li>
+<li>公开评价显示老用户曾经一次性购买，后来对订阅升级提示和权益变化不满。</li>
+</ul>
+<p><strong>用户愿意付费的原因</strong></p>
+<ul>
+<li>扫描质量比系统相机拍照明显更好。</li>
+<li>文档扫描是高频、明确、节省时间的任务。</li>
+<li>纸质材料、收据、证件和合同需要 OCR、整理和分享。</li>
+</ul>
+<p><strong>公开评价中的问题</strong></p>
+<ul>
+<li>近期评价提到扫描裁切、重复页面、颜色和稳定性回退。</li>
+<li>升级提示被认为打断扫描流程。</li>
+<li>有用户期待 iCloud Drive 文件夹双向同步，而现有体验不完全等同于普通同步文件夹。</li>
+<li>用户对从买断变成订阅尤其敏感。</li>
+</ul>
+<p><strong>对我们的启示</strong></p>
+<ul>
+<li>扫描质量必须作为核心工程指标，而不是普通相机加滤镜。</li>
+<li>首版应该只做少量高质量流程，避免扫描过程中弹出销售页面。</li>
+<li>可以对“导入已有 PDF 后快速签名/压缩/分享”做 Scanner Pro 不够聚焦的补充。</li>
+</ul>
+<h3 id="34-pdfgear">3.4 PDFgear</h3>
+<p><strong>强项</strong></p>
+<ul>
+<li>移动端产品较轻，界面和功能入口相对直接。</li>
+<li>查看、打印、标注、页面新增/删除/旋转/提取、表单和签名。</li>
+<li>支持设备和 iCloud 文件管理。</li>
+<li>商店文案明确宣传所有功能免费、无水印、无页数限制。</li>
+</ul>
+<p><strong>收费方式</strong></p>
+<ul>
+<li>iOS 商店文案主张免费使用全部功能。</li>
+<li>这证明用户对“基础 PDF 任务免费完成”的期望很强，也让通用工具的订阅转化更困难。</li>
+</ul>
+<p><strong>用户愿意使用的原因</strong></p>
+<ul>
+<li>不需要马上注册或订阅。</li>
+<li>基础任务覆盖够用，功能入口简单。</li>
+</ul>
+<p><strong>局限和机会</strong></p>
+<ul>
+<li>评价规模和品牌信任明显小于 Adobe、PDF Expert 和 Scanner Pro。</li>
+<li>与成熟产品相比，扫描、跨设备、企业协作和高级转换能力较弱。</li>
+<li>我们可以在隐私说明、中文办公模板、稳定性和 Apple 原生整合上建立更强信任，但不能假设用户愿意为 PDFgear 已经免费的同类功能付费。</li>
+</ul>
+<h3 id="35-ilovepdf">3.5 iLovePDF</h3>
+<p><strong>强项</strong></p>
+<ul>
+<li>扫描、OCR、JPG/Office/PDF 转换、批注、签名。</li>
+<li>合并、拆分、旋转、压缩、密码保护、页码和水印。</li>
+<li>连接 Google Drive 和 Dropbox。</li>
+</ul>
+<p><strong>收费方式</strong></p>
+<ul>
+<li>基础功能免费，Premium 提供月付和年付自动续订。</li>
+<li>这种模式证明转换、压缩、OCR 和批处理可以形成订阅价值。</li>
+</ul>
+<p><strong>对我们的启示</strong></p>
+<ul>
+<li>“转换工具箱”覆盖面广，但容易变成入口复杂、结果质量难以解释的工具集合。</li>
+<li>我们应该把高频任务做成明确的向导，暂时不做大量格式转换。</li>
+</ul>
+<h2 id="4">4. 功能取舍</h2>
+<h3 id="p0">P0：必须支持</h3>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>原因</th>
+<th>本地实现可行性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Files/Share Sheet 导入</td>
+<td>所有竞品的基本入口，决定能否进入真实工作流</td>
+<td>高；Files、Share Extension、security-scoped URL</td>
+</tr>
+<tr>
+<td>文档扫描和多页 PDF</td>
+<td>Scanner Pro 验证了付费价值</td>
+<td>高；VisionKit + Photos/Files</td>
+</tr>
+<tr>
+<td>中文/英文本地 OCR</td>
+<td>让扫描 PDF 可搜索、可复制</td>
+<td>中高；Vision 的文本识别，需真机测试准确率</td>
+</tr>
+<tr>
+<td>查看、搜索和基础标注</td>
+<td>系统工具和竞品的最低标准</td>
+<td>高；PDFKit</td>
+</tr>
+<tr>
+<td>合并、拆分、旋转、重排</td>
+<td>高频、结果明确、无需云端</td>
+<td>高；PDFKit/CGPDFDocument</td>
+</tr>
+<tr>
+<td>签名、表单文字、勾选</td>
+<td>直接对应合同和申请材料</td>
+<td>高；PDFKit/PencilKit</td>
+</tr>
+<tr>
+<td>压缩和文件大小预览</td>
+<td>用户常为邮件、上传限制而付费</td>
+<td>中；图像重采样和 PDF 重建</td>
+</tr>
+<tr>
+<td>直接导出文件</td>
+<td>解决 Acrobat 的链接分享不适用于所有收件人的问题</td>
+<td>高；Files/Share Sheet</td>
+</tr>
+<tr>
+<td>购买、恢复购买和家庭共享</td>
+<td>形成可持续收入且无需后端</td>
+<td>高；StoreKit 2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="p1">P1：验证后支持</h3>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>原因</th>
+<th>风险/做法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>真正永久打码</td>
+<td>专业和隐私场景有价值</td>
+<td>不能只放黑色标注；需重建 PDF 内容或栅格化导出并做文本提取测试</td>
+</tr>
+<tr>
+<td>密码保护和移除密码</td>
+<td>竞品常见，适合文件分享</td>
+<td>PDFKit 覆盖有限，需测试不同加密 PDF</td>
+</tr>
+<tr>
+<td>批量任务</td>
+<td>提高 Pro 付费价值</td>
+<td>先支持压缩、合并和重命名三种批处理</td>
+</tr>
+<tr>
+<td>页面编号、水印和模板</td>
+<td>iLovePDF 的成熟付费点</td>
+<td>先做导出向导，避免首页功能泛滥</td>
+</tr>
+<tr>
+<td>Shortcuts/App Intents</td>
+<td>充分利用 Apple 生态，服务重复任务</td>
+<td>只暴露稳定的无 UI 操作</td>
+</tr>
+<tr>
+<td>iPad 分屏、拖放和 Apple Pencil</td>
+<td>Apple 用户的重要差异点</td>
+<td>需要实际 iPad 和 Pencil 测试，不靠模拟器判断</td>
+</tr>
+</tbody>
+</table>
+<h3 id="p2">P2：暂缓</h3>
+<ul>
+<li>编辑任意已有 PDF 文本和图片。</li>
+<li>PDF 与 Word/Excel/PPT 的高保真双向转换。</li>
+<li>AI 摘要、问答、翻译和语音功能。</li>
+<li>企业协作、评论流、账号体系和自有云盘。</li>
+<li>传真、在线签署和服务器 OCR。</li>
+</ul>
+<p>这些能力要么是 Adobe/PDF Expert 的护城河，要么需要云服务和持续成本。首版加入会放大开发风险，却不一定增加早期付费转化。</p>
+<h2 id="5">5. 我们如何实现和超过竞品</h2>
+<h3 id="51">5.1 产品策略</h3>
+<p>首页只提供五个任务入口：<strong>扫描、签名、压缩、合并/拆分、导入文件</strong>。用户完成一个任务后再看到高级能力，而不是先看到功能墙。</p>
+<p>每次处理都遵循四个原则：</p>
+<ol>
+<li>原文件默认不修改，结果另存为新文件。</li>
+<li>处理前显示页数、文件大小、预计输出大小和权限范围。</li>
+<li>处理过程中不弹出销售页面。</li>
+<li>导出后能直接得到文件，而不是只能发送云链接。</li>
+</ol>
+<h3 id="52">5.2 技术实现</h3>
+<ul>
+<li>SwiftUI：iPhone、iPad、Mac 统一界面和可访问性。</li>
+<li>VisionKit：文档扫描、自动裁切和透视纠正。</li>
+<li>Vision：设备端中文/英文 OCR。</li>
+<li>PDFKit：阅读、搜索、标注、签名、页面组织。</li>
+<li>Core Graphics：页面合成、图像重采样和压缩导出。</li>
+<li>PencilKit：iPad 手写签名和标注。</li>
+<li>Files、DocumentGroup、Share Extension：进入和离开用户文件工作流。</li>
+<li>App Intents：压缩、合并、扫描结果导出等自动化。</li>
+<li>StoreKit 2：Pro 权益、恢复购买、家庭共享和价格本地化。</li>
+<li>SwiftData：保存最近任务、签名和设置；不复制不必要的文件内容。</li>
+</ul>
+<h3 id="53">5.3 能超过什么，不能超过什么</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>判断</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Adobe 的品牌、企业账号和格式兼容</td>
+<td>不能在短期超过</td>
+<td>需要多年生态、桌面端和企业资源</td>
+</tr>
+<tr>
+<td>PDF Expert 的完整编辑和高级工具数量</td>
+<td>不能在首版超过</td>
+<td>全文编辑、Office 转换和工程工具复杂度高</td>
+</tr>
+<tr>
+<td>Scanner Pro 的扫描成熟度</td>
+<td>首版目标是达到可用，后续才可能超过</td>
+<td>需要大量真机拍摄和边界样本</td>
+</tr>
+<tr>
+<td>PDFgear 的免费功能广度</td>
+<td>不应正面比较</td>
+<td>对方已经把免费作为主要卖点</td>
+</tr>
+<tr>
+<td>任务入口、无打扰流程和中文办公场景</td>
+<td>有机会超过</td>
+<td>竞品公开评价集中暴露复杂、升级提示和中文流程缺口</td>
+</tr>
+<tr>
+<td>隐私透明和本地优先</td>
+<td>有机会形成品牌差异</td>
+<td>只使用 Apple 本地框架，不需要上传文件</td>
+</tr>
+<tr>
+<td>Apple 原生自动化、Files 和 Pencil 体验</td>
+<td>有机会超过通用跨平台产品</td>
+<td>从架构开始围绕 Apple 设备设计</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6">6. 收费建议</h2>
+<p>不要把阅读、基础标注和一次性的简单签名全部锁住，否则会直接输给系统工具和 PDFgear。建议采用：</p>
+<h3 id="_1">免费版</h3>
+<ul>
+<li>无限查看、搜索和基础标注。</li>
+<li>每月 3 次扫描/OCR。</li>
+<li>每月 3 次压缩或合并。</li>
+<li>单次签名和导出可完成完整任务。</li>
+</ul>
+<h3 id="pro">Pro 买断或订阅</h3>
+<ul>
+<li>无限 OCR、压缩、合并和批处理。</li>
+<li>高级签名、批量任务、永久打码、密码保护。</li>
+<li>Shortcuts、模板和报告。</li>
+<li>早期优先测试一次性买断，价格带建议 ¥48–98；如果后续提供持续更新的转换或同步服务，再增加低价年订阅。</li>
+</ul>
+<p>定价必须在用户完成一次免费任务后展示，并明确写出权益、价格、周期和恢复购买入口。不要使用周订阅作为默认方案。</p>
+<h2 id="7">7. 验证方案</h2>
+<p>在开发复杂功能前，用真实设备和 30–50 名目标用户做 TestFlight 验证，至少测三条任务：</p>
+<ol>
+<li>手机扫描 5 页中文合同，生成可搜索 PDF 并分享。</li>
+<li>从 Files 导入 PDF，签名后通过邮件发送附件。</li>
+<li>将大 PDF 压缩到指定大小，并保持页面可读。</li>
+</ol>
+<p>记录以下指标：</p>
+<ul>
+<li>首次打开到完成第一个任务的时间。</li>
+<li>任务成功率和需要帮助的步骤。</li>
+<li>OCR 错误率、扫描裁切错误率、导出失败率。</li>
+<li>用户是否主动尝试第二次任务。</li>
+<li>看到 Pro 权益后愿意支付的比例。</li>
+<li>用户对买断、年订阅和免费限制的选择。</li>
+</ul>
+<p>只有当任务成功率、稳定性和付费意愿达到可接受水平，才进入 P1 的打码、密码保护和批处理开发。公开竞品的评分证明市场存在，真实用户的任务完成和付费数据才决定我们是否继续。</p>
+<h2 id="8">8. 资料来源</h2>
+<ul>
+<li><a href="https://apps.apple.com/us/app/pdf-expert-editor-reader/id743974925">PDF Expert App Store</a></li>
+<li><a href="https://pdfexpert.com/pricing">PDF Expert 官方价格页</a></li>
+<li><a href="https://apps.apple.com/us/app/acrobat-reader-pdf-editor/id469337564">Adobe Acrobat Reader App Store</a></li>
+<li><a href="https://apps.apple.com/us/app/scanner-pro-scan-to-pdf/id333710667">Scanner Pro App Store</a></li>
+<li><a href="https://apps.apple.com/us/app/pdf-gear-pdf-editor-reader/id6465897558">PDFgear App Store</a></li>
+<li><a href="https://apps.apple.com/us/app/ilovepdf-pdf-editor-scan/id1207332399">iLovePDF App Store</a></li>
+<li><a href="https://itunes.apple.com/lookup">Apple App Store Lookup API</a></li>
+</ul></article></main></div><footer>2026-10-04 · 页面呈现实际记录。历史文档与最新验收范围请以模拟器验收报告为准。完整 .xcresult 保留在开发工作区。</footer></body></html>

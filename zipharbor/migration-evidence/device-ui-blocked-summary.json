@@ -1,0 +1,51 @@
+{
+  "devicesAndConfigurations" : [
+    {
+      "device" : {
+        "architecture" : "arm64",
+        "deviceId" : "IPHONE14_UDID",
+        "deviceName" : "iPhone 14 验收设备",
+        "modelName" : "iPhone 14",
+        "osBuildNumber" : "24A437",
+        "osVersion" : "27.0",
+        "platform" : "iOS"
+      },
+      "expectedFailures" : 0,
+      "failedTests" : 1,
+      "passedTests" : 0,
+      "skippedTests" : 0,
+      "testPlanConfiguration" : {
+        "configurationId" : "1",
+        "configurationName" : "Test Scheme Action"
+      }
+    }
+  ],
+  "environmentDescription" : "ZipHarbor · Built with macOS 26.6.2",
+  "expectedFailures" : 0,
+  "failedTests" : 1,
+  "finishTime" : 1790821778.638,
+  "passedTests" : 0,
+  "result" : "Failed",
+  "runtimeWarnings" : [
+
+  ],
+  "skippedTests" : 0,
+  "startTime" : 1790821741.1,
+  "statistics" : [
+
+  ],
+  "testFailures" : [
+    {
+      "failureText" : "The test runner failed to initialize for UI testing. (Underlying Error: 认证失败。. (Underlying Error: The operation couldn’t be completed. (com.apple.sharing.authentication error 12.). Timed out waiting for response))",
+      "targetName" : "ZipHarborUITests",
+      "testIdentifier" : 1,
+      "testIdentifierString" : "ZipHarborUITests-Runner (13533) encountered an error",
+      "testName" : "ZipHarborUITests-Runner (13533) encountered an error"
+    }
+  ],
+  "title" : "Test - ZipHarbor",
+  "topInsights" : [
+
+  ],
+  "totalTestCount" : 1
+}

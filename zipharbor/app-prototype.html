@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f3f5fa">
+<title>ZipKit · iOS 交互原型</title>
+<style>
+:root{
+  --bg:#f3f5fa;--paper:#ffffff;--soft:#f6f7fb;--ink:#171c2e;--muted:#8990a3;--line:#edf0f5;
+  --blue:#5669ee;--blue-dark:#4354d3;--blue-soft:#eef0ff;--green:#19896b;--green-soft:#e8f7f1;
+  --orange:#d98036;--orange-soft:#fff3e8;--red:#cc5262;--red-soft:#fff0f1;
+  --shadow:0 32px 90px rgba(33,44,89,.16),0 8px 24px rgba(33,44,89,.08);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at 18% 8%,#e7ebff 0,transparent 30%),radial-gradient(ellipse at 84% 80%,#e7f4f2 0,transparent 28%),var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;min-height:100vh}
+button,input,select{font:inherit}
+button{cursor:pointer}
+.stage{min-height:100vh;display:grid;grid-template-columns:minmax(320px,480px) 402px minmax(220px,300px);gap:56px;align-items:center;justify-content:center;padding:44px 36px}
+.intro{max-width:440px;align-self:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid #dfe3f1;background:#ffffff9c;border-radius:999px;padding:8px 12px;color:#606985;font-size:12px;font-weight:650;letter-spacing:.02em}
+.eyebrow i{width:7px;height:7px;background:#42b68c;border-radius:50%;box-shadow:0 0 0 4px #e5f7ef}
+.intro h1{font-size:48px;line-height:1.12;letter-spacing:-1.8px;margin:22px 0 14px;font-weight:760}
+.intro h1 span{color:var(--blue)}
+.intro p{font-size:16px;line-height:1.8;color:#737b90;margin:0;max-width:405px}
+.intro-rule{height:1px;background:#e0e4ee;margin:28px 0 22px}
+.flow-title{font-size:12px;font-weight:700;color:#9aa1b3;text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px}
+.flow-list{display:grid;gap:9px}
+.flow-item{display:flex;align-items:center;gap:12px;padding:12px 13px;background:#ffffffa8;border:1px solid #e9ebf2;border-radius:14px;font-size:13px;color:#525a70}
+.flow-num{display:grid;place-items:center;width:24px;height:24px;border-radius:9px;background:#eef0ff;color:var(--blue);font-weight:750;font-size:11px;flex:none}
+.intro-note{font-size:12px!important;color:#a0a6b5!important;margin-top:20px!important}
+.device{width:402px;height:min(860px,calc(100vh - 56px));min-height:650px;border:8px solid #1d2230;border-radius:48px;background:#f8f9fc;box-shadow:var(--shadow);position:relative;overflow:hidden;isolation:isolate}
+.dynamic-island{position:absolute;z-index:15;top:9px;left:50%;transform:translateX(-50%);height:25px;width:110px;background:#10131b;border-radius:18px;pointer-events:none}
+.app{height:100%;display:flex;flex-direction:column;background:var(--bg);position:relative;overflow:hidden}
+.statusbar{height:43px;min-height:43px;padding:0 25px;display:flex;align-items:center;justify-content:space-between;font-size:12px;font-weight:720;letter-spacing:.02em;color:var(--ink);padding-top:5px}
+.status-right{display:flex;align-items:center;gap:6px}
+.signal{display:flex;align-items:flex-end;gap:2px;height:12px}
+.signal b{width:3px;border-radius:3px;background:currentColor;display:block}
+.signal b:nth-child(1){height:4px}.signal b:nth-child(2){height:6px}.signal b:nth-child(3){height:9px}.signal b:nth-child(4){height:11px}
+.battery{width:19px;height:10px;border:1.4px solid currentColor;border-radius:3px;padding:1px;position:relative}
+.battery:after{content:"";position:absolute;right:-3px;top:2.5px;width:2px;height:4px;border-radius:0 2px 2px 0;background:currentColor}
+.battery i{display:block;width:75%;height:100%;border-radius:1px;background:currentColor}
+.app-scroll{flex:1;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none;padding-bottom:14px}
+.app-scroll::-webkit-scrollbar{display:none}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:9px 22px 16px}
+.top-title{font-size:25px;font-weight:760;letter-spacing:-.7px}
+.top-sub{font-size:12px;color:var(--muted);margin-top:3px}
+.top-actions{display:flex;align-items:center;gap:9px}
+.icon-btn{width:39px;height:39px;border:1px solid var(--line);background:var(--paper);color:#626b82;border-radius:14px;display:grid;place-items:center;transition:.18s}
+.icon-btn:hover{border-color:#cdd2ff;color:var(--blue);transform:translateY(-1px)}
+svg{display:block}
+.section{padding:0 20px;margin-top:15px}
+.section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:11px}
+.section-title{font-size:14px;font-weight:720;letter-spacing:-.15px}
+.section-link{border:0;background:transparent;color:var(--blue);font-size:12px;font-weight:650;padding:4px 0}
+.welcome-card{margin:0 20px;padding:17px;border-radius:22px;background:linear-gradient(135deg,#596cf1 0%,#737ef4 56%,#8a90f4 100%);color:white;position:relative;overflow:hidden;box-shadow:0 12px 24px rgba(86,105,238,.2)}
+.welcome-card:after{content:"";position:absolute;width:178px;height:178px;border-radius:50%;right:-46px;top:-90px;background:#ffffff13;border:1px solid #ffffff20}
+.welcome-kicker{font-size:11px;color:#e1e5ff;letter-spacing:.05em;display:flex;align-items:center;gap:7px}
+.welcome-kicker .dot{width:6px;height:6px;background:#a9f0ce;border-radius:50%}
+.welcome-title{font-size:20px;font-weight:730;margin:11px 0 4px;letter-spacing:-.4px}
+.welcome-copy{font-size:12px;line-height:1.55;color:#e7e9ff;max-width:255px}
+.welcome-foot{margin-top:15px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1}
+.privacy-pill{font-size:10px;color:#f1f2ff;display:flex;align-items:center;gap:5px}
+.primary-small{border:0;border-radius:11px;padding:9px 12px;background:white;color:#4f62df;font-size:11px;font-weight:730;box-shadow:0 3px 8px #33333312}
+.quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.quick-card{border:1px solid var(--line);border-radius:18px;background:var(--paper);padding:14px 13px;display:flex;align-items:center;gap:11px;text-align:left;color:var(--ink);box-shadow:0 3px 12px #27345a05;transition:.18s;min-height:72px}
+.quick-card:hover{border-color:#d6d9ff;transform:translateY(-2px);box-shadow:0 7px 18px #27345a0c}
+.quick-icon{width:38px;height:38px;border-radius:13px;display:grid;place-items:center;flex:none}
+.quick-icon.purple{background:#eef0ff;color:#596bee}.quick-icon.mint{background:#e8f7f1;color:#1a9871}
+.quick-label{display:block;font-size:13px;font-weight:720}
+.quick-caption{display:block;font-size:10px;color:var(--muted);margin-top:4px}
+.list-card{border:1px solid var(--line);background:var(--paper);border-radius:18px;overflow:hidden}
+.file-row{display:flex;align-items:center;gap:11px;padding:12px 12px;border-bottom:1px solid var(--line);min-height:67px;cursor:pointer;transition:background .15s}
+.file-row:last-child{border-bottom:0}
+.file-row:hover{background:var(--soft)}
+.file-icon{height:40px;width:40px;flex:none;border-radius:13px;display:grid;place-items:center}
+.file-icon.zip{background:#eef0ff;color:#586be9}.file-icon.folder{background:#fff3dd;color:#d89427}.file-icon.pdf{background:#fff0f1;color:#d95b67}.file-icon.image{background:#eaf5ff;color:#4689ca}.file-icon.text{background:#f2efff;color:#8065c8}.file-icon.archive{background:#e8f7f1;color:#21896e}
+.file-main{min-width:0;flex:1}
+.file-name{font-size:12px;font-weight:680;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.file-meta{font-size:10px;color:var(--muted);margin-top:5px;display:flex;gap:6px;align-items:center}
+.file-meta .sep{color:#ccd0da}
+.row-trailing{display:flex;flex-direction:column;align-items:flex-end;gap:7px;color:#a0a7b6;font-size:10px;white-space:nowrap}
+.status-chip{font-size:9px;padding:4px 7px;border-radius:999px;background:var(--green-soft);color:var(--green);font-weight:700}
+.status-chip.running{background:var(--blue-soft);color:var(--blue)}
+.folder-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.location-card{border:1px solid var(--line);background:var(--paper);border-radius:16px;padding:13px;display:flex;align-items:center;gap:10px;min-height:62px;text-align:left;color:var(--ink)}
+.location-card:hover{border-color:#d8dcff}
+.location-card .loc-icon{height:34px;width:34px;border-radius:12px;display:grid;place-items:center;background:var(--soft);color:#6b7390}
+.loc-name{font-size:11px;font-weight:680}.loc-sub{font-size:9px;color:var(--muted);margin-top:4px}
+.bottom-nav{height:75px;min-height:75px;border-top:1px solid var(--line);background:var(--paper);display:flex;align-items:center;justify-content:space-around;padding:3px 16px calc(5px + env(safe-area-inset-bottom));z-index:4}
+.nav-item{border:0;background:none;color:#a0a6b6;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-width:72px;padding:5px 12px}
+.nav-item span{font-size:9px;font-weight:620}
+.nav-item.active{color:var(--blue)}
+.nav-item.active .nav-icon-wrap{background:var(--blue-soft)}
+.nav-icon-wrap{width:35px;height:28px;border-radius:10px;display:grid;place-items:center}
+.back-title{display:flex;align-items:center;gap:10px}
+.back-button{border:0;background:var(--paper);color:var(--blue);width:35px;height:35px;border-radius:12px;display:grid;place-items:center}
+.detail-summary{margin:0 20px;background:linear-gradient(135deg,#fff 0%,#fbfbff 100%);border:1px solid var(--line);border-radius:20px;padding:15px;box-shadow:0 4px 16px #27345a07}
+.summary-top{display:flex;align-items:center;gap:12px}
+.summary-icon{width:49px;height:49px;border-radius:16px;background:#eef0ff;color:var(--blue);display:grid;place-items:center}
+.summary-name{font-size:15px;font-weight:740;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.summary-tag{font-size:10px;color:var(--muted);margin-top:5px}
+.summary-stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);margin-top:14px;padding-top:12px}
+.stat{text-align:center;border-right:1px solid var(--line)}
+.stat:last-child{border:0}
+.stat b{font-size:12px;display:block}
+.stat span{font-size:9px;color:var(--muted);display:block;margin-top:4px}
+.detail-actions{display:flex;gap:9px;margin:12px 20px 0}
+.action-primary{flex:1;border:0;border-radius:14px;background:var(--blue);color:white;height:44px;font-size:12px;font-weight:730;display:flex;align-items:center;justify-content:center;gap:7px;box-shadow:0 5px 12px #5669ee33}
+.action-primary:hover{background:var(--blue-dark)}
+.action-secondary{border:1px solid var(--line);background:var(--paper);color:#626b82;border-radius:14px;height:44px;padding:0 14px;font-size:12px;font-weight:680;display:flex;align-items:center;gap:7px}
+.action-secondary.selected{background:var(--blue-soft);color:var(--blue);border-color:#d9ddff}
+.searchbar{display:flex;align-items:center;gap:8px;padding:0 11px;height:37px;background:var(--soft);border-radius:12px;color:#9ba2b1}
+.searchbar input{border:0;background:transparent;outline:0;color:var(--ink);width:100%;font-size:11px}
+.filter-tabs{display:flex;gap:7px;overflow-x:auto;scrollbar-width:none;margin-top:10px}
+.filter-tabs::-webkit-scrollbar{display:none}
+.filter-tab{border:1px solid var(--line);background:var(--paper);color:#81889a;border-radius:999px;padding:6px 10px;font-size:10px;white-space:nowrap}
+.filter-tab.active{background:var(--blue-soft);color:var(--blue);border-color:#dfe2ff;font-weight:700}
+.entry-list{background:var(--paper);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.entry-row{display:flex;align-items:center;gap:9px;padding:11px 10px;border-bottom:1px solid var(--line);min-height:58px}
+.entry-row:last-child{border:0}
+.entry-select{width:18px;height:18px;border:1.5px solid #d4d8e2;border-radius:6px;display:grid;place-items:center;flex:none;color:white}
+.entry-select.on{background:var(--blue);border-color:var(--blue)}
+.entry-type{width:32px;height:32px;display:grid;place-items:center;border-radius:10px;flex:none}
+.entry-type.folder{background:#fff4de;color:#d5942c}.entry-type.pdf{background:#fff0f1;color:#d95b67}.entry-type.img{background:#eaf5ff;color:#4689ca}.entry-type.txt{background:#f2efff;color:#8065c8}.entry-type.zip{background:#eef0ff;color:#586be9}
+.entry-info{min-width:0;flex:1}
+.entry-name{font-size:11px;font-weight:650;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.entry-sub{font-size:9px;color:var(--muted);margin-top:4px}
+.entry-size{font-size:9px;color:#9ba2b1;white-space:nowrap}
+.path-pill{display:flex;align-items:center;gap:5px;font-size:10px;color:#7e8699;background:var(--soft);border-radius:10px;padding:8px 10px;margin-top:11px}
+.sticky-action{padding:10px 20px 12px;background:linear-gradient(180deg,#f7f8fc00,#f7f8fc 22%);position:absolute;bottom:75px;left:0;right:0;z-index:3}
+.sticky-action button{width:100%;height:45px}
+.create-progress{height:5px;border-radius:9px;background:#e9ebf4;overflow:hidden;margin-top:12px}
+.create-progress span{display:block;height:100%;background:var(--blue);border-radius:9px;transition:width .3s}
+.create-step{font-size:10px;color:var(--muted);margin-top:7px;text-align:center}
+.selection-bar{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border:1px solid #e1e4ff;background:#f6f7ff;border-radius:13px;margin-bottom:10px;font-size:11px;color:#626b82}
+.selection-bar b{color:var(--blue)}
+.form-card{border:1px solid var(--line);background:var(--paper);border-radius:17px;padding:14px;margin-bottom:10px}
+.form-label{font-size:10px;color:var(--muted);font-weight:650;margin-bottom:9px}
+.text-input{width:100%;height:41px;border:1px solid var(--line);background:var(--soft);border-radius:11px;padding:0 11px;outline:none;color:var(--ink);font-size:12px}
+.text-input:focus{border-color:#bfc6ff;box-shadow:0 0 0 3px #eef0ff}
+.option-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid var(--line);font-size:11px}
+.option-row:first-of-type{border-top:0;padding-top:0}
+.option-label{font-weight:650}.option-sub{font-size:9px;color:var(--muted);margin-top:3px}
+.segment{display:flex;padding:3px;background:var(--soft);border-radius:10px;gap:2px}
+.segment button{border:0;background:transparent;border-radius:8px;padding:6px 9px;color:#858c9d;font-size:9px}
+.segment button.active{background:var(--paper);color:var(--blue);font-weight:700;box-shadow:0 1px 4px #232c4c14}
+.switch{width:37px;height:22px;border:0;border-radius:99px;background:#d8dbe4;padding:3px;transition:.2s}
+.switch:after{content:"";display:block;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 3px #0002;transition:.2s}
+.switch.on{background:var(--blue)}
+.switch.on:after{transform:translateX(15px)}
+.full-button{height:46px;width:100%;background:var(--blue);color:white;border:0;border-radius:14px;font-weight:720;font-size:12px;box-shadow:0 5px 12px #5669ee2e}
+.full-button:disabled{opacity:.42;cursor:not-allowed}
+.task-card{border:1px solid var(--line);background:var(--paper);border-radius:17px;padding:13px;margin-bottom:10px}
+.task-top{display:flex;align-items:center;gap:10px}
+.task-icon{width:39px;height:39px;border-radius:13px;background:var(--blue-soft);color:var(--blue);display:grid;place-items:center;flex:none}
+.task-name{font-size:12px;font-weight:700}
+.task-caption{font-size:9px;color:var(--muted);margin-top:4px}
+.task-actions{margin-left:auto;display:flex;gap:5px}
+.small-icon-btn{width:30px;height:30px;border:1px solid var(--line);background:var(--paper);color:#7e8699;border-radius:10px;display:grid;place-items:center}
+.task-line{display:flex;justify-content:space-between;font-size:9px;color:var(--muted);margin-top:12px}
+.task-card .create-progress{margin-top:7px}
+.task-done{margin-top:10px;background:var(--green-soft);border-radius:10px;color:var(--green);padding:8px 9px;font-size:9px;display:flex;align-items:center;gap:6px}
+.task-error{margin-top:10px;background:var(--orange-soft);border-radius:10px;color:#a66b2e;padding:9px;font-size:9px;line-height:1.5}
+.tab-switch{display:flex;gap:5px;background:var(--soft);border-radius:12px;padding:4px;margin:0 20px 13px}
+.tab-switch button{flex:1;border:0;background:transparent;border-radius:9px;padding:8px 5px;color:#9299a9;font-size:10px;font-weight:650}
+.tab-switch button.active{background:var(--paper);color:var(--ink);box-shadow:0 1px 4px #27345a10}
+.settings-group{margin:15px 20px 0}
+.settings-label{font-size:10px;color:#a0a6b5;font-weight:700;margin:0 0 8px 4px}
+.settings-card{background:var(--paper);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.settings-row{min-height:54px;display:flex;align-items:center;gap:11px;padding:9px 12px;border-bottom:1px solid var(--line)}
+.settings-row:last-child{border:0}
+.settings-icon{width:32px;height:32px;border-radius:11px;background:var(--soft);color:#6e7893;display:grid;place-items:center}
+.settings-copy{flex:1;min-width:0}
+.settings-name{font-size:11px;font-weight:680}
+.settings-hint{font-size:9px;color:var(--muted);margin-top:3px}
+.settings-value{font-size:10px;color:#9299a9}
+.switch-label{border:0;background:transparent;padding:0}
+.bottom-note{text-align:center;color:#a1a7b6;font-size:9px;padding:22px 20px 8px;line-height:1.6}
+.modal-backdrop{position:absolute;inset:0;background:#141a2c70;z-index:20;display:flex;align-items:flex-end;justify-content:center;animation:fadein .16s ease}
+.sheet{width:100%;max-height:84%;overflow:auto;background:var(--paper);border-radius:23px 23px 0 0;padding:10px 20px calc(21px + env(safe-area-inset-bottom));box-shadow:0 -12px 50px #11182c24;animation:slideup .23s cubic-bezier(.2,.75,.2,1)}
+.sheet-handle{width:37px;height:4px;background:#dfe2e9;border-radius:5px;margin:0 auto 16px}
+.sheet-head{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:15px}
+.sheet-title{font-size:17px;font-weight:740}
+.sheet-subtitle{font-size:10px;color:var(--muted);margin-top:5px}
+.sheet-close{border:0;background:var(--soft);color:#767f94;width:29px;height:29px;border-radius:10px;display:grid;place-items:center}
+.destination-option{display:flex;align-items:center;gap:11px;padding:12px;border:1px solid var(--line);border-radius:14px;margin-bottom:8px;cursor:pointer}
+.destination-option.active{border-color:#cdd2ff;background:#f8f8ff}
+.radio{width:17px;height:17px;border:1.5px solid #cdd2dc;border-radius:50%;display:grid;place-items:center}
+.destination-option.active .radio{border-color:var(--blue)}
+.destination-option.active .radio:after{content:"";width:9px;height:9px;background:var(--blue);border-radius:50%}
+.dest-title{font-size:11px;font-weight:680}.dest-sub{font-size:9px;color:var(--muted);margin-top:4px}
+.sheet-options{margin:13px 0}
+.sheet-option{display:flex;align-items:center;justify-content:space-between;padding:10px 2px;font-size:10px;border-top:1px solid var(--line)}
+.toast{position:absolute;bottom:91px;left:50%;transform:translateX(-50%) translateY(12px);z-index:30;opacity:0;background:#22283a;color:#fff;border-radius:12px;padding:10px 13px;font-size:10px;white-space:nowrap;box-shadow:0 7px 24px #1114;transition:.22s;pointer-events:none}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.empty-state{text-align:center;padding:34px 20px;color:var(--muted)}
+.empty-icon{width:54px;height:54px;border-radius:19px;margin:0 auto 12px;background:var(--soft);display:grid;place-items:center;color:#9aa1b4}
+.empty-state b{display:block;color:var(--ink);font-size:12px;margin-bottom:5px}
+.empty-state span{font-size:10px}
+.side-panel{width:270px;align-self:center}
+.side-card{background:#ffffffad;border:1px solid #e6e9f1;border-radius:20px;padding:17px;margin-bottom:12px}
+.side-kicker{font-size:10px;color:#9aa1b3;font-weight:700;letter-spacing:.08em}
+.side-card h3{font-size:14px;margin:7px 0 12px;letter-spacing:-.2px}
+.demo-list{display:grid;gap:7px}
+.demo-action{width:100%;display:flex;align-items:center;gap:9px;border:1px solid #e9ebf2;background:#fff;border-radius:12px;padding:10px;text-align:left;color:#5f687e;font-size:11px;transition:.15s}
+.demo-action:hover{border-color:#cdd2ff;color:var(--blue)}
+.demo-action svg{color:var(--blue)}
+.side-foot{color:#a3a9b7;font-size:10px;line-height:1.6;padding:0 3px}
+.toast-global{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#20263a;color:#fff;padding:11px 15px;border-radius:14px;font-size:12px;opacity:0;pointer-events:none;transition:.2s;z-index:99}
+.toast-global.show{opacity:1}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+@keyframes slideup{from{transform:translateY(25px);opacity:.7}to{transform:translateY(0);opacity:1}}
+.dark{--bg:#111520;--paper:#191e2c;--soft:#202636;--ink:#f0f2f8;--muted:#9aa3b7;--line:#2b3243;--blue-soft:#292f52;--green-soft:#18352f;--orange-soft:#3b2d20;--red-soft:#3d272c;color-scheme:dark}
+.dark .welcome-card{background:linear-gradient(135deg,#4655c9,#6872df)}
+.dark .detail-summary{background:linear-gradient(135deg,#191e2c,#202436)}
+.dark .bottom-nav{background:var(--paper)}
+.dark .modal-backdrop{background:#050811a8}
+.dark .destination-option.active{background:#222744}
+.dark .side-card,.dark .demo-action{background:#171c29;border-color:#30384a}
+.dark .flow-item{background:#191e2c;border-color:#30384a;color:#c1c7d5}
+.dark .eyebrow{background:#191e2c;border-color:#30384a;color:#b7bfd0}
+@media(max-width:1120px){.stage{grid-template-columns:minmax(275px,390px) 402px;gap:40px}.side-panel{display:none}}
+@media(max-width:760px){
+ body{background:var(--bg)}
+ .stage{display:block;padding:0;min-height:100dvh}
+ .intro,.side-panel{display:none}
+ .device{width:100%;height:100dvh;min-height:600px;border:0;border-radius:0;box-shadow:none}
+ .dynamic-island{top:7px}
+ .statusbar{height:49px;min-height:49px;padding-top:8px}
+}
+@media(max-height:710px) and (min-width:761px){.device{height:calc(100vh - 24px);min-height:0}.stage{padding-top:12px;padding-bottom:12px}}
+</style>
+</head>
+<body>
+<main class="stage">
+  <aside class="intro">
+    <div class="eyebrow"><i></i> ZIPKIT · IOS INTERACTIVE PROTOTYPE</div>
+    <h1>压缩文件，<br><span>简单而可靠。</span></h1>
+    <p>一款专注于压缩与解压的 iOS 工具。快速打开归档、明确选择保存位置，在本机安心完成每一次文件交接。</p>
+    <div class="intro-rule"></div>
+    <div class="flow-title">Try the prototype</div>
+    <div class="flow-list">
+      <div class="flow-item"><span class="flow-num">01</span>浏览文件，打开 ZIP 查看目录</div>
+      <div class="flow-item"><span class="flow-num">02</span>选择文件并解压到目标位置</div>
+      <div class="flow-item"><span class="flow-num">03</span>批量选择资料，创建加密压缩包</div>
+    </div>
+    <p class="intro-note">交互原型 · 演示数据仅保存在当前页面内，不会上传文件。</p>
+  </aside>
+
+  <section class="device" aria-label="ZipKit iOS 原型">
+    <div class="dynamic-island"></div>
+    <div class="app" id="app"></div>
+    <div class="toast" id="toast"></div>
+  </section>
+
+  <aside class="side-panel">
+    <div class="side-card">
+      <div class="side-kicker">PROTOTYPE SHORTCUTS</div>
+      <h3>快速体验关键流程</h3>
+      <div class="demo-list">
+        <button class="demo-action" data-action="demo-open"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7.5A2.5 2.5 0 0 1 6.5 5H11l2 2h4.5A2.5 2.5 0 0 1 20 9.5v8a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 17.5z"/><path d="M12 10v6m-3-3 3-3 3 3"/></svg>查看课程资料 ZIP</button>
+        <button class="demo-action" data-action="demo-create"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v12m-4-4 4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>创建加密压缩包</button>
+        <button class="demo-action" data-action="tab-tasks"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>查看任务进度</button>
+        <button class="demo-action" data-action="toggle-theme"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.5 15.5A8.5 8.5 0 0 1 8.5 3.5a8.5 8.5 0 1 0 12 12z"/></svg>切换深色模式</button>
+      </div>
+    </div>
+    <div class="side-foot">交互状态会保留在页面运行期间。重新载入后恢复示例数据。</div>
+  </aside>
+</main>
+<div class="toast-global" id="global-toast"></div>
+
+<script>
+(function(){
+  const app=document.getElementById('app');
+  const toast=document.getElementById('toast');
+  const globalToast=document.getElementById('global-toast');
+  const iconPaths={
+    search:'<circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path>',
+    more:'<circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle>',
+    zip:'<path d="M7 3h7l4 4v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"></path><path d="M14 3v5h5M11 8h2v2h-2zm0 4h2v2h-2zm0 4h2v2h-2z"></path>',
+    folder:'<path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2h6.5A2.5 2.5 0 0 1 21 9.5v8a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5z"></path>',
+    extract:'<path d="M12 3v12m-4-4 4 4 4-4"></path><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"></path>',
+    archive:'<path d="M4 4h16v5H4zM6 9v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V9"></path><path d="M10 13h4m-2-4v4"></path>',
+    file:'<path d="M6 3h8l4 4v14H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"></path><path d="M14 3v5h5M8 13h8M8 17h6"></path>',
+    image:'<rect x="3" y="4" width="18" height="16" rx="2"></rect><circle cx="9" cy="10" r="1.5"></circle><path d="m21 15-5-5L5 20"></path>',
+    pdf:'<path d="M6 3h8l4 4v14H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"></path><path d="M14 3v5h5M8 14h8M8 17h5"></path>',
+    clock:'<circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path>',
+    cloud:'<path d="M7 18h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 9.5 4.2 4.2 0 0 0 7 18Z"></path>',
+    star:'<path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3l-5.6 2.9 1.1-6.2L3 9.6l6.2-.9z"></path>',
+    task:'<path d="M8 6h12M8 12h12M8 18h12"></path><path d="m3 6 1 1 2-2m-3 7 1 1 2-2m-3 7 1 1 2-2"></path>',
+    settings:'<circle cx="12" cy="12" r="3"></circle><path d="m19.4 15 .1.1 1.4 1.1-1.4 2.4-1.7-.6a8 8 0 0 1-1.5.9l-.3 1.8h-2.8l-.3-1.8a8 8 0 0 1-1.5-.9l-1.7.6-1.4-2.4 1.4-1.1A7 7 0 0 1 7.5 13l-1.8-.3V9.9l1.8-.3a7 7 0 0 1 .7-1.5L6.8 6.7l1.4-2.4 1.7.6a8 8 0 0 1 1.5-.9l.3-1.8h2.8l.3 1.8a8 8 0 0 1 1.5.9l1.7-.6 1.4 2.4L19 7.8a7 7 0 0 1 .7 1.5l1.8.3v2.8l-1.8.3a7 7 0 0 1-.3 2.3Z"></path>',
+    back:'<path d="m15 18-6-6 6-6"></path>',
+    chevron:'<path d="m9 18 6-6-6-6"></path>',
+    check:'<path d="m5 12 4 4L19 6"></path>',
+    plus:'<path d="M12 5v14M5 12h14"></path>',
+    pause:'<path d="M8 5h3v14H8zM15 5h3v14h-3z"></path>',
+    play:'<path d="m8 5 12 7-12 7z"></path>',
+    close:'<path d="m6 6 12 12M18 6 6 18"></path>',
+    lock:'<rect x="4" y="10" width="16" height="11" rx="2"></rect><path d="M8 10V7a4 4 0 1 1 8 0v3m-4 5v2"></path>',
+    shield:'<path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"></path><path d="m9 12 2 2 4-4"></path>',
+    menu:'<path d="M4 6h16M4 12h16M4 18h16"></path>',
+    info:'<circle cx="12" cy="12" r="9"></circle><path d="M12 11v5m0-8h.01"></path>',
+    download:'<path d="M12 3v12m-4-4 4 4 4-4"></path><path d="M4 18v3h16v-3"></path>',
+    share:'<path d="M12 16V4m-4 4 4-4 4 4"></path><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"></path>',
+    checkCircle:'<circle cx="12" cy="12" r="9"></circle><path d="m8 12 2.5 2.5L16 9"></path>',
+    storage:'<ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path>',
+    phone:'<rect x="6" y="2" width="12" height="20" rx="2"></rect><path d="M11 18h2"></path>',
+    grid:'<rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect>',
+    eye:'<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"></path><circle cx="12" cy="12" r="3"></circle>',
+    trash:'<path d="M3 6h18M8 6V4h8v2m3 0-1 14H6L5 6m4 4v6m6-6v6"></path>'
+  };
+  function ic(name,size){return '<svg width="'+size+'" height="'+size+'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+(iconPaths[name]||iconPaths.file)+'</svg>'}
+  const state={
+    page:'files',modal:'',clock:'9:41',dark:false,search:false,query:'',entryQuery:'',archiveFilter:'全部',
+    archiveName:'课程资料_2026.zip',archiveSelection:[],destination:'与压缩包相同的位置',preserve:true,conflict:'询问',
+    createStep:0,createItems:['课堂笔记.pdf','参考资料','演示稿.key'],createName:'项目资料.zip',createFormat:'ZIP',createLevel:'平衡',createPassword:false,createPasswordValue:'',createDestination:'本机 / 下载',createMore:false,
+    taskFilter:'进行中',tasks:[
+      {id:1,name:'旅行照片.zip',kind:'压缩',percent:68,paused:false,status:'running',detail:'正在压缩 34 / 50 个文件',destination:'iCloud Drive / 旅行'},
+      {id:2,name:'课程资料_2026.zip',kind:'解压',percent:100,paused:false,status:'done',detail:'已解压 18 个文件',destination:'本机 / 下载',outputLocation:'下载',outputFolder:'课程资料_2026',items:[{name:'课程资料/',kind:'folder',meta:'文件夹 · 12 项'},{name:'01-课程大纲.pdf',kind:'pdf',meta:'PDF 文档 · 2.4 MB'},{name:'README.txt',kind:'text',meta:'文本文件 · 4 KB'}]}
+    ],
+    currentLocation:'本机',favorite:false,
+    files:[
+      {name:'课程资料_2026.zip',kind:'zip',meta:'ZIP · 248 MB · 18 个文件',date:'今天 09:32',location:'下载'},
+      {name:'项目素材',kind:'folder',meta:'文件夹 · 24 个项目',date:'今天 08:15',location:'本机'},
+      {name:'会议纪要.pdf',kind:'pdf',meta:'PDF · 2.4 MB',date:'昨天 17:48',location:'下载'},
+      {name:'品牌视觉.zip',kind:'zip',meta:'ZIP · 86 MB · 42 个文件',date:'昨天 15:20',location:'iCloud Drive'},
+      {name:'封面草图.png',kind:'image',meta:'PNG 图片 · 5.8 MB',date:'9月28日',location:'本机'}
+    ],
+    entries:[
+      {name:'课程资料/',kind:'folder',meta:'文件夹 · 12 项',size:'',selected:false},
+      {name:'01-课程大纲.pdf',kind:'pdf',meta:'PDF 文档',size:'2.4 MB',selected:false},
+      {name:'02-阅读清单.pdf',kind:'pdf',meta:'PDF 文档',size:'1.8 MB',selected:false},
+      {name:'示例素材.png',kind:'image',meta:'PNG 图片',size:'12.6 MB',selected:false},
+      {name:'README.txt',kind:'text',meta:'文本文件',size:'4 KB',selected:false},
+      {name:'参考资料.zip',kind:'zip',meta:'ZIP 压缩包',size:'38 MB',selected:false}
+    ]
+  };
+  function fileIcon(kind){const map={zip:'zip',folder:'folder',pdf:'pdf',image:'image',text:'file',archive:'archive'};return map[kind]||'file'}
+  function iconClass(kind){return ({zip:'zip',folder:'folder',pdf:'pdf',image:'image',text:'text',archive:'archive'})[kind]||'text'}
+  function setPage(page){state.page=page;state.modal='';state.search=false;state.query='';render()}
+  function titlePage(title,sub,back){return '<div class="topbar">'+(back?'<div class="back-title"><button class="back-button" data-action="back">'+ic('back',19)+'</button><div><div class="top-title">'+title+'</div><div class="top-sub">'+sub+'</div></div></div>':'<div><div class="top-title">'+title+'</div><div class="top-sub">'+sub+'</div></div>')+'<div class="top-actions">'+(!back?'<button class="icon-btn" data-action="search-toggle" aria-label="搜索">'+ic('search',18)+'</button>':'<button class="icon-btn" data-action="share" aria-label="分享">'+ic('share',17)+'</button>')+'<button class="icon-btn" data-action="'+(back?'more-archive':'quick-menu')+'" aria-label="更多">'+ic('more',18)+'</button></div></div>'}
+  function statusbar(){return '<div class="statusbar"><span>9:41</span><div class="status-right"><span class="signal"><b></b><b></b><b></b><b></b></span><span style="font-size:10px">5G</span><span class="battery"><i></i></span></div></div>'}
+  function bottomNav(){return '<nav class="bottom-nav" aria-label="主导航"><button class="nav-item '+(state.page==='files'||state.page==='archive'||state.page.indexOf('create')===0?'active':'')+'" data-action="tab-files"><span class="nav-icon-wrap">'+ic('folder',18)+'</span><span>文件</span></button><button class="nav-item '+(state.page==='tasks'?'active':'')+'" data-action="tab-tasks"><span class="nav-icon-wrap">'+ic('task',18)+'</span><span>任务</span></button><button class="nav-item '+(state.page==='settings'?'active':'')+'" data-action="tab-settings"><span class="nav-icon-wrap">'+ic('settings',18)+'</span><span>设置</span></button></nav>'}
+  function welcome(){return '<div class="welcome-card"><div class="welcome-kicker"><i class="dot"></i> 本地处理 · 文件不上传</div><div class="welcome-title">文件整理得很顺手。</div><div class="welcome-copy">打开压缩包、提取需要的文件，或把资料打包分享。</div><div class="welcome-foot"><span class="privacy-pill">'+ic('shield',13)+' 隐私优先</span><button class="primary-small" data-action="open-import">打开压缩包</button></div></div>'}
+  function quickActions(){return '<div class="section"><div class="section-head"><div class="section-title">快速操作</div><button class="section-link" data-action="open-create">常用方案</button></div><div class="quick-grid"><button class="quick-card" data-action="open-import"><span class="quick-icon purple">'+ic('extract',20)+'</span><span><b class="quick-label">解压文件</b><small class="quick-caption">ZIP · RAR · 7z 等</small></span></button><button class="quick-card" data-action="open-create"><span class="quick-icon mint">'+ic('archive',20)+'</span><span><b class="quick-label">创建压缩包</b><small class="quick-caption">多选文件，一次打包</small></span></button></div></div>'}
+  function homeFiles(){let rows=state.files.filter(function(f){return !state.query||f.name.toLowerCase().indexOf(state.query.toLowerCase())>=0});if(!rows.length)return '<div class="empty-state"><div class="empty-icon">'+ic('search',22)+'</div><b>没有找到文件</b><span>试试其他名称</span></div>';return '<div class="list-card">'+rows.slice(0,4).map(function(f){return '<div class="file-row" data-action="'+(f.kind==='zip'?'open-archive':f.kind==='folder'?'open-folder':'preview')+'" data-name="'+f.name+'"><div class="file-icon '+iconClass(f.kind)+'">'+ic(fileIcon(f.kind),19)+'</div><div class="file-main"><div class="file-name">'+f.name+'</div><div class="file-meta"><span>'+f.meta.split(' · ')[0]+'</span><i class="sep">·</i><span>'+f.date+'</span></div></div><div class="row-trailing"><span>'+f.location+'</span>'+ic('chevron',15)+'</div></div>'}).join('')+'</div>'}
+  function locations(){return '<div class="section"><div class="section-head"><div class="section-title">浏览位置</div><button class="section-link" data-action="locations">全部位置</button></div><div class="folder-grid"><button class="location-card" data-action="location" data-name="本机"><span class="loc-icon">'+ic('phone',17)+'</span><span><b class="loc-name">本机</b><small class="loc-sub">我的 iPhone</small></span></button><button class="location-card" data-action="location" data-name="iCloud Drive"><span class="loc-icon">'+ic('cloud',18)+'</span><span><b class="loc-name">iCloud Drive</b><small class="loc-sub">同步文件</small></span></button><button class="location-card" data-action="location" data-name="收藏"><span class="loc-icon">'+ic('star',17)+'</span><span><b class="loc-name">收藏</b><small class="loc-sub">常用文件</small></span></button><button class="location-card" data-action="tab-tasks"><span class="loc-icon">'+ic('clock',17)+'</span><span><b class="loc-name">最近任务</b><small class="loc-sub">查看处理记录</small></span></button></div></div>'}
+  function home(){return titlePage(state.search?'<input class="text-input" id="home-search" placeholder="搜索文件" value="'+state.query+'" style="width:210px;height:36px">':'文件','本机 · '+state.files.length+' 个最近文件',false)+welcome()+quickActions()+'<div class="section"><div class="section-head"><div class="section-title">最近文件</div><button class="section-link" data-action="all-files">查看全部</button></div>'+homeFiles()+'</div>'+locations()}
+  function archive(){let selected=state.entries.filter(function(e){return e.selected}).length;let found=state.entries.filter(function(e){let matches=(!state.entryQuery||e.name.toLowerCase().indexOf(state.entryQuery.toLowerCase())>=0)&& (state.archiveFilter==='全部'||(state.archiveFilter==='文件夹'?e.kind==='folder':state.archiveFilter==='图片'?e.kind==='image':state.archiveFilter==='文档'?e.kind==='pdf'||e.kind==='text':state.archiveFilter==='压缩包'?e.kind==='zip':true));return matches});let tabs=['全部','文件夹','图片','文档','压缩包'];return titlePage(state.archiveName,'压缩包详情',true)+'<div class="detail-summary"><div class="summary-top"><div class="summary-icon">'+ic('zip',25)+'</div><div style="min-width:0"><div class="summary-name">'+state.archiveName+'</div><div class="summary-tag">ZIP · AES 加密 · 今天 09:32</div></div><button class="icon-btn" style="margin-left:auto;width:34px;height:34px" data-action="favorite">'+ic('star',16)+'</button></div><div class="summary-stats"><div class="stat"><b>248 MB</b><span>压缩大小</span></div><div class="stat"><b>18</b><span>文件项目</span></div><div class="stat"><b>约 410 MB</b><span>展开后</span></div></div></div><div class="detail-actions"><button class="action-primary" data-action="open-extract">'+ic('extract',17)+' 解压到…</button><button class="action-secondary '+(selected?'selected':'')+'" data-action="select-all">'+ic('check',15)+' '+(selected?'已选 '+selected:'选择')+'</button></div><div class="section" style="margin-top:14px"><div class="searchbar">'+ic('search',15)+'<input id="entry-search" placeholder="搜索压缩包内容" value="'+state.entryQuery+'"></div><div class="filter-tabs">'+tabs.map(function(t){return '<button class="filter-tab '+(state.archiveFilter===t?'active':'')+'" data-action="filter-archive" data-name="'+t+'">'+t+'</button>'}).join('')+'</div><div class="section-head" style="margin-top:14px;margin-bottom:8px"><div class="section-title">归档内容</div><button class="section-link" data-action="select-all">全选</button></div><div class="entry-list">'+(found.length?found.map(function(e){return '<div class="entry-row" data-action="'+(e.kind==='folder'?'entry-folder':e.kind==='zip'?'entry-nested':'entry-preview')+'" data-name="'+e.name+'"><button class="entry-select '+(e.selected?'on':'')+'" data-action="toggle-entry" data-name="'+e.name+'">'+(e.selected?ic('check',12):'')+'</button><span class="entry-type '+(e.kind==='folder'?'folder':e.kind==='image'?'img':e.kind==='pdf'?'pdf':e.kind==='zip'?'zip':'txt')+'">'+ic(fileIcon(e.kind),15)+'</span><span class="entry-info"><b class="entry-name">'+e.name+'</b><small class="entry-sub">'+e.meta+'</small></span><span class="entry-size">'+e.size+'</span></div>'}).join(''):'<div class="empty-state" style="padding:22px 10px"><b>没有匹配的内容</b></div>')+'</div><div class="path-pill">'+ic('folder',13)+' '+state.archiveName+' <span style="margin-left:auto">仅在本机读取</span></div></div><div style="height:65px"></div>'+(selected?'<div class="sticky-action"><button class="full-button" data-action="open-extract">解压已选 '+selected+' 项</button></div>':'')}
+  function createPage(){if(state.createStep===0){return titlePage('选择文件','创建压缩包 · 第 1 步',true)+'<div class="section"><div class="selection-bar"><span>已选择 <b>'+state.createItems.length+' 项</b></span><button class="section-link" data-action="clear-create">清除</button></div><div class="list-card">'+[
+    {name:'课堂笔记.pdf',kind:'pdf',meta:'PDF · 3.2 MB'},
+    {name:'参考资料',kind:'folder',meta:'文件夹 · 12 项 · 84 MB'},
+    {name:'演示稿.key',kind:'text',meta:'Keynote · 18 MB'},
+    {name:'调研截图.png',kind:'image',meta:'PNG 图片 · 5.4 MB'},
+    {name:'录屏演示.mov',kind:'image',meta:'视频 · 126 MB'}
+  ].map(function(f){let on=state.createItems.indexOf(f.name)>=0;return '<div class="file-row" data-action="toggle-create-item" data-name="'+f.name+'"><span class="entry-select '+(on?'on':'')+'">'+(on?ic('check',12):'')+'</span><div class="file-icon '+iconClass(f.kind)+'">'+ic(fileIcon(f.kind),18)+'</div><div class="file-main"><div class="file-name">'+f.name+'</div><div class="file-meta">'+f.meta+'</div></div></div>'}).join('')+'</div><p style="font-size:9px;color:var(--muted);line-height:1.55;padding:0 3px">来源：本机文件与用户选中的照片。此原型不读取设备实际文件。</p><button class="full-button" data-action="create-next" '+(state.createItems.length?'':'disabled')+'>继续设置</button></div>'}
+    return titlePage('压缩设置','创建压缩包 · 第 2 步',true)+'<div class="section"><div class="form-card"><div class="form-label">压缩包名称</div><input class="text-input" id="create-name" value="'+state.createName+'" placeholder="输入名称"></div><div class="form-card"><div class="option-row" style="border:0;padding-top:0"><div><div class="option-label">保存位置</div><div class="option-sub">'+state.createDestination+'</div></div><button class="action-secondary" style="height:32px;padding:0 9px;font-size:9px" data-action="pick-create-destination">更改</button></div><div class="option-row"><div><div class="option-label">压缩格式</div><div class="option-sub">ZIP 兼容性更好</div></div><div class="segment"><button class="'+(state.createFormat==='ZIP'?'active':'')+'" data-action="format" data-name="ZIP">ZIP</button><button class="'+(state.createFormat==='7z'?'active':'')+'" data-action="format" data-name="7z">7z</button></div></div><div class="option-row"><div><div class="option-label">压缩级别</div><div class="option-sub">平衡速度和体积</div></div><div class="segment"><button class="'+(state.createLevel==='平衡'?'active':'')+'" data-action="level" data-name="平衡">平衡</button><button class="'+(state.createLevel==='更小体积'?'active':'')+'" data-action="level" data-name="更小体积">更小</button></div></div><div class="option-row"><div><div class="option-label">设置密码</div><div class="option-sub">加密保护压缩包</div></div><button class="switch '+(state.createPassword?'on':'')+'" data-action="toggle-create-password" aria-label="设置密码"></button></div>'+(state.createPassword?'<div style="padding:9px 0 2px"><input class="text-input" id="create-password" type="password" placeholder="输入压缩包密码" value="'+state.createPasswordValue+'"><div style="font-size:9px;color:var(--muted);margin-top:6px;display:flex;gap:5px;align-items:center">'+ic('lock',12)+' 密码仅保存在本机内存中</div></div>':'')+'</div><div class="form-card"><div class="option-row" style="border:0;padding-top:0"><div><div class="option-label">目录结构</div><div class="option-sub">保留所选文件夹层级</div></div><button class="switch '+(state.preserve?'on':'')+'" data-action="toggle-preserve" aria-label="保留目录"></button></div></div><button class="full-button" data-action="create-submit">创建压缩包 · '+state.createItems.length+' 项</button><p style="font-size:9px;color:var(--muted);text-align:center;margin:11px 5px">完全在本机处理 · 不上传文件</p></div>'}
+  function taskCard(t){return '<div class="task-card"><div class="task-top"><span class="task-icon">'+ic(t.kind==='解压'?'extract':'archive',18)+'</span><div><div class="task-name">'+t.name+'</div><div class="task-caption">'+t.kind+' · '+t.destination+'</div></div><div class="task-actions">'+(t.status==='running'?'<button class="small-icon-btn" data-action="pause-task" data-id="'+t.id+'" aria-label="'+(t.paused?'继续':'暂停')+'">'+ic(t.paused?'play':'pause',13)+'</button><button class="small-icon-btn" data-action="cancel-task" data-id="'+t.id+'" aria-label="取消">'+ic('close',14)+'</button>':t.status==='failed'?'<button class="small-icon-btn" data-action="retry-task" data-id="'+t.id+'" aria-label="重试">'+ic('play',13)+'</button>':'<button class="small-icon-btn" data-action="open-result" data-id="'+t.id+'" aria-label="查看结果">'+ic('chevron',14)+'</button>')+'</div></div>'+(t.status==='running'?'<div class="task-line"><span>'+(t.paused?'已暂停 · ': '')+t.detail+'</span><b style="color:var(--blue)">'+t.percent+'%</b></div><div class="create-progress"><span style="width:'+t.percent+'%;'+(t.paused?'background:#a4abc1':'')+'"></span></div>':t.status==='done'?'<div class="task-done">'+ic('checkCircle',14)+' '+t.detail+' · '+t.destination+'</div>':'<div class="task-error">任务已取消，源文件保持不变。临时文件已清理。</div>')+'</div>'}
+  function tasksPage(){let ts=state.tasks.filter(function(t){return state.taskFilter==='全部'||(state.taskFilter==='进行中'?t.status==='running':state.taskFilter==='已完成'?t.status==='done':t.status==='cancelled'||t.status==='failed')});return titlePage('任务','压缩和解压进度',false)+'<div class="tab-switch">'+['进行中','已完成','失败','全部'].map(function(x){return '<button data-action="task-filter" data-name="'+x+'" class="'+(state.taskFilter===x?'active':'')+'">'+x+'</button>'}).join('')+'</div><div class="section" style="margin-top:0">'+(ts.length?ts.map(taskCard).join(''):'<div class="empty-state"><div class="empty-icon">'+ic('task',22)+'</div><b>这里暂时空空的</b><span>创建或解压压缩包后，任务会显示在这里</span></div>')+'<div class="section-head" style="margin-top:21px"><div class="section-title">常用操作</div></div><button class="location-card" style="width:100%" data-action="open-create"><span class="loc-icon" style="background:var(--blue-soft);color:var(--blue)">'+ic('archive',16)+'</span><span><b class="loc-name">再次创建压缩包</b><small class="loc-sub">沿用最近使用的设置</small></span><span style="margin-left:auto;color:#9ba2b1">'+ic('chevron',15)+'</span></button></div>'}
+  function settingsPage(){return titlePage('设置','让文件处理更顺手',false)+'<div class="settings-group"><div class="settings-label">文件处理</div><div class="settings-card"><div class="settings-row"><span class="settings-icon">'+ic('folder',16)+'</span><span class="settings-copy"><b class="settings-name">默认解压位置</b><small class="settings-hint">与压缩包相同的位置</small></span><span class="settings-value">'+ic('chevron',15)+'</span></div><div class="settings-row"><span class="settings-icon">'+ic('grid',16)+'</span><span class="settings-copy"><b class="settings-name">保留目录结构</b><small class="settings-hint">解压时保留归档内文件夹</small></span><button class="switch '+(state.preserve?'on':'')+'" data-action="toggle-preserve"></button></div><div class="settings-row"><span class="settings-icon">'+ic('clock',16)+'</span><span class="settings-copy"><b class="settings-name">最近记录</b><small class="settings-hint">在本机保留最近任务结果</small></span><span class="settings-value">30 天</span></div></div></div><div class="settings-group"><div class="settings-label">隐私与安全</div><div class="settings-card"><div class="settings-row"><span class="settings-icon">'+ic('lock',16)+'</span><span class="settings-copy"><b class="settings-name">Face ID 应用锁</b><small class="settings-hint">打开应用时验证身份</small></span><button class="switch" data-action="toggle-faceid"></button></div><div class="settings-row"><span class="settings-icon">'+ic('shield',16)+'</span><span class="settings-copy"><b class="settings-name">本地处理</b><small class="settings-hint">文件和密码不会上传</small></span><span style="color:var(--green);font-size:10px;font-weight:700">已开启</span></div><div class="settings-row" data-action="clear-data" style="cursor:pointer"><span class="settings-icon">'+ic('trash',16)+'</span><span class="settings-copy"><b class="settings-name">清除最近记录</b><small class="settings-hint">不会删除原始文件</small></span><span class="settings-value">'+ic('chevron',15)+'</span></div></div></div><div class="settings-group"><div class="settings-label">外观</div><div class="settings-card"><div class="settings-row"><span class="settings-icon">'+ic('eye',16)+'</span><span class="settings-copy"><b class="settings-name">深色模式</b><small class="settings-hint">跟随系统外观</small></span><button class="switch '+(state.dark?'on':'')+'" data-action="toggle-theme"></button></div></div></div><div class="bottom-note">ZipKit · 版本 1.0.0<br>没有广告 · 无需账号 · 文件在本机处理</div>'}
+  function modal(){if(!state.modal)return '';let body='';if(state.modal==='extract'){let destinations=['与压缩包相同的位置','本机 / 下载','iCloud Drive','其他位置…'];let selectedCount=state.entries.filter(function(e){return e.selected}).length;body='<div class="sheet-head"><div><div class="sheet-title">解压到哪里？</div><div class="sheet-subtitle">'+(selectedCount?'已选择 '+selectedCount+' 项':'解压全部内容')+'</div></div><button class="sheet-close" data-action="close-modal">'+ic('close',15)+'</button></div>'+destinations.map(function(d){let act=d==='其他位置…'?'other-destination':'destination';return '<div class="destination-option '+(state.destination===d?'active':'')+'" data-action="'+act+'" data-name="'+d+'"><span class="radio"></span><span><b class="dest-title">'+d+'</b><small class="dest-sub">'+(d.indexOf('iCloud')===0?'保存到 iCloud Drive':'保存位置可随时更改')+'</small></span></div>'}).join('')+'<div class="sheet-options"><div class="sheet-option"><span>保留文件夹结构</span><button class="switch '+(state.preserve?'on':'')+'" data-action="toggle-preserve"></button></div><div class="sheet-option"><span>重名文件</span><select id="conflict-select" class="text-input" style="width:130px;height:32px;padding:0 8px;font-size:10px">'+['询问','保留两份','跳过','替换'].map(function(x){return '<option '+(state.conflict===x?'selected':'')+'>'+x+'</option>'}).join('')+'</select></div></div><button class="full-button" data-action="extract-submit">开始解压</button>'}
+    else if(state.modal==='create-destination'){let places=['本机 / 下载','iCloud Drive','其他位置'];body='<div class="sheet-head"><div><div class="sheet-title">保存到哪里？</div><div class="sheet-subtitle">选择新压缩包的保存位置</div></div><button class="sheet-close" data-action="close-modal">'+ic('close',15)+'</button></div>'+places.map(function(d){return '<div class="destination-option '+(state.createDestination===d?'active':'')+'" data-action="create-destination" data-name="'+d+'"><span class="radio"></span><span><b class="dest-title">'+d+'</b><small class="dest-sub">'+(d.indexOf('iCloud')===0?'通过 iCloud Drive 同步':'保存在设备本机')+'</small></span></div>'}).join('')}
+    else if(state.modal==='import'){body='<div class="sheet-head"><div><div class="sheet-title">打开压缩包</div><div class="sheet-subtitle">选择要查看的 ZIP、RAR 或 7z 文件</div></div><button class="sheet-close" data-action="close-modal">'+ic('close',15)+'</button></div><div class="destination-option" data-action="demo-open"><span class="file-icon zip" style="width:35px;height:35px">'+ic('zip',17)+'</span><span><b class="dest-title">课程资料_2026.zip</b><small class="dest-sub">本机 / 下载 · 248 MB</small></span><span style="margin-left:auto;color:var(--blue)">'+ic('chevron',15)+'</span></div><div class="destination-option" data-action="demo-open-brand"><span class="file-icon zip" style="width:35px;height:35px">'+ic('zip',17)+'</span><span><b class="dest-title">品牌视觉.zip</b><small class="dest-sub">iCloud Drive · 86 MB</small></span><span style="margin-left:auto;color:var(--blue)">'+ic('chevron',15)+'</span></div><button class="action-secondary" style="width:100%;justify-content:center;margin-top:5px" data-action="fake-picker">'+ic('folder',15)+' 浏览 Files…</button>'}
+    else if(state.modal==='preview'){body='<div class="sheet-head"><div><div class="sheet-title">'+(state.previewName||'文件预览')+'</div><div class="sheet-subtitle">只读预览 · 原文件不会被修改</div></div><button class="sheet-close" data-action="close-modal">'+ic('close',15)+'</button></div><div style="background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:25px 20px;text-align:center"><div style="width:54px;height:54px;border-radius:18px;margin:0 auto 12px;background:var(--paper);display:grid;place-items:center;color:var(--blue)">'+ic(state.previewName&&state.previewName.indexOf('.pdf')>=0?'pdf':'file',24)+'</div><b style="font-size:12px">'+(state.previewName||'文件')+'</b><p style="font-size:10px;color:var(--muted);line-height:1.6">文件预览将在原生 App 中显示。<br>交互原型不读取设备中的真实文件。</p></div><button class="full-button" style="margin-top:13px" data-action="close-modal">完成</button>'}
+    else if(state.modal==='quick'){body='<div class="sheet-head"><div><div class="sheet-title">更多操作</div><div class="sheet-subtitle">文件位置与显示选项</div></div><button class="sheet-close" data-action="close-modal">'+ic('close',15)+'</button></div><div class="destination-option" data-action="favorite"><span class="loc-icon">'+ic('star',16)+'</span><span><b class="dest-title">'+(state.favorite?'已加入收藏':'加入收藏')+'</b><small class="dest-sub">收藏常用压缩包，之后快速访问</small></span></div><div class="destination-option" data-action="toggle-theme"><span class="loc-icon">'+ic('eye',16)+'</span><span><b class="dest-title">切换外观</b><small class="dest-sub">当前为'+(state.dark?'深色':'浅色')+'模式</small></span></div>'}
+    else if(state.modal==='folder'){let folder=state.files.find(function(f){return f.kind==='folder'&&f.name===state.folderName});let children=folder&&folder.children;body='<div class="sheet-head"><div><div class="sheet-title">'+(state.folderName||'项目素材')+'</div><div class="sheet-subtitle">文件夹 · '+(folder?folder.location:'本机')+(children?' · '+children.length+' 个示例项目':'')+'</div></div><button class="sheet-close" data-action="close-modal">'+ic('close',15)+'</button></div>'+(children&&children.length?children.slice(0,6).map(function(child){return '<div class="destination-option" data-action="preview" data-name="'+child.name+'"><span class="file-icon '+iconClass(child.kind)+'" style="width:35px;height:35px">'+ic(fileIcon(child.kind),16)+'</span><span><b class="dest-title">'+child.name+'</b><small class="dest-sub">'+child.meta+'</small></span></div>'}).join(''):'<div class="destination-option" data-action="open-archive"><span class="file-icon zip" style="width:35px;height:35px">'+ic('zip',16)+'</span><span><b class="dest-title">素材精选.zip</b><small class="dest-sub">ZIP · 12 个文件 · 34 MB</small></span></div><div class="destination-option" data-action="preview"><span class="file-icon image" style="width:35px;height:35px">'+ic('image',16)+'</span><span><b class="dest-title">封面草图.png</b><small class="dest-sub">图片 · 5.8 MB</small></span></div>')}
+    else if(state.modal==='location'){body='<div class="sheet-head"><div><div class="sheet-title">'+(state.locationName||'位置')+'</div><div class="sheet-subtitle">浏览此位置的文件</div></div><button class="sheet-close" data-action="close-modal">'+ic('close',15)+'</button></div><div class="destination-option" data-action="demo-open"><span class="file-icon zip" style="width:35px;height:35px">'+ic('zip',16)+'</span><span><b class="dest-title">课程资料_2026.zip</b><small class="dest-sub">ZIP · 248 MB</small></span></div><div class="destination-option" data-action="open-create"><span class="loc-icon">'+ic('plus',16)+'</span><span><b class="dest-title">在此位置创建压缩包</b><small class="dest-sub">选择文件并打包</small></span></div>'}
+    else if(state.modal==='created'){body='<div style="text-align:center;padding:12px 5px 3px"><div style="width:58px;height:58px;border-radius:20px;background:var(--green-soft);color:var(--green);display:grid;place-items:center;margin:0 auto 13px">'+ic('checkCircle',28)+'</div><div class="sheet-title">压缩包已创建</div><div class="sheet-subtitle" style="margin:7px 0 16px">'+state.createName+'</div><div class="path-pill" style="justify-content:center">本机 / 下载 · '+state.createItems.length+' 项 · 42.6 MB</div><button class="full-button" style="margin-top:15px" data-action="created-done">查看任务</button><button class="action-secondary" style="width:100%;justify-content:center;margin-top:8px" data-action="close-modal">完成</button></div>'}
+    else if(state.modal==='result'){let t=state.tasks.find(function(x){return x.id===state.resultId});body='<div class="sheet-head"><div><div class="sheet-title">任务结果</div><div class="sheet-subtitle">'+(t?t.name:'已完成')+'</div></div><button class="sheet-close" data-action="close-modal">'+ic('close',15)+'</button></div><div class="task-done">'+ic('checkCircle',14)+' '+(t?t.detail:'处理完成')+'</div><div class="path-pill">'+ic('folder',13)+' '+(t?(t.outputFolder||t.destination):'本机 / 下载')+'</div><button class="full-button" style="margin-top:15px" data-action="open-task-output">打开文件夹</button>'}
+    else{body='<div class="sheet-head"><div><div class="sheet-title">提示</div></div><button class="sheet-close" data-action="close-modal">'+ic('close',15)+'</button></div>'}
+    return '<div class="modal-backdrop" data-action="backdrop"><div class="sheet"><div class="sheet-handle"></div>'+body+'</div></div>'}
+  function render(){document.body.classList.toggle('dark',state.dark);let content=state.page==='files'?home():state.page==='archive'?archive():state.page==='tasks'?tasksPage():state.page==='settings'?settingsPage():state.page.indexOf('create')===0?createPage():home();let hideNav=state.page==='archive'||state.page.indexOf('create')===0;app.innerHTML=statusbar()+'<div class="app-scroll" id="scroll">'+content+'</div>'+(hideNav?'':bottomNav())+modal();bindInputValues()}
+  function bindInputValues(){let x=document.getElementById('create-name');if(x)x.value=state.createName;let p=document.getElementById('create-password');if(p)p.value=state.createPasswordValue;let s=document.getElementById('home-search');if(s){s.focus();s.setSelectionRange(s.value.length,s.value.length)}}
+  function showToast(msg,global){let el=global?globalToast:toast;el.textContent=msg;el.classList.add('show');clearTimeout(el._timer);el._timer=setTimeout(function(){el.classList.remove('show')},2300)}
+  function outputLocation(destination){if(destination==='与压缩包相同的位置'){let source=state.files.find(function(f){return f.name===state.archiveName});return source?source.location:'下载'}if(destination.indexOf('iCloud')===0)return 'iCloud Drive';if(destination.indexOf('本机')===0)return '下载';return '其他位置'}
+  function runTask(task){clearInterval(task.timer);task.timer=setInterval(function(){if(task.status!=='running'||task.paused)return;task.percent+=Math.ceil(Math.random()*9+6);if(task.percent>=100){task.percent=100;task.status='done';task.detail=task.kind==='解压'?'已解压 '+(task.entryCount||18)+' 个文件':'已创建压缩包';clearInterval(task.timer);if(task.kind==='压缩'){state.files.unshift({name:task.name,kind:'zip',meta:state.createFormat+' · 42.6 MB · '+state.createItems.length+' 个项目',date:'刚刚',location:task.destination.indexOf('iCloud')===0?'iCloud Drive':'下载'})}else{let base=task.name.replace(/\.(zip|7z|rar)$/i,'');let folderName=base;let existing=state.files.some(function(f){return f.kind==='folder'&&f.name===folderName&&f.location===task.outputLocation});if(existing)folderName=base+' 解压';task.outputFolder=folderName;state.files.unshift({name:folderName,kind:'folder',meta:'解压结果 · '+task.entryCount+' 个项目',date:'刚刚',location:task.outputLocation,children:task.items})}render();showToast(task.kind+'已完成')}else{render()}},780)}
+  function startTask(kind,name,destination){let selected=state.entries.filter(function(e){return e.selected});let items=selected.length?selected:state.entries;let selectedCount=selected.length;let location=kind==='解压'?outputLocation(destination):destination;let id=Date.now();let task={id:id,name:name,kind:kind,percent:2,paused:false,status:'running',detail:kind==='解压'?'正在解压文件':'正在压缩文件',destination:destination,outputLocation:location,items:kind==='解压'?items.map(function(e){return {name:e.name,kind:e.kind,meta:e.meta}}):[],entryCount:selectedCount||18};if(kind==='解压')state.entries.forEach(function(e){e.selected=false});state.tasks.unshift(task);state.modal='';state.page='tasks';state.taskFilter='进行中';render();runTask(task)}
+  function action(el){let a=el.dataset.action,n=el.dataset.name;
+    if(a==='tab-files'){setPage('files')}
+    else if(a==='tab-tasks'){state.taskFilter='进行中';setPage('tasks')}
+    else if(a==='tab-settings'){setPage('settings')}
+    else if(a==='open-archive'||a==='demo-open'||a==='demo-open-brand'){state.archiveName=n|| (a==='demo-open-brand'?'品牌视觉.zip':'课程资料_2026.zip');state.archiveSelection=[];state.entryQuery='';state.archiveFilter='全部';state.modal='';state.page='archive';render()}
+    else if(a==='open-create'){state.createStep=0;state.createItems=['课堂笔记.pdf','参考资料','演示稿.key'];state.createPassword=false;state.createPasswordValue='';state.page='create';state.modal='';render()}
+    else if(a==='demo-create'){state.createStep=1;state.createItems=['课堂笔记.pdf','参考资料','演示稿.key'];state.createPassword=true;state.createPasswordValue='';state.page='create';state.modal='';render()}
+    else if(a==='open-import'){state.modal='import';render()}
+    else if(a==='close-modal'){state.modal='';render()}
+    else if(a==='backdrop'&&el.classList.contains('modal-backdrop')){state.modal='';render()}
+    else if(a==='back'){if(state.page==='archive')setPage('files');else if(state.page==='create'&&state.createStep===1){state.createStep=0;render()}else setPage('files')}
+    else if(a==='search-toggle'){state.search=!state.search;state.query='';render()}
+    else if(a==='open-extract'){state.modal='extract';state.destination='与压缩包相同的位置';render()}
+    else if(a==='destination'){state.destination=n;render()}
+    else if(a==='other-destination'){state.destination='其他位置';showToast('原型中使用示例位置');render()}
+    else if(a==='create-destination'){state.createDestination=n;state.modal='';render()}
+    else if(a==='toggle-preserve'){state.preserve=!state.preserve;render()}
+    else if(a==='extract-submit'){state.modal='';startTask('解压',state.archiveName,state.destination)}
+    else if(a==='toggle-entry'){let entry=state.entries.find(function(e){return e.name===n});if(entry)entry.selected=!entry.selected;render()}
+    else if(a==='select-all'){let all=state.entries.every(function(e){return e.selected});state.entries.forEach(function(e){e.selected=!all});render()}
+    else if(a==='filter-archive'){state.archiveFilter=n;render()}
+    else if(a==='entry-preview'||a==='preview'){state.previewName=n||el.dataset.name||'会议纪要.pdf';state.modal='preview';render()}
+    else if(a==='entry-folder'||a==='entry-nested'){state.folderName=n;state.modal='folder';render()}
+    else if(a==='favorite'){state.favorite=!state.favorite;showToast(state.favorite?'已加入收藏':'已取消收藏');if(state.modal==='quick')state.modal='';render()}
+    else if(a==='quick-menu'||a==='more-archive'){state.modal='quick';render()}
+    else if(a==='open-folder'){state.folderName=n;state.modal='folder';render()}
+    else if(a==='location'){state.locationName=n;state.modal='location';render()}
+    else if(a==='locations'||a==='all-files'){state.locationName='全部位置';state.modal='location';render()}
+    else if(a==='fake-picker'){state.modal='';showToast('系统 Files 选择器会在原生 App 中打开');}
+    else if(a==='toggle-create-item'){let idx=state.createItems.indexOf(n);if(idx>=0)state.createItems.splice(idx,1);else state.createItems.push(n);render()}
+    else if(a==='clear-create'){state.createItems=[];render()}
+    else if(a==='create-next'){if(state.createItems.length){state.createStep=1;render()}}
+    else if(a==='pick-create-destination'){state.modal='create-destination';render()}
+    else if(a==='format'){state.createFormat=n;render()}
+    else if(a==='level'){state.createLevel=n;render()}
+    else if(a==='toggle-create-password'){state.createPassword=!state.createPassword;render()}
+    else if(a==='create-submit'){let inp=document.getElementById('create-name');let typed=inp?inp.value.trim():state.createName;let base=typed||'新建压缩包';base=base.replace(/\.(zip|7z)$/i,'');state.createName=base+'.'+state.createFormat.toLowerCase();let pw=document.getElementById('create-password');if(pw)state.createPasswordValue=pw.value;if(state.createPassword&&!state.createPasswordValue){showToast('请输入压缩包密码');return}state.modal='created';render();let task={id:Date.now(),name:state.createName,kind:'压缩',percent:100,paused:false,status:'done',detail:'已创建压缩包',destination:state.createDestination};state.tasks.unshift(task);state.files.unshift({name:state.createName,kind:'zip',meta:state.createFormat+' · 42.6 MB · '+state.createItems.length+' 个项目',date:'刚刚',location:state.createDestination.indexOf('iCloud')===0?'iCloud Drive':'下载'})}
+    else if(a==='created-done'){state.modal='';state.page='tasks';state.taskFilter='全部';render()}
+    else if(a==='task-filter'){state.taskFilter=n;render()}
+    else if(a==='pause-task'){let t=state.tasks.find(function(x){return String(x.id)===el.dataset.id});if(t){t.paused=!t.paused;render()}}
+    else if(a==='cancel-task'){let t=state.tasks.find(function(x){return String(x.id)===el.dataset.id});if(t){t.status='cancelled';clearInterval(t.timer);render();showToast('任务已取消，源文件未更改')}}
+    else if(a==='retry-task'){let t=state.tasks.find(function(x){return String(x.id)===el.dataset.id});if(t){t.status='running';t.percent=8;t.paused=false;render();runTask(t);showToast('任务已重新加入队列')}}
+    else if(a==='open-result'){state.resultId=Number(el.dataset.id);state.modal='result';render()}
+    else if(a==='open-task-output'){let t=state.tasks.find(function(x){return x.id===state.resultId});if(t&&t.outputFolder){let existing=state.files.find(function(f){return f.kind==='folder'&&f.name===t.outputFolder&&f.location===t.outputLocation});if(!existing){state.files.unshift({name:t.outputFolder,kind:'folder',meta:'解压结果 · '+(t.entryCount||0)+' 个项目',date:'刚刚',location:t.outputLocation||'下载',children:t.items||[]})}state.folderName=t.outputFolder;state.modal='folder';render()}else if(t){state.locationName=t.destination;state.modal='location';render()}else{state.modal='';render()}}
+    else if(a==='toggle-theme'){state.dark=!state.dark;render()}
+    else if(a==='toggle-faceid'){el.classList.toggle('on');showToast(el.classList.contains('on')?'Face ID 应用锁已开启':'Face ID 应用锁已关闭')}
+    else if(a==='clear-data'){state.tasks=state.tasks.filter(function(t){return t.status==='running'});showToast('最近记录已清除');render()}
+    else if(a==='share'){showToast('分享面板会由 iOS 系统提供')}
+    else if(a==='quick-menu'){state.modal='quick';render()}
+    else if(a==='toggle-theme'){state.dark=!state.dark;render()}
+    else if(a==='task-filter'){state.taskFilter=n;render()}
+    else if(a==='demo-open'){state.archiveName='课程资料_2026.zip';state.page='archive';state.modal='';render()}
+  }
+  app.addEventListener('click',function(e){let el=e.target.closest('[data-action]');if(!el||!app.contains(el))return;e.stopPropagation();action(el)});
+  document.querySelectorAll('.demo-action').forEach(function(b){b.addEventListener('click',function(){let a=b.dataset.action;if(a==='demo-open')action({dataset:{action:a}});else if(a==='demo-create')action({dataset:{action:a}});else if(a==='tab-tasks')setPage('tasks');else if(a==='toggle-theme'){state.dark=!state.dark;render()}})});
+  app.addEventListener('input',function(e){if(e.target.id==='home-search'){state.query=e.target.value;let q=state.query.toLowerCase();document.querySelectorAll('.file-row').forEach(function(row){row.style.display=row.textContent.toLowerCase().indexOf(q)>=0?'flex':'none'})}if(e.target.id==='entry-search'){state.entryQuery=e.target.value;let q=state.entryQuery.toLowerCase();document.querySelectorAll('.entry-row').forEach(function(row){row.style.display=row.textContent.toLowerCase().indexOf(q)>=0?'flex':'none'})}if(e.target.id==='create-name')state.createName=e.target.value;if(e.target.id==='create-password')state.createPasswordValue=e.target.value});
+  app.addEventListener('change',function(e){if(e.target.id==='conflict-select')state.conflict=e.target.value});
+  render();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project ZipHarbor/ZipHarbor.xcodeproj -scheme ZipHarbor -destination platform=iOS,id=IPHONE14_UDID -derivedDataPath /tmp/ZipHarbor-Device -allowProvisioningUpdates -resultBundlePath /tmp/ZipHarbor-Device-Unlocked-UI.xcresult -parallel-testing-enabled NO test "-only-testing:ZipHarborUITests"
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  ArchiveKit: https://github.com/Lakr233/libarchive.xcframework.git @ 1.0.0
+
+Writing result bundle at path:
+	/tmp/ZipHarbor-Device-Unlocked-UI.xcresult
+
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (5 targets)
+    Target 'ZipHarborUITests' in project 'ZipHarbor'
+        ➜ Explicit dependency on target 'ZipHarbor' in project 'ZipHarbor'
+    Target 'ZipHarborTests' in project 'ZipHarbor'
+        ➜ Explicit dependency on target 'ZipHarbor' in project 'ZipHarbor'
+    Target 'ZipHarbor' in project 'ZipHarbor'
+        ➜ Explicit dependency on target 'ArchiveKit-product' in project 'ArchiveKit'
+    Target 'ArchiveKit-product' in project 'ArchiveKit'
+        ➜ Explicit dependency on target 'ArchiveKit' in project 'ArchiveKit'
+    Target 'ArchiveKit' in project 'ArchiveKit' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ClangStatCache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.0.sdk /tmp/ZipHarbor-Device/SDKStatCaches.noindex/iphoneos27.0-24A430-6c78b3cbc238196c85e1bf6c792c5915.sdkstatcache
+    cd /Users/USER/github_space/zip-app/ZipHarbor/ZipHarbor.xcodeproj
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.0.sdk -o /tmp/ZipHarbor-Device/SDKStatCaches.noindex/iphoneos27.0-24A430-6c78b3cbc238196c85e1bf6c792c5915.sdkstatcache
+
+PruneExplicitPrecompiledModules /tmp/ZipHarbor-Device/SDKExplicitPrecompiledModules
+
+PruneExplicitPrecompiledModules /tmp/ZipHarbor-Device/Build/Intermediates.noindex/ExplicitPrecompiledModules
+
+PruneExplicitPrecompiledModules /tmp/ZipHarbor-Device/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+
+2026-10-01 13:37:27.881018+0800 ZipHarborUITests-Runner[14347:5895649] [Default] Running tests...
+2026-10-01 13:37:27.973158+0800 ZipHarborUITests-Runner[14347:5895649] [MC] Reading from public effective user settings.
+2026-10-01 13:37:43.240307+0800 ZipHarborUITests-Runner[14347:5895649] [Default] Failed to initialize for UI testing: Error Domain=com.apple.LocalAuthentication Code=-1 "认证失败。" UserInfo={NSLocalizedDescription=认证失败。, NSUnderlyingError=0x10af561f0 {Error Domain=com.apple.sharing.authentication Code=12 "Timed out waiting for response" UserInfo={NSDebugDescription=Timed out waiting for response, SFAutoUnlockManagerErrorTitle=无法与iPhone通信, SFAutoUnlockManagerErrorBody=请确保iPhone已开机并至少解锁过一次，且在附近。}}}
+
+
+*** If you believe this error represents a bug, please attach the result bundle at /tmp/ZipHarbor-Device-Unlocked-UI.xcresult
+
+2026-10-01 13:37:43.525 xcodebuild[49075:2908385]  IDETestOperationsObserverDebug: Failure collecting diagnostics from devices: Process exited with error 1:
+ ERROR: The operation couldn?t be completed. (CoreDeviceCLISupport.DiagnoseError error 0.)
+This tool generates files that allow Apple to investigate issues with your
+computer and help improve Apple products. The files might contain personal
+information found on your device or associated with your Apple Account(s),
+including but not limited to your name, serial numbers of your device,
+your device name, your device's location over the last one to two days,
+your attached peripheral devices, your user name, your email address and
+email settings, file paths, file names, Siri suggestions, your computer's
+IP addresses, and network connection information.
+
+This information is used by Apple in accordance with its privacy policy
+(www.apple.com/privacy) and is not shared with any other company. By using
+this tool and sending the results to Apple, you consent to Apple using the
+contents of these files to improve Apple products.
+
+An error occurred while running devicectl diagnose. Will archive the diagnostics collected thus far.
+Wrote file to /tmp/ZipHarbor-Device-Unlocked-UI.xcresult/Staging/1_Test/Diagnostics/devicectl_diagnostics.zip
+Partial devicectl diagnose bundle located here: /tmp/ZipHarbor-Device-Unlocked-UI.xcresult/Staging/1_Test/Diagnostics/devicectl_diagnostics.zip
+
+2026-10-01 13:37:43.558 xcodebuild[49075:2908327] [MT] IDETestOperationsObserverDebug: 19.865 elapsed -- Testing started completed.
+2026-10-01 13:37:43.558 xcodebuild[49075:2908327] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-01 13:37:43.558 xcodebuild[49075:2908327] [MT] IDETestOperationsObserverDebug: 19.865 sec, +19.865 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/ZipHarbor-Device-Unlocked-UI.xcresult
+
+Testing failed:
+	ZipHarborUITests-Runner (14347) encountered an error (The test runner failed to initialize for UI testing. (Underlying Error: 认证失败。. (Underlying Error: The operation couldn’t be completed. (com.apple.sharing.authentication error 12.). Timed out waiting for response)))
+
+** TEST FAILED **
+
+Testing started

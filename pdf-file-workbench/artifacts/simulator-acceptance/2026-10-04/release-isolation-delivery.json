@@ -1,0 +1,23 @@
+{
+  "binary": ".native-build/SimulatorAcceptanceRelease/Build/Products/Release-iphonesimulator/PaperFlow.app/PaperFlow",
+  "debugMarkers": {
+    "applyAcceptanceFixture": false,
+    "--ui-modal": false,
+    "--store-unavailable": false,
+    "--scan-fixture-pages": false
+  },
+  "testFixtureFiles": [],
+  "declaredLocalizations": {
+    "Info.plist": [
+      "en",
+      "zh-Hans",
+      "zh-Hant"
+    ],
+    "PlugIns/PaperFlowShare.appex/Info.plist": [
+      "en",
+      "zh-Hans",
+      "zh-Hant"
+    ]
+  },
+  "passed": true
+}
