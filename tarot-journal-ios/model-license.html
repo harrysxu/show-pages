@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-Hans">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>模型归属与许可证 | 静室</title>
+<link rel="stylesheet" href="style.css">
+<main>
+  <header><a href="index.html">静室 · 塔罗练习</a><h1>模型归属与许可证</h1></header>
+  <section class="lang">
+    <h2>简体中文</h2>
+    <p>App 内置 Qwen/Qwen3-1.7B，基础模型固定于提交 <code>70d244cc86ccca08cf5af4e1e306ecf908b1ad5e</code>，依据 Apache License 2.0 发布。许可证文本随 App 提供。</p>
+    <p>随附的 INT4 Core ML 转换包来自 <a href="https://huggingface.co/dreamer1cc/hovor-qwen3-1.7b-coreml-int4">dreamer1cc/hovor-qwen3-1.7b-coreml-int4</a>，固定提交 <code>fcacdb128d05e120232098c46e6df33a6d742b45</code>。该仓库说明转换模型沿用 Apache-2.0；转换采用 coremltools 8.3、INT4 palettization（group size 32），上下文长度为 512。模型权重大小为 1,017,099,136 字节，SHA-256：<code>4e46fbab5661dd1aee3dbf057793c1a4b7066bc80567288384284311820f28f8</code>。</p>
+    <p>App 使用 CoreML-LLM 1.9.0（MIT）进行设备端推理，并随包提供 tokenizer。用户明确点击生成后，问题、自述和牌阵内容只在设备上处理；App 不会在运行时下载模型，也不会把这些输入发送到服务器。Core ML 是 Apple 的机器学习框架，商标归 Apple 所有。</p>
+  </section>
+  <section class="lang">
+    <h2>繁體中文</h2>
+    <p>App 內建 Qwen/Qwen3-1.7B，基礎模型固定於提交 <code>70d244cc86ccca08cf5af4e1e306ecf908b1ad5e</code>，依 Apache License 2.0 發布。授權文字隨 App 提供。</p>
+    <p>隨附的 INT4 Core ML 轉換套件來自 <a href="https://huggingface.co/dreamer1cc/hovor-qwen3-1.7b-coreml-int4">dreamer1cc/hovor-qwen3-1.7b-coreml-int4</a>，固定提交 <code>fcacdb128d05e120232098c46e6df33a6d742b45</code>。該倉庫說明轉換模型沿用 Apache-2.0；轉換採用 coremltools 8.3、INT4 palettization（group size 32），上下文長度為 512。模型權重大小為 1,017,099,136 位元組，SHA-256：<code>4e46fbab5661dd1aee3dbf057793c1a4b7066bc80567288384284311820f28f8</code>。</p>
+    <p>App 使用 CoreML-LLM 1.9.0（MIT）進行裝置端推理，並隨包提供 tokenizer。使用者明確點選生成後，問題、自述與牌陣內容只在裝置上處理；App 不會在執行時下載模型，也不會將這些輸入傳送到伺服器。Core ML 是 Apple 的機器學習框架，商標歸 Apple 所有。</p>
+  </section>
+  <section class="lang">
+    <h2>English</h2>
+    <p>The app bundles Qwen/Qwen3-1.7B at base-model commit <code>70d244cc86ccca08cf5af4e1e306ecf908b1ad5e</code>, released under Apache License 2.0. The license text is included with the app.</p>
+    <p>The bundled INT4 Core ML conversion is from <a href="https://huggingface.co/dreamer1cc/hovor-qwen3-1.7b-coreml-int4">dreamer1cc/hovor-qwen3-1.7b-coreml-int4</a>, pinned to commit <code>fcacdb128d05e120232098c46e6df33a6d742b45</code>. Its model card states that the converted model uses Apache-2.0. It uses coremltools 8.3 INT4 palettization (group size 32) and a 512-token context. The model weights are 1,017,099,136 bytes with SHA-256 <code>4e46fbab5661dd1aee3dbf057793c1a4b7066bc80567288384284311820f28f8</code>.</p>
+    <p>The app uses CoreML-LLM 1.9.0 (MIT) for on-device inference and bundles the tokenizer. After the user explicitly taps Generate, the question, notes, and spread are processed on device. The app does not download model files at runtime or send this input to a server. Core ML is an Apple machine-learning framework and Apple trademark.</p>
+  </section>
+  <footer>Model attribution and license details are also bundled in the app’s Qwen3-1.7B model resources.</footer>
+</main>
+</html>

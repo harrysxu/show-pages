@@ -1,0 +1,53 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PaperFlow 安全与数据处理说明 · PaperFlow</title><link rel="stylesheet" href="../assets/site.css"></head><body><header><a class="brand" href="../index.html">PaperFlow / 纸间</a><nav class="header-links" aria-label="公开资料"><a href="../docs/app-review-notes.html">PaperFlow App Review 测试说明</a><a href="../docs/privacy-policy.html">PaperFlow 隐私政策</a><a href="../docs/security-and-data.html" aria-current="page">PaperFlow 安全与数据处理说明</a><a href="../docs/technical-design.html">PDF 与文件工作台技术方案</a></nav></header><div class="layout"><aside aria-label="公开资料"><a href="../docs/app-review-notes.html">PaperFlow App Review 测试说明</a><a href="../docs/privacy-policy.html">PaperFlow 隐私政策</a><a href="../docs/security-and-data.html" aria-current="page">PaperFlow 安全与数据处理说明</a><a href="../docs/technical-design.html">PDF 与文件工作台技术方案</a></aside><main><article class="article"><p class="meta">项目文档 · <a href="security-and-data.md">Markdown 原文</a></p><div class="toc">
+<ul>
+<li><a href="#_1">数据边界</a></li>
+<li><a href="#_2">存储与生命周期</a></li>
+<li><a href="#_3">加密与敏感操作</a></li>
+<li><a href="#_4">权限和系统接口</a></li>
+<li><a href="#_5">第三方组件</a></li>
+<li><a href="#_6">审核证据</a></li>
+</ul>
+</div>
+<h1 id="paperflow">PaperFlow 安全与数据处理说明</h1>
+<p><strong>面向技术评审、隐私审核和安全复核 · 版本 1.0 · 2026-10-04</strong></p>
+<h2 id="_1">数据边界</h2>
+<p>PaperFlow 采用本地优先架构。PDF、图片、OCR 结果、签名、表单值、草稿和工作流程均写入应用容器、用户选择的 Files 位置或系统 App Group 暂存目录。当前版本没有 PaperFlow 自有账号、云端文件 API、远程 OCR 或上传接口。</p>
+<pre><code class="language-text">Files / Photos / Camera / Share Sheet
+                │
+                ▼
+     本机导入与安全作用域 URL
+                │
+                ▼
+     SwiftUI App + PaperFlowDomain
+       ├─ PDFKit / QPDF 处理
+       ├─ Vision 设备端 OCR
+       ├─ 本地持久化与额度记录
+       └─ Files / Share Sheet 导出
+</code></pre>
+<h2 id="_2">存储与生命周期</h2>
+<ol>
+<li>原始文件导入到应用工作区后，以只读来源记录保存；处理操作生成新的文件记录。</li>
+<li>缩略图、草稿、撤销栈和批处理检查点只为恢复任务服务，可在设置中清理。</li>
+<li>分享扩展先写入带随机目录的 <code>.pending</code> 文件，复制完成并设置文件保护后再原子移动为可消费文件。</li>
+<li>主 App 使用窗口级占用标记消费 Inbox，避免启动和场景激活并发导致重复导入。</li>
+<li>密码文件在解锁完成或用户取消后分别清理 / 保留待重试状态，不把密码写入持久化快照。</li>
+</ol>
+<h2 id="_3">加密与敏感操作</h2>
+<ul>
+<li>App Group 暂存文件使用 <code>FileProtectionType.complete</code>。</li>
+<li>PDF 密码保护使用 QPDF 的 PDF 加密输出；用户密码不保存到工作区快照。</li>
+<li>永久打码会生成新页面内容，移除文本层、注释、附件和元数据，并执行复制、搜索、文本提取和对象结构检查。</li>
+<li>源文件默认不覆盖。删除工作区和个人信息需要用户主动操作。</li>
+</ul>
+<h2 id="_4">权限和系统接口</h2>
+<p>应用只在对应任务触发时请求相机、照片和 Files 访问。没有后台上传任务，也没有用于广告或跨 App 跟踪的系统接口。<code>PrivacyInfo.xcprivacy</code> 声明当前数据收集数组为空；UserDefaults、文件时间和磁盘空间访问均用于本地设置、文件整理和输出前检查。</p>
+<h2 id="_5">第三方组件</h2>
+<p>QPDF 用于 PDF 结构处理和加密，libjpeg 用于图像编码，Lucide 用于界面图标。组件在 App 包内运行，不会将文件发送给组件维护者。版本和许可证见 App 包内的 <code>QPDF-LICENSE.txt</code>、<code>JPEG-LICENSE.txt</code> 和 <code>LUCIDE-LICENSE.txt</code>。</p>
+<h2 id="_6">审核证据</h2>
+<p>当前验收覆盖真实 PDF / TXT / Markdown 回读、表单值、OCR 输出、密码保护、分享扩展 Inbox、三语文案、Release 资源隔离和 arm64 模拟器构建。验收报告会列明设备、系统版本、证据文件及尚未覆盖的真实硬件 / 系统服务边界。</p>
+<p>相关公开资料：</p>
+<ul>
+<li><a href="privacy-policy.html">隐私政策</a></li>
+<li><a href="technical-design.html">技术方案</a></li>
+<li><a href="app-review-notes.html">App Review 测试说明</a></li>
+</ul></article></main></div><footer>2026-10-04 · PaperFlow 用户隐私与 App Review 公开资料。</footer></body></html>

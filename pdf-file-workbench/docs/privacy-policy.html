@@ -1,0 +1,55 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PaperFlow 隐私政策 · PaperFlow</title><link rel="stylesheet" href="../assets/site.css"></head><body><header><a class="brand" href="../index.html">PaperFlow / 纸间</a><nav class="header-links" aria-label="公开资料"><a href="../docs/app-review-notes.html">PaperFlow App Review 测试说明</a><a href="../docs/privacy-policy.html" aria-current="page">PaperFlow 隐私政策</a><a href="../docs/security-and-data.html">PaperFlow 安全与数据处理说明</a><a href="../docs/technical-design.html">PDF 与文件工作台技术方案</a></nav></header><div class="layout"><aside aria-label="公开资料"><a href="../docs/app-review-notes.html">PaperFlow App Review 测试说明</a><a href="../docs/privacy-policy.html" aria-current="page">PaperFlow 隐私政策</a><a href="../docs/security-and-data.html">PaperFlow 安全与数据处理说明</a><a href="../docs/technical-design.html">PDF 与文件工作台技术方案</a></aside><main><article class="article"><p class="meta">项目文档 · <a href="privacy-policy.md">Markdown 原文</a></p><div class="toc">
+<ul>
+<li><a href="#_1">核心承诺</a></li>
+<li><a href="#_2">设备上的数据</a></li>
+<li><a href="#_3">系统权限</a></li>
+<li><a href="#_4">分享扩展</a></li>
+<li><a href="#_5">购买</a></li>
+<li><a href="#_6">诊断与第三方组件</a></li>
+<li><a href="#_7">儿童与政策变更</a></li>
+<li><a href="#_8">联系方式</a></li>
+<li><a href="#_9">相关资料</a></li>
+</ul>
+</div>
+<h1 id="paperflow">PaperFlow 隐私政策</h1>
+<p><strong>生效日期：2026-10-04 · 版本：1.0</strong></p>
+<p>PaperFlow（中文名称：纸间）是一款面向 iPhone 和 iPad 的本地 PDF 工具。本隐私政策说明 PaperFlow 如何处理文件、扫描内容、OCR 文本、签名和应用设置。</p>
+<h2 id="_1">核心承诺</h2>
+<ul>
+<li>PaperFlow 默认在设备本地导入、扫描、OCR、编辑和导出文件。</li>
+<li>PaperFlow 不要求创建账号，不建立 PaperFlow 云盘，也不会把用户的 PDF、图片、OCR 文本或签名上传到开发者服务器。</li>
+<li>原文件默认保留在本地，处理结果另存为新的本地副本；用户可以在 App 内清理副本、草稿和签名。</li>
+</ul>
+<h2 id="_2">设备上的数据</h2>
+<p>PaperFlow 可能在应用容器、系统 Files 位置或用户选择的导出位置保存以下内容：</p>
+<ul>
+<li>用户导入的 PDF 和图片、生成的 PDF、缩略图及处理记录；</li>
+<li>OCR 文本、页面顺序、标注、表单值、签名图片和工作流程设置；</li>
+<li>用户主动填写的姓名、电话、公司和导出偏好；</li>
+<li>购买状态的本地缓存，用于在设备上显示 Pro 权益。</li>
+</ul>
+<p>这些数据用于完成用户主动发起的文档任务。用户可以在设置中清理工作区、草稿和个人信息，也可以直接从 Files 删除导出的文件。系统备份、iCloud Drive 或其他 File Provider 的保留规则由用户和 Apple / 相应服务决定，PaperFlow 无法代替这些服务提供方删除其副本。</p>
+<h2 id="_3">系统权限</h2>
+<ul>
+<li><strong>相机</strong>：只在用户选择扫描时使用，用于拍摄纸张。相机图像在设备上处理。</li>
+<li><strong>照片</strong>：只在用户选择从照片导入或选择签名 / 水印图片时使用。PaperFlow 通过系统照片选择器接收用户选中的项目。</li>
+<li><strong>Files / 文件提供方</strong>：用于读取用户选择的文件和保存用户指定的结果。PaperFlow 使用安全作用域访问，不会扫描用户未选择的目录。</li>
+<li><strong>通知、通讯录、定位和广告跟踪</strong>：PaperFlow 不使用这些权限。</li>
+</ul>
+<h2 id="_4">分享扩展</h2>
+<p>用户从其他 App 选择“分享至 PaperFlow”时，分享扩展会把用户选中的 PDF 或图片写入本机 App Group 暂存目录。用户打开 PaperFlow 后，主 App 消费这份暂存文件并在本地处理。成功消费后，暂存文件会被移除；未完成的密码输入或失败任务会保留必要的待处理文件，直到用户重试或清理。</p>
+<h2 id="_5">购买</h2>
+<p>购买和恢复购买由 Apple StoreKit 处理。PaperFlow 接收 Apple 返回的交易状态和产品价格，用于验证本机权益；PaperFlow 不接收用户的支付卡号。线上 App Store、家庭共享和退款记录以 Apple 的隐私政策和服务条款为准。</p>
+<h2 id="_6">诊断与第三方组件</h2>
+<p>PaperFlow 默认不上传诊断日志。应用内错误提示只显示在本机。应用包含 QPDF、libjpeg 和 Lucide 等开源组件；对应许可证可以在 App 的“隐私政策与许可”入口离线查看，也可以在公开资料页查看。</p>
+<p>PaperFlow 不进行跨 App 跟踪，不出售个人信息，不使用广告 SDK。应用的隐私清单（<code>PrivacyInfo.xcprivacy</code>）声明不收集数据，并列出本地 UserDefaults、文件时间和磁盘空间 API 的使用理由。</p>
+<h2 id="_7">儿童与政策变更</h2>
+<p>PaperFlow 不以儿童为目标用户。我们可能因功能、系统或法律要求更新本政策；更新后的版本会在公开资料页保留版本号和生效日期。</p>
+<h2 id="_8">联系方式</h2>
+<p>隐私问题请使用 App Store 页面登记的支持邮箱。正式发布前，发行方应将此处的联系方式与 App Store Connect 中的支持信息保持一致。</p>
+<h2 id="_9">相关资料</h2>
+<ul>
+<li><a href="security-and-data.html">安全与数据处理说明</a></li>
+<li><a href="app-review-notes.html">App Review 测试说明</a></li>
+<li><a href="technical-design.html">完整技术方案</a></li>
+</ul></article></main></div><footer>2026-10-04 · PaperFlow 用户隐私与 App Review 公开资料。</footer></body></html>
