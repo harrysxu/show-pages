@@ -1,0 +1,84 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, system-ui, -apple-system, "PingFang SC", sans-serif;
+  color: #242a31;
+  background: #f8f7f4;
+  line-height: 1.65;
+}
+
+body {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1rem clamp(1rem, 5vw, 3rem) 3rem;
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+  border-bottom: 1px solid #d7d1c6;
+}
+
+.home {
+  font-weight: 650;
+}
+
+.languages,
+.documents {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 1.25rem;
+}
+
+.languages a,
+.documents a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+}
+
+article {
+  padding: 1.75rem 0;
+  scroll-margin-top: 1rem;
+}
+
+article + article {
+  border-top: 1px solid #d7d1c6;
+}
+
+h1,
+.page-title {
+  margin: 0 0 0.7rem;
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  line-height: 1.18;
+}
+
+h2,
+h3 {
+  margin: 1.5rem 0 0.35rem;
+  font-size: 1.2rem;
+}
+
+p {
+  max-width: 64ch;
+  margin: 0 0 0.9rem;
+}
+
+.date {
+  color: #535b63;
+  font-size: 0.9rem;
+}
+
+a {
+  color: #74450a;
+  overflow-wrap: anywhere;
+  text-underline-offset: 0.18em;
+}
+
+a:focus-visible {
+  outline: 2px solid #74450a;
+  outline-offset: 0.2rem;
+}
