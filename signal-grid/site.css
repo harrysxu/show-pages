@@ -1,0 +1,111 @@
+:root {
+  color-scheme: light dark;
+  --background: #f0f5f5;
+  --surface: #ffffff;
+  --text: #182a2e;
+  --muted: #4b6065;
+  --line: #cfdcde;
+  --link: #005e64;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #111a1d;
+    --surface: #1a262a;
+    --text: #e8f0f1;
+    --muted: #adc0c3;
+    --line: #3a5055;
+    --link: #8fe0dc;
+  }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font: 1rem/1.7 system-ui, -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+}
+
+main {
+  max-width: 48rem;
+  margin: auto;
+  padding: clamp(1rem, 4vw, 2.5rem);
+}
+
+a {
+  color: var(--link);
+  text-underline-offset: 0.2em;
+  overflow-wrap: anywhere;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 3px;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+nav a {
+  padding-block: 0.3rem;
+}
+
+nav a:first-child,
+nav a[aria-current="page"] {
+  font-weight: 650;
+}
+
+article {
+  padding: clamp(1.25rem, 5vw, 2.5rem);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: var(--surface);
+}
+
+h1, h2 {
+  line-height: 1.3;
+}
+
+h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(1.9rem, 6vw, 2.65rem);
+}
+
+h2 {
+  margin: 1.75rem 0 0.4rem;
+  font-size: 1.2rem;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+article > :last-child {
+  margin-bottom: 0;
+}
+
+.meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.document-links {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+}
+
+.document-links a {
+  display: block;
+  padding-block: 0.8rem;
+  border-top: 1px solid var(--line);
+  font-weight: 650;
+}
